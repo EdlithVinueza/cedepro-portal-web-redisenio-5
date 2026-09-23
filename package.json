@@ -1,0 +1,26 @@
+{
+  "name": "cedepro-web",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "audit:security": "node --experimental-strip-types .agents/skills/cybersecurity-hardening/scripts/test-injection-defense.mjs && node .agents/skills/cybersecurity-hardening/scripts/scan-secrets.mjs && node .agents/skills/cybersecurity-hardening/scripts/audit-security-headers.mjs",
+    "audit:injection": "node --experimental-strip-types .agents/skills/cybersecurity-hardening/scripts/test-injection-defense.mjs",
+    "audit:secrets": "node .agents/skills/cybersecurity-hardening/scripts/scan-secrets.mjs",
+    "audit:headers": "node .agents/skills/cybersecurity-hardening/scripts/audit-security-headers.mjs",
+    "audit:hotlinks": "node .agents/skills/web-migration-astro/scripts/audit-hotlinks.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.4.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
+  }
+}

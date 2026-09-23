@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Light-BF63c76513209af.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-LightItalic-BF63c7651347850.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Book-BF63c76513e60f1.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-BookItalic-BF63c76513bc679.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Medium-BF63c76513dba4c.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-MediumItalic-BF63c76513cfcb2.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Demi-BF63c765144638d.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-DemiItalic-BF63c7651389346.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Bold-BF63c76513f09da.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-BoldItalic-BF63c7651386cfd.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-Black-BF63c76510c679a.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kohinoor Latin';
+  src: url('/fonts/KohinoorLatin-BlackItalic-BF63c76510c5583.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

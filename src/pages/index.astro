@@ -1,0 +1,718 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 6 Líneas de Solución CEDEPRO
+// 6 Líneas de Solución CEDEPRO
+const solutions = [
+  {
+    prefix: 'CEDEPRO',
+    name: 'Asesoría',
+    description: 'Decisiones claras y respaldo técnico',
+    link: '/portafolio#asesoria',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="16" r="6"/><path d="M9 38c0-5.5 4.9-10 11-10s11 4.5 11 10"/><path d="M30 9h9a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-2.5l-3.5 4v-4H30a4 4 0 0 1-4-4v-5a4 4 0 0 1 4-4z"/><circle cx="33.5" cy="15.5" r="0.8" fill="currentColor"/><circle cx="38" cy="15.5" r="0.8" fill="currentColor"/></svg>`
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Formación',
+    description: 'Equipos preparados para nuevos desafíos',
+    link: '/portafolio#formacion',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10 5 19l19 9 19-9-19-9z"/><path d="M12 22.5v7.5c0 3.8 5.4 7 12 7s12-3.2 12-7v-7.5"/><path d="M38 19v12"/><circle cx="38" cy="32" r="1.5" fill="currentColor"/></svg>`
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Gestión',
+    description: 'Procesos ordenados y resultados confiables',
+    link: '/portafolio#gestion',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="12" r="3.5"/><circle cx="15" cy="15" r="3"/><circle cx="33" cy="15" r="3"/><path d="M10 23.5c0-2.2 1.8-4 4-4 .8 0 1.5.2 2.2.6"/><path d="M31.8 20.1c.7-.4 1.4-.6 2.2-.6 2.2 0 4 1.8 4 4"/><path d="M19 22c1.3-1.2 3.1-2 5-2s3.7.8 5 2"/><circle cx="24" cy="34" r="4"/><path d="M24 26.5v2.5M24 39v2.5M16.5 34H19M29 34h2.5M18.7 28.7l1.8 1.8M27.5 37.5l1.8 1.8M18.7 39.3l1.8-1.8M27.5 30.5l1.8-1.8"/></svg>`
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Proyectos',
+    description: 'Ideas estructuradas para crecer',
+    link: '/portafolio#proyectos',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5v3M13 8l2 2M29 8l-2 2"/><path d="M21 11a9 9 0 0 0-6.8 14.8c1.3 1.5 2 3.3 2 5.2h7.6"/><path d="M18.5 34.5h5.5M19.5 37.5h3.5"/><circle cx="31.5" cy="27.5" r="5"/><path d="M35.2 31.2l4.8 4.8"/></svg>`
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Internacional',
+    description: 'Alianzas para ampliar horizontes',
+    link: '/portafolio#internacional',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="11"/><path d="M13 24h22"/><path d="M24 13c-3 3.5-4.8 7-4.8 11s1.8 7.5 4.8 11"/><path d="M24 13c3 3.5 4.8 7 4.8 11s-1.8 7.5-4.8 11"/><path d="M8 20.5C9.5 14 17 9.5 25.5 10c7.5.5 13 4.5 13.5 9.5-.5 5-5.5 8.5-12.5 9.5"/><path d="M36 15l4 4 4.5-2.5"/></svg>`
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Tech',
+    description: 'Tecnología para transformar la educación',
+    link: '/portafolio#tech',
+    icon: `<svg class="w-14 h-14 text-[#f5a623]" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="23" rx="3"/><path d="M24 32v7M18 39h12"/><circle cx="24" cy="20.5" r="3"/><path d="M24 15.5v1.5M24 24v1.5M19 20.5h1.5M27.5 20.5H29M20.5 17l1.1 1.1M26.4 22.9l1.1 1.1M20.5 24l1.1-1.1M26.4 18.1l1.1-1.1"/></svg>`
+  }
+];
+
+// Estadísticas de Impacto Comprobado
+const impactStats = [
+  { value: '+70', label: 'CARRERAS APROBADAS' },
+  { value: '+10', label: 'INST. TECNOLÓGICOS CREADOS' },
+  { value: '+2500', label: 'PROFESIONALES CAPACITADOS' },
+  { value: '+30', label: 'INSTITUCIONES ASESORADAS' }
+];
+
+// 3 Aliados Estratégicos Destacados
+const strategicPartners = [
+  {
+    brand: 'cavilar®',
+    subbrand: 'EL SIGUIENTE PASO',
+    description: 'Consultores y asesores corporativos',
+    isCavilar: true
+  },
+  {
+    brand: 'DIGITAL MIND',
+    subbrand: 'POWERED BY DATA',
+    description: 'Investigación y análisis de datos IA',
+    isDigitalMind: true
+  },
+  {
+    brand: 'ARG & CIENCIALINK GROUP-EC',
+    subbrand: 'EDUCACIÓN & INNOVACIÓN',
+    description: 'Consultores en educación y tecnología',
+    isCiencialink: true
+  }
+];
+
+// 16 Instituciones de Educación Superior y Aliados Académicos
+const clientLogos = [
+  { name: 'CGE', file: 'logo-1-home-cge.webp' },
+  { name: 'Politécnico del Ecuador', file: 'logo-2-home-politec.webp' },
+  { name: 'ESPE Universidad Fuerzas Armadas', file: 'logo-3-home-espe.webp' },
+  { name: 'Amawtay Wasi', file: 'logo-4-home-amarawasi.webp' },
+  { name: 'UMA', file: 'logo-5-home-uma.webp' },
+  { name: 'ITSQM', file: 'logo-6-home-itsqm.webp' },
+  { name: 'American College', file: 'logo-7-home-americancollage.webp' },
+  { name: 'Fe y Alegría', file: 'logo-8-home-feyalegria.webp' },
+  { name: 'Cotopaxi', file: 'logo-9-home-cotopaxi.webp' },
+  { name: 'Esquel Clic', file: 'logo-10-home-esquelclic.webp' },
+  { name: 'ITCA Universitario', file: 'logo-11-home-itca.webp' },
+  { name: 'ISTI', file: 'logo-12-home-isti.webp' },
+  { name: 'Universitario de Formación', file: 'logo-13-home-universitariodeformacion.webp' },
+  { name: 'ISTY', file: 'logo-14-home-isty.webp' },
+  { name: 'UMET Metropolitana', file: 'logo-15-home-umet.webp' },
+  { name: 'Tecnoecuatoriano', file: 'logo-16-home-tecnoecuatoriano.webp' }
+];
+
+const featuredLogos = clientLogos.slice(0, 4);
+const secondaryLogosRow1 = clientLogos.slice(4, 10);
+const secondaryLogosRow2 = clientLogos.slice(10, 16);
+---
+
+<Layout 
+  title="CEDEPRO Ecuador – 5 Años Asesorando, Formando y Gestionando la Educación Superior"
+  description="Acompañamos a las instituciones de educación superior del Ecuador en sus momentos más importantes con soluciones que generan confianza, desarrollo e impacto real."
+  image="/assets/home/img-parte-1-home-hero.webp"
+>
+  
+  <!-- =========================================================================
+       1. HERO HEADER SECTION (Fondo img-parte-1-home-hero.webp)
+       ========================================================================= -->
+  <section class="hero-section relative bg-[#07192F] overflow-hidden">
+    
+    <!-- Capa de imagen de fondo adaptable (Desktop/Mobile) -->
+    <div class="hero-bg-layer" aria-hidden="true"></div>
+
+    <!-- Difuminado horizontal continuo para Desktop y ventanas minimizadas/redimensionadas -->
+    <div class="hero-desktop-overlay" aria-hidden="true"></div>
+
+    <!-- Difuminado vertical para Móviles (suaviza la transición hacia los rostros bajados) -->
+    <div class="hero-mobile-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
+      <div class="hero-text-block space-y-3 sm:space-y-3.5 lg:space-y-4">
+        
+        <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
+        <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
+          <img 
+            src="/assets/home/cinco-anos-solo.webp" 
+            alt="5 AÑOS" 
+            class="h-9 sm:h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
+            width="160"
+            height="60"
+            decoding="async"
+            loading="eager"
+          />
+          <div class="flex items-center gap-1.5 sm:gap-2 text-white font-medium text-xs sm:text-[13px] md:text-sm tracking-wide pb-0.5 sm:pb-1">
+            <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
+            <span class="font-normal text-slate-100">4 caminos</span> 
+            <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
+            <span class="font-normal text-slate-100">Un mismo propósito</span>
+          </div>
+        </div>
+
+        <!-- Titular Principal del Hero (Ajustado ergonómicamente para visibilidad inmediata sin scroll) -->
+        <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[2.35rem] xl:text-[2.6rem] font-bold !leading-[1.14] tracking-tight font-heading drop-shadow-sm">
+          Experiencia para asesorar, <br />
+          <span class="text-white">formar, gestionar y proyectar.</span>
+        </h1>
+
+        <!-- Párrafo descriptivo con negritas exactas de la referencia -->
+        <p class="text-slate-100 text-xs sm:text-sm md:text-[15px] font-normal leading-relaxed max-w-xl text-balance drop-shadow-sm">
+          Acompañamos a las instituciones de educación superior del Ecuador en sus momentos más importantes con soluciones que generan <strong class="font-bold text-white">confianza, desarrollo e impacto real.</strong>
+        </p>
+
+        <!-- Botones de Acción Contextuales (Centrado exacto verificado) -->
+        <div class="pt-1 sm:pt-1.5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+          <!-- Botón 1: Conoce nuestro camino (Amarillo / Dorado sólido con texto y flecha perfectamente centrados) -->
+          <a 
+            href="#cinco-anos" 
+            class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+          ><span class="inline-flex items-center justify-center text-center leading-none">Conoce nuestro camino <span class="inline-block ml-1.5 leading-none">→</span></span></a>
+
+          <!-- Botón 2: Solicita una asesoría (Transparente con borde blanco, texto perfectamente centrado) -->
+          <a 
+            href="/contacto" 
+            class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+          ><span class="inline-flex items-center justify-center text-center leading-none">Solicita una asesoría</span></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Indicador flecha derecha del slider como en la referencia -->
+    <div class="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-white text-[#091E3A] items-center justify-center shadow-xl hover:bg-slate-100 transition-transform active:scale-95 cursor-pointer z-20" aria-label="Siguiente">
+      <svg class="w-5 h-5 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. SEIS LÍNEAS DE SOLUCIÓN ("Encuentra el camino que tu institución necesita")
+       ========================================================================= -->
+  <section id="cinco-anos" class="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('/assets/home/img-parte-2-home.png');">
+    <!-- Overlay translúcido suave para nitidez y contraste -->
+    <div class="absolute inset-0 bg-white/40 pointer-events-none"></div>
+
+    <div class="relative max-w-6xl mx-auto space-y-10 sm:space-y-12 z-10">
+      
+      <!-- Encabezado de la Sección -->
+  <div class="text-center space-y-2 max-w-3xl lg:max-w-none mx-auto">
+  <h2 class="text-[#1a375b] heading-section font-bold tracking-tight lg:whitespace-nowrap">
+    Encuentra el camino que tu institución necesita
+  </h2>
+  <p class="text-[#1a375b] text-sm sm:text-base md:text-lg font-medium tracking-wide">
+    Seis líneas para impulsar tu proximo paso
+  </p>
+</div>
+
+      <!-- Grilla de las 6 Tarjetas de Solución (3 tarjetas por fila en escritorio) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+        {solutions.map((sol) => (
+          <div class="card-solution group">
+            <div class="flex flex-col items-center text-center space-y-3 w-full">
+              <!-- Icono flotante exacto a la referencia sin caja de fondo -->
+              <div class="mb-1 text-[#f5a623] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                <Fragment set:html={sol.icon} />
+              </div>
+              
+              <!-- Títulos de Solución: CEDEPRO (blanco) + Nombre de línea (dorado) -->
+              <div class="space-y-0.5">
+                <p class="text-white text-xs sm:text-[13px] font-bold tracking-widest uppercase opacity-90">
+                  {sol.prefix}
+                </p>
+                <h3 class="text-[#f5a623] text-xl sm:text-2xl font-bold font-heading">
+                  {sol.name}
+                </h3>
+              </div>
+              
+              <!-- Descripción concisa en texto blanco -->
+              <p class="text-white/95 text-xs sm:text-[13.5px] font-normal leading-relaxed text-balance max-w-[270px] mx-auto">
+                {sol.description}
+              </p>
+            </div>
+
+            <!-- Botón Píldora "Ver solución →" estilo Conoce nuestro camino -->
+            <div class="pt-5 mt-auto w-full flex justify-center">
+              <a 
+                href={sol.link} 
+                class="btn-gold !rounded-full !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold w-full max-w-[230px] text-center justify-center inline-flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
+              >
+                <span>Ver solución</span>
+                <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. SOMOS EXCELENCIA (Fondo Dorado/Ámbar Sólido #df9417)
+       ========================================================================= -->
+  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden text-center">
+    <div class="relative max-w-4xl mx-auto space-y-6 sm:space-y-8 z-10">
+      
+      <div class="space-y-2">
+        <p class="text-white/90 text-sm sm:text-base font-semibold tracking-wider uppercase font-sans">
+          En educación superior
+        </p>
+        <h2 class="text-white heading-section font-bold tracking-tight">
+          Somos excelencia
+        </h2>
+      </div>
+
+      <p class="text-white text-base sm:text-lg md:text-xl font-normal leading-relaxed max-w-3xl mx-auto text-balance">
+        En CEDEPRO acompañamos a las instituciones de educación superior en sus momentos clave: la toma de decisiones, el fortalecimiento de sus equipos, la organización de sus procesos, la innovación y la transformación de ideas en oportunidades de crecimiento.
+      </p>
+
+      <div class="pt-4 flex justify-center">
+        <a 
+          href="/sobre-nosotros" 
+          class="btn-on-gold group !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span class="inline-flex items-center justify-center text-center leading-none">Conoce nuestra historia <span class="inline-block ml-1.5 leading-none transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span></span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. NUESTRO PROPÓSITO: UNA VISIÓN QUE SE CONVIERTE EN ACCIÓN (img-parte-3-home.webp)
+       ========================================================================= -->
+  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden" style="background-image: url('/assets/home/img-parte-3-home.webp');">
+    <!-- Filtro blanco claro suave sobre la imagen para luminosidad y contraste con la referencia -->
+    <div class="absolute inset-0 bg-white/60 backdrop-blur-[0.5px] pointer-events-none"></div>
+
+    <div class="relative max-w-6xl mx-auto space-y-10 sm:space-y-14 z-10">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center space-y-1.5 max-w-3xl mx-auto">
+        <p class="text-[#1a375b] text-xs sm:text-sm font-semibold tracking-widest uppercase italic">
+          NUESTRO PROPÓSITO
+        </p>
+        <h2 class="text-[#1a375b] heading-section font-bold tracking-tight">
+          Una visión que se convierte en acción
+        </h2>
+      </div>
+<!-- Tarjetas de Misión y Visión (Tarjetas Blancas Estilizadas con texto azul #1a375b) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+        
+        <!-- Tarjeta Misión -->
+        <div class="card-purpose flex flex-col justify-start">
+          <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] font-heading mb-4">
+            Misión
+          </h3>
+          <p class="text-[#1a375b] text-sm sm:text-base md:text-[16px] leading-relaxed font-normal text-justify">
+            Acompañar a las instituciones de educación superior del Ecuador con soluciones especializadas en asesoría, formación, gestión y proyectos, que generen valor sostenible, fortalezcan sus capacidades y contribuyan al desarrollo del país.
+          </p>
+        </div>
+
+        <!-- Tarjeta Visión -->
+        <div class="card-purpose flex flex-col justify-start">
+          <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] font-heading mb-4">
+            Visión
+          </h3>
+          <p class="text-[#1a375b] text-sm sm:text-base md:text-[16px] leading-relaxed font-normal text-justify">
+            Ser el referente en Ecuador y la región en consultoría para la educación superior, reconocidos por nuestra excelencia, innovación y por el impacto positivo de nuestras soluciones en las instituciones y en la sociedad.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+     5. DE NUESTROS ALIADOS / ESTADÍSTICAS (Fondo img-parte-4-home.webp)
+     ========================================================================= -->
+  <section id="resultados" class="relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden" style="background-image: url('/assets/home/img-parte-4-home.webp');">
+    <!-- Overlay azul oscuro elegante idéntico a la referencia -->
+    <div class="absolute inset-0 bg-[#071d36]/30 backdrop-blur-[1px] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto space-y-10 sm:space-y-12 z-10">
+      
+      <!-- Título de sección: max-w extendido y whitespace-nowrap en desktop -->
+      <div class="space-y-1.5 text-left max-w-none">
+        <p class="text-[#f5a623] text-xs sm:text-sm font-bold tracking-wider uppercase">
+          DE NUESTROS ALIADOS
+        </p>
+        <h2 class="text-white text-2xl sm:text-3xl lg:text-[2.2rem] font-bold tracking-tight lg:whitespace-nowrap">
+          Lo que hacemos se demuestra en el camino recorrido
+        </h2>
+      </div>
+
+      <!-- Grilla Testimonio + Estadísticas -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        
+        <!-- Columna Izquierda: Testimonio Rector CGE -->
+        <div class="lg:col-span-6 xl:col-span-6 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 h-full">
+          <!-- Foto Circular -->
+          <div class="shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white/20 shadow-xl bg-slate-700">
+            <img 
+              src="/assets/home/rector-cge-ramon-pineda.png" 
+              alt="Ramón Pineda - Rector CGE" 
+              class="w-full h-full object-cover"
+              width="112"
+              height="112"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Comillas y Texto del Testimonio (Alineación vertical y texto agrandado en móviles) -->
+          <div class="flex-1 flex flex-col justify-between h-full space-y-3 sm:space-y-4 text-center sm:text-left">
+            <div>
+              <div class="text-white/80 text-4xl sm:text-5xl font-serif leading-none select-none mb-1.5">
+                “
+              </div>
+              
+              <p class="text-slate-100 text-[15px] sm:text-base md:text-[15.5px] font-normal leading-relaxed text-justify sm:text-left">
+                Trabajar de la mano de profesionales como CEDEPRO ha multiplicado los resultados esperados en nuestra institución y ha acortado el camino hacia nuestros objetivos más ambiciosos.
+              </p>
+            </div>
+
+            <div class="pt-2 sm:pt-3">
+              <p class="font-bold text-white text-base sm:text-lg font-heading">
+                Ramón Pineda
+              </p>
+              <p class="text-xs sm:text-sm text-slate-300 font-normal">
+                Rector CGE
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta translúcida con la misma altura en web -->
+        <div class="lg:col-span-6 xl:col-span-6 h-full flex flex-col justify-center bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+          <div class="grid grid-cols-2 gap-y-7 sm:gap-y-8 gap-x-6 sm:gap-x-8 text-left">
+            {impactStats.map((stat) => (
+              <div class="space-y-1.5">
+                <p class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#f5a623] font-heading tracking-tight leading-none">
+                  {stat.value}
+                </p>
+                <p class="text-xs sm:text-xs lg:text-[12px] font-semibold tracking-wider uppercase text-white/95 leading-tight">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+    </div> 
+  </section>
+
+  <!-- =========================================================================
+       6. CRECEMOS EN COLABORACIÓN / ALIADOS (Fondo Dorado Sólido #df9417)
+       ========================================================================= -->
+  <section id="aliados" class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden text-center">
+    <div class="relative max-w-7xl mx-auto space-y-12 sm:space-y-14 z-10">
+      
+      <!-- Título de sección -->
+      <div class="space-y-2">
+        <p class="text-white/90 text-xs sm:text-sm font-bold tracking-widest uppercase">
+          CRECEMOS EN COLABORACIÓN
+        </p>
+        <h2 class="text-white heading-section font-bold">
+          Aliados que fortalecen nuestras soluciones
+        </h2>
+      </div>
+
+      <!-- 3 Tarjetas de Aliados Estratégicos con Logotipos Reales -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 max-w-5xl mx-auto items-stretch">
+        
+        <!-- Tarjeta 1: Cavilar -->
+        <div class="card-partner group h-full">
+          <div class="my-auto flex items-center justify-center h-24 sm:h-28 md:h-32 w-full px-2">
+            <img 
+              src="/assets/home/logos/01-300x99.webp" 
+              alt="Cavilar el siguiente paso" 
+              class="max-h-20 sm:max-h-24 max-w-[240px] sm:max-w-[270px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              width="270" 
+              height="89" 
+              decoding="async" 
+            />
+          </div>
+          <p class="text-sm sm:text-base md:text-[16.5px] text-[#1a375b] font-semibold pt-4 sm:pt-5 mt-auto border-t border-slate-100 w-full text-balance leading-snug">
+            Consultores y asesores corporativos
+          </p>
+        </div>
+
+        <!-- Tarjeta 2: Digital Mind -->
+        <div class="card-partner group h-full">
+          <div class="my-auto flex items-center justify-center h-24 sm:h-28 md:h-32 w-full px-2">
+            <img 
+              src="/assets/home/logos/02.webp" 
+              alt="Digital Mind" 
+              class="max-h-20 sm:max-h-24 max-w-[210px] sm:max-w-[230px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              width="230" 
+              height="95" 
+              decoding="async" 
+            />
+          </div>
+          <p class="text-sm sm:text-base md:text-[16.5px] text-[#1a375b] font-semibold pt-4 sm:pt-5 mt-auto border-t border-slate-100 w-full text-balance leading-snug">
+            Investigación y análisis de datos IA
+          </p>
+        </div>
+
+        <!-- Tarjeta 3: ARG & CIENCIALINK GROUP-EC -->
+        <div class="card-partner group h-full">
+          <div class="my-auto flex items-center justify-center h-24 sm:h-28 md:h-32 w-full px-2">
+            <img 
+              src="/assets/home/logos/04-300x120.webp" 
+              alt="ARG & Ciencialink Group-EC" 
+              class="max-h-20 sm:max-h-24 max-w-[240px] sm:max-w-[270px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              width="270" 
+              height="95" 
+              decoding="async" 
+            />
+          </div>
+          <p class="text-sm sm:text-base md:text-[16.5px] text-[#1a375b] font-semibold pt-4 sm:pt-5 mt-auto border-t border-slate-100 w-full text-balance leading-snug">
+            Consultores en educación y tecnología
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Llamada a la Acción Inferior -->
+      <div class="space-y-4 pt-4">
+        <p class="text-white text-sm sm:text-base font-medium">
+          Juntos impulsamos un mayor impacto en la educación superior.
+        </p>
+        <div class="flex justify-center">
+          <a 
+            href="/portafolio" 
+            class="btn-on-gold group !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg text-center justify-center inline-flex items-center !leading-none"
+          >
+            <span class="inline-flex items-center justify-center text-center leading-none">Conoce nuestra red de aliados <span class="inline-block ml-1.5 leading-none transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. RESULTADOS QUE RESPALDAN NUESTRA EXPERIENCIA (16 Logotipos)
+       ========================================================================= -->
+  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden" style="background-image: url('/assets/home/img-parte-5-home.webp');">
+    <!-- Overlay translúcido suave exacto al estilo de 'Encuentra el camino' -->
+    <div class="absolute inset-0 bg-white/45 backdrop-blur-[0.5px] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto space-y-8 sm:space-y-10 z-10">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center space-y-2 max-w-3xl mx-auto">
+        <p class="text-[#1a375b] text-xs sm:text-sm font-semibold tracking-widest uppercase italic font-sans">
+          RESULTADOS QUE RESPALDAN NUESTRA EXPERIENCIA
+        </p>
+        <h2 class="text-[#1a375b] heading-section font-bold tracking-tight">
+          Confianza que se construye con resultados
+        </h2>
+      </div>
+
+      <!-- Grilla de 16 Logotipos: Fila 1 (4 destacados) + Fila 2 (6) + Fila 3 (6) -->
+      <div class="space-y-4 sm:space-y-5">
+        
+        <!-- Fila 1: 4 Aliados Académicos Principales (Tarjetas Grandes y Destacadas) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+          {featuredLogos.map((client) => (
+            <div class="card-client-featured group" title={client.name}>
+              <img 
+                src={`/assets/home/logos/${client.file}`}
+                alt={`Logotipo de ${client.name}`}
+                class="max-h-14 sm:max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain filter grayscale contrast-125 opacity-85 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105"
+                decoding="async"
+                width="240"
+                height="80"
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- Fila 2: 6 Instituciones (Tarjetas Tamaño Web Equilibrado) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 max-w-6xl mx-auto">
+          {secondaryLogosRow1.map((client) => (
+            <div class="card-client-standard group" title={client.name}>
+              <img 
+                src={`/assets/home/logos/${client.file}`}
+                alt={`Logotipo de ${client.name}`}
+                class="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain filter grayscale contrast-125 opacity-85 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105"
+                decoding="async"
+                width="180"
+                height="60"
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- Fila 3: 6 Instituciones (Tarjetas Tamaño Web Equilibrado) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 max-w-6xl mx-auto">
+          {secondaryLogosRow2.map((client) => (
+            <div class="card-client-standard group" title={client.name}>
+              <img 
+                src={`/assets/home/logos/${client.file}`}
+                alt={`Logotipo de ${client.name}`}
+                class="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain filter grayscale contrast-125 opacity-85 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105"
+                decoding="async"
+                width="180"
+                height="60"
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    /* =========================================================================
+       HERO RESPONSIVE ADAPTATIVO: MÓVILES (ROSTROS VISIBLES) & DESKTOP (DIFUMINADO INMUTABLE)
+       ========================================================================= */
+
+    /* Reglas comunes de las capas del hero */
+    .hero-bg-layer {
+      background-repeat: no-repeat;
+    }
+
+    /* 1. MÓVILES Y PANTALLAS EN RETRATO (Teléfonos, portrait, tablet vertical) */
+    @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+      .hero-section {
+        min-height: 760px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        background-color: #07192F !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 0 !important;
+        position: relative !important;
+      }
+
+      .hero-content {
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+        position: relative !important;
+        z-index: 10 !important;
+      }
+
+      .hero-text-block {
+        max-width: 100% !important;
+      }
+
+      /* Imagen bajada a la parte inferior: ubicada debajo de los botones con rostros 100% despejados */
+      .hero-bg-layer {
+        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 380px !important;
+        background-image: url('/assets/home/img-parte-1-home-hero-mobile.webp') !important;
+        background-size: cover !important;
+        background-position: 52% top !important;
+        z-index: 1 !important;
+      }
+
+      /* Difuminado suave superior en la imagen que se fusiona con el fondo azul marino de los botones */
+      .hero-mobile-overlay {
+        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 380px !important;
+        background: linear-gradient(
+          180deg,
+          #07192F 0%,
+          rgba(7, 25, 47, 0.60) 10%,
+          rgba(7, 25, 47, 0) 22%
+        ) !important;
+        pointer-events: none !important;
+        z-index: 2 !important;
+      }
+
+      .hero-desktop-overlay {
+        display: none !important;
+      }
+    }
+
+    /* 2. ESCRITORIO Y LANDSCAPE (Pantallas panorámicas, monitores, laptops, ventanas redimensionadas) */
+    @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+      .hero-section {
+        min-height: 560px !important;
+        max-height: 820px !important;
+        height: calc(100vh - 5rem) !important;
+        display: flex !important;
+        align-items: center !important;
+        background-color: #07192F !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        position: relative !important;
+      }
+
+      .hero-bg-layer {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background-image: url('/assets/home/img-parte-1-home-hero.webp') !important;
+        background-size: cover !important;
+        background-position: right center !important;
+        z-index: 1 !important;
+      }
+
+      /* DIFUMINADO INMUTABLE: Difuminado continuo de izquierda a derecha.
+         En pantallas muy anchas da prioridad a las imágenes en la derecha.
+         Al minimizar o reducir la ventana, NUNCA se pierde el difuminado,
+         protegiendo la tipografía y garantizando una transición impecable hacia el fondo marino. */
+      .hero-desktop-overlay {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(
+          90deg,
+          #07192F 0%,
+          #07192F 30%,
+          rgba(7, 25, 47, 0.96) 46%,
+          rgba(7, 25, 47, 0.72) 60%,
+          rgba(7, 25, 47, 0.18) 75%,
+          rgba(7, 25, 47, 0) 88%
+        ) !important;
+        pointer-events: none !important;
+        z-index: 2 !important;
+      }
+
+      .hero-mobile-overlay {
+        display: none !important;
+      }
+
+      .hero-content {
+        position: relative !important;
+        z-index: 10 !important;
+      }
+
+      /* Ancho de texto balanceado según el viewport para dar siempre máxima prioridad a las imágenes */
+      .hero-text-block {
+        max-width: 450px !important;
+      }
+
+      @media (min-width: 1200px) {
+        .hero-text-block {
+          max-width: 520px !important;
+        }
+      }
+
+      @media (min-width: 1440px) {
+        .hero-text-block {
+          max-width: 580px !important;
+        }
+      }
+
+      @media (min-width: 1600px) {
+        .hero-text-block {
+          max-width: 620px !important;
+        }
+      }
+    }
+  </style>
+
+</Layout>

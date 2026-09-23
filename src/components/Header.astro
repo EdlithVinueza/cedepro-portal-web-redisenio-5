@@ -1,0 +1,164 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Nosotros', href: '/sobre-nosotros' },
+  { name: 'Cinco años CEDEPRO', href: '/#cinco-anos' },
+  { name: 'Resultados', href: '/#resultados' },
+  { name: 'Aliados', href: '/#aliados' },
+  { name: 'Recursos', href: '/portafolio' },
+  { name: 'Contáctanos', href: '/contacto' }
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/' || currentPath === '';
+  if (href.startsWith('/#')) return false;
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#091E3A]/95 backdrop-blur-md border-b border-[#0d2d59] shadow-md transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      
+      <!-- Logotipo Oficial Cedepro + Sello IAS STAREGISTER ISO (Fiel a la referencia) -->
+      <div class="flex items-center gap-2 sm:gap-3.5 shrink-0 py-1">
+        <a href="/" class="flex items-center transition-transform active:scale-95" aria-label="Cedepro Ecuador - Inicio">
+          <img 
+            src="/assets/brand/logo_cedepro.webp" 
+            alt="CEDEPRO Centro de Desarrollo Educativo y Profesional" 
+            class="h-8 sm:h-9 md:h-10 w-auto max-w-[170px] sm:max-w-[210px] md:max-w-[230px] object-contain"
+            width="230"
+            height="59"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+        <a 
+          href="/politicas-objetivos" 
+          class="flex items-center transition-transform hover:opacity-90" 
+          aria-label="Certificación ISO 9001:2015"
+        >
+          <img 
+            src="/assets/brand/ISO.webp" 
+            alt="IAS STAREGISTER ISO 9001:2015" 
+            class="h-7 sm:h-8 md:h-9 w-auto object-contain"
+            width="80"
+            height="45"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-[13px] 2xl:text-sm font-medium">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`relative py-2 transition-colors duration-200 hover:text-[#df9417] ${
+              isActive(item.href) ? 'text-white font-semibold after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[3px] after:bg-[#df9417]' : 'text-slate-100'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop CTA Button: Solicita una asesoría (Gold con texto blanco y esquinas redondeadas) -->
+      <div class="hidden lg:flex items-center">
+        <a
+          href="/contacto"
+          class="btn-gold !py-2.5 !px-5 !text-sm !font-bold shadow-md"
+        >
+          <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Solicita una asesoría</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <div class="flex xl:hidden items-center gap-2">
+        <a
+          href="/contacto"
+          class="btn-gold lg:hidden !min-h-0 !h-9 !py-0 !px-4 !text-sm !font-bold shadow-sm"
+        >
+          <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Asesoría</span>
+        </a>
+
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          class="p-2.5 rounded-xl text-white hover:bg-white/10 active:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#f5a623]"
+        >
+          <svg id="menu-icon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden xl:hidden py-4 border-t border-white/10 space-y-2 animate-fadeIn">
+      <nav class="flex flex-col space-y-1">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              isActive(item.href) ? 'text-[#f5a623] font-semibold bg-white/10 border-l-4 border-[#f5a623]' : 'text-white hover:bg-white/5 hover:text-[#f5a623]'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
+      
+      <div class="pt-3 px-1">
+        <a
+          href="/contacto"
+          class="btn-gold w-full text-center py-3"
+        >
+          Solicita una asesoría
+        </a>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+    
+    const isHidden = menu?.classList.toggle('hidden');
+    if (isHidden === false) {
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    } else {
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
+  });
+
+  // Cerrar menú al hacer clic en un enlace de navegación
+  const navLinks = menu?.querySelectorAll('a');
+  navLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
