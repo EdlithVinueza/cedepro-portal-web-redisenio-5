@@ -4,679 +4,679 @@ import { Icon } from 'astro-icon/components';
 
 // 6 Líneas de Solución CEDEPRO Oficiales (con colores por tarjeta)
 const solutions = [
-  {
-    name: 'ASESORÍA',
-    subtitle: 'Decisiones con sustento.',
-    description: 'Analizamos tu contexto y convertimos la incertidumbre en prioridades, escenarios y recomendaciones.',
-    link: '/recursos#asesoria',
-    bgColor: '#091E3A', // Azul Navy oficial CEDEPRO
-    icon: 'ion:compass-outline'
-  },
-  {
-    name: 'FORMACIÓN',
-    subtitle: 'Capacidades que se aplican.',
-    description: 'Diseñamos experiencias para que docentes, directivos y equipos desarrollen competencias útiles para los retos reales.',
-    link: '/recursos#formacion',
-    bgColor: '#1665c0', // Azul Formación
-    icon: 'ion:school-outline'
-  },
-  {
-    name: 'GESTIÓN',
-    subtitle: 'Orden que produce resultados.',
-    description: 'Fortalecemos procesos, indicadores, evidencias y coordinación para trabajar con mayor claridad, control y eficiencia.',
-    link: '/recursos#gestion',
-    bgColor: '#00838f', // Azul Verdoso Gestión
-    icon: 'ion:bar-chart-outline'
-  },
-  {
-    name: 'PROYECTOS',
-    subtitle: 'Visión con ruta de ejecución.',
-    description: 'Estructuramos iniciativas académicas, institucionales y de innovación para hacerlas viables, medibles y sostenibles.',
-    link: '/recursos#proyectos',
-    bgColor: '#e69500', // Ámbar Proyectos
-    icon: 'ion:rocket-outline'
-  },
-  {
-    name: 'INTERNACIONAL',
-    subtitle: 'Conexiones que abren oportunidades.',
-    description: 'Impulsamos cooperación, alianzas y proyección para ampliar el alcance institucional.',
-    link: '/recursos#internacional',
-    bgColor: '#5e48b5', // Morado Internacional
-    icon: 'ion:earth-outline'
-  },
-  {
-    name: 'TECH',
-    subtitle: 'Tecnología aplicada a la transformación.',
-    description: 'Integramos datos, herramientas digitales e inteligencia artificial para mejorar la gestión y la experiencia educativa.',
-    link: '/recursos#tech',
-    bgColor: '#1976d2', // Azul Tech
-    icon: 'ion:laptop-outline'
-  }
+ {
+ name: 'ASESORÍA',
+ subtitle: 'Decisiones con sustento.',
+ description: 'Analizamos tu contexto y convertimos la incertidumbre en prioridades, escenarios y recomendaciones.',
+ link: '/recursos#asesoria',
+ bgColor: '#091E3A', // Azul Navy oficial CEDEPRO
+ icon: 'ion:compass-outline'
+ },
+ {
+ name: 'FORMACIÓN',
+ subtitle: 'Capacidades que se aplican.',
+ description: 'Diseñamos experiencias para que docentes, directivos y equipos desarrollen competencias útiles para los retos reales.',
+ link: '/recursos#formacion',
+ bgColor: '#1665c0', // Azul Formación
+ icon: 'ion:school-outline'
+ },
+ {
+ name: 'GESTIÓN',
+ subtitle: 'Orden que produce resultados.',
+ description: 'Fortalecemos procesos, indicadores, evidencias y coordinación para trabajar con mayor claridad, control y eficiencia.',
+ link: '/recursos#gestion',
+ bgColor: '#00838f', // Azul Verdoso Gestión
+ icon: 'ion:bar-chart-outline'
+ },
+ {
+ name: 'PROYECTOS',
+ subtitle: 'Visión con ruta de ejecución.',
+ description: 'Estructuramos iniciativas académicas, institucionales y de innovación para hacerlas viables, medibles y sostenibles.',
+ link: '/recursos#proyectos',
+ bgColor: '#e69500', // Ámbar Proyectos
+ icon: 'ion:rocket-outline'
+ },
+ {
+ name: 'INTERNACIONAL',
+ subtitle: 'Conexiones que abren oportunidades.',
+ description: 'Impulsamos cooperación, alianzas y proyección para ampliar el alcance institucional.',
+ link: '/recursos#internacional',
+ bgColor: '#5e48b5', // Morado Internacional
+ icon: 'ion:earth-outline'
+ },
+ {
+ name: 'TECH',
+ subtitle: 'Tecnología aplicada a la transformación.',
+ description: 'Integramos datos, herramientas digitales e inteligencia artificial para mejorar la gestión y la experiencia educativa.',
+ link: '/recursos#tech',
+ bgColor: '#1976d2', // Azul Tech
+ icon: 'ion:laptop-outline'
+ }
 ];
 
 // Estadísticas de Impacto Comprobado
 const stats = [
-  { value: '+70', label: 'Carreras aprobadas' },
-  { value: '+10', label: 'Institutos creados' },
-  { value: '+2.500', label: 'Profesionales capacitados' },
-  { value: '+30', label: 'Instituciones asesoradas' }
+ { value: '+70', label: 'Carreras aprobadas' },
+ { value: '+10', label: 'Institutos creados' },
+ { value: '+2.500', label: 'Profesionales capacitados' },
+ { value: '+30', label: 'Instituciones asesoradas' }
 ];
 
 // 5 Valores Corporativos (Estilo Flaticon Exactos a la Muestra)
 const values = [
-  {
-    name: 'Excelencia',
-    bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
-    icon: 'ion:medal-outline'
-  },
-  {
-    name: 'Innovación',
-    bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
-    icon: 'ion:bulb-outline'
-  },
-  {
-    name: 'Compromiso',
-    bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
-    icon: 'ion:shield-checkmark-outline'
-  },
-  {
-    name: 'Colaboración',
-    bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
-    icon: 'ion:people-outline'
-  },
-  {
-    name: 'Impacto',
-    bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
-    icon: 'ion:trending-up-outline'
-  }
+ {
+ name: 'Excelencia',
+ bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
+ icon: 'ion:medal-outline'
+ },
+ {
+ name: 'Innovación',
+ bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
+ icon: 'ion:bulb-outline'
+ },
+ {
+ name: 'Compromiso',
+ bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
+ icon: 'ion:shield-checkmark-outline'
+ },
+ {
+ name: 'Colaboración',
+ bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
+ icon: 'ion:people-outline'
+ },
+ {
+ name: 'Impacto',
+ bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
+ icon: 'ion:trending-up-outline'
+ }
 ];
 ---
 
 <Layout 
-  title="Nosotros – CEDEPRO Ecuador | El Aliado Estratégico para tu Institución"
-  description="Conoce a CEDEPRO: 5 años construyendo soluciones para la educación superior. Asesoría, formación, gestión, proyectos, cooperación y tecnología."
-  image="/assets/nosotros/img-nosotros-section-1-badge.webp"
+ title="Nosotros – CEDEPRO Ecuador | El Aliado Estratégico para tu Institución"
+ description="Conoce a CEDEPRO: 5 años construyendo soluciones para la educación superior. Asesoría, formación, gestión, proyectos, cooperación y tecnología."
+ image="/assets/nosotros/img-nosotros-section-1-badge.webp"
 >
-  
-  <!-- =========================================================================
-       1. SECCIÓN 1: HERO (Fondo Blanco Panorámico + img-1-nosotros estilo index.astro)
-       ========================================================================= -->
-  <section class="hero-section-nosotros relative bg-white overflow-hidden">
-    
-    <!-- Capa de imagen de fondo adaptable (Desktop/Mobile) -->
-    <div class="hero-bg-layer-nosotros" aria-hidden="true"></div>
+ 
+ <!-- =========================================================================
+ 1. SECCIÓN 1: HERO (Fondo Blanco Panorámico + img-1-nosotros estilo index.astro)
+ ========================================================================= -->
+ <section class="hero-section-nosotros relative bg-white overflow-hidden">
+ 
+ <!-- Capa de imagen de fondo adaptable (Desktop/Mobile) -->
+ <div class="hero-bg-layer-nosotros" aria-hidden="true"></div>
 
-    <!-- Difuminado horizontal continuo para Desktop (BLANCO) -->
-    <div class="hero-desktop-overlay-nosotros" aria-hidden="true"></div>
+ <!-- Difuminado horizontal continuo para Desktop (BLANCO) -->
+ <div class="hero-desktop-overlay-nosotros" aria-hidden="true"></div>
 
-    <!-- Difuminado vertical para Móviles (BLANCO) -->
-    <div class="hero-mobile-overlay-nosotros" aria-hidden="true"></div>
+ <!-- Difuminado vertical para Móviles (BLANCO) -->
+ <div class="hero-mobile-overlay-nosotros" aria-hidden="true"></div>
 
-    <div class="hero-content-nosotros relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
-      <div class="hero-text-block-nosotros space-y-3 sm:space-y-3.5 lg:space-y-4">
-        
-        <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
-        <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
-          <img 
-            src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
-            alt="5 AÑOS" 
-            class="h-9 sm:h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
-            width="160"
-            height="60"
-            decoding="async"
-            loading="eager"
-          />
-          <div class="flex items-center gap-1.5 sm:gap-2 text-[#091E3A] font-medium text-xs sm:text-[13px] md:text-sm tracking-wide pb-0.5 sm:pb-1">
-            <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
-            <span class="font-normal text-[#091E3A]">4 caminos</span> 
-            <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
-            <span class="font-normal text-[#091E3A]">Un mismo propósito</span>
-          </div>
-        </div>
+ <div class="hero-content-nosotros relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
+ <div class="hero-text-block-nosotros space-y-3 sm:space-y-3.5 lg:space-y-4">
+ 
+ <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
+ <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
+ <img 
+ src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
+ alt="5 AÑOS" 
+ class="h-9 sm:h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
+ width="160"
+ height="60"
+ decoding="async"
+ loading="eager"
+ />
+ <div class="flex items-center gap-1.5 sm:gap-2 text-[#091E3A] font-medium text-xs sm:text-[13px] md:text-sm tracking-wide pb-0.5 sm:pb-1">
+ <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
+ <span class="font-normal text-[#091E3A]">4 caminos</span> 
+ <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
+ <span class="font-normal text-[#091E3A]">Un mismo propósito</span>
+ </div>
+ </div>
 
-        <!-- Titular Principal del Hero -->
-        <h1 class="text-[#091E3A] text-3xl sm:text-4xl md:text-4xl lg:text-[2.35rem] xl:text-[2.6rem] font-bold !leading-[1.14] tracking-tight font-heading">
-          El aliado estratégico para el <br />
-          <span class="text-[#091E3A]">crecimiento de tu institución.</span>
-        </h1>
+ <!-- Titular Principal del Hero -->
+ <h1 class="text-[#091E3A] text-3xl sm:text-4xl md:text-4xl lg:text-[2.35rem] xl:text-[2.6rem] font-bold !leading-[1.14] tracking-tight">
+ El aliado estratégico para el <br />
+ <span class="text-[#091E3A]">crecimiento de tu institución.</span>
+ </h1>
 
-        <!-- Párrafo descriptivo -->
-        <p class="text-slate-600 text-[15px] sm:text-[15px] md:text-base font-normal leading-relaxed max-w-xl text-balance">
-          Las instituciones de educación superior enfrentan decisiones cada vez más complejas. En CEDEPRO reunimos experiencia, criterio técnico e innovación aplicada para ayudarte a tomar mejores decisiones, fortalecer tus equipos, ordenar tu gestión y convertir tus oportunidades en proyectos sostenibles.
-        </p>
+ <!-- Párrafo descriptivo -->
+ <p class="text-slate-600 text-[15px] sm:text-[15px] md:text-base font-normal leading-relaxed max-w-xl text-balance">
+ Las instituciones de educación superior enfrentan decisiones cada vez más complejas. En CEDEPRO reunimos experiencia, criterio técnico e innovación aplicada para ayudarte a tomar mejores decisiones, fortalecer tus equipos, ordenar tu gestión y convertir tus oportunidades en proyectos sostenibles.
+ </p>
 
-        <!-- Botones de Acción Contextuales -->
-        <div class="pt-1 sm:pt-1.5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <!-- Botón 1: Conoce nuestro camino (Dorado oscuro sobre fondo blanco) -->
-          <a 
-            href="#porque" 
-            class="btn-gold-dark !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
-          ><span class="inline-flex items-center justify-center text-center leading-none">Conoce nuestro camino <span class="inline-block ml-1.5 leading-none">→</span></span></a>
+ <!-- Botones de Acción Contextuales -->
+ <div class="pt-1 sm:pt-1.5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+ <!-- Botón 1: Conoce nuestro camino (Dorado oscuro sobre fondo blanco) -->
+ <a 
+ href="#porque" 
+ class="btn-gold-dark !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+ ><span class="inline-flex items-center justify-center text-center leading-none">Conoce nuestro camino <span class="inline-block ml-1.5 leading-none">→</span></span></a>
 
-          <!-- Botón 2: Solicita una asesoría (Borde dorado, hover dorado) -->
-          <a 
-            href="/contactanos" 
-            class="btn-outline-gold-navy !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
-          ><span class="inline-flex items-center justify-center text-center leading-none">Solicita una asesoría</span></a>
-        </div>
+ <!-- Botón 2: Solicita una asesoría (Borde dorado, hover dorado) -->
+ <a 
+ href="/contactanos" 
+ class="btn-outline-gold-navy !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+ ><span class="inline-flex items-center justify-center text-center leading-none">Solicita una asesoría</span></a>
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       2. SECCIÓN 2: NUESTRO PORQUÉ (Fondo img-2-nosotros.webp)
-       ========================================================================= -->
-  <section id="porque" class="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]">
-    <!-- Imagen de Fondo con Overlay Azul Marino y Difuminado -->
-    <div class="absolute inset-0 z-0">
-      <picture>
-        <source srcset="/assets/nosotros/img-nosotros-section-2.webp" type="image/webp" />
-        <img 
-          src="/assets/nosotros/img-nosotros-section-2.png" 
-          alt="Instalaciones y espacio de trabajo CEDEPRO" 
-          class="w-full h-full object-cover object-center"
-          width="1920"
-          height="1080"
-          decoding="async"
-        />
-      </picture>
-      <div class="absolute inset-0 bg-[#07192F]/88 backdrop-blur-[2px]"></div>
-    </div>
+ <!-- =========================================================================
+ 2. SECCIÓN 2: NUESTRO PORQUÉ (Fondo img-2-nosotros.webp)
+ ========================================================================= -->
+ <section id="porque" class="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]">
+ <!-- Imagen de Fondo con Overlay Azul Marino y Difuminado -->
+ <div class="absolute inset-0 z-0">
+ <picture>
+ <source srcset="/assets/nosotros/img-nosotros-section-2.webp" type="image/webp" />
+ <img 
+ src="/assets/nosotros/img-nosotros-section-2.png" 
+ alt="Instalaciones y espacio de trabajo CEDEPRO" 
+ class="w-full h-full object-cover object-center"
+ width="1920"
+ height="1080"
+ decoding="async"
+ />
+ </picture>
+ <div class="absolute inset-0 bg-[#07192F]/88 backdrop-blur-[2px]"></div>
+ </div>
 
-    <div class="relative max-w-5xl mx-auto text-center space-y-4 sm:space-y-5 z-10 px-2 sm:px-4">
-      <!-- Subtítulo "NUESTRO PORQUÉ" -->
-      <p class="text-[#df9417] text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase italic">
-        NUESTRO PORQUÉ
-      </p>
+ <div class="relative max-w-5xl mx-auto text-center space-y-4 sm:space-y-5 z-10 px-2 sm:px-4">
+ <!-- Subtítulo"NUESTRO PORQUÉ" -->
+ <p class="text-[#df9417] text-xs sm:text-sm font-normal tracking-[0.25em] uppercase italic">
+ NUESTRO PORQUÉ
+ </p>
 
-      <!-- Título Principal "La transformación educativa..." -->
-      <h2 class="text-2xl sm:text-4xl md:text-[2.5rem] lg:text-[2.85rem] font-bold font-heading leading-tight tracking-tight text-white mb-4 max-w-4xl mx-auto">
-        La transformación educativa necesita <br class="hidden sm:block"/>
-        un aliado que entienda el contexto
-      </h2>
+ <!-- Título Principal"La transformación educativa..." -->
+ <h2 class="text-2xl sm:text-4xl md:text-[2.5rem] lg:text-[2.85rem] font-bold leading-tight tracking-tight text-white mb-4 max-w-4xl mx-auto">
+ La transformación educativa necesita <br class="hidden sm:block"/>
+ un aliado que entienda el contexto
+ </h2>
 
-      <!-- Texto descriptivo en 2 párrafos centrados -->
-      <div class="space-y-4 text-slate-100 text-base sm:text-lg md:text-[1.125rem] lg:text-[1.2rem] leading-relaxed max-w-6xl mx-auto font-normal">
-        <p>
-          Crear una carrera, responder a una exigencia normativa, fortalecer la calidad, desarrollar nuevas<br class="hidden md:block" />
-          capacidades, ordenar procesos o abrir una oportunidad de crecimiento no son tareas aisladas. Cada decisión<br class="hidden md:block" />
-          impacta la sostenibilidad, la reputación y el futuro de una institución.
-        </p>
-        <p>
-          Por eso CEDEPRO trabaja junto a universidades e institutos para convertir desafíos complejos en rutas claras<br class="hidden md:block" />
-          de acción. Escuchamos la realidad de cada institución, analizamos sus prioridades y construimos soluciones<br class="hidden md:block" />
-          que conectan estrategia, academia, gestión e innovación.
-        </p>
-      </div>
+ <!-- Texto descriptivo en 2 párrafos centrados -->
+ <div class="space-y-4 text-slate-100 text-base sm:text-lg md:text-[1.125rem] lg:text-[1.2rem] leading-relaxed max-w-6xl mx-auto font-normal">
+ <p>
+ Crear una carrera, responder a una exigencia normativa, fortalecer la calidad, desarrollar nuevas<br class="hidden md:block" />
+ capacidades, ordenar procesos o abrir una oportunidad de crecimiento no son tareas aisladas. Cada decisión<br class="hidden md:block" />
+ impacta la sostenibilidad, la reputación y el futuro de una institución.
+ </p>
+ <p>
+ Por eso CEDEPRO trabaja junto a universidades e institutos para convertir desafíos complejos en rutas claras<br class="hidden md:block" />
+ de acción. Escuchamos la realidad de cada institución, analizamos sus prioridades y construimos soluciones<br class="hidden md:block" />
+ que conectan estrategia, academia, gestión e innovación.
+ </p>
+ </div>
 
-      <div class="pt-2 sm:pt-3">
-        <a 
-          href="#esencia" 
-          class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center gap-2 group"
-        >
-          <span>Conoce cómo podemos acompañarte</span>
-          <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+ <div class="pt-2 sm:pt-3">
+ <a 
+ href="#esencia" 
+ class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center gap-2 group"
+ >
+ <span>Conoce cómo podemos acompañarte</span>
+ <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+ </a>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       3. SECCIÓN 3: NUESTRA ESENCIA (Fondo img-3-nosotros panorámico difuminado a blanco)
-       ========================================================================= -->
-  <section id="esencia" class="relative bg-white overflow-hidden flex flex-col md:flex-row md:items-center min-h-[750px] md:min-h-[600px] lg:min-h-[700px]">
-    
-    <!-- Capa de imagen de fondo -->
-    <div class="absolute inset-x-0 top-0 z-0 h-[55%] md:h-full md:w-[65%] lg:w-[60%] md:inset-auto md:right-0">
-      <picture>
-        <source srcset="/assets/nosotros/img-nosotros-section-3.webp" type="image/webp" />
-        <img 
-          src="/assets/nosotros/img-nosotros-section-3.png" 
-          alt="Auditorio y conferencias de formación CEDEPRO" 
-          class="w-full h-full object-cover object-[center_30%] md:object-right"
-          decoding="async"
-        />
-      </picture>
-    </div>
+ <!-- =========================================================================
+ 3. SECCIÓN 3: NUESTRA ESENCIA (Fondo img-3-nosotros panorámico difuminado a blanco)
+ ========================================================================= -->
+ <section id="esencia" class="relative bg-white overflow-hidden flex flex-col md:flex-row md:items-center min-h-[750px] md:min-h-[600px] lg:min-h-[700px]">
+ 
+ <!-- Capa de imagen de fondo -->
+ <div class="absolute inset-x-0 top-0 z-0 h-[55%] md:h-full md:w-[65%] lg:w-[60%] md:inset-auto md:right-0">
+ <picture>
+ <source srcset="/assets/nosotros/img-nosotros-section-3.webp" type="image/webp" />
+ <img 
+ src="/assets/nosotros/img-nosotros-section-3.png" 
+ alt="Auditorio y conferencias de formación CEDEPRO" 
+ class="w-full h-full object-cover object-[center_30%] md:object-right"
+ decoding="async"
+ />
+ </picture>
+ </div>
 
-    <!-- Gradientes superpuestos para fusionar la imagen con el fondo blanco -->
-    <!-- Móvil: de abajo hacia arriba (blanco sólido abajo, desvaneciéndose hacia arriba) -->
-    <div class="absolute bottom-[55%] z-10 md:hidden h-[30%] w-full" style="background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 100%);"></div>
-    <div class="absolute bottom-0 z-10 bg-white md:hidden h-[55%] w-full"></div>
-    
-    <!-- Desktop: de izquierda a derecha (blanco sólido a la izq desvaneciéndose suavemente hacia la derecha) -->
-    <div class="hidden md:block absolute inset-y-0 left-0 z-10 bg-white w-[45%] lg:w-[50%]"></div>
-    <div class="hidden md:block absolute inset-y-0 left-[45%] lg:left-[50%] z-10 w-[35%] lg:w-[35%]" style="background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0) 100%);"></div>
+ <!-- Gradientes superpuestos para fusionar la imagen con el fondo blanco -->
+ <!-- Móvil: de abajo hacia arriba (blanco sólido abajo, desvaneciéndose hacia arriba) -->
+ <div class="absolute bottom-[55%] z-10 md:hidden h-[30%] w-full" style="background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 100%);"></div>
+ <div class="absolute bottom-0 z-10 bg-white md:hidden h-[55%] w-full"></div>
+ 
+ <!-- Desktop: de izquierda a derecha (blanco sólido a la izq desvaneciéndose suavemente hacia la derecha) -->
+ <div class="hidden md:block absolute inset-y-0 left-0 z-10 bg-white w-[45%] lg:w-[50%]"></div>
+ <div class="hidden md:block absolute inset-y-0 left-[45%] lg:left-[50%] z-10 w-[35%] lg:w-[35%]" style="background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0) 100%);"></div>
 
-    <!-- Contenido Textual (Z-20 para estar sobre los gradientes) -->
-    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[65%] sm:pt-[55%] md:pt-16 pb-16 mt-auto md:mt-0 flex flex-col justify-end md:justify-center">
-      <div class="max-w-[100%] md:max-w-[48rem] lg:max-w-[54rem] space-y-5 lg:space-y-6">
-        
-        <!-- Subtítulo -->
-        <p class="text-[#003b66] text-[13px] sm:text-[14px] md:text-[15px] font-medium tracking-[0.2em] uppercase italic mb-6 md:mb-10">
-          NUESTRA ESENCIA
-        </p>
+ <!-- Contenido Textual (Z-20 para estar sobre los gradientes) -->
+ <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[65%] sm:pt-[55%] md:pt-16 pb-16 mt-auto md:mt-0 flex flex-col justify-end md:justify-center">
+ <div class="max-w-[100%] md:max-w-[48rem] lg:max-w-[54rem] space-y-5 lg:space-y-6">
+ 
+ <!-- Subtítulo -->
+ <p class="text-[#003b66] text-[13px] sm:text-[14px] md:text-[15px] font-normal tracking-[0.2em] uppercase italic mb-6 md:mb-10">
+ NUESTRA ESENCIA
+ </p>
 
-        <!-- Título Principal con Logo 5 Años embebido -->
-        <div>
-          <div class="flex items-baseline sm:items-end md:items-baseline gap-2 sm:gap-3 lg:gap-4 flex-wrap sm:flex-nowrap">
-            <img 
-              src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
-              alt="5 AÑOS" 
-              class="h-10 sm:h-16 md:h-[5.5rem] lg:h-[6.5rem] w-auto object-contain shrink-0 align-baseline"
-              decoding="async"
-            />
-            <span class="text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[2.85rem] font-bold text-[#003b66] font-heading leading-tight sm:leading-none tracking-tight">
-              construyendo <span class="text-[#df9417]">soluciones</span>
-            </span>
-          </div>
-          <h2 class="text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[2.85rem] font-bold text-[#003b66] font-heading leading-tight lg:leading-[1.1] tracking-tight mt-1.5 sm:mt-2 lg:mt-1">
-            que ayudan a las instituciones a <span class="text-[#df9417]">avanzar</span>
-          </h2>
-        </div>
+ <!-- Título Principal con Logo 5 Años embebido -->
+ <div>
+ <div class="flex items-baseline sm:items-end md:items-baseline gap-2 sm:gap-3 lg:gap-4 flex-wrap sm:flex-nowrap">
+ <img 
+ src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
+ alt="5 AÑOS" 
+ class="h-10 sm:h-16 md:h-[5.5rem] lg:h-[6.5rem] w-auto object-contain shrink-0 align-baseline"
+ decoding="async"
+ />
+ <span class="text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[2.85rem] font-bold text-[#003b66] leading-tight sm:leading-none tracking-tight">
+ construyendo <span class="text-[#df9417]">soluciones</span>
+ </span>
+ </div>
+ <h2 class="text-[1.25rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[2.85rem] font-bold text-[#003b66] leading-tight lg:leading-[1.1] tracking-tight mt-1.5 sm:mt-2 lg:mt-1">
+ que ayudan a las instituciones a <span class="text-[#df9417]">avanzar</span>
+ </h2>
+ </div>
 
-        <!-- Párrafos descriptivos -->
-        <div class="space-y-4 text-slate-700 text-base sm:text-lg md:text-[1.125rem] lg:text-[1.2rem] leading-relaxed max-w-[95%] md:max-w-[90%] lg:max-w-[50rem] font-normal text-justify">
-          <p>
-            CEDEPRO es un aliado estratégico de las instituciones de educación superior. Nacimos para acompañar decisiones académicas e institucionales y hoy evolucionamos hacia un ecosistema de soluciones que integra asesoría, formación, gestión, proyectos, cooperación y tecnología.
-          </p>
-          <p>
-            Nuestro trabajo no termina en una recomendación o en la entrega de un documento. Acompañamos la comprensión del desafío, el diseño de la respuesta, su implementación y el seguimiento de los resultados. Así convertimos la experiencia en acción y la acción en crecimiento sostenible.
-          </p>
-        </div>
+ <!-- Párrafos descriptivos -->
+ <div class="space-y-4 text-slate-700 text-base sm:text-lg md:text-[1.125rem] lg:text-[1.2rem] leading-relaxed max-w-[95%] md:max-w-[90%] lg:max-w-[50rem] font-normal text-justify">
+ <p>
+ CEDEPRO es un aliado estratégico de las instituciones de educación superior. Nacimos para acompañar decisiones académicas e institucionales y hoy evolucionamos hacia un ecosistema de soluciones que integra asesoría, formación, gestión, proyectos, cooperación y tecnología.
+ </p>
+ <p>
+ Nuestro trabajo no termina en una recomendación o en la entrega de un documento. Acompañamos la comprensión del desafío, el diseño de la respuesta, su implementación y el seguimiento de los resultados. Así convertimos la experiencia en acción y la acción en crecimiento sostenible.
+ </p>
+ </div>
 
-        <!-- Píldora Inferior (Azul Marino / Italic) -->
-        <div class="pt-3">
-          <div class="inline-flex items-center justify-center bg-[#003b66] text-white px-5 sm:px-6 md:px-7 py-3 md:py-3.5 rounded-lg text-[15px] sm:text-base md:text-[17px] font-normal italic shadow-md font-sans">
-            <span class="inline-block leading-none transform -translate-y-[3px]">Experiencia para asesorar, formar, gestionar y proyectar</span>
-          </div>
-        </div>
+ <!-- Píldora Inferior (Azul Marino / Italic) -->
+ <div class="pt-3">
+ <div class="inline-flex items-center justify-center bg-[#003b66] text-white px-5 sm:px-6 md:px-7 py-3 md:py-3.5 rounded-lg text-[15px] sm:text-base md:text-[17px] font-normal italic shadow-md">
+ <span class="inline-block leading-none transform -translate-y-[3px]">Experiencia para asesorar, formar, gestionar y proyectar</span>
+ </div>
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       4. SECCIÓN 4: 6 LÍNEAS DE EXPANSIÓN (Fondo Dorado + 6 Tarjetas Blancas)
-       ========================================================================= -->
-  <section id="soluciones" class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#df9417] text-white overflow-hidden">
-    <div class="max-w-7xl mx-auto space-y-12">
-      
-      <!-- Encabezado de Sección -->
-      <div class="text-center space-y-3 max-w-4xl mx-auto">
-        <p class="text-white/90 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase italic">
-          CUATRO CAMINOS Y DOS LÍNEAS DE EXPANSIÓN
-        </p>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold font-heading text-white tracking-tight md:whitespace-nowrap">
-          Una solución para cada desafío institucional
-        </h2>
-        <p class="text-white/95 text-xs sm:text-sm md:text-[15px] font-normal italic leading-relaxed max-w-3xl mx-auto">
-          Una institución no siempre necesita lo mismo. A veces necesita decidir con mayor claridad; otras,<br class="hidden md:block" />
-          formar a sus equipos, ordenar su operación o convertir una oportunidad en un proyecto viable.<br class="hidden md:block" />
-          Por eso organizamos nuestra experiencia en seis líneas conectadas:
-        </p>
-      </div>
+ <!-- =========================================================================
+ 4. SECCIÓN 4: 6 LÍNEAS DE EXPANSIÓN (Fondo Dorado + 6 Tarjetas Blancas)
+ ========================================================================= -->
+ <section id="soluciones" class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#df9417] text-white overflow-hidden">
+ <div class="max-w-7xl mx-auto space-y-12">
+ 
+ <!-- Encabezado de Sección -->
+ <div class="text-center space-y-3 max-w-4xl mx-auto">
+ <p class="text-white/90 text-xs sm:text-sm font-normal tracking-[0.2em] uppercase italic">
+ CUATRO CAMINOS Y DOS LÍNEAS DE EXPANSIÓN
+ </p>
+ <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-white tracking-tight md:whitespace-nowrap">
+ Una solución para cada desafío institucional
+ </h2>
+ <p class="text-white/95 text-xs sm:text-sm md:text-[15px] font-normal italic leading-relaxed max-w-3xl mx-auto">
+ Una institución no siempre necesita lo mismo. A veces necesita decidir con mayor claridad; otras,<br class="hidden md:block" />
+ formar a sus equipos, ordenar su operación o convertir una oportunidad en un proyecto viable.<br class="hidden md:block" />
+ Por eso organizamos nuestra experiencia en seis líneas conectadas:
+ </p>
+ </div>
 
-      <!-- Grilla de las 6 Tarjetas Blancas -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5 sm:gap-6">
-        {solutions.map((sol) => (
-          <div class="card-solution-white group !p-6 sm:!p-6 xl:!p-5">
-            <div class="space-y-3.5 flex flex-col items-center w-full">
-              
-              <!-- Círculo de Color Oficial por Línea con Icono Blanco -->
-              <div 
-                class="w-18 h-18 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0"
-                style={`background-color: ${sol.bgColor};`}
-              >
-                <Icon name={sol.icon} class="w-12 h-12 text-white stroke-1" />
-              </div>
+ <!-- Grilla de las 6 Tarjetas Blancas -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5 sm:gap-6">
+ {solutions.map((sol) => (
+ <div class="card-solution-white group !p-6 sm:!p-6 xl:!p-5">
+ <div class="space-y-3.5 flex flex-col items-center w-full">
+ 
+ <!-- Círculo de Color Oficial por Línea con Icono Blanco -->
+ <div 
+ class="w-18 h-18 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0"
+ style={`background-color: ${sol.bgColor};`}
+ >
+ <Icon name={sol.icon} class="w-12 h-12 text-white stroke-1" />
+ </div>
 
-              <!-- Título de la Solución -->
-              <h3 class="text-[#091E3A] text-lg sm:text-lg xl:text-base font-bold font-heading tracking-wider uppercase pt-1">
-                {sol.name}
-              </h3>
+ <!-- Título de la Solución -->
+ <h3 class="text-[#091E3A] text-lg sm:text-lg xl:text-base font-bold tracking-wider uppercase pt-1">
+ {sol.name}
+ </h3>
 
-              <!-- Línea divisora gruesa del color del ícono -->
-              <div 
-                class="w-12 h-1 rounded-full my-1.5"
-                style={`background-color: ${sol.bgColor};`}
-              ></div>
+ <!-- Línea divisora gruesa del color del ícono -->
+ <div 
+ class="w-12 h-1 rounded-full my-1.5"
+ style={`background-color: ${sol.bgColor};`}
+ ></div>
 
-              <!-- Subtítulo Destacado -->
-              <p class="text-[#091E3A] text-base sm:text-base xl:text-xs font-bold leading-snug">
-                {sol.subtitle}
-              </p>
+ <!-- Subtítulo Destacado -->
+ <p class="text-[#091E3A] text-base sm:text-base xl:text-xs font-bold leading-snug">
+ {sol.subtitle}
+ </p>
 
-              <!-- Descripción -->
-              <p class="text-slate-600 text-sm sm:text-sm xl:text-[12px] leading-relaxed text-balance">
-                {sol.description}
-              </p>
-            </div>
+ <!-- Descripción -->
+ <p class="text-slate-600 text-sm sm:text-sm xl:text-[12px] leading-relaxed text-balance">
+ {sol.description}
+ </p>
+ </div>
 
-            <!-- Botón Conoce la solución estilo Píldora sobre Fondo Blanco (1 Sola Línea) -->
-            <div class="pt-5 mt-auto w-full flex justify-center">
-              <a 
-                href={sol.link} 
-                class="btn-outline-gold-navy !py-2.5 !px-3 sm:!px-4 !text-[13px] sm:!text-[14px] xl:!text-[12.5px] w-full text-center justify-center inline-flex items-center gap-1 shadow-sm hover:shadow-md transition-all whitespace-nowrap"
-              >
-                <span class="whitespace-nowrap">Conoce la solución</span>
-                <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold shrink-0">→</span>
-              </a>
-            </div>
+ <!-- Botón Conoce la solución estilo Píldora sobre Fondo Blanco (1 Sola Línea) -->
+ <div class="pt-5 mt-auto w-full flex justify-center">
+ <a 
+ href={sol.link} 
+ class="btn-outline-gold-navy !py-2.5 !px-3 sm:!px-4 !text-[13px] sm:!text-[14px] xl:!text-[12.5px] w-full text-center justify-center inline-flex items-center gap-1 shadow-sm hover:shadow-md transition-all whitespace-nowrap"
+ >
+ <span class="whitespace-nowrap">Conoce la solución</span>
+ <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold shrink-0">→</span>
+ </a>
+ </div>
 
-          </div>
-        ))}
-      </div>
+ </div>
+ ))}
+ </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       5. SECCIÓN 5: NUESTRO IMPACTO & VALORES (Fondo Blanco Limpio)
-       ========================================================================= -->
-  <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
-    <div class="max-w-7xl mx-auto space-y-12">
-      
-      <!-- Fila Superior: Impacto (Izquierda) + Valores (Derecha) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-        
-        <!-- Columna Izquierda: NUESTRO IMPACTO (span 6) -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
-          <div class="space-y-1">
-            <p class="text-[#091E3A] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase italic">
-              NUESTRO IMPACTO
-            </p>
-            <h2 class="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-[#091E3A] font-heading tracking-tight">
-              Resultados que <span class="text-[#df9417]">respaldan</span> <br class="hidden lg:block" />
-              nuestro trabajo
-            </h2>
-          </div>
+ <!-- =========================================================================
+ 5. SECCIÓN 5: NUESTRO IMPACTO & VALORES (Fondo Blanco Limpio)
+ ========================================================================= -->
+ <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+ <div class="max-w-7xl mx-auto space-y-12">
+ 
+ <!-- Fila Superior: Impacto (Izquierda) + Valores (Derecha) -->
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+ 
+ <!-- Columna Izquierda: NUESTRO IMPACTO (span 6) -->
+ <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+ <div class="space-y-1">
+ <p class="text-[#091E3A] text-xs sm:text-sm font-normal tracking-[0.2em] uppercase italic">
+ NUESTRO IMPACTO
+ </p>
+ <h2 class="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-[#091E3A] tracking-tight">
+ Resultados que <span class="text-[#df9417]">respaldan</span> <br class="hidden lg:block" />
+ nuestro trabajo
+ </h2>
+ </div>
 
-          <!-- 4 Cifras con separadores verticales centradas en móvil -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 items-center justify-center gap-4 pt-2">
-            {stats.map((st, idx) => (
-              <div class="flex items-center justify-center lg:justify-between w-full">
-                <div class="text-center lg:text-left pr-0 lg:pr-2">
-                  <span class="text-3xl sm:text-3xl lg:text-[2.5rem] font-bold text-[#091E3A] font-heading tracking-tight block leading-none">
-                    {st.value}
-                  </span>
-                  <span class="text-xs sm:text-[13px] font-normal text-slate-600 mt-1 block leading-snug">
-                    {st.label}
-                  </span>
-                </div>
-                {idx < stats.length - 1 && (
-                  <div class="hidden sm:block h-12 w-[1px] bg-slate-300 mx-1"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+ <!-- 4 Cifras con separadores verticales centradas en móvil -->
+ <div class="grid grid-cols-2 sm:grid-cols-4 items-center justify-center gap-4 pt-2">
+ {stats.map((st, idx) => (
+ <div class="flex items-center justify-center lg:justify-between w-full">
+ <div class="text-center lg:text-left pr-0 lg:pr-2">
+ <span class="text-3xl sm:text-3xl lg:text-[2.5rem] font-bold text-[#091E3A] tracking-tight block leading-none">
+ {st.value}
+ </span>
+ <span class="text-xs sm:text-[13px] font-normal text-slate-600 mt-1 block leading-snug">
+ {st.label}
+ </span>
+ </div>
+ {idx < stats.length - 1 && (
+ <div class="hidden sm:block h-12 w-[1px] bg-slate-300 mx-1"></div>
+ )}
+ </div>
+ ))}
+ </div>
+ </div>
 
-        <!-- Columna Derecha: Nuestros valores (span 6) -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
-          <div class="space-y-1">
-            <h2 class="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-[#091E3A] font-heading tracking-tight">
-              Nuestros <span class="text-[#df9417]">valores</span>
-            </h2>
-          </div>
+ <!-- Columna Derecha: Nuestros valores (span 6) -->
+ <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+ <div class="space-y-1">
+ <h2 class="text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-[#091E3A] tracking-tight">
+ Nuestros <span class="text-[#df9417]">valores</span>
+ </h2>
+ </div>
 
-          <!-- Fila Horizontal de 5 Valores centrada -->
-          <div class="flex flex-wrap sm:flex-nowrap items-center justify-center lg:justify-between gap-4 sm:gap-3 pt-2">
-            {values.map((v, idx) => (
-              <div class="flex items-center justify-center">
-                <div class="flex flex-col items-center text-center px-1 sm:px-2">
-                  <div class={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border shadow-xs transition-transform hover:scale-105 ${v.bg}`}>
-                    <Icon name={v.icon} class="w-8 h-8 sm:w-9 sm:h-9 stroke-1" />
-                  </div>
-                  <span class="text-xs sm:text-[13px] font-semibold text-[#091E3A] mt-2 block">
-                    {v.name}
-                  </span>
-                </div>
-                {idx < values.length - 1 && (
-                  <div class="hidden sm:block h-12 w-[1px] bg-slate-300 mx-3 sm:mx-4"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+ <!-- Fila Horizontal de 5 Valores centrada -->
+ <div class="flex flex-wrap sm:flex-nowrap items-center justify-center lg:justify-between gap-4 sm:gap-3 pt-2">
+ {values.map((v, idx) => (
+ <div class="flex items-center justify-center">
+ <div class="flex flex-col items-center text-center px-1 sm:px-2">
+ <div class={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border shadow-xs transition-transform hover:scale-105 ${v.bg}`}>
+ <Icon name={v.icon} class="w-8 h-8 sm:w-9 sm:h-9 stroke-1" />
+ </div>
+ <span class="text-xs sm:text-[13px] font-semibold text-[#091E3A] mt-2 block">
+ {v.name}
+ </span>
+ </div>
+ {idx < values.length - 1 && (
+ <div class="hidden sm:block h-12 w-[1px] bg-slate-300 mx-3 sm:mx-4"></div>
+ )}
+ </div>
+ ))}
+ </div>
+ </div>
 
-      </div>
+ </div>
 
-      <!-- Barra de Certificación IAS / Staregister -->
-      <div class="pt-8 border-t border-slate-200/60 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-center">
-        <span class="text-base sm:text-lg font-bold text-[#091E3A] tracking-tight">
-          Certificación
-        </span>
-        <img 
-          src="/assets/brand/img-navbar-iso.webp" 
-          alt="IAS STAREGISTER ISO 9001:2015" 
-          class="h-10 sm:h-12 w-auto object-contain mx-1"
-          width="120"
-          height="60"
-          decoding="async"
-        />
-        <div class="flex flex-col text-left">
-          <span class="text-sm sm:text-base font-normal text-[#091E3A] leading-tight">
-            Calidad que
-          </span>
-          <span class="text-sm sm:text-base font-normal text-[#091E3A] leading-tight border-b-2 border-[#df9417] pb-0.5">
-            genera confianza
-          </span>
-        </div>
-      </div>
+ <!-- Barra de Certificación IAS / Staregister -->
+ <div class="pt-8 border-t border-slate-200/60 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-center">
+ <span class="text-base sm:text-lg font-bold text-[#091E3A] tracking-tight">
+ Certificación
+ </span>
+ <img 
+ src="/assets/brand/img-navbar-iso.webp" 
+ alt="IAS STAREGISTER ISO 9001:2015" 
+ class="h-10 sm:h-12 w-auto object-contain mx-1"
+ width="120"
+ height="60"
+ decoding="async"
+ />
+ <div class="flex flex-col text-left">
+ <span class="text-sm sm:text-base font-normal text-[#091E3A] leading-tight">
+ Calidad que
+ </span>
+ <span class="text-sm sm:text-base font-normal text-[#091E3A] leading-tight border-b-2 border-[#df9417] pb-0.5">
+ genera confianza
+ </span>
+ </div>
+ </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       6. SECCIÓN 6: CTA FINAL (Fondo con filtro azul para máxima legibilidad)
-       ========================================================================= -->
-  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]">
-    <!-- Fondo con img-4-nosotros -->
-    <div class="absolute inset-0 z-0">
-      <picture>
-        <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
-        <img 
-          src="/assets/nosotros/img-nosotros-section-6.png" 
-          alt="Consultores trabajando en reunión estratégica nocturna" 
-          class="w-full h-full object-cover object-right sm:object-center"
-          width="1920"
-          height="1080"
-          decoding="async"
-        />
-      </picture>
-    </div>
+ <!-- =========================================================================
+ 6. SECCIÓN 6: CTA FINAL (Fondo con filtro azul para máxima legibilidad)
+ ========================================================================= -->
+ <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]">
+ <!-- Fondo con img-4-nosotros -->
+ <div class="absolute inset-0 z-0">
+ <picture>
+ <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
+ <img 
+ src="/assets/nosotros/img-nosotros-section-6.png" 
+ alt="Consultores trabajando en reunión estratégica nocturna" 
+ class="w-full h-full object-cover object-right sm:object-center"
+ width="1920"
+ height="1080"
+ decoding="async"
+ />
+ </picture>
+ </div>
 
-    <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
-    <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
+ <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
+ <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
 
-    <div class="relative max-w-4xl mx-auto sm:mx-0 sm:max-w-2xl sm:pl-8 lg:pl-16 space-y-6 z-20 text-center sm:text-left">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading leading-tight tracking-tight text-white">
-        ¿Tu institución está lista para <br class="hidden sm:inline" />
-        dar el siguiente paso?
-      </h2>
+ <div class="relative max-w-4xl mx-auto sm:mx-0 sm:max-w-2xl sm:pl-8 lg:pl-16 space-y-6 z-20 text-center sm:text-left">
+ <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight text-white">
+ ¿Tu institución está lista para <br class="hidden sm:inline" />
+ dar el siguiente paso?
+ </h2>
 
-      <p class="text-slate-200 text-base sm:text-lg font-normal leading-relaxed">
-        Conversemos sobre cómo podemos acompañarte.
-      </p>
+ <p class="text-slate-200 text-base sm:text-lg font-normal leading-relaxed">
+ Conversemos sobre cómo podemos acompañarte.
+ </p>
 
-      <div class="pt-2">
-        <a 
-          href="/contactanos" 
-          class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-xl inline-flex items-center gap-2 group"
-        >
-          <span>Hablemos de tu reto</span>
-          <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+ <div class="pt-2">
+ <a 
+ href="/contactanos" 
+ class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-xl inline-flex items-center gap-2 group"
+ >
+ <span>Hablemos de tu reto</span>
+ <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+ </a>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO Y FOOTER
-       ========================================================================= -->
-  <style is:global>
-    /* Eliminar la línea de separación fea entre la Sección 6 y el Footer */
-    footer {
-      border-top: none !important;
-    }
+ <!-- =========================================================================
+ ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO Y FOOTER
+ ========================================================================= -->
+ <style is:global>
+ /* Eliminar la línea de separación fea entre la Sección 6 y el Footer */
+ footer {
+ border-top: none !important;
+ }
 
-    /* Reglas comunes de las capas del hero */
-    .hero-bg-layer-nosotros {
-      background-repeat: no-repeat;
-    }
+ /* Reglas comunes de las capas del hero */
+ .hero-bg-layer-nosotros {
+ background-repeat: no-repeat;
+ }
 
-    /* 1. MÓVILES Y PANTALLAS EN RETRATO */
-    @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
-      .hero-section-nosotros {
-        min-height: 700px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        background-color: #ffffff !important;
-        padding-top: 1.5rem !important;
-        padding-bottom: 0 !important;
-        position: relative !important;
-      }
+ /* 1. MÓVILES Y PANTALLAS EN RETRATO */
+ @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+ .hero-section-nosotros {
+ min-height: 700px !important;
+ display: flex !important;
+ flex-direction: column !important;
+ justify-content: flex-start !important;
+ background-color: #ffffff !important;
+ padding-top: 1.5rem !important;
+ padding-bottom: 0 !important;
+ position: relative !important;
+ }
 
-      .hero-content-nosotros {
-        padding-top: 0.5rem !important;
-        padding-bottom: 1.5rem !important;
-        position: relative !important;
-        z-index: 10 !important;
-      }
+ .hero-content-nosotros {
+ padding-top: 0.5rem !important;
+ padding-bottom: 1.5rem !important;
+ position: relative !important;
+ z-index: 10 !important;
+ }
 
-      .hero-text-block-nosotros {
-        max-width: 100% !important;
-      }
+ .hero-text-block-nosotros {
+ max-width: 100% !important;
+ }
 
-      /* Imagen de personas colocada abajo en móviles con difuminado suave superior hacia blanco */
-      .hero-bg-layer-nosotros {
-        display: block !important;
-        position: absolute !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        height: 420px !important;
-        background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
-        background-size: contain !important;
-        background-position: center bottom !important;
-        z-index: 1 !important;
-      }
+ /* Imagen de personas colocada abajo en móviles con difuminado suave superior hacia blanco */
+ .hero-bg-layer-nosotros {
+ display: block !important;
+ position: absolute !important;
+ left: 0 !important;
+ right: 0 !important;
+ bottom: 0 !important;
+ height: 420px !important;
+ background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
+ background-size: contain !important;
+ background-position: center bottom !important;
+ z-index: 1 !important;
+ }
 
-      .hero-mobile-overlay-nosotros {
-        display: block !important;
-        position: absolute !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        height: 420px !important;
-        background: linear-gradient(
-          180deg,
-          #ffffff 0%,
-          #ffffff 22%,
-          rgba(255, 255, 255, 0.85) 34%,
-          rgba(255, 255, 255, 0.40) 45%,
-          rgba(255, 255, 255, 0) 58%
-        ) !important;
-        pointer-events: none !important;
-        z-index: 2 !important;
-      }
+ .hero-mobile-overlay-nosotros {
+ display: block !important;
+ position: absolute !important;
+ left: 0 !important;
+ right: 0 !important;
+ bottom: 0 !important;
+ height: 420px !important;
+ background: linear-gradient(
+ 180deg,
+ #ffffff 0%,
+ #ffffff 22%,
+ rgba(255, 255, 255, 0.85) 34%,
+ rgba(255, 255, 255, 0.40) 45%,
+ rgba(255, 255, 255, 0) 58%
+ ) !important;
+ pointer-events: none !important;
+ z-index: 2 !important;
+ }
 
-      .hero-desktop-overlay-nosotros {
-        display: none !important;
-      }
-    }
+ .hero-desktop-overlay-nosotros {
+ display: none !important;
+ }
+ }
 
-    /* 2. ESCRITORIO Y LANDSCAPE (Pantallas panorámicas, monitores, laptops) */
-    @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
-      .hero-section-nosotros {
-        min-height: 560px !important;
-        max-height: 820px !important;
-        height: calc(100vh - 5rem) !important;
-        display: flex !important;
-        align-items: center !important;
-        background-color: #ffffff !important;
-        padding-top: calc(1rem + 24px) !important;
-        padding-bottom: 1rem !important;
-        position: relative !important;
-      }
+ /* 2. ESCRITORIO Y LANDSCAPE (Pantallas panorámicas, monitores, laptops) */
+ @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+ .hero-section-nosotros {
+ min-height: 560px !important;
+ max-height: 820px !important;
+ height: calc(100vh - 5rem) !important;
+ display: flex !important;
+ align-items: center !important;
+ background-color: #ffffff !important;
+ padding-top: calc(1rem + 24px) !important;
+ padding-bottom: 1rem !important;
+ position: relative !important;
+ }
 
-      .hero-bg-layer-nosotros {
-        display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
-        background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
-        background-size: contain !important;
-        background-position: right bottom !important;
-        z-index: 1 !important;
-      }
+ .hero-bg-layer-nosotros {
+ display: block !important;
+ position: absolute !important;
+ inset: 0 !important;
+ background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
+ background-size: contain !important;
+ background-position: right bottom !important;
+ z-index: 1 !important;
+ }
 
-      /* DIFUMINADO SUAVE DE IZQUIERDA A DERECHA:
-         Desplazado a la izquierda (termina en 52%) para dejar despejadas y nítidas a todas las personas del equipo */
-      .hero-desktop-overlay-nosotros {
-        display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
-        background: linear-gradient(
-          90deg,
-          #ffffff 0%,
-          #ffffff 16%,
-          rgba(255, 255, 255, 0.98) 24%,
-          rgba(255, 255, 255, 0.82) 32%,
-          rgba(255, 255, 255, 0.45) 42%,
-          rgba(255, 255, 255, 0.10) 48%,
-          rgba(255, 255, 255, 0) 52%
-        ) !important;
-        pointer-events: none !important;
-        z-index: 2 !important;
-      }
+ /* DIFUMINADO SUAVE DE IZQUIERDA A DERECHA:
+ Desplazado a la izquierda (termina en 52%) para dejar despejadas y nítidas a todas las personas del equipo */
+ .hero-desktop-overlay-nosotros {
+ display: block !important;
+ position: absolute !important;
+ inset: 0 !important;
+ background: linear-gradient(
+ 90deg,
+ #ffffff 0%,
+ #ffffff 16%,
+ rgba(255, 255, 255, 0.98) 24%,
+ rgba(255, 255, 255, 0.82) 32%,
+ rgba(255, 255, 255, 0.45) 42%,
+ rgba(255, 255, 255, 0.10) 48%,
+ rgba(255, 255, 255, 0) 52%
+ ) !important;
+ pointer-events: none !important;
+ z-index: 2 !important;
+ }
 
-      .hero-mobile-overlay-nosotros {
-        display: none !important;
-      }
+ .hero-mobile-overlay-nosotros {
+ display: none !important;
+ }
 
-      .hero-content-nosotros {
-        position: relative !important;
-        z-index: 10 !important;
-      }
+ .hero-content-nosotros {
+ position: relative !important;
+ z-index: 10 !important;
+ }
 
-      /* Ancho de texto balanceado según el viewport idéntico a index.astro */
-      .hero-text-block-nosotros {
-        max-width: 450px !important;
-      }
+ /* Ancho de texto balanceado según el viewport idéntico a index.astro */
+ .hero-text-block-nosotros {
+ max-width: 450px !important;
+ }
 
-      @media (min-width: 1200px) {
-        .hero-text-block-nosotros {
-          max-width: 520px !important;
-        }
-      }
+ @media (min-width: 1200px) {
+ .hero-text-block-nosotros {
+ max-width: 520px !important;
+ }
+ }
 
-      @media (min-width: 1440px) {
-        .hero-text-block-nosotros {
-          max-width: 580px !important;
-        }
-      }
+ @media (min-width: 1440px) {
+ .hero-text-block-nosotros {
+ max-width: 580px !important;
+ }
+ }
 
-      @media (min-width: 1600px) {
-        .hero-text-block-nosotros {
-          max-width: 620px !important;
-        }
-      }
-    }
+ @media (min-width: 1600px) {
+ .hero-text-block-nosotros {
+ max-width: 620px !important;
+ }
+ }
+ }
 
-    /* Alineación óptica idéntica para los textos de ambos botones */
-    .btn-gold > span,
-    .btn-gold-dark > span,
-    .btn-outline-gold > span,
-    .btn-outline-gold-navy > span {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      line-height: 1 !important;
-      transform: translateY(-2px) !important;
-    }
-  </style>
+ /* Alineación óptica idéntica para los textos de ambos botones */
+ .btn-gold > span,
+ .btn-gold-dark > span,
+ .btn-outline-gold > span,
+ .btn-outline-gold-navy > span {
+ display: inline-flex !important;
+ align-items: center !important;
+ justify-content: center !important;
+ line-height: 1 !important;
+ transform: translateY(-2px) !important;
+ }
+ </style>
 
 </Layout>

@@ -4,778 +4,778 @@ import { Icon } from 'astro-icon/components';
 
 // 4 Perfiles a los que se dirige
 const profiles = [
-  {
-    title: 'Rectorados, promotores y equipos directivos.',
-    icon: 'ion:people-outline',
-    color: '#091E3A' // Azul Navy
-  },
-  {
-    title: 'Responsables académicos, de calidad, planificación y regulación.',
-    icon: 'ion:school-outline',
-    color: '#1665c0' // Azul Formación
-  },
-  {
-    title: 'Áreas administrativas, financieras, documentales y de talento humano.',
-    icon: 'ion:settings-outline',
-    color: '#00838f' // Azul Verdoso
-  },
-  {
-    title: 'Empresas y organizaciones que requieren estructurar una nueva unidad, servicio, proyecto o decisión de crecimiento.',
-    icon: 'ion:hardware-chip-outline',
-    color: '#1976d2' // Azul Tech
-  }
+ {
+ title: 'Rectorados, promotores y equipos directivos.',
+ icon: 'ion:people-outline',
+ color: '#091E3A' // Azul Navy
+ },
+ {
+ title: 'Responsables académicos, de calidad, planificación y regulación.',
+ icon: 'ion:school-outline',
+ color: '#1665c0' // Azul Formación
+ },
+ {
+ title: 'Áreas administrativas, financieras, documentales y de talento humano.',
+ icon: 'ion:settings-outline',
+ color: '#00838f' // Azul Verdoso
+ },
+ {
+ title: 'Empresas y organizaciones que requieren estructurar una nueva unidad, servicio, proyecto o decisión de crecimiento.',
+ icon: 'ion:hardware-chip-outline',
+ color: '#1976d2' // Azul Tech
+ }
 ];
 
 // 5 Necesidades / Preguntas
 const needs = [
-  { label: 'Necesitas entender tu situación', icon: 'ion:search-outline' },
-  { label: 'Quieres validar una oportunidad', icon: 'ion:bar-chart-outline' },
-  { label: 'Debes responder a una exigencia', icon: 'ion:document-text-outline' },
-  { label: 'Tus áreas no están alineadas', icon: 'ion:git-network-outline' },
-  { label: 'Necesitas pasar a la acción', icon: 'ion:arrow-forward-circle-outline' }
+ { label: 'Necesitas entender tu situación', icon: 'ion:search-outline' },
+ { label: 'Quieres validar una oportunidad', icon: 'ion:bar-chart-outline' },
+ { label: 'Debes responder a una exigencia', icon: 'ion:document-text-outline' },
+ { label: 'Tus áreas no están alineadas', icon: 'ion:git-network-outline' },
+ { label: 'Necesitas pasar a la acción', icon: 'ion:arrow-forward-circle-outline' }
 ];
 
 // 4 Soluciones
 const integraciones = [
-  {
-    title: 'Asesoría institucional integral',
-    desc: 'Visión completa para decisiones de mayor alcance.',
-    icon: 'ion:business-outline'
-  },
-  {
-    title: 'Estudios para decidir',
-    desc: 'Análisis técnicos que respaldan tus decisiones.',
-    icon: 'ion:stats-chart-outline'
-  },
-  {
-    title: 'Revisión de brechas y evidencias',
-    desc: 'Orden, coherencia y sustento documental.',
-    icon: 'ion:clipboard-outline'
-  },
-  {
-    title: 'Acompañamiento a la implementación',
-    desc: 'De la recomendación a la acción.',
-    icon: 'ion:construct-outline'
-  }
+ {
+ title: 'Asesoría institucional integral',
+ desc: 'Visión completa para decisiones de mayor alcance.',
+ icon: 'ion:business-outline'
+ },
+ {
+ title: 'Estudios para decidir',
+ desc: 'Análisis técnicos que respaldan tus decisiones.',
+ icon: 'ion:stats-chart-outline'
+ },
+ {
+ title: 'Revisión de brechas y evidencias',
+ desc: 'Orden, coherencia y sustento documental.',
+ icon: 'ion:clipboard-outline'
+ },
+ {
+ title: 'Acompañamiento a la implementación',
+ desc: 'De la recomendación a la acción.',
+ icon: 'ion:construct-outline'
+ }
 ];
 
 // 5 Pasos
 const steps = [
-  {
-    num: '1',
-    title: 'Escuchar',
-    desc: 'Entendemos tu contexto, objetivos y desafíos.',
-    icon: 'ion:ear-outline'
-  },
-  {
-    num: '2',
-    title: 'Revisar',
-    desc: 'Analizamos información, documentos y evidencia.',
-    icon: 'ion:document-outline'
-  },
-  {
-    num: '3',
-    title: 'Identificar',
-    desc: 'Detectamos brechas, riesgos y oportunidades.',
-    icon: 'ion:search-circle-outline'
-  },
-  {
-    num: '4',
-    title: 'Recomendar',
-    desc: 'Proponemos una ruta técnica y viable de acción.',
-    icon: 'ion:bulb-outline'
-  },
-  {
-    num: '5',
-    title: 'Acompañar',
-    desc: 'Trabajamos contigo la implementación y seguimiento.',
-    icon: 'ion:people-circle-outline'
-  }
+ {
+ num: '1',
+ title: 'Escuchar',
+ desc: 'Entendemos tu contexto, objetivos y desafíos.',
+ icon: 'ion:ear-outline'
+ },
+ {
+ num: '2',
+ title: 'Revisar',
+ desc: 'Analizamos información, documentos y evidencia.',
+ icon: 'ion:document-outline'
+ },
+ {
+ num: '3',
+ title: 'Identificar',
+ desc: 'Detectamos brechas, riesgos y oportunidades.',
+ icon: 'ion:search-circle-outline'
+ },
+ {
+ num: '4',
+ title: 'Recomendar',
+ desc: 'Proponemos una ruta técnica y viable de acción.',
+ icon: 'ion:bulb-outline'
+ },
+ {
+ num: '5',
+ title: 'Acompañar',
+ desc: 'Trabajamos contigo la implementación y seguimiento.',
+ icon: 'ion:people-circle-outline'
+ }
 ];
 
 // 5 Por qué CEDEPRO
 const reasons = [
-  { title: 'Experiencia sectorial', icon: 'ion:school-outline' },
-  { title: 'Decisiones basadas en evidencia', icon: 'ion:stats-chart-outline' },
-  { title: 'Prevención antes que reproceso', icon: 'ion:shield-checkmark-outline' },
-  { title: 'Conexión entre áreas', icon: 'ion:git-network-outline' },
-  { title: 'Acompañamiento cercano', icon: 'ion:heart-outline' }
+ { title: 'Experiencia sectorial', icon: 'ion:school-outline' },
+ { title: 'Decisiones basadas en evidencia', icon: 'ion:stats-chart-outline' },
+ { title: 'Prevención antes que reproceso', icon: 'ion:shield-checkmark-outline' },
+ { title: 'Conexión entre áreas', icon: 'ion:git-network-outline' },
+ { title: 'Acompañamiento cercano', icon: 'ion:heart-outline' }
 ];
 
 // Estadísticas
 const stats = [
-  { value: '+70', label: 'Carreras aprobadas' },
-  { value: '+10', label: 'Institutos creados' },
-  { value: '+2.500', label: 'Profesionales capacitados' },
-  { value: '+30', label: 'Instituciones asesoradas' }
+ { value: '+70', label: 'Carreras aprobadas' },
+ { value: '+10', label: 'Institutos creados' },
+ { value: '+2.500', label: 'Profesionales capacitados' },
+ { value: '+30', label: 'Instituciones asesoradas' }
 ];
 ---
 
 <Layout 
-  title="Cinco años CEDEPRO | Asesoría - Decisiones claras y respaldo técnico"
-  description="Cuando una decisión impacta el futuro de tu institución, el respaldo importa. Acompañamos a instituciones de educación superior a analizar información y convertir desafíos en acciones."
-  image="/assets/cinco-anios/img-cinco-anios-section-1.png"
+ title="Cinco años CEDEPRO | Asesoría - Decisiones claras y respaldo técnico"
+ description="Cuando una decisión impacta el futuro de tu institución, el respaldo importa. Acompañamos a instituciones de educación superior a analizar información y convertir desafíos en acciones."
+ image="/assets/cinco-anios/img-cinco-anios-section-1.png"
 >
 
-  <!-- =========================================================================
-       1. HERO HEADER SECTION (Texto a la derecha según PDF)
-       ========================================================================= -->
-  <section class="hero-section relative bg-[#07192F] overflow-hidden">
-    
-    <!-- Capa de imagen de fondo adaptable -->
-    <div class="hero-bg-layer" aria-hidden="true"></div>
+ <!-- =========================================================================
+ 1. HERO HEADER SECTION (Texto a la derecha según PDF)
+ ========================================================================= -->
+ <section class="hero-section relative bg-[#07192F] overflow-hidden">
+ 
+ <!-- Capa de imagen de fondo adaptable -->
+ <div class="hero-bg-layer" aria-hidden="true"></div>
 
-    <!-- Difuminado horizontal continuo para Desktop (de derecha a izquierda) -->
-    <div class="hero-desktop-overlay" aria-hidden="true"></div>
+ <!-- Difuminado horizontal continuo para Desktop (de derecha a izquierda) -->
+ <div class="hero-desktop-overlay" aria-hidden="true"></div>
 
-    <!-- Difuminado vertical para Móviles -->
-    <div class="hero-mobile-overlay" aria-hidden="true"></div>
+ <!-- Difuminado vertical para Móviles -->
+ <div class="hero-mobile-overlay" aria-hidden="true"></div>
 
-    <div class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pr-24 flex justify-end">
-      <div class="hero-text-block space-y-3 sm:space-y-4 text-left">
-        
-        <p class="text-[#df9417] text-xs sm:text-sm font-bold tracking-widest uppercase">
-          CEDEPRO ASESORÍA
-        </p>
+ <div class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pr-24 flex justify-end">
+ <div class="hero-text-block space-y-3 sm:space-y-4 text-left">
+ 
+ <p class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic">
+ CEDEPRO ASESORÍA
+ </p>
 
-        <!-- Titular Principal -->
-        <h1 class="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight font-heading drop-shadow-sm">
-          Decisiones claras. <br />
-          Respaldo técnico. <br />
-          Avance seguro.
-        </h1>
+ <!-- Titular Principal -->
+ <h1 class="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight drop-shadow-sm">
+ Decisiones claras. <br />
+ Respaldo técnico. <br />
+ Avance seguro.
+ </h1>
 
-        <!-- Párrafos descriptivos -->
-        <div class="space-y-3 pt-2">
-          <p class="text-white text-base sm:text-lg font-bold leading-relaxed max-w-xl text-balance drop-shadow-sm">
-            Cuando una decisión impacta el futuro de tu institución, el respaldo importa.
-          </p>
-          <p class="text-slate-100 text-sm sm:text-[15px] font-normal leading-relaxed max-w-xl text-balance drop-shadow-sm">
-            Acompañamos a rectorados, promotores, directivos y equipos responsables de la calidad, la academia y la gestión a analizar información, identificar brechas y convertir desafíos complejos en decisiones sustentadas y acciones claras.
-          </p>
-        </div>
+ <!-- Párrafos descriptivos -->
+ <div class="space-y-3 pt-2">
+ <p class="text-white text-base sm:text-lg font-bold leading-relaxed max-w-xl text-balance drop-shadow-sm">
+ Cuando una decisión impacta el futuro de tu institución, el respaldo importa.
+ </p>
+ <p class="text-slate-100 text-sm sm:text-[15px] font-normal leading-relaxed max-w-xl text-balance drop-shadow-sm">
+ Acompañamos a rectorados, promotores, directivos y equipos responsables de la calidad, la academia y la gestión a analizar información, identificar brechas y convertir desafíos complejos en decisiones sustentadas y acciones claras.
+ </p>
+ </div>
 
-        <!-- Botones de Acción Contextuales -->
-        <div class="pt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <a 
-            href="#dos-sublineas" 
-            class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
-          >
-            <span class="inline-flex items-center justify-center text-center leading-none">
-              Conoce CEDEPRO respaldo <span class="inline-block ml-1.5 leading-none">→</span>
-            </span>
-          </a>
+ <!-- Botones de Acción Contextuales -->
+ <div class="pt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+ <a 
+ href="#dos-sublineas" 
+ class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+ >
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Conoce CEDEPRO respaldo <span class="inline-block ml-1.5 leading-none">→</span>
+ </span>
+ </a>
 
-          <a 
-            href="/contactanos" 
-            class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
-          >
-            <span class="inline-flex items-center justify-center text-center leading-none">
-              Hablemos de tu reto
-            </span>
-          </a>
-        </div>
+ <a 
+ href="/contactanos" 
+ class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+ >
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Hablemos de tu reto
+ </span>
+ </a>
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       2. PARA QUIENES (Tarjetas en Fondo Blanco)
-       ========================================================================= -->
-  <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white text-center">
-    <div class="max-w-7xl mx-auto space-y-12 sm:space-y-14">
-      
-      <div class="space-y-3 max-w-5xl mx-auto">
-        <p class="text-[#1a375b] text-[13px] sm:text-sm font-medium tracking-[0.15em] uppercase italic font-sans">
-          PARA QUIENES DEBEN RESPONDER POR UNA DECISIÓN
-        </p>
-        <h2 class="text-[#091E3A] text-[1.75rem] sm:text-3xl lg:text-[2.5rem] font-bold font-heading tracking-tight leading-tight">
-          El respaldo que necesitan las <br class="hidden sm:block"/>
-          <span class="text-[#df9417]">decisiones importantes</span>
-        </h2>
-        <p class="text-[#1a375b] text-[15px] sm:text-[16px] lg:text-[17px] font-normal leading-relaxed pt-2 text-balance max-w-4xl mx-auto">
-          CEDEPRO Asesoría está dirigida a instituciones de educación superior, empresas y organizaciones que necesitan comprender mejor tu situación, ordenar información y avanzar con una decisión técnicamente defendible.
-        </p>
-      </div>
+ <!-- =========================================================================
+ 2. PARA QUIENES (Tarjetas en Fondo Blanco)
+ ========================================================================= -->
+ <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white text-center">
+ <div class="max-w-7xl mx-auto space-y-12 sm:space-y-14">
+ 
+ <div class="space-y-3 max-w-5xl mx-auto">
+ <p class="text-[#1a375b] text-[13px] sm:text-sm font-normal tracking-[0.15em] uppercase italic">
+ PARA QUIENES DEBEN RESPONDER POR UNA DECISIÓN
+ </p>
+ <h2 class="text-[#091E3A] text-[1.75rem] sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight leading-tight">
+ El respaldo que necesitan las <br class="hidden sm:block"/>
+ <span class="text-[#df9417]">decisiones importantes</span>
+ </h2>
+ <p class="text-[#1a375b] text-[15px] sm:text-[16px] lg:text-[17px] font-normal leading-relaxed pt-2 text-balance max-w-4xl mx-auto">
+ CEDEPRO Asesoría está dirigida a instituciones de educación superior, empresas y organizaciones que necesitan comprender mejor tu situación, ordenar información y avanzar con una decisión técnicamente defendible.
+ </p>
+ </div>
 
-      <!-- Tarjetas -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        {profiles.map(p => (
-          <div class="bg-slate-50 rounded-2xl p-5 lg:p-6 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 group hover:shadow-md hover:border-slate-200 transition-all text-left">
-            <div 
-              class="w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem] rounded-full flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105" 
-              style={`background-color: ${p.color};`}
-            >
-              <Icon name={p.icon} class="w-8 h-8 lg:w-9 lg:h-9 text-white stroke-1" />
-            </div>
-            <div class="flex flex-col space-y-2.5">
-              <h3 class="text-[#1a375b] text-[13px] lg:text-sm font-bold leading-snug">
-                {p.title}
-              </h3>
-              <div 
-                class="w-8 h-[3px] rounded-full" 
-                style={`background-color: ${p.color};`}
-              ></div>
-            </div>
-          </div>
-        ))}
-      </div>
+ <!-- Tarjetas -->
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+ {profiles.map(p => (
+ <div class="bg-slate-50 rounded-2xl p-5 lg:p-6 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] border border-slate-100 flex items-center gap-4 group hover:shadow-md hover:border-slate-200 transition-all text-left">
+ <div 
+ class="w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem] rounded-full flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105" 
+ style={`background-color: ${p.color};`}
+ >
+ <Icon name={p.icon} class="w-8 h-8 lg:w-9 lg:h-9 text-white stroke-1" />
+ </div>
+ <div class="flex flex-col space-y-2.5">
+ <h3 class="text-[#1a375b] text-[13px] lg:text-sm font-bold leading-snug">
+ {p.title}
+ </h3>
+ <div 
+ class="w-8 h-[3px] rounded-full" 
+ style={`background-color: ${p.color};`}
+ ></div>
+ </div>
+ </div>
+ ))}
+ </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       3. EL RETO Y NUESTRA RESPUESTA (Fondo Azul Marino y Columnas)
-       ========================================================================= -->
-  <section class="relative bg-[#091E3A] overflow-hidden flex flex-col lg:flex-row lg:items-stretch min-h-[500px]">
-    
-    <!-- Mitad Izquierda (Imagen) -->
-    <div class="w-full lg:w-[30%] xl:w-[25%] relative min-h-[300px] lg:min-h-full">
-      <div class="absolute inset-0">
-        <img 
-          src="/assets/cinco-anios/img-cinco-anios-section-3.png" 
-          alt="Profesional tomando decisiones" 
-          class="w-full h-full object-cover object-[center_top]"
-          decoding="async"
-        />
-        <!-- Degradado para fundir imagen con fondo en desktop -->
-        <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[#091E3A]/60 to-[#091E3A]"></div>
-        <!-- Degradado para móviles -->
-        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#091E3A] to-transparent lg:hidden"></div>
-      </div>
-    </div>
+ <!-- =========================================================================
+ 3. EL RETO Y NUESTRA RESPUESTA (Fondo Azul Marino y Columnas)
+ ========================================================================= -->
+ <section class="relative bg-[#091E3A] overflow-hidden flex flex-col lg:flex-row lg:items-stretch min-h-[500px]">
+ 
+ <!-- Mitad Izquierda (Imagen) -->
+ <div class="w-full lg:w-[30%] xl:w-[25%] relative min-h-[300px] lg:min-h-full">
+ <div class="absolute inset-0">
+ <img 
+ src="/assets/cinco-anios/img-cinco-anios-section-3.png" 
+ alt="Profesional tomando decisiones" 
+ class="w-full h-full object-cover object-[center_top]"
+ decoding="async"
+ />
+ <!-- Degradado para fundir imagen con fondo en desktop -->
+ <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[#091E3A]/60 to-[#091E3A]"></div>
+ <!-- Degradado para móviles -->
+ <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#091E3A] to-transparent lg:hidden"></div>
+ </div>
+ </div>
 
-    <!-- Mitad Derecha (Textos en 2 columnas) -->
-    <div class="w-full lg:w-[70%] xl:w-[75%] relative z-10 p-8 sm:p-12 lg:py-16 lg:pr-12 xl:pr-16 flex items-center">
-      
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
-        
-        <!-- El Reto -->
-        <div class="space-y-4">
-          <p class="text-[#df9417] text-xs sm:text-sm font-medium tracking-widest uppercase italic">
-            EL RETO
-          </p>
-          <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium font-heading leading-tight tracking-tight">
-            Las <span class="text-[#df9417] font-bold">decisiones académicas</span><br class="hidden lg:block"/>e institucionales no pueden<br />basarse en suposiciones.
-          </h2>
-          <p class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed">
-            La regulación, la presión por resultados, la expansión de la oferta, las debilidades documentales y la falta de alineación entre áreas generan riesgos, reprocesos y oportunidades perdidas para las instituciones.
-          </p>
-          <div class="pt-2">
-            <a href="#soluciones" class="btn-gold !rounded-full !px-6 !py-2.5 !text-sm !font-bold inline-flex items-center">
-              <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                Identifica tu siguiente decisión <span class="inline-block ml-1.5 leading-none">→</span>
-              </span>
-            </a>
-          </div>
-        </div>
+ <!-- Mitad Derecha (Textos en 2 columnas) -->
+ <div class="w-full lg:w-[70%] xl:w-[75%] relative z-10 p-8 sm:p-12 lg:py-16 lg:pr-12 xl:pr-16 flex items-center">
+ 
+ <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
+ 
+ <!-- El Reto -->
+ <div class="space-y-4">
+ <p class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic">
+ EL RETO
+ </p>
+ <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight">
+ Las <span class="text-[#df9417] font-bold">decisiones académicas</span><br class="hidden lg:block"/>e institucionales no pueden<br />basarse en suposiciones.
+ </h2>
+ <p class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed">
+ La regulación, la presión por resultados, la expansión de la oferta, las debilidades documentales y la falta de alineación entre áreas generan riesgos, reprocesos y oportunidades perdidas para las instituciones.
+ </p>
+ <div class="pt-2">
+ <a href="#soluciones" class="btn-gold !rounded-full !px-6 !py-2.5 !text-sm !font-bold inline-flex items-center">
+ <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+ Identifica tu siguiente decisión <span class="inline-block ml-1.5 leading-none">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
 
-        <!-- Nuestra Respuesta -->
-        <div class="space-y-4 md:pl-10 md:border-l md:border-white/20">
-          <p class="text-[#df9417] text-xs sm:text-sm font-medium tracking-widest uppercase italic">
-            NUESTRA RESPUESTA
-          </p>
-          <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium font-heading leading-tight tracking-tight">
-            Respaldo para decidir.<br />
-            Acompañamiento para<br />
-            <span class="text-[#df9417] font-bold">avanzar.</span>
-          </h2>
-          <p class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed">
-            En CEDEPRO revisamos el contexto, contrastamos información, identificamos brechas y conectamos la recomendación técnica con una ruta práctica de acción, de acuerdo con la realidad y los objetivos de tu institución.
-          </p>
-          <div class="pt-2">
-            <div class="inline-block bg-white text-[#091E3A] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic">
-              Claridad para decidir mejor
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      
-    </div>
-  </section>
+ <!-- Nuestra Respuesta -->
+ <div class="space-y-4 md:pl-10 md:border-l md:border-white/20">
+ <p class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic">
+ NUESTRA RESPUESTA
+ </p>
+ <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight">
+ Respaldo para decidir.<br />
+ Acompañamiento para<br />
+ <span class="text-[#df9417] font-bold">avanzar.</span>
+ </h2>
+ <p class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed">
+ En CEDEPRO revisamos el contexto, contrastamos información, identificamos brechas y conectamos la recomendación técnica con una ruta práctica de acción, de acuerdo con la realidad y los objetivos de tu institución.
+ </p>
+ <div class="pt-2">
+ <div class="inline-block bg-white text-[#091E3A] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic">
+ Claridad para decidir mejor
+ </div>
+ </div>
+ </div>
+ 
+ </div>
+ 
+ </div>
+ </section>
 
-    <!-- =========================================================================
-       4. DOS SUBLINEAS (Tarjetas grises horizontales)
-       ========================================================================= -->
-  <section id="dos-sublineas" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-    <div class="max-w-[1400px] mx-auto space-y-12">
-      
-      <div class="space-y-2 text-center lg:text-left">
-        <p class="text-[#1a375b] text-[13px] sm:text-sm font-medium tracking-[0.15em] uppercase italic font-sans">
-          DOS SUBLÍNEAS • UNA MISMA DIRECCIÓN
-        </p>
-        <h2 class="text-[#091E3A] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold font-heading tracking-tight">
-          Elige el tipo de <span class="text-[#df9417]">respaldo</span> que tu desafío necesita
-        </h2>
-      </div>
+ <!-- =========================================================================
+ 4. DOS SUBLINEAS (Tarjetas grises horizontales)
+ ========================================================================= -->
+ <section id="dos-sublineas" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+ <div class="max-w-[1400px] mx-auto space-y-12">
+ 
+ <div class="space-y-2 text-center lg:text-left">
+ <p class="text-[#1a375b] text-[13px] sm:text-sm font-normal tracking-[0.15em] uppercase italic">
+ DOS SUBLÍNEAS • UNA MISMA DIRECCIÓN
+ </p>
+ <h2 class="text-[#091E3A] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold tracking-tight">
+ Elige el tipo de <span class="text-[#df9417]">respaldo</span> que tu desafío necesita
+ </h2>
+ </div>
 
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10">
-        
-        <!-- Tarjeta 1: CEDEPRO Respaldo -->
-        <div class="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
-          <!-- Imagen -->
-          <div class="w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
-            <img 
-              src="/assets/cinco-anios/img-cinco-anios-section-4.png" 
-              alt="CEDEPRO Respaldo" 
-              class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
-            />
-          </div>
-          <!-- Contenido -->
-          <div class="p-6 sm:p-8 w-full md:w-[65%] flex flex-col justify-center space-y-4">
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
-                <Icon name="ion:document-text-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-              </div>
-              <h3 class="text-[#091E3A] text-xl lg:text-2xl font-bold font-heading leading-tight">
-                CEDEPRO Respaldo
-              </h3>
-            </div>
-            
-            <p class="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-              Apoyo técnico para revisar información, ordenar decisiones y fortalecer la coherencia entre documentos, procesos y operación institucional. Ideal cuando necesitas analizar una situación, anticipar riesgos o sustentar una decisión.
-            </p>
-            
-            <div class="pt-2 mt-auto">
-              <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
-                <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                  Solicita respaldo técnico <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+ <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10">
+ 
+ <!-- Tarjeta 1: CEDEPRO Respaldo -->
+ <div class="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
+ <!-- Imagen -->
+ <div class="w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
+ <img 
+ src="/assets/cinco-anios/img-cinco-anios-section-4.png" 
+ alt="CEDEPRO Respaldo" 
+ class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+ />
+ </div>
+ <!-- Contenido -->
+ <div class="p-6 sm:p-8 w-full md:w-[65%] flex flex-col justify-center space-y-4">
+ 
+ <div class="flex items-center gap-3">
+ <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
+ <Icon name="ion:document-text-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
+ </div>
+ <h3 class="text-[#091E3A] text-xl lg:text-2xl font-bold leading-tight">
+ CEDEPRO Respaldo
+ </h3>
+ </div>
+ 
+ <p class="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+ Apoyo técnico para revisar información, ordenar decisiones y fortalecer la coherencia entre documentos, procesos y operación institucional. Ideal cuando necesitas analizar una situación, anticipar riesgos o sustentar una decisión.
+ </p>
+ 
+ <div class="pt-2 mt-auto">
+ <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
+ <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+ Solicita respaldo técnico <span class="inline-block ml-1.5 leading-none font-bold">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
+ </div>
 
-        <!-- Tarjeta 2: CEDEPRO Acompañamiento -->
-        <div class="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
-          <!-- Imagen -->
-          <div class="w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
-            <img 
-              src="/assets/cinco-anios/img-cinco-anios-section-4.png" 
-              alt="CEDEPRO Respaldo" 
-              class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
-            />
-          </div>
-          <!-- Contenido -->
-          <div class="p-6 sm:p-8 w-full md:w-[65%] flex flex-col justify-center space-y-4">
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
-                <Icon name="ion:people-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-              </div>
-              <h3 class="text-[#091E3A] text-xl lg:text-2xl font-bold font-heading leading-tight">
-                CEDEPRO Acompañamiento
-              </h3>
-            </div>
-            
-            <p class="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-              Trabajo cercano para pasar de una necesidad a acciones claras, priorizadas y sostenibles. Ideal cuando ya identificaste el desafío y necesitas coordinar equipos, implementar recomendaciones y dar seguimiento.
-            </p>
-            
-            <div class="pt-2 mt-auto">
-              <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
-                <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                  Solicitar acompañamiento <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+ <!-- Tarjeta 2: CEDEPRO Acompañamiento -->
+ <div class="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
+ <!-- Imagen -->
+ <div class="w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
+ <img 
+ src="/assets/cinco-anios/img-cinco-anios-section-4.png" 
+ alt="CEDEPRO Respaldo" 
+ class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+ />
+ </div>
+ <!-- Contenido -->
+ <div class="p-6 sm:p-8 w-full md:w-[65%] flex flex-col justify-center space-y-4">
+ 
+ <div class="flex items-center gap-3">
+ <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
+ <Icon name="ion:people-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
+ </div>
+ <h3 class="text-[#091E3A] text-xl lg:text-2xl font-bold leading-tight">
+ CEDEPRO Acompañamiento
+ </h3>
+ </div>
+ 
+ <p class="text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+ Trabajo cercano para pasar de una necesidad a acciones claras, priorizadas y sostenibles. Ideal cuando ya identificaste el desafío y necesitas coordinar equipos, implementar recomendaciones y dar seguimiento.
+ </p>
+ 
+ <div class="pt-2 mt-auto">
+ <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
+ <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+ Solicitar acompañamiento <span class="inline-block ml-1.5 leading-none font-bold">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
+ </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       5. QUÉ PODEMOS AYUDARTE A RESOLVER (Fondo Dorado Ámbar)
-       ========================================================================= -->
-  <section id="soluciones" class="py-8 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden">
-    <div class="max-w-[1400px] mx-auto space-y-6">
-      
-      <!-- Título Central -->
-      <div class="text-center space-y-1.5 w-full mx-auto text-white">
-        <p class="text-white/95 text-[12px] sm:text-[13px] font-medium tracking-[0.15em] uppercase italic font-sans">
-          QUÉ PODEMOS AYUDARTE A RESOLVER
-        </p>
-        <h2 class="text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.4rem] font-bold font-heading tracking-tight drop-shadow-sm whitespace-normal lg:whitespace-nowrap">
-          De la pregunta correcta a una decisión mejor sustentada
-        </h2>
-        <p class="text-white/95 text-[14px] sm:text-[15px] italic leading-relaxed pt-1 max-w-4xl mx-auto">
-          Activamos el nivel de asesoría que corresponde a tu necesidad y, cuando el desafío requiere otra especialidad, conectamos la respuesta con las demás líneas de CEDEPRO.
-        </p>
-      </div>
+ <!-- =========================================================================
+ 5. QUÉ PODEMOS AYUDARTE A RESOLVER (Fondo Dorado Ámbar)
+ ========================================================================= -->
+ <section id="soluciones" class="py-8 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden">
+ <div class="max-w-[1400px] mx-auto space-y-6">
+ 
+ <!-- Título Central -->
+ <div class="text-center space-y-1.5 w-full mx-auto text-white">
+ <p class="text-white/95 text-[12px] sm:text-[13px] font-normal tracking-[0.15em] uppercase italic">
+ QUÉ PODEMOS AYUDARTE A RESOLVER
+ </p>
+ <h2 class="text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.4rem] font-bold tracking-tight drop-shadow-sm whitespace-normal lg:whitespace-nowrap">
+ De la pregunta correcta a una decisión mejor sustentada
+ </h2>
+ <p class="text-white/95 text-[14px] sm:text-[15px] italic leading-relaxed pt-1 max-w-4xl mx-auto">
+ Activamos el nivel de asesoría que corresponde a tu necesidad y, cuando el desafío requiere otra especialidad, conectamos la respuesta con las demás líneas de CEDEPRO.
+ </p>
+ </div>
 
-      <!-- Fila 1: 5 Necesidades -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-        {needs.map((n, i) => {
-          const colors = ['#091E3A', '#1665c0', '#00838f', '#5e35b1', '#1976d2'];
-          const color = colors[i % colors.length];
-          // Para centrar el último elemento en móvil (grid-cols-2)
-          const isLast = i === needs.length - 1;
-          const extraClasses = isLast ? "col-span-2 w-[calc(50%-0.375rem)] mx-auto sm:w-[calc(50%-0.5rem)] md:col-span-1 md:w-full lg:col-span-1" : "";
-          
-          return (
-            <div class={`bg-slate-50 rounded-xl p-2.5 lg:p-3 shadow-sm flex items-center gap-2.5 hover:shadow-md transition-shadow border border-white/50 ${extraClasses}`}>
-              <div 
-                class="w-9 h-9 lg:w-11 lg:h-11 rounded-full flex items-center justify-center shrink-0 shadow-sm" 
-                style={`background-color: ${color};`}
-              >
-                <Icon name={n.icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-              </div>
-              <div class="flex flex-col space-y-1">
-                <span class="text-[#091E3A] text-xs lg:text-[13px] font-bold leading-tight pr-1">
-                  {n.label}
-                </span>
-                <div 
-                  class="w-6 h-[2px] rounded-full mt-0.5" 
-                  style={`background-color: ${color};`}
-                ></div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+ <!-- Fila 1: 5 Necesidades -->
+ <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+ {needs.map((n, i) => {
+ const colors = ['#091E3A', '#1665c0', '#00838f', '#5e35b1', '#1976d2'];
+ const color = colors[i % colors.length];
+ // Para centrar el último elemento en móvil (grid-cols-2)
+ const isLast = i === needs.length - 1;
+ const extraClasses = isLast ?"col-span-2 w-[calc(50%-0.375rem)] mx-auto sm:w-[calc(50%-0.5rem)] md:col-span-1 md:w-full lg:col-span-1" :"";
+ 
+ return (
+ <div class={`bg-slate-50 rounded-xl p-2.5 lg:p-3 shadow-sm flex items-center gap-2.5 hover:shadow-md transition-shadow border border-white/50 ${extraClasses}`}>
+ <div 
+ class="w-9 h-9 lg:w-11 lg:h-11 rounded-full flex items-center justify-center shrink-0 shadow-sm" 
+ style={`background-color: ${color};`}
+ >
+ <Icon name={n.icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
+ </div>
+ <div class="flex flex-col space-y-1">
+ <span class="text-[#091E3A] text-xs lg:text-[13px] font-bold leading-tight pr-1">
+ {n.label}
+ </span>
+ <div 
+ class="w-6 h-[2px] rounded-full mt-0.5" 
+ style={`background-color: ${color};`}
+ ></div>
+ </div>
+ </div>
+ );
+ })}
+ </div>
 
-      <!-- Fila 2: Soluciones (Título y Tarjetas) -->
-      <div class="space-y-4 pt-1">
-        <!-- Banner de Título -->
-        <div class="inline-block bg-[#091E3A] text-white px-5 py-2 rounded-md shadow-md">
-          <h3 class="text-lg sm:text-[20px] font-bold font-heading">
-            Soluciones que pueden integrarse
-          </h3>
-        </div>
+ <!-- Fila 2: Soluciones (Título y Tarjetas) -->
+ <div class="space-y-4 pt-1">
+ <!-- Banner de Título -->
+ <div class="inline-block bg-[#091E3A] text-white px-5 py-2 rounded-md shadow-md">
+ <h3 class="text-lg sm:text-[20px] font-bold">
+ Soluciones que pueden integrarse
+ </h3>
+ </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {integraciones.map((sol, index) => (
-            <div class="bg-slate-50 rounded-[1.25rem] p-4 lg:p-5 shadow-md border border-slate-100 flex items-center gap-3 xl:gap-4 group hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300">
-              
-              <!-- Ícono fijo a la izquierda -->
-              <Icon name={sol.icon} class="w-12 h-12 xl:w-14 xl:h-14 text-[#1665c0] stroke-1 shrink-0" />
-              
-              <!-- Columna derecha: Título, Párrafo y Botón -->
-              <div class="flex flex-col h-full w-full">
-                <h4 class="text-[#091E3A] text-[15px] xl:text-base font-bold font-heading leading-tight mb-1.5">
-                  {sol.title}
-                </h4>
-                
-                <p class="text-slate-600 text-[12px] xl:text-[13px] leading-snug mb-4 flex-grow">
-                  {sol.desc}
-                </p>
-                
-                <div class="mt-auto">
-                  <a href="#contacto" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-3 py-1.5 xl:px-4 text-[11px] xl:text-[12px] font-bold shadow-sm whitespace-nowrap">
-                    <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                      {index === 0 ? 'Conocer la solución' : index === 1 ? 'Solicitar análisis' : index === 2 ? 'Revisar brechas' : 'Planificar avance'} <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-                    </span>
-                  </a>
-                </div>
-              </div>
-              
-            </div>
-          ))}
-        </div>
-      </div>
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+ {integraciones.map((sol, index) => (
+ <div class="bg-slate-50 rounded-[1.25rem] p-4 lg:p-5 shadow-md border border-slate-100 flex items-stretch gap-3 xl:gap-4 group hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300">
+ 
+ <!-- Ícono fijo a la izquierda -->
+ <Icon name={sol.icon} class="w-12 h-12 xl:w-14 xl:h-14 text-[#1665c0] stroke-1 shrink-0 self-center" />
+ 
+ <!-- Columna derecha: Título, Párrafo y Botón -->
+ <div class="flex flex-col justify-end h-full w-full">
+ <h4 class="text-[#091E3A] text-[15px] xl:text-base font-bold leading-tight mb-1.5">
+ {sol.title}
+ </h4>
+ 
+ <p class="text-slate-600 text-[12px] xl:text-[13px] leading-snug mb-3">
+ {sol.desc}
+ </p>
+ 
+ <div class="mt-2">
+ <a href="#contacto" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-3 py-1.5 xl:px-4 text-[11px] xl:text-[12px] font-bold shadow-sm whitespace-nowrap">
+ <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+ {index === 0 ? 'Conocer la solución' : index === 1 ? 'Solicitar análisis' : index === 2 ? 'Revisar brechas' : 'Planificar avance'} <span class="inline-block ml-1.5 leading-none font-bold">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
+ 
+ </div>
+ ))}
+ </div>
+ </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       6. METODOLOGÍA Y POR QUÉ CEDEPRO
-       ========================================================================= -->
-  <section>
-    <!-- PARTE SUPERIOR: METODOLOGÍA (Fondo Azul Marino) -->
-    <div class="bg-[#091E3A] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div class="max-w-6xl mx-auto space-y-6">
-        
-        <h2 class="text-white text-2xl sm:text-3xl lg:text-[2rem] font-normal font-heading tracking-tight leading-tight">
-          Antes de recomendar, <span class="text-[#df9417]">entendemos.</span><br />
-          <span class="font-bold">Antes de ejecutar, <span class="text-[#df9417]">ordenamos.</span></span>
-        </h2>
+ <!-- =========================================================================
+ 6. METODOLOGÍA Y POR QUÉ CEDEPRO
+ ========================================================================= -->
+ <section>
+ <!-- PARTE SUPERIOR: METODOLOGÍA (Fondo Azul Marino) -->
+ <div class="bg-[#091E3A] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+ <div class="max-w-6xl mx-auto space-y-6">
+ 
+ <h2 class="text-white tracking-tight leading-tight">
+ <span class="text-xl sm:text-2xl lg:text-[2rem] font-normal block mb-0.5">Antes de recomendar, <span class="text-[#df9417]">entendemos.</span></span>
+ <span class="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold block mt-1">Antes de ejecutar, <span class="text-[#df9417]">ordenamos.</span></span>
+ </h2>
 
-        <!-- Pasos 1 al 5 en flex -->
-        <div class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2">
-          {steps.map((step, idx) => (
-            <div class="flex flex-col items-center text-center w-full md:flex-1 relative group z-10">
-              
-              <div class="w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full bg-white shadow-xl flex items-center justify-center text-[#1665c0] mb-3 relative z-10 transition-transform group-hover:scale-105">
-                <Icon name={step.icon} class="w-9 h-9 lg:w-11 lg:h-11 stroke-[1.5]" />
-              </div>
-              
-              <h3 class="text-white text-[15px] lg:text-[16px] font-bold font-heading mb-1">
-                {step.num}.{step.title}
-              </h3>
-              <p class="text-slate-300 text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]">
-                {step.desc}
-              </p>
+ <!-- Pasos 1 al 5 en flex -->
+ <div class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2">
+ {steps.map((step, idx) => (
+ <div class="flex flex-col items-center text-center w-full md:flex-1 relative group z-10">
+ 
+ <div class="w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full bg-white shadow-xl flex items-center justify-center text-[#1665c0] mb-3 relative z-10 transition-transform group-hover:scale-105">
+ <Icon name={step.icon} class="w-9 h-9 lg:w-11 lg:h-11 stroke-[1.5]" />
+ </div>
+ 
+ <h3 class="text-white text-[15px] lg:text-[16px] font-bold mb-1">
+ {step.num}.{step.title}
+ </h3>
+ <p class="text-slate-300 text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]">
+ {step.desc}
+ </p>
 
-              <!-- Flecha conectora (solo desktop) -->
-              {idx < steps.length - 1 && (
-                <div class="hidden md:flex absolute top-[2rem] lg:top-[2.25rem] -right-[1rem] lg:-right-[1.5rem] w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
-                  <Icon name="ion:chevron-forward-outline" class="w-6 h-6 lg:w-7 lg:h-7 text-[#df9417]" />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+ <!-- Flecha conectora (solo desktop) -->
+ {idx < steps.length - 1 && (
+ <div class="hidden md:flex absolute top-[2rem] lg:top-[2.25rem] -right-[1rem] lg:-right-[1.5rem] w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
+ <Icon name="ion:chevron-forward-outline" class="w-6 h-6 lg:w-7 lg:h-7 text-[#df9417]" />
+ </div>
+ )}
+ </div>
+ ))}
+ </div>
 
-      </div>
-    </div>
+ </div>
+ </div>
 
-    <!-- PARTE INFERIOR: POR QUÉ CEDEPRO (Fondo Blanco) -->
-    <div class="bg-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto space-y-6">
-        
-        <div class="space-y-1 text-left">
-          <p class="text-[#1a375b] text-[12px] font-medium tracking-[0.15em] uppercase italic font-sans">
-            POR QUÉ CEDEPRO
-          </p>
-          <h2 class="text-[#091E3A] text-2xl sm:text-3xl lg:text-[2rem] font-bold font-heading tracking-tight">
-            Más que una recomendación, una mirada <span class="text-[#df9417]">integral</span>
-          </h2>
-        </div>
+ <!-- PARTE INFERIOR: POR QUÉ CEDEPRO (Fondo Blanco) -->
+ <div class="bg-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+ <div class="max-w-6xl mx-auto space-y-6">
+ 
+ <div class="space-y-1 text-left">
+ <p class="text-[#1a375b] text-[12px] font-normal tracking-[0.15em] uppercase italic">
+ POR QUÉ CEDEPRO
+ </p>
+ <h2 class="text-[#091E3A] text-2xl sm:text-3xl lg:text-[2rem] font-bold tracking-tight">
+ Más que una recomendación, una mirada <span class="text-[#df9417]">integral</span>
+ </h2>
+ </div>
 
-        <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
-          {reasons.map((r, i) => {
-            const isGold = i % 2 === 0;
-            const bgColor = isGold ? 'bg-[#df9417]/10' : 'bg-[#1665c0]/10';
-            const iconColor = isGold ? 'text-[#df9417]' : 'text-[#1665c0]';
-            
-            return (
-              <div class="flex flex-row items-center text-left w-full lg:flex-1 gap-3 sm:gap-4 py-4 lg:py-0 px-2 lg:px-4 group justify-start">
-                <div class={`w-12 h-12 lg:w-[3.5rem] lg:h-[3.5rem] rounded-full flex items-center justify-center shrink-0 ${bgColor} group-hover:scale-110 transition-transform`}>
-                  <Icon name={r.icon} class={`w-6 h-6 lg:w-[1.8rem] lg:h-[1.8rem] stroke-1 ${iconColor}`} />
-                </div>
-                <p class="text-[#1a375b] text-[13px] lg:text-[14px] font-medium leading-tight max-w-[140px] text-balance">
-                  {r.title}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+ <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+ {reasons.map((r, i) => {
+ const isGold = i % 2 === 0;
+ const bgColor = isGold ? 'bg-[#df9417]/10' : 'bg-[#1665c0]/10';
+ const iconColor = isGold ? 'text-[#df9417]' : 'text-[#1665c0]';
+ 
+ return (
+ <div class="flex flex-row items-center text-left w-full lg:flex-1 gap-3 sm:gap-4 py-4 lg:py-0 px-2 lg:px-4 group justify-start">
+ <div class={`w-12 h-12 lg:w-[3.5rem] lg:h-[3.5rem] rounded-full flex items-center justify-center shrink-0 ${bgColor} group-hover:scale-110 transition-transform`}>
+ <Icon name={r.icon} class={`w-6 h-6 lg:w-[1.8rem] lg:h-[1.8rem] stroke-1 ${iconColor}`} />
+ </div>
+ <p class="text-[#1a375b] text-[13px] lg:text-[14px] font-medium leading-tight max-w-[140px] text-balance">
+ {r.title}
+ </p>
+ </div>
+ );
+ })}
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       7. RESULTADOS Y ALIADOS (Fondo Dorado)
-       ========================================================================= -->
-  <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden">
-    <div class="max-w-7xl mx-auto space-y-12">
-      
-      <div class="flex flex-col lg:flex-row gap-12 lg:gap-0 divide-y lg:divide-y-0 lg:divide-x divide-white/40 items-stretch pt-4">
-        
-        <!-- Izquierda: Estadísticas -->
-        <div class="w-full lg:w-[55%] lg:pr-10 xl:pr-14 space-y-8 text-white flex flex-col justify-center">
-          <div class="space-y-1">
-            <p class="text-white/95 text-[12px] sm:text-[13px] font-medium tracking-[0.15em] uppercase italic font-sans">
-              EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES
-            </p>
-            <h2 class="text-2xl sm:text-3xl md:text-[2.2rem] font-bold font-heading tracking-tight leading-tight">
-              La confianza se construye cuando el respaldo se convierte en resultados
-            </h2>
-          </div>
+ <!-- =========================================================================
+ 7. RESULTADOS Y ALIADOS (Fondo Dorado)
+ ========================================================================= -->
+ <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden">
+ <div class="max-w-7xl mx-auto space-y-12">
+ 
+ <div class="flex flex-col lg:flex-row gap-12 lg:gap-0 divide-y lg:divide-y-0 lg:divide-x divide-white/40 items-stretch pt-4">
+ 
+ <!-- Izquierda: Estadísticas -->
+ <div class="w-full lg:w-[55%] lg:pr-10 xl:pr-14 space-y-8 text-white flex flex-col justify-center">
+ <div class="space-y-1">
+ <p class="text-white/95 text-[12px] sm:text-[13px] font-normal tracking-[0.15em] uppercase italic">
+ EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES
+ </p>
+ <h2 class="text-2xl sm:text-3xl md:text-[2.2rem] font-bold tracking-tight leading-tight">
+ La confianza se construye cuando el respaldo se convierte en resultados
+ </h2>
+ </div>
 
-          <div class="flex items-start justify-between gap-2 pt-2 divide-x divide-white/40">
-            {stats.map((st, i) => (
-              <div class={`flex-1 text-center ${i === 0 ? 'pr-2' : 'px-2'}`}>
-                <p class="text-3xl sm:text-4xl md:text-[2.6rem] font-extrabold font-heading tracking-tighter leading-none text-white drop-shadow-sm mb-1.5">
-                  {st.value}
-                </p>
-                <p class="text-[12px] sm:text-[14px] font-medium leading-tight text-white/95 max-w-[120px] mx-auto text-balance">
-                  {st.label}
-                </p>
-              </div>
-            ))}
-          </div>
+ <div class="flex items-start justify-between gap-2 pt-2 divide-x divide-white/40">
+ {stats.map((st, i) => (
+ <div class={`flex-1 text-center ${i === 0 ? 'pr-2' : 'px-2'}`}>
+ <p class="text-3xl sm:text-4xl md:text-[2.6rem] font-extrabold tracking-tighter leading-none text-white drop-shadow-sm mb-1.5">
+ {st.value}
+ </p>
+ <p class="text-[12px] sm:text-[14px] font-medium leading-tight text-white/95 max-w-[120px] mx-auto text-balance">
+ {st.label}
+ </p>
+ </div>
+ ))}
+ </div>
 
-          <div class="pt-2">
-            <a href="/resultados" class="btn-navy-on-gold !px-7 !py-3 !text-[13px] sm:!text-[14px]">
-               <span class="inline-flex items-center justify-center text-center leading-none">
-                 Conoce nuestros resultados <span class="inline-block ml-1.5 leading-none">→</span>
-               </span>
-            </a>
-          </div>
-        </div>
+ <div class="pt-2">
+ <a href="/resultados" class="btn-navy-on-gold !px-7 !py-3 !text-[13px] sm:!text-[14px]">
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Conoce nuestros resultados <span class="inline-block ml-1.5 leading-none">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
 
-        <!-- Derecha: Testimonio -->
-        <div class="w-full lg:w-[45%] lg:pl-10 xl:pl-14 space-y-6 text-white flex flex-col justify-center pt-8 lg:pt-0">
-          <div class="space-y-1">
-            <p class="text-white/95 text-[12px] sm:text-[13px] font-medium tracking-[0.15em] uppercase italic font-sans">
-              DE NUESTROS ALIADOS
-            </p>
-            <h2 class="text-2xl sm:text-3xl lg:text-[2rem] font-bold font-heading tracking-tight leading-tight">
-              El valor de una decisión también se mide por el camino que permite acortar
-            </h2>
-          </div>
+ <!-- Derecha: Testimonio -->
+ <div class="w-full lg:w-[45%] lg:pl-10 xl:pl-14 space-y-6 text-white flex flex-col justify-center pt-8 lg:pt-0">
+ <div class="space-y-1">
+ <p class="text-white/95 text-[12px] sm:text-[13px] font-normal tracking-[0.15em] uppercase italic">
+ DE NUESTROS ALIADOS
+ </p>
+ <h2 class="text-2xl sm:text-3xl lg:text-[2rem] font-bold tracking-tight leading-tight">
+ El valor de una decisión también se mide por el camino que permite acortar
+ </h2>
+ </div>
 
-          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-3">
-            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-[3px] border-white shadow-xl shrink-0 mt-2">
-              <img 
-                src="/assets/home/img-home-section-5-rector.png" 
-                alt="Ramón Pineda" 
-                class="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div class="text-center sm:text-left flex-1 relative">
-              <div class="text-white text-[4rem] font-serif leading-none absolute -top-8 left-1/2 sm:-left-3 -translate-x-1/2 sm:translate-x-0 select-none opacity-90">“</div>
-              <p class="text-white text-[14px] sm:text-[15px] italic font-medium leading-relaxed relative z-10 pt-5 sm:pt-6">
-                Trabajar de la mano de profesionales como CEDEPRO ha multiplicado los resultados esperados en nuestra institución y ha acortado el camino hacia nuestros objetivos más ambiciosos.
-              </p>
-              <div class="mt-4">
-                <p class="font-bold text-[17px] font-heading text-white leading-tight">Ramón Pineda</p>
-                <p class="text-[13px] text-white/90">Rector CGE</p>
-              </div>
-            </div>
-          </div>
-        </div>
+ <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-3">
+ <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-[3px] border-white shadow-xl shrink-0 mt-2">
+ <img 
+ src="/assets/home/img-home-section-5-rector.png" 
+ alt="Ramón Pineda" 
+ class="w-full h-full object-cover"
+ />
+ </div>
+ 
+ <div class="text-center sm:text-left flex-1 relative">
+ <div class="text-white text-[4rem] leading-none absolute -top-8 left-1/2 sm:-left-3 -translate-x-1/2 sm:translate-x-0 select-none opacity-90">“</div>
+ <p class="text-white text-[14px] sm:text-[15px] italic font-medium leading-relaxed relative z-10 pt-5 sm:pt-6">
+ Trabajar de la mano de profesionales como CEDEPRO ha multiplicado los resultados esperados en nuestra institución y ha acortado el camino hacia nuestros objetivos más ambiciosos.
+ </p>
+ <div class="mt-4">
+ <p class="font-bold text-[17px] text-white leading-tight">Ramón Pineda</p>
+ <p class="text-[13px] text-white/90">Rector CGE</p>
+ </div>
+ </div>
+ </div>
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- =========================================================================
-       8. CTA FINAL
-       ========================================================================= -->
-  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#07192F] flex items-center">
-    <!-- Fondo -->
-    <div class="absolute inset-0 z-0">
-      <picture>
-        <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
-        <img 
-          src="/assets/nosotros/img-nosotros-section-6.png" 
-          alt="Consultores trabajando en reunión estratégica nocturna" 
-          class="w-full h-full object-cover object-[70%_center] sm:object-center"
-          width="1920"
-          height="1080"
-          decoding="async"
-        />
-      </picture>
-    </div>
+ <!-- =========================================================================
+ 8. CTA FINAL
+ ========================================================================= -->
+ <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#07192F] flex items-center">
+ <!-- Fondo -->
+ <div class="absolute inset-0 z-0">
+ <picture>
+ <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
+ <img 
+ src="/assets/nosotros/img-nosotros-section-6.png" 
+ alt="Consultores trabajando en reunión estratégica nocturna" 
+ class="w-full h-full object-cover object-[70%_center] sm:object-center"
+ width="1920"
+ height="1080"
+ decoding="async"
+ />
+ </picture>
+ </div>
 
-    <!-- Filtro azul marino: Gradual en desktop para no tapar rostros, sólido en móvil -->
-    <div class="absolute inset-0 bg-[#091E3A]/85 sm:bg-transparent sm:bg-gradient-to-r sm:from-[#091E3A] sm:via-[#091E3A]/90 sm:to-[#091E3A]/10 z-10 pointer-events-none"></div>
+ <!-- Filtro azul marino: Gradual en desktop para no tapar rostros, sólido en móvil -->
+ <div class="absolute inset-0 bg-[#091E3A]/85 sm:bg-transparent sm:bg-gradient-to-r sm:from-[#091E3A] sm:via-[#091E3A]/90 sm:to-[#091E3A]/10 z-10 pointer-events-none"></div>
 
-    <div class="relative max-w-7xl mx-auto w-full z-20">
-      <div class="max-w-3xl mx-auto sm:mx-0 space-y-6 text-center sm:text-left text-white">
-        <p class="text-white/95 text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase italic font-sans">
-          EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES
-        </p>
-        
-        <h2 class="text-3xl sm:text-4xl md:text-[3rem] font-bold font-heading leading-tight tracking-tight">
-          Si estás por tomar una decisión importante, conversemos antes de improvisar
-        </h2>
-        
-        <p class="text-slate-200 text-[15px] sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto sm:mx-0">
-          Te ayudamos a validar, ordenar, sustentar o implementar esa decisión, con el respaldo de un equipo que entiende el contexto de la educación superior.
-        </p>
+ <div class="relative max-w-7xl mx-auto w-full z-20">
+ <div class="max-w-3xl mx-auto sm:mx-0 space-y-6 text-center sm:text-left text-white">
+ <p class="text-white/95 text-xs sm:text-sm font-normal tracking-[0.15em] uppercase italic">
+ EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES
+ </p>
+ 
+ <h2 class="text-3xl sm:text-4xl md:text-[3rem] font-bold leading-tight tracking-tight">
+ Si estás por tomar una decisión importante, conversemos antes de improvisar
+ </h2>
+ 
+ <p class="text-slate-200 text-[15px] sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto sm:mx-0">
+ Te ayudamos a validar, ordenar, sustentar o implementar esa decisión, con el respaldo de un equipo que entiende el contexto de la educación superior.
+ </p>
 
-        <div class="pt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 w-full">
-          <a 
-            href="/contactanos" 
-            class="btn-on-gold !px-8 !py-3.5 !text-[14px] sm:!text-[15px] shadow-xl w-full sm:w-auto"
-          >
-            <span class="inline-flex items-center justify-center text-center leading-none">
-              Solicita una asesoría <span class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold">→</span>
-            </span>
-          </a>
-          <a 
-            href="/contactanos" 
-            class="btn-outline-white !px-8 !py-3.5 !text-[14px] sm:!text-[15px] w-full sm:w-auto text-center justify-center inline-flex items-center"
-          >
-            <span class="inline-flex items-center justify-center text-center leading-none">
-              Hablemos de tu reto
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+ <div class="pt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 w-full">
+ <a 
+ href="/contactanos" 
+ class="btn-on-gold !px-8 !py-3.5 !text-[14px] sm:!text-[15px] shadow-xl w-full sm:w-auto"
+ >
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Solicita una asesoría <span class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold">→</span>
+ </span>
+ </a>
+ <a 
+ href="/contactanos" 
+ class="btn-outline-white !px-8 !py-3.5 !text-[14px] sm:!text-[15px] w-full sm:w-auto text-center justify-center inline-flex items-center"
+ >
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Hablemos de tu reto
+ </span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
 
-  <!-- ESTILOS PARA HERO HEADER Y FOOTER -->
-  <style is:global>
-    /* Eliminar la línea de separación fea entre el CTA Final y el Footer */
-    footer {
-      border-top: none !important;
-    }
+ <!-- ESTILOS PARA HERO HEADER Y FOOTER -->
+ <style is:global>
+ /* Eliminar la línea de separación fea entre el CTA Final y el Footer */
+ footer {
+ border-top: none !important;
+ }
 
-    .hero-bg-layer { background-repeat: no-repeat; }
+ .hero-bg-layer { background-repeat: no-repeat; }
 
-    @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
-      .hero-section {
-        min-height: 710px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        background-color: #07192F !important;
-        padding-top: 1rem !important;
-        padding-bottom: 0 !important;
-      }
-      .hero-content {
-        padding-top: 0.5rem !important;
-        padding-bottom: 1rem !important;
-        z-index: 10 !important;
-        justify-content: flex-start !important;
-      }
-      .hero-bg-layer {
-        display: block !important;
-        position: absolute !important;
-        inset: auto 0 0 0 !important;
-        height: 450px !important;
-        background-image: url('/assets/cinco-anios/img-cinco-anios-section-1.png') !important;
-        background-size: cover !important;
-        background-position: 35% 120px !important;
-        z-index: 1 !important;
-      }
-      .hero-mobile-overlay {
-        display: block !important;
-        position: absolute !important;
-        inset: auto 0 0 0 !important;
-        height: 450px !important;
-        background: linear-gradient(180deg, #07192F 0%, #07192F 22%, rgba(7, 25, 47, 0.85) 34%, rgba(7, 25, 47, 0.40) 45%, rgba(7, 25, 47, 0) 58%) !important;
-        z-index: 2 !important;
-      }
-      .hero-desktop-overlay { display: none !important; }
-    }
+ @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+ .hero-section {
+ min-height: 710px !important;
+ display: flex !important;
+ flex-direction: column !important;
+ justify-content: flex-start !important;
+ background-color: #07192F !important;
+ padding-top: 1rem !important;
+ padding-bottom: 0 !important;
+ }
+ .hero-content {
+ padding-top: 0.5rem !important;
+ padding-bottom: 1rem !important;
+ z-index: 10 !important;
+ justify-content: flex-start !important;
+ }
+ .hero-bg-layer {
+ display: block !important;
+ position: absolute !important;
+ inset: auto 0 0 0 !important;
+ height: 450px !important;
+ background-image: url('/assets/cinco-anios/img-cinco-anios-section-1.png') !important;
+ background-size: cover !important;
+ background-position: 35% 120px !important;
+ z-index: 1 !important;
+ }
+ .hero-mobile-overlay {
+ display: block !important;
+ position: absolute !important;
+ inset: auto 0 0 0 !important;
+ height: 450px !important;
+ background: linear-gradient(180deg, #07192F 0%, #07192F 22%, rgba(7, 25, 47, 0.85) 34%, rgba(7, 25, 47, 0.40) 45%, rgba(7, 25, 47, 0) 58%) !important;
+ z-index: 2 !important;
+ }
+ .hero-desktop-overlay { display: none !important; }
+ }
 
-    @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
-      .hero-section {
-        min-height: 560px !important;
-        max-height: 820px !important;
-        height: calc(100vh - 5rem) !important;
-        display: flex !important;
-        align-items: center !important;
-        background-color: #07192F !important;
-        padding: 1rem 0 !important;
-      }
-      .hero-bg-layer {
-        display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
-        background-image: url('/assets/cinco-anios/img-cinco-anios-section-1.png') !important;
-        background-size: cover !important;
-        background-position: left center !important;
-        z-index: 1 !important;
-      }
-      .hero-desktop-overlay {
-        display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
-        /* Difuminado de derecha a izquierda comprimido hacia la derecha para revelar rostros */
-        background: linear-gradient(270deg, #07192F 0%, #07192F 15%, rgba(7, 25, 47, 0.95) 28%, rgba(7, 25, 47, 0.75) 42%, rgba(7, 25, 47, 0.35) 55%, rgba(7, 25, 47, 0) 70%) !important;
-        z-index: 2 !important;
-      }
-      .hero-mobile-overlay { display: none !important; }
-      
-      .hero-text-block {
-        max-width: 450px !important;
-      }
-      @media (min-width: 1200px) { .hero-text-block { max-width: 520px !important; } }
-      @media (min-width: 1440px) { .hero-text-block { max-width: 580px !important; } }
-    }
-  </style>
+ @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+ .hero-section {
+ min-height: 560px !important;
+ max-height: 820px !important;
+ height: calc(100vh - 5rem) !important;
+ display: flex !important;
+ align-items: center !important;
+ background-color: #07192F !important;
+ padding: 1rem 0 !important;
+ }
+ .hero-bg-layer {
+ display: block !important;
+ position: absolute !important;
+ inset: 0 !important;
+ background-image: url('/assets/cinco-anios/img-cinco-anios-section-1.png') !important;
+ background-size: cover !important;
+ background-position: left center !important;
+ z-index: 1 !important;
+ }
+ .hero-desktop-overlay {
+ display: block !important;
+ position: absolute !important;
+ inset: 0 !important;
+ /* Difuminado de derecha a izquierda comprimido hacia la derecha para revelar rostros */
+ background: linear-gradient(270deg, #07192F 0%, #07192F 15%, rgba(7, 25, 47, 0.95) 28%, rgba(7, 25, 47, 0.75) 42%, rgba(7, 25, 47, 0.35) 55%, rgba(7, 25, 47, 0) 70%) !important;
+ z-index: 2 !important;
+ }
+ .hero-mobile-overlay { display: none !important; }
+ 
+ .hero-text-block {
+ max-width: 450px !important;
+ }
+ @media (min-width: 1200px) { .hero-text-block { max-width: 520px !important; } }
+ @media (min-width: 1440px) { .hero-text-block { max-width: 580px !important; } }
+ }
+ </style>
 
 </Layout>

@@ -23,11 +23,13 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Kohinoor Latin"', 'Poppins', 'Inter', 'sans-serif'],
-        heading: ['"Kohinoor Latin"', 'Kanit', 'Poppins', 'sans-serif'],
-        kohinoor: ['"Kohinoor Latin"', 'Poppins', 'sans-serif'],
-        cursive: ['Playfair Display', 'Georgia', 'serif'],
-        signature: ['Herr Von Muellerhoff', 'cursive'],
+        sans: ['"Kohinoor Latin"', 'sans-serif'],
+        heading: ['"Kohinoor Latin"', 'sans-serif'],
+        kohinoor: ['"Kohinoor Latin"', 'sans-serif'],
+        cursive: ['"Kohinoor Latin"', 'sans-serif'],
+        signature: ['"Kohinoor Latin"', 'sans-serif'],
+        serif: ['"Kohinoor Latin"', 'sans-serif'],
+        mono: ['"Kohinoor Latin"', 'sans-serif'],
       }
     },
   },

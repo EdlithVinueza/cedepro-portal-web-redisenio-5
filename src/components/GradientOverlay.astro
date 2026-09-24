@@ -1,44 +1,44 @@
 ---
 interface Props {
-  /** Color base del degradado (hexadecimal, rgb, hsl o nombre de paleta: 'navy' | 'brand' | 'blue' | 'gold' | 'white' | 'dark') */
-  color?: string;
-  /** Dirección del degradado: 'to-r' (90deg) | 'to-l' (270deg) | 'to-b' (180deg) | 'to-t' (0deg) o grados personalizados */
-  direction?: 'to-r' | 'to-l' | 'to-b' | 'to-t' | string;
-  /** Variante de transición: 'smooth' (degradado suave del hero) | 'compact' (para áreas reducidas) | 'subtle' (muy translúcido) */
-  variant?: 'smooth' | 'compact' | 'subtle';
-  /** Clases CSS adicionales */
-  class?: string;
-  /** Atributos HTML extra */
-  id?: string;
+ /** Color base del degradado (hexadecimal, rgb, hsl o nombre de paleta: 'navy' | 'brand' | 'blue' | 'gold' | 'white' | 'dark') */
+ color?: string;
+ /** Dirección del degradado: 'to-r' (90deg) | 'to-l' (270deg) | 'to-b' (180deg) | 'to-t' (0deg) o grados personalizados */
+ direction?: 'to-r' | 'to-l' | 'to-b' | 'to-t' | string;
+ /** Variante de transición: 'smooth' (degradado suave del hero) | 'compact' (para áreas reducidas) | 'subtle' (muy translúcido) */
+ variant?: 'smooth' | 'compact' | 'subtle';
+ /** Clases CSS adicionales */
+ class?: string;
+ /** Atributos HTML extra */
+ id?: string;
 }
 
 const {
-  color = '#07192F',
-  direction = 'to-r',
-  variant = 'smooth',
-  class: className = '',
-  id,
+ color = '#07192F',
+ direction = 'to-r',
+ variant = 'smooth',
+ class: className = '',
+ id,
 } = Astro.props;
 
 // Mapeo de colores predefinidos de la marca CEDEPRO
 const colorPresets: Record<string, string> = {
-  navy: '#07192F',
-  brand: '#091E3A',
-  blue: '#1a375b',
-  gold: '#df9417',
-  amber: '#f5a623',
-  dark: '#050d1a',
-  white: '#ffffff',
+ navy: '#07192F',
+ brand: '#091E3A',
+ blue: '#1a375b',
+ gold: '#df9417',
+ amber: '#f5a623',
+ dark: '#050d1a',
+ white: '#ffffff',
 };
 
 const resolvedColor = colorPresets[color] || color;
 
 // Mapeo de direcciones
 const directionMap: Record<string, string> = {
-  'to-r': '90deg',
-  'to-l': '270deg',
-  'to-b': '180deg',
-  'to-t': '0deg',
+ 'to-r': '90deg',
+ 'to-l': '270deg',
+ 'to-b': '180deg',
+ 'to-t': '0deg',
 };
 
 const resolvedDir = directionMap[direction] || direction;
@@ -47,40 +47,40 @@ const resolvedDir = directionMap[direction] || direction;
 let gradientStyle = '';
 
 if (variant === 'smooth') {
-  // Curva de 7 puntos con zona sólida extendida (36%) y fade progresivo hasta el 95%
-  gradientStyle = `linear-gradient(
-    ${resolvedDir},
-    ${resolvedColor} 0%,
-    ${resolvedColor} 36%,
-    color-mix(in srgb, ${resolvedColor} 98%, transparent) 48%,
-    color-mix(in srgb, ${resolvedColor} 85%, transparent) 62%,
-    color-mix(in srgb, ${resolvedColor} 50%, transparent) 75%,
-    color-mix(in srgb, ${resolvedColor} 15%, transparent) 87%,
-    transparent 95%
-  )`;
+ // Curva de 7 puntos con zona sólida extendida (36%) y fade progresivo hasta el 95%
+ gradientStyle = `linear-gradient(
+ ${resolvedDir},
+ ${resolvedColor} 0%,
+ ${resolvedColor} 36%,
+ color-mix(in srgb, ${resolvedColor} 98%, transparent) 48%,
+ color-mix(in srgb, ${resolvedColor} 85%, transparent) 62%,
+ color-mix(in srgb, ${resolvedColor} 50%, transparent) 75%,
+ color-mix(in srgb, ${resolvedColor} 15%, transparent) 87%,
+ transparent 95%
+ )`;
 } else if (variant === 'compact') {
-  // Transición rápida ideal para móvil o bordes superiores/inferiores
-  gradientStyle = `linear-gradient(
-    ${resolvedDir},
-    ${resolvedColor} 0%,
-    color-mix(in srgb, ${resolvedColor} 70%, transparent) 14%,
-    color-mix(in srgb, ${resolvedColor} 20%, transparent) 28%,
-    transparent 42%
-  )`;
+ // Transición rápida ideal para móvil o bordes superiores/inferiores
+ gradientStyle = `linear-gradient(
+ ${resolvedDir},
+ ${resolvedColor} 0%,
+ color-mix(in srgb, ${resolvedColor} 70%, transparent) 14%,
+ color-mix(in srgb, ${resolvedColor} 20%, transparent) 28%,
+ transparent 42%
+ )`;
 } else {
-  // Variante sutil
-  gradientStyle = `linear-gradient(
-    ${resolvedDir},
-    color-mix(in srgb, ${resolvedColor} 80%, transparent) 0%,
-    color-mix(in srgb, ${resolvedColor} 40%, transparent) 50%,
-    transparent 100%
-  )`;
+ // Variante sutil
+ gradientStyle = `linear-gradient(
+ ${resolvedDir},
+ color-mix(in srgb, ${resolvedColor} 80%, transparent) 0%,
+ color-mix(in srgb, ${resolvedColor} 40%, transparent) 50%,
+ transparent 100%
+ )`;
 }
 ---
 
 <div 
-  id={id}
-  class={`cedepro-fade-overlay absolute inset-0 pointer-events-none z-[2] ${className}`}
-  style={`background: ${gradientStyle};`}
-  aria-hidden="true"
+ id={id}
+ class={`cedepro-fade-overlay absolute inset-0 pointer-events-none z-[2] ${className}`}
+ style={`background: ${gradientStyle};`}
+ aria-hidden="true"
 ></div>
