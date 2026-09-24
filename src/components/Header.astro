@@ -3,17 +3,16 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { name: 'Inicio', href: '/' },
-  { name: 'Nosotros', href: '/sobre-nosotros' },
-  { name: 'Cinco años CEDEPRO', href: '/#cinco-anos' },
-  { name: 'Resultados', href: '/#resultados' },
-  { name: 'Aliados', href: '/#aliados' },
-  { name: 'Recursos', href: '/portafolio' },
-  { name: 'Contáctanos', href: '/contacto' }
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Cinco años CEDEPRO', href: '/cinco-anos-cedepro' },
+  { name: 'Resultados', href: '/resultados' },
+  { name: 'Aliados', href: '/aliados' },
+  { name: 'Recursos', href: '/recursos' },
+  { name: 'Contáctanos', href: '/contactanos' }
 ];
 
 const isActive = (href: string) => {
   if (href === '/') return currentPath === '/' || currentPath === '';
-  if (href.startsWith('/#')) return false;
   return currentPath.startsWith(href);
 };
 ---
@@ -36,7 +35,7 @@ const isActive = (href: string) => {
           />
         </a>
         <a 
-          href="/politicas-objetivos" 
+          href="/nosotros#calidad" 
           class="flex items-center transition-transform hover:opacity-90" 
           aria-label="Certificación ISO 9001:2015"
         >
@@ -69,7 +68,7 @@ const isActive = (href: string) => {
       <!-- Desktop CTA Button: Solicita una asesoría (Gold con texto blanco y esquinas redondeadas) -->
       <div class="hidden lg:flex items-center">
         <a
-          href="/contacto"
+          href="/contactanos"
           class="btn-gold !py-2.5 !px-5 !text-sm !font-bold shadow-md"
         >
           <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Solicita una asesoría</span>
@@ -79,7 +78,7 @@ const isActive = (href: string) => {
       <!-- Mobile Menu Hamburger Button -->
       <div class="flex xl:hidden items-center gap-2">
         <a
-          href="/contacto"
+          href="/contactanos"
           class="btn-gold lg:hidden !min-h-0 !h-9 !py-0 !px-4 !text-sm !font-bold shadow-sm"
         >
           <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Asesoría</span>
@@ -120,7 +119,7 @@ const isActive = (href: string) => {
       
       <div class="pt-3 px-1">
         <a
-          href="/contacto"
+          href="/contactanos"
           class="btn-gold w-full text-center py-3"
         >
           Solicita una asesoría

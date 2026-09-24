@@ -155,6 +155,46 @@ body {
   transform: scale(0.97);
 }
 
+/* 1.1 SOBRE FONDO CLARO (BLANCO): Botón Dorado Oscuro (#c67a00) para alto contraste */
+.btn-gold-dark,
+.hero-section-nosotros .btn-gold,
+.bg-white .btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Kohinoor Latin', 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 9999px;
+  padding: 0.55rem 1.75rem 0.75rem 1.75rem;
+  min-height: 46px;
+  background-color: var(--color-brand-amber-dark, #c67a00);
+  color: #ffffff;
+  border: 2px solid var(--color-brand-amber-dark, #c67a00);
+  box-shadow: 0 4px 14px rgba(198, 122, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn-gold-dark:hover,
+.hero-section-nosotros .btn-gold:hover,
+.bg-white .btn-gold:hover {
+  background-color: var(--color-brand-navy, #091E3A);
+  color: #ffffff;
+  border-color: var(--color-brand-navy, #091E3A);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(9, 30, 58, 0.25);
+}
+
+.btn-gold-dark:active,
+.hero-section-nosotros .btn-gold:active,
+.bg-white .btn-gold:active {
+  transform: scale(0.97);
+}
+
 /* 2. SOBRE FONDO OSCURO (NAVY): Botón Transparente con Borde Blanco */
 .btn-outline-white {
   display: inline-flex;
@@ -215,6 +255,39 @@ body {
   transform: scale(0.97);
 }
 
+/* Botón Transparente con Borde Dorado sobre fondo claro/blanco (Texto Azul Marino) */
+.btn-outline-gold-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Kohinoor Latin', 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 9999px;
+  padding: 0.55rem 1.75rem 0.75rem 1.75rem;
+  min-height: 46px;
+  background-color: transparent;
+  color: var(--color-brand-navy, #091E3A);
+  border: 2px solid var(--color-brand-amber-dark, #c67a00);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn-outline-gold-navy:hover {
+  background-color: var(--color-brand-amber-dark, #c67a00);
+  color: #ffffff;
+  border-color: var(--color-brand-amber-dark, #c67a00);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(198, 122, 0, 0.35);
+}
+
+.btn-outline-gold-navy:active {
+  transform: scale(0.97);
+}
+
 /* 3. SOBRE FONDO DORADO / ÁMBAR: Botón Blanco Sólido (Hover Transparente con Borde Blanco) */
 .btn-on-gold {
   display: inline-flex;
@@ -252,6 +325,7 @@ body {
 /* Botones para tipografía Kohinoor Latin */
 .btn-base>span,
 .btn-gold>span,
+.btn-gold-dark>span,
 .btn-outline-white>span,
 .btn-outline-gold>span,
 .btn-on-gold>span,
@@ -261,6 +335,15 @@ body {
   align-items: center;
   justify-content: center;
   line-height: 1;
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold-navy>span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transform: translateY(-4px);
 }
 
 /* 4. SOBRE FONDO CLARO (BLANCO / GRIS): Botón Azul Marino */
@@ -418,3 +501,42 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* ==============================================================================
+   SISTEMA REUTILIZABLE DE DEGRADADOS CEDEPRO (HERO GRADIENT OVERLAYS)
+   Permite aplicar el mismo estilo de difuminado suave del Home con cualquier color y dirección.
+   ============================================================================== */
+
+.cedepro-fade-overlay {
+  --fade-color: #07192F;
+  --fade-dir: 90deg;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    var(--fade-dir, 90deg),
+    var(--fade-color) 0%,
+    var(--fade-color) 36%,
+    color-mix(in srgb, var(--fade-color) 98%, transparent) 48%,
+    color-mix(in srgb, var(--fade-color) 85%, transparent) 62%,
+    color-mix(in srgb, var(--fade-color) 50%, transparent) 75%,
+    color-mix(in srgb, var(--fade-color) 15%, transparent) 87%,
+    transparent 95%
+  );
+}
+
+/* Modificadores de Dirección */
+.fade-dir-r { --fade-dir: 90deg; }   /* De izquierda a derecha */
+.fade-dir-l { --fade-dir: 270deg; }  /* De derecha a izquierda */
+.fade-dir-b { --fade-dir: 180deg; }  /* De arriba hacia abajo */
+.fade-dir-t { --fade-dir: 0deg; }    /* De abajo hacia arriba */
+
+/* Modificadores de Color Prediseñados */
+.fade-color-navy     { --fade-color: #07192F; } /* Azul oscuro Home */
+.fade-color-brand    { --fade-color: #091E3A; } /* Azul corporativo CEDEPRO */
+.fade-color-blue     { --fade-color: #1a375b; } /* Azul acento */
+.fade-color-gold     { --fade-color: #df9417; } /* Dorado / Ámbar CEDEPRO */
+.fade-color-amber    { --fade-color: #f5a623; } /* Amarillo oro brillante */
+.fade-color-white    { --fade-color: #ffffff; } /* Blanco */
+.fade-color-dark     { --fade-color: #050d1a; } /* Negro azulado ultra oscuro */
