@@ -66,7 +66,7 @@ const values = [
   {
     name: 'Excelencia',
     bg: 'bg-[#fef3d6] text-[#b8860b] border-[#f3d999]',
-    icon: `<img src="/assets/cinco-años/medalla.png" alt="Excelencia" class="w-8 h-8 sm:w-9 sm:h-9 object-contain" />`
+    icon: `<img src="/assets/nosotros/icon-nosotros-section-5-medalla.png" alt="Excelencia" class="w-8 h-8 sm:w-9 sm:h-9 object-contain" />`
   },
   {
     name: 'Innovación',
@@ -81,7 +81,7 @@ const values = [
   {
     name: 'Colaboración',
     bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
-    icon: `<img src="/assets/cinco-años/manitos.png" alt="Colaboración" class="w-8 h-8 sm:w-9 sm:h-9 object-contain" />`
+    icon: `<img src="/assets/nosotros/icon-nosotros-section-5-manitos.png" alt="Colaboración" class="w-8 h-8 sm:w-9 sm:h-9 object-contain" />`
   },
   {
     name: 'Impacto',
@@ -94,7 +94,7 @@ const values = [
 <Layout 
   title="Nosotros – CEDEPRO Ecuador | El Aliado Estratégico para tu Institución"
   description="Conoce a CEDEPRO: 5 años construyendo soluciones para la educación superior. Asesoría, formación, gestión, proyectos, cooperación y tecnología."
-  image="/assets/cinco-años/cinco-anos-azul.webp"
+  image="/assets/nosotros/img-nosotros-section-1-badge.webp"
 >
   
   <!-- =========================================================================
@@ -117,7 +117,7 @@ const values = [
         <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
         <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
           <img 
-            src="/assets/cinco-años/cinco-anos-azul.webp" 
+            src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
             alt="5 AÑOS" 
             class="h-9 sm:h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
             width="160"
@@ -170,9 +170,9 @@ const values = [
     <!-- Imagen de Fondo con Overlay Azul Marino y Difuminado -->
     <div class="absolute inset-0 z-0">
       <picture>
-        <source srcset="/assets/cinco-años/img-2-nosotros.webp" type="image/webp" />
+        <source srcset="/assets/nosotros/img-nosotros-section-2.webp" type="image/webp" />
         <img 
-          src="/assets/cinco-años/img-2-nosotros.png" 
+          src="/assets/nosotros/img-nosotros-section-2.png" 
           alt="Instalaciones y espacio de trabajo CEDEPRO" 
           class="w-full h-full object-cover object-center"
           width="1920"
@@ -229,9 +229,9 @@ const values = [
     <!-- Capa de imagen de fondo -->
     <div class="absolute inset-x-0 top-0 z-0 h-[55%] md:h-full md:w-[65%] lg:w-[60%] md:inset-auto md:right-0">
       <picture>
-        <source srcset="/assets/cinco-años/img-3-nosotros.webp" type="image/webp" />
+        <source srcset="/assets/nosotros/img-nosotros-section-3.webp" type="image/webp" />
         <img 
-          src="/assets/cinco-años/img-3-nosotros.png" 
+          src="/assets/nosotros/img-nosotros-section-3.png" 
           alt="Auditorio y conferencias de formación CEDEPRO" 
           class="w-full h-full object-cover object-[center_30%] md:object-right"
           decoding="async"
@@ -261,7 +261,7 @@ const values = [
         <div>
           <div class="flex items-baseline sm:items-end md:items-baseline gap-2 sm:gap-3 lg:gap-4 flex-wrap sm:flex-nowrap">
             <img 
-              src="/assets/cinco-años/cinco-anos-azul.webp" 
+              src="/assets/nosotros/img-nosotros-section-1-badge.webp" 
               alt="5 AÑOS" 
               class="h-10 sm:h-16 md:h-[5.5rem] lg:h-[6.5rem] w-auto object-contain shrink-0 align-baseline"
               decoding="async"
@@ -448,7 +448,7 @@ const values = [
           Certificación
         </span>
         <img 
-          src="/assets/brand/ISO.webp" 
+          src="/assets/brand/img-navbar-iso.webp" 
           alt="IAS STAREGISTER ISO 9001:2015" 
           class="h-10 sm:h-12 w-auto object-contain mx-1"
           width="120"
@@ -475,9 +475,9 @@ const values = [
     <!-- Fondo con img-4-nosotros -->
     <div class="absolute inset-0 z-0">
       <picture>
-        <source srcset="/assets/cinco-años/img-4-nosotros.webp" type="image/webp" />
+        <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
         <img 
-          src="/assets/cinco-años/img-4-nosotros.png" 
+          src="/assets/nosotros/img-nosotros-section-6.png" 
           alt="Consultores trabajando en reunión estratégica nocturna" 
           class="w-full h-full object-cover object-right sm:object-center"
           width="1920"
@@ -513,9 +513,14 @@ const values = [
   </section>
 
   <!-- =========================================================================
-       ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO (ESTILO INDEX.ASTRO)
+       ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO Y FOOTER
        ========================================================================= -->
   <style is:global>
+    /* Eliminar la línea de separación fea entre la Sección 6 y el Footer */
+    footer {
+      border-top: none !important;
+    }
+
     /* Reglas comunes de las capas del hero */
     .hero-bg-layer-nosotros {
       background-repeat: no-repeat;
@@ -553,7 +558,7 @@ const values = [
         right: 0 !important;
         bottom: 0 !important;
         height: 420px !important;
-        background-image: url('/assets/cinco-años/img-1-nosotros.webp') !important;
+        background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
         background-size: contain !important;
         background-position: center bottom !important;
         z-index: 1 !important;
@@ -601,7 +606,7 @@ const values = [
         display: block !important;
         position: absolute !important;
         inset: 0 !important;
-        background-image: url('/assets/cinco-años/img-1-nosotros.webp') !important;
+        background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
         background-size: contain !important;
         background-position: right bottom !important;
         z-index: 1 !important;
