@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout 
+  title="CEDEPRO Tech | Soluciones Tecnológicas e Innovación"
+  description="Transformación digital y soluciones tecnológicas aplicadas a instituciones y empresas."
+>
+  <section class="min-h-[70vh] bg-[#07192F] text-white flex items-center justify-center px-4 py-24 text-center">
+    <div class="max-w-2xl mx-auto space-y-6">
+      <div class="w-20 h-20 rounded-full bg-[#df9417]/20 border border-[#df9417] flex items-center justify-center mx-auto text-[#df9417]">
+        <Icon name="ion:hardware-chip-outline" class="w-10 h-10" />
+      </div>
+      <p class="text-[#df9417] text-sm font-bold tracking-widest uppercase italic">CEDEPRO TECH</p>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight">Soluciones Tecnológicas e Innovación</h1>
+      <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+        Sección en desarrollo. Herramientas digitales, plataformas y tecnología especializada para el avance educativo e institucional.
+      </p>
+      <div class="pt-4 flex justify-center gap-4">
+        <a href="/portafolio/asesoria" class="btn-gold !rounded-full !px-7 !py-3 text-sm font-bold">
+          Ver CEDEPRO Asesoría
+        </a>
+        <a href="/contactanos" class="btn-outline-white !rounded-full !px-7 !py-3 text-sm font-bold">
+          Hablemos de tu reto
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

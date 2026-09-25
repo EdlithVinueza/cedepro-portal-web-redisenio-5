@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout 
+  title="CEDEPRO Gestión | Optimización y Gestión Institucional"
+  description="Modelos de gestión, optimización de procesos y cumplimiento normativo."
+>
+  <section class="min-h-[70vh] bg-[#07192F] text-white flex items-center justify-center px-4 py-24 text-center">
+    <div class="max-w-2xl mx-auto space-y-6">
+      <div class="w-20 h-20 rounded-full bg-[#df9417]/20 border border-[#df9417] flex items-center justify-center mx-auto text-[#df9417]">
+        <Icon name="ion:settings-outline" class="w-10 h-10" />
+      </div>
+      <p class="text-[#df9417] text-sm font-bold tracking-widest uppercase italic">CEDEPRO GESTIÓN</p>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight">Optimización y Gestión Institucional</h1>
+      <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+        Sección en desarrollo. Acompañamos el fortalecimiento administrativo, operativo y normativo de tu organización.
+      </p>
+      <div class="pt-4 flex justify-center gap-4">
+        <a href="/portafolio/asesoria" class="btn-gold !rounded-full !px-7 !py-3 text-sm font-bold">
+          Ver CEDEPRO Asesoría
+        </a>
+        <a href="/contactanos" class="btn-outline-white !rounded-full !px-7 !py-3 text-sm font-bold">
+          Hablemos de tu reto
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

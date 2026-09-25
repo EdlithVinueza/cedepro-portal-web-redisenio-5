@@ -2,160 +2,295 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Nosotros', href: '/nosotros' },
-  { name: 'Portafolio', href: '/portafolio' },
-  { name: 'Gestión de Calidad', href: '/gestion-de-calidad' },
-  { name: 'Contáctanos', href: '/contactanos' }
+  { name: "Inicio", href: "/" },
+  { name: "Nosotros", href: "/nosotros" },
+  {
+    name: "Portafolio",
+    href: "#",
+    dropdown: [
+      { name: "CEDEPRO ASESORÍA", href: "/portafolio/asesoria" },
+      //{ name: "CEDEPRO PROYECTOS", href: "/portafolio/proyectos" },
+      //{ name: "CEDEPRO ACADEMIA", href: "/portafolio/academia" },
+      //{ name: "CEDEPRO GESTIÓN", href: "/portafolio/gestion" },
+      //{ name: "CEDEPRO INTERNACIONAL", href: "/portafolio/internacional" },
+      //{ name: "CEDEPRO TECH", href: "/portafolio/tech" },
+    ],
+  },
+  { name: "Gestión de Calidad", href: "/gestion-de-calidad" },
+  { name: "Contáctanos", href: "/contactanos" },
 ];
 
-const isActive = (href: string) => {
- if (href === '/') return currentPath === '/' || currentPath === '';
- return currentPath.startsWith(href);
+const isActive = (item: any) => {
+  if (item.href === "/") return currentPath === "/" || currentPath === "";
+  if (
+    item.dropdown &&
+    item.dropdown.some((d: any) => currentPath.startsWith(d.href.split("#")[0]))
+  )
+    return true;
+  return item.href !== "#" && currentPath.startsWith(item.href);
 };
 ---
 
-<header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#091E3A]/95 backdrop-blur-md border-b border-[#0d2d59] shadow-md transition-all duration-300">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div class="flex items-center justify-between h-16 sm:h-20">
- 
- <!-- Logotipo Oficial Cedepro + Sello IAS STAREGISTER ISO (Fiel a la referencia) -->
- <div class="flex items-center gap-2 sm:gap-3.5 shrink-0 py-1">
- <a href="/" class="flex items-center transition-transform active:scale-95" aria-label="Cedepro Ecuador - Inicio">
- <img 
- src="/assets/brand/img-navbar-logo.webp" 
- alt="CEDEPRO Centro de Desarrollo Educativo y Profesional" 
- class="h-8 sm:h-9 md:h-10 w-auto max-w-[170px] sm:max-w-[210px] md:max-w-[230px] object-contain"
- width="230"
- height="59"
- decoding="async"
- loading="eager"
- />
- </a>
- <a 
- href="/nosotros#calidad" 
- class="flex items-center transition-transform hover:opacity-90" 
- aria-label="Certificación ISO 9001:2015"
- >
- <img 
- src="/assets/brand/img-navbar-iso.webp" 
- alt="IAS STAREGISTER ISO 9001:2015" 
- class="h-7 sm:h-8 md:h-9 w-auto object-contain"
- width="80"
- height="45"
- decoding="async"
- loading="eager"
- />
- </a>
- </div>
+<header
+  class="fixed top-0 left-0 right-0 w-full z-50 bg-[#091E3A]/95 backdrop-blur-md border-b border-[#0d2d59] shadow-md transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      <!-- Logotipo Oficial Cedepro + Sello IAS STAREGISTER ISO (Fiel a la referencia) -->
+      <div class="flex items-center gap-2 sm:gap-3.5 shrink-0 py-1">
+        <a
+          href="/"
+          class="flex items-center transition-transform active:scale-95"
+          aria-label="Cedepro Ecuador - Inicio"
+        >
+          <img
+            src="/assets/brand/img-navbar-logo.webp"
+            alt="CEDEPRO Centro de Desarrollo Educativo y Profesional"
+            class="h-8 sm:h-9 md:h-10 w-auto max-w-[170px] sm:max-w-[210px] md:max-w-[230px] object-contain"
+            width="230"
+            height="59"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+        <a
+          href="/nosotros#calidad"
+          class="flex items-center transition-transform hover:opacity-90"
+          aria-label="Certificación ISO 9001:2015"
+        >
+          <img
+            src="/assets/brand/img-navbar-iso.webp"
+            alt="IAS STAREGISTER ISO 9001:2015"
+            class="h-7 sm:h-8 md:h-9 w-auto object-contain"
+            width="80"
+            height="45"
+            decoding="async"
+            loading="eager"
+          />
+        </a>
+      </div>
 
- <!-- Desktop Navigation Menu -->
- <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-[13px] 2xl:text-sm font-medium">
- {navItems.map((item) => (
- <a
- href={item.href}
- class={`relative py-2 transition-colors duration-200 hover:text-[#df9417] ${
- isActive(item.href) ? 'text-white font-semibold after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[3px] after:bg-[#df9417]' : 'text-slate-100'
- }`}
- >
- {item.name}
- </a>
- ))}
- </nav>
+      <!-- Desktop Navigation Menu -->
+      <nav
+        class="hidden xl:flex items-center gap-5 2xl:gap-7 text-[13px] 2xl:text-sm font-medium"
+      >
+        {
+          navItems.map((item) => (
+            <div class="relative group">
+              <a
+                href={item.href}
+                class={`relative py-2 transition-colors duration-200 hover:text-[#df9417] inline-flex items-center gap-1 ${
+                  isActive(item)
+                    ? "text-white font-semibold after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[3px] after:bg-[#df9417]"
+                    : "text-slate-100"
+                }`}
+              >
+                {item.name}
+              </a>
+              {item.dropdown && (
+                <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 flex flex-col py-2">
+                  {item.dropdown.map((subItem) => (
+                    <a
+                      href={subItem.href}
+                      class="px-4 py-2 text-[13px] text-[#1a375b] font-medium hover:bg-slate-50 hover:text-[#df9417] transition-colors block text-left"
+                    >
+                      {subItem.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </nav>
 
- <!-- Desktop CTA Button: Solicita una asesoría (Gold con texto blanco y esquinas redondeadas) -->
- <div class="hidden lg:flex items-center">
- <a
- href="/contactanos"
- class="btn-gold !py-2.5 !px-5 !text-sm !font-bold shadow-md"
- >
- <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Solicita una asesoría</span>
- </a>
- </div>
+      <!-- Desktop CTA Button: Solicita una asesoría (Gold con texto blanco y esquinas redondeadas) -->
+      <div class="hidden lg:flex items-center">
+        <a
+          href="/contactanos"
+          class="btn-gold !py-2.5 !px-5 !text-sm !font-bold shadow-md"
+        >
+          <span
+            class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]"
+            >Solicita una asesoría</span
+          >
+        </a>
+      </div>
 
- <!-- Mobile Menu Hamburger Button -->
- <div class="flex xl:hidden items-center gap-2">
- <a
- href="/contactanos"
- class="btn-gold lg:hidden !min-h-0 !h-9 !py-0 !px-4 !text-sm !font-bold shadow-sm"
- >
- <span class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]">Asesoría</span>
- </a>
+      <!-- Mobile Menu Hamburger Button -->
+      <div class="flex xl:hidden items-center gap-2">
+        <a
+          href="/contactanos"
+          class="btn-gold lg:hidden !min-h-0 !h-9 !py-0 !px-4 !text-sm !font-bold shadow-sm"
+        >
+          <span
+            class="inline-flex items-center justify-center leading-none -translate-y-[1.5px]"
+            >Asesoría</span
+          >
+        </a>
 
- <button
- type="button"
- id="mobile-menu-btn"
- aria-label="Abrir menú de navegación"
- aria-expanded="false"
- class="p-2.5 rounded-xl text-white hover:bg-white/10 active:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#f5a623]"
- >
- <svg id="menu-icon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
- </svg>
- <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
- </svg>
- </button>
- </div>
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          class="p-2.5 rounded-xl text-white hover:bg-white/10 active:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#f5a623]"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6 block"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
 
- </div>
+    <!-- Mobile Dropdown Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden xl:hidden py-4 border-t border-white/10 space-y-2 animate-fadeIn"
+    >
+      <nav class="flex flex-col space-y-1">
+        {
+          navItems.map((item, idx) => (
+            <div class="flex flex-col">
+              <div class="flex items-center justify-between">
+                <a
+                  href={item.href}
+                  onclick={
+                    item.dropdown
+                      ? "event.preventDefault(); document.querySelector(`[data-target='mobile-dropdown-${idx}']`).click();"
+                      : undefined
+                  }
+                  class={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors w-full ${
+                    isActive(item)
+                      ? "text-[#f5a623] font-semibold bg-white/10 border-l-4 border-[#f5a623]"
+                      : "text-white hover:bg-white/5 hover:text-[#f5a623]"
+                  }`}
+                >
+                  {item.name}
+                </a>
+                {item.dropdown && (
+                  <button
+                    type="button"
+                    class="p-3 text-white focus:outline-none mobile-dropdown-btn flex-shrink-0"
+                    data-target={`mobile-dropdown-${idx}`}
+                    aria-label={`Desplegar ${item.name}`}
+                  >
+                    <svg
+                      class="w-5 h-5 transition-transform duration-200"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              {item.dropdown && (
+                <div
+                  id={`mobile-dropdown-${idx}`}
+                  class="hidden flex-col pl-6 pr-4 space-y-1 mt-1 mb-2 border-l border-white/20 ml-4"
+                >
+                  {item.dropdown.map((subItem) => (
+                    <a
+                      href={subItem.href}
+                      class="block py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors"
+                    >
+                      {subItem.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </nav>
 
- <!-- Mobile Dropdown Menu -->
- <div id="mobile-menu" class="hidden xl:hidden py-4 border-t border-white/10 space-y-2 animate-fadeIn">
- <nav class="flex flex-col space-y-1">
- {navItems.map((item) => (
- <a
- href={item.href}
- class={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
- isActive(item.href) ? 'text-[#f5a623] font-semibold bg-white/10 border-l-4 border-[#f5a623]' : 'text-white hover:bg-white/5 hover:text-[#f5a623]'
- }`}
- >
- {item.name}
- </a>
- ))}
- </nav>
- 
- <div class="pt-3 px-1">
- <a
- href="/contactanos"
- class="btn-gold w-full text-center py-3"
- >
- Solicita una asesoría
- </a>
- </div>
- </div>
-
- </div>
+      <div class="pt-3 px-1">
+        <a href="/contactanos" class="btn-gold w-full text-center py-3">
+          Solicita una asesoría
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
- const btn = document.getElementById('mobile-menu-btn');
- const menu = document.getElementById('mobile-menu');
- const menuIcon = document.getElementById('menu-icon');
- const closeIcon = document.getElementById('close-icon');
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
 
- btn?.addEventListener('click', () => {
- const isExpanded = btn.getAttribute('aria-expanded') === 'true';
- btn.setAttribute('aria-expanded', String(!isExpanded));
- 
- const isHidden = menu?.classList.toggle('hidden');
- if (isHidden === false) {
- menuIcon?.classList.add('hidden');
- closeIcon?.classList.remove('hidden');
- } else {
- menuIcon?.classList.remove('hidden');
- closeIcon?.classList.add('hidden');
- }
- });
+  btn?.addEventListener("click", () => {
+    const isExpanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!isExpanded));
 
- // Cerrar menú al hacer clic en un enlace de navegación
- const navLinks = menu?.querySelectorAll('a');
- navLinks?.forEach(link => {
- link.addEventListener('click', () => {
- menu?.classList.add('hidden');
- menuIcon?.classList.remove('hidden');
- closeIcon?.classList.add('hidden');
- btn?.setAttribute('aria-expanded', 'false');
- });
- });
+    const isHidden = menu?.classList.toggle("hidden");
+    if (isHidden === false) {
+      menuIcon?.classList.add("hidden");
+      closeIcon?.classList.remove("hidden");
+    } else {
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    }
+  });
+
+  // Mobile Dropdown Toggles
+  const mobileDropdownBtns = document.querySelectorAll(".mobile-dropdown-btn");
+  mobileDropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const targetId = btn.getAttribute("data-target");
+      if (targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.classList.toggle("hidden");
+          targetEl.classList.toggle("flex");
+          const icon = btn.querySelector("svg");
+          if (icon) icon.classList.toggle("rotate-180");
+        }
+      }
+    });
+  });
+
+  // Cerrar menú al hacer clic en un enlace de navegación
+  const navLinks = menu?.querySelectorAll("a:not(.mobile-dropdown-btn)");
+  navLinks?.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // Si es un enlace de dropdown no lo cerramos a menos que tenga target
+      menu?.classList.add("hidden");
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+      btn?.setAttribute("aria-expanded", "false");
+    });
+  });
 </script>
