@@ -2,13 +2,11 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
- { name: 'Inicio', href: '/' },
- { name: 'Nosotros', href: '/nosotros' },
- { name: 'Cinco años CEDEPRO', href: '/cinco-cedepro' },
- { name: 'Resultados', href: '/resultados' },
- { name: 'Aliados', href: '/aliados' },
- { name: 'Recursos', href: '/recursos' },
- { name: 'Contáctanos', href: '/contactanos' }
+  { name: 'Inicio', href: '/' },
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Portafolio', href: '/portafolio' },
+  { name: 'Gestión de Calidad', href: '/gestion-de-calidad' },
+  { name: 'Contáctanos', href: '/contactanos' }
 ];
 
 const isActive = (href: string) => {

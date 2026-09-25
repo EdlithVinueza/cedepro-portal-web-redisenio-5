@@ -171,9 +171,9 @@ const values = [
  <!-- Imagen de Fondo con Overlay Azul Marino y Difuminado -->
  <div class="absolute inset-0 z-0">
  <picture>
- <source srcset="/assets/nosotros/img-nosotros-section-2.webp" type="image/webp" />
+ <source srcset="/assets/nosotros/img-nosotros-section-3.webp" type="image/webp" />
  <img 
- src="/assets/nosotros/img-nosotros-section-2.png" 
+ src="/assets/nosotros/img-nosotros-section-3.png" 
  alt="Instalaciones y espacio de trabajo CEDEPRO" 
  class="w-full h-full object-cover object-center"
  width="1920"
@@ -230,9 +230,9 @@ const values = [
  <!-- Capa de imagen de fondo -->
  <div class="absolute inset-x-0 top-0 z-0 h-[55%] md:h-full md:w-[65%] lg:w-[60%] md:inset-auto md:right-0">
  <picture>
- <source srcset="/assets/nosotros/img-nosotros-section-3.webp" type="image/webp" />
+ <source srcset="/assets/nosotros/img-nosotros-section-4.webp" type="image/webp" />
  <img 
- src="/assets/nosotros/img-nosotros-section-3.png" 
+ src="/assets/nosotros/img-nosotros-section-4.png" 
  alt="Auditorio y conferencias de formación CEDEPRO" 
  class="w-full h-full object-cover object-[center_30%] md:object-right"
  decoding="async"
@@ -373,7 +373,100 @@ const values = [
  </section>
 
  <!-- =========================================================================
- 5. SECCIÓN 5: NUESTRO IMPACTO & VALORES (Fondo Blanco Limpio)
+ 5. SECCIÓN 5: NUESTRA FORMA DE ACOMPAÑAR (Fondo Azul)
+ ========================================================================= -->
+ <section class="relative py-12 lg:py-10 px-4 sm:px-6 lg:px-8 bg-[#091E3A] text-white lg:min-h-[560px] lg:max-h-[820px] lg:h-[calc(100vh-5rem)] flex items-center">
+ <div class="max-w-7xl mx-auto w-full">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+ 
+ <!-- Columna Izquierda: NUESTRA FORMA DE ACOMPAÑAR -->
+ <div class="space-y-3 lg:space-y-4">
+ <div class="space-y-1 sm:space-y-2">
+ <p class="text-[#df9417] text-[11px] sm:text-xs font-normal tracking-[0.2em] uppercase italic">
+ NUESTRA FORMA DE ACOMPAÑAR
+ </p>
+ <h2 class="text-2xl sm:text-3xl lg:text-[2.1rem] font-bold text-white tracking-tight leading-tight">
+ Entendemos primero. Proponemos con sustento. <span class="text-[#df9417]">Acompañamos hasta avanzar.</span>
+ </h2>
+ </div>
+ <p class="text-white/90 text-[14px] sm:text-[14.5px] font-normal leading-relaxed text-balance">
+ Cada institución tiene un contexto, una historia y una capacidad de respuesta diferentes. Trabajamos con una metodología estructurada, pero suficientemente flexible para que la solución responda a la realidad y no al revés.
+ </p>
+ 
+ <!-- Lista de Pasos -->
+ <div class="space-y-2.5 pt-2">
+ {[
+ { title: 'Comprender', desc: 'Escuchamos a las personas, revisamos el contexto y definimos el desafío que realmente debe resolverse.' },
+ { title: 'Diagnosticar', desc: 'Contrastamos información, riesgos, capacidades y oportunidades para priorizar con evidencia.' },
+ { title: 'Diseñar', desc: 'Construimos una ruta de acción con objetivos, entregables, responsables e indicadores claros.' },
+ { title: 'Implementar', desc: 'Acompañamos a los equipos para llevar la propuesta a la práctica y sostener los cambios.' },
+ { title: 'Medir y mejorar', desc: 'Revisamos resultados, generamos evidencias y ajustamos lo necesario para avanzar con calidad.' }
+ ].map(step => (
+ <div class="flex flex-col sm:flex-row border border-white/30 rounded-lg overflow-hidden bg-white/5 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-white/50 hover:shadow-md cursor-default">
+ <div class="bg-white text-[#091E3A] font-bold sm:w-[30%] px-3 py-2.5 flex items-center justify-center text-center text-[14px] shrink-0">
+ {step.title}
+ </div>
+ <div class="px-3 py-2.5 sm:w-[70%] flex items-center text-white/90 text-[13.5px] sm:text-[14px] leading-snug">
+ {step.desc}
+ </div>
+ </div>
+ ))}
+ </div>
+ </div>
+
+ <!-- Columna Derecha: UNA CONVICCIÓN QUE NOS GUÍA -->
+ <div class="space-y-3 lg:space-y-4 lg:pl-8 flex flex-col">
+ <div class="space-y-1 sm:space-y-2">
+ <p class="text-[#df9417] text-[11px] sm:text-xs font-normal tracking-[0.2em] uppercase italic">
+ UNA CONVICCIÓN QUE NOS GUÍA
+ </p>
+ <h2 class="text-xl sm:text-2xl lg:text-[1.8rem] font-bold text-white tracking-tight leading-tight">
+ La calidad se construye en <br class="hidden lg:block"/> cada decisión
+ </h2>
+ </div>
+ 
+ <div class="relative pt-2">
+ <div class="text-[#ffffff] opacity-40 font-serif text-[4.5rem] sm:text-[5.5rem] leading-none absolute -top-3 sm:-top-5 left-0 select-none">
+ &ldquo;
+ </div>
+ <div class="space-y-2 text-white/90 text-[14px] sm:text-[14.5px] font-normal italic leading-relaxed relative z-10 pt-5 sm:pt-6">
+ <p>
+ En CEDEPRO creemos que cada institución tiene un contexto, un propósito y un potencial distintos. Nuestro trabajo consiste en entenderlos, ordenar las decisiones y acompañar a las personas que harán posible el cambio.
+ </p>
+ <p>
+ En estos cinco años hemos confirmado que el crecimiento sostenible comienza cuando la experiencia se convierte en acción: una decisión mejor sustentada, un equipo más preparado, un proceso más claro o un proyecto con una ruta real de ejecución.
+ </p>
+ </div>
+ </div>
+ 
+ <div class="pt-0">
+ <img 
+ src="/assets/nosotros/img-nosotros-section-6.png" 
+ alt="Firma de Juan Pablo Morales" 
+ class="h-12 sm:h-14 w-auto object-contain"
+ decoding="async"
+ />
+ </div>
+ 
+ <div class="pt-4 sm:pt-5">
+ <a 
+ href="/contactanos" 
+ class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center gap-2 group w-full sm:w-auto justify-center"
+ >
+ <span class="inline-flex items-center justify-center text-center leading-none">
+ Conoce cómo podemos ayudarte
+ <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold ml-1.5">→</span>
+ </span>
+ </a>
+ </div>
+ </div>
+ 
+ </div>
+ </div>
+ </section>
+
+ <!-- =========================================================================
+ 6. SECCIÓN 6: NUESTRO IMPACTO & VALORES (Fondo Blanco Limpio)
  ========================================================================= -->
  <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
  <div class="max-w-7xl mx-auto space-y-12">
@@ -470,15 +563,62 @@ const values = [
  </section>
 
  <!-- =========================================================================
- 6. SECCIÓN 6: CTA FINAL (Fondo con filtro azul para máxima legibilidad)
+ 7. SECCIÓN 7: NUESTRO NORTE (Misión y Visión)
+ ========================================================================= -->
+ <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden lg:min-h-[560px] lg:max-h-[820px] lg:h-[calc(100vh-5rem)] lg:flex lg:flex-col lg:justify-center" style="background-image: url('/assets/nosotros/img-nosotros-section-4.webp');">
+ <!-- Filtro amarillo/dorado sobre la imagen -->
+ <div class="absolute inset-0 bg-[#df9417]/85 backdrop-blur-[2px] pointer-events-none"></div>
+
+ <div class="relative max-w-[74rem] px-4 sm:px-6 mx-auto space-y-10 sm:space-y-14 z-10 w-full">
+ 
+ <!-- Encabezado de la Sección -->
+ <div class="text-center space-y-1.5 max-w-3xl mx-auto">
+ <p class="text-white text-xs sm:text-sm font-semibold tracking-widest uppercase italic">
+ NUESTRO NORTE
+ </p>
+ <h2 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+ Un propósito claro para crecer con sentido
+ </h2>
+ </div>
+
+ <!-- Tarjetas de Misión y Visión -->
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+ 
+ <!-- Tarjeta Misión -->
+ <div class="card-light flex flex-col justify-start p-8 sm:p-10">
+ <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] mb-4">
+ Misión
+ </h3>
+ <p class="text-[#1a375b] text-sm sm:text-base md:text-[16px] leading-relaxed font-normal text-left">
+ Ser el aliado estratégico de las instituciones de educación superior, generando soluciones de asesoría, formación, gestión y proyectos que respondan a sus necesidades reales, fortalezcan sus capacidades y contribuyan a su crecimiento sostenible.
+ </p>
+ </div>
+
+ <!-- Tarjeta Visión -->
+ <div class="card-light flex flex-col justify-start p-8 sm:p-10">
+ <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] mb-4">
+ Visión
+ </h3>
+ <p class="text-[#1a375b] text-sm sm:text-base md:text-[16px] leading-relaxed font-normal text-left">
+ Para 2030, ser reconocidos como un referente nacional en soluciones estratégicas para la calidad, la innovación y el desarrollo sostenible de las instituciones de educación superior.
+ </p>
+ </div>
+
+ </div>
+
+ </div>
+ </section>
+
+ <!-- =========================================================================
+ 8. SECCIÓN 8: CTA FINAL (Fondo con filtro azul para máxima legibilidad)
  ========================================================================= -->
  <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]">
  <!-- Fondo con img-4-nosotros -->
  <div class="absolute inset-0 z-0">
  <picture>
- <source srcset="/assets/nosotros/img-nosotros-section-6.webp" type="image/webp" />
+ <source srcset="/assets/nosotros/img-nosotros-section-9.webp" type="image/webp" />
  <img 
- src="/assets/nosotros/img-nosotros-section-6.png" 
+ src="/assets/nosotros/img-nosotros-section-9.png" 
  alt="Consultores trabajando en reunión estratégica nocturna" 
  class="w-full h-full object-cover object-right sm:object-center"
  width="1920"
@@ -504,7 +644,7 @@ const values = [
  <div class="pt-2">
  <a 
  href="/contactanos" 
- class="btn-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-xl inline-flex items-center gap-2 group"
+ class="btn-on-gold !rounded-full !px-8 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-xl inline-flex items-center gap-2 group"
  >
  <span>Hablemos de tu reto</span>
  <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
@@ -517,7 +657,7 @@ const values = [
  ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO Y FOOTER
  ========================================================================= -->
  <style is:global>
- /* Eliminar la línea de separación fea entre la Sección 6 y el Footer */
+ /* Eliminar la línea de separación fea entre la Sección 7 y el Footer */
  footer {
  border-top: none !important;
  }
