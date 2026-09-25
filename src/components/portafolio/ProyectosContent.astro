@@ -1,0 +1,129 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components';
+
+const profiles = [
+  { title: 'Instituciones de educación superior que desean diseñar o transformar carreras y programas.', icon: 'ion:school-outline', color: '#1665c0' },
+  { title: 'Promotores y equipos directivos que necesitan crear o fortalecer unidades académicas.', icon: 'ion:people-outline', color: '#00838f' },
+  { title: 'Instituciones que evalúan ampliar su oferta, abrir una nueva línea o impulsar un proyecto de crecimiento.', icon: 'ion:stats-chart-outline', color: '#1976d2' },
+  { title: 'Organizaciones que requieren estructurar una unidad de innovación, formación o desarrollo institucional.', icon: 'ion:bulb-outline', color: '#5e35b1' },
+  { title: 'Equipos que deben presentar un proyecto ante autoridades, aliados, inversionistas o instancias de evaluación.', icon: 'ion:document-text-outline', color: '#df9417' }
+];
+
+const needs = [
+  { label: 'Tienes una idea, pero no una ruta', icon: 'ion:search-outline', color: '#091E3A' },
+  { label: 'Quieres crear o transformar una carrera', icon: 'ion:stats-chart-outline', color: '#1665c0' },
+  { label: 'Necesitas una nueva unidad académica', icon: 'ion:people-outline', color: '#00838f' },
+  { label: 'Debes presentar una iniciativa', icon: 'ion:document-text-outline', color: '#1976d2' },
+  { label: 'El proyecto ya fue aprobado y debe avanzar', icon: 'ion:arrow-forward-circle-outline', color: '#5e35b1' }
+];
+
+const solutions = [
+  { title: 'Estudios de pertinencia y viabilidad', desc: 'Análisis del contexto que permiten decidir antes de invertir.', icon: 'ion:document-text-outline' },
+  { title: 'Career Builder', desc: 'Diseño y transformación de carreras y programas con respaldo técnico.', icon: 'ion:bar-chart-outline' },
+  { title: 'Creación de Unidades Académicas', desc: 'Estructuración de nuevas áreas para ampliar la oferta.', icon: 'ion:business-outline' },
+  { title: 'Proyectos institucionales e innovación', desc: 'Desarrollo de iniciativas de expansión e innovación.', icon: 'ion:settings-outline' }
+];
+
+const steps = [
+  { num: '1', title: 'Alinear', desc: 'Conectar visión, necesidades y objetivos estratégicos.', icon: 'ion:git-network-outline' },
+  { num: '2', title: 'Validar', desc: 'Evaluar pertinencia, factibilidad y sostenibilidad integral.', icon: 'ion:document-text-outline' },
+  { num: '3', title: 'Estructurar', desc: 'Transformar ideas en proyectos ejecutables exitosos.', icon: 'ion:settings-outline' },
+  { num: '4', title: 'Presentar', desc: 'Construir propuestas sólidas con evidencia estratégica.', icon: 'ion:hand-left-outline' },
+  { num: '5', title: 'Implementar', desc: 'Acompañar ejecución, seguimiento y mejora continua.', icon: 'ion:bulb-outline' }
+];
+
+const reasons = [
+  { title: 'Experiencia en educación superior', icon: 'ion:school-outline' },
+  { title: 'Mirada integral', icon: 'ion:stats-chart-outline' },
+  { title: 'Prevención de reprocesos', icon: 'ion:shield-checkmark-outline' },
+  { title: 'De la idea a la implementación', icon: 'ion:git-network-outline' },
+  { title: 'Ecosistema CEDEPRO', icon: 'ion:heart-outline' }
+];
+---
+
+<section id="proyectos" class="hero-projects relative overflow-hidden bg-[#dfaa05]">
+  <div class="absolute inset-0 z-0">
+    <img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png" alt="Equipo trabajando en un proyecto institucional" class="h-full w-full object-cover object-center" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#dfaa05] via-[#dfaa05]/95 via-45% to-[#dfaa05]/10"></div>
+  </div>
+  <div class="relative z-10 mx-auto flex min-h-[31rem] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-xl space-y-4 text-white">
+      <p class="text-xs uppercase italic tracking-[0.15em]">CEDEPRO PROYECTOS</p>
+      <h1 class="text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-[2.65rem]">Ideas convertidas en iniciativas académicas, institucionales y de crecimiento.</h1>
+      <p class="max-w-lg text-base font-bold leading-tight">Una buena idea necesita una ruta para convertirse en realidad.</p>
+      <p class="max-w-xl text-sm leading-relaxed text-white/95">Acompañamos a instituciones de educación superior, promotores y equipos directivos a transformar una oportunidad o desafío en un proyecto viable, validado y ejecutable.</p>
+      <div class="flex flex-col gap-3 pt-3 sm:flex-row">
+        <a href="#soluciones" class="btn-navy-on-gold inline-flex items-center justify-center px-6 py-3 text-sm font-bold"><span>Convierte tus desafíos en proyectos viables <span class="ml-1">→</span></span></a>
+        <a href="/contactanos" class="btn-on-gold inline-flex items-center justify-center px-6 py-3 text-sm font-bold"><span>Impulsa tu proyecto</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl space-y-10">
+    <div class="mx-auto max-w-4xl space-y-3">
+      <p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">PARA QUIENES QUIEREN CONVERTIR UNA VISIÓN EN UNA INICIATIVA</p>
+      <h2 class="text-2xl font-bold leading-tight text-[#1a375b] sm:text-3xl">Cuando el <span class="text-[#df9417]">futuro de tu institución</span><br class="hidden sm:block" /> necesita algo más que una idea</h2>
+      <p class="text-[15px] leading-relaxed text-[#1a375b]">CEDEPRO Proyectos está dirigida a instituciones y equipos que necesitan pasar de una intención general a un proyecto que pueda explicarse, validarse, presentarse y sostenerse en el tiempo.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      {profiles.map((profile) => (
+        <div class="card-profile w-full max-w-[19rem]">
+          <div class="card-icon-circle h-12 w-12" style={`background-color:${profile.color}`}><AstroIcon name={profile.icon} class="h-6 w-6 text-white stroke-1" /></div>
+          <div><p class="text-xs font-bold leading-tight text-[#1a375b]">{profile.title}</p><div class="mt-2 h-[3px] w-8 rounded-full" style={`background-color:${profile.color}`}></div></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="relative overflow-hidden bg-[#dfaa05] px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+  <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
+    <div class="space-y-4 text-white lg:pr-10">
+      <p class="text-xs uppercase italic tracking-[0.15em]">EL RETO</p>
+      <h2 class="text-2xl font-bold leading-tight sm:text-3xl">Una idea puede ser valiosa y aun así no estar lista para avanzar</h2>
+      <p class="text-sm leading-relaxed">Muchas iniciativas no llegan a ejecutarse porque no cuentan con una ruta clara, un análisis suficiente de pertinencia, viabilidad o sostenibilidad. El resultado puede ser una inversión mal orientada o un proyecto que no logra despegar.</p>
+      <a href="#metodologia" class="btn-navy-on-gold inline-flex px-5 py-2.5 text-sm font-bold"><span>Descubre qué necesita tu proyecto <span class="ml-1">→</span></span></a>
+    </div>
+    <div class="space-y-4 border-white/40 text-white lg:border-l lg:pl-10">
+      <p class="text-xs uppercase italic tracking-[0.15em]">NUESTRA RESPUESTA</p>
+      <h2 class="text-2xl font-bold leading-tight sm:text-3xl">Convierte tu visión en un proyecto sostenible</h2>
+      <p class="text-sm leading-relaxed">Conectamos propósito, evidencia, criterios académicos y regulatorios, recursos, procesos y responsables. Acompañamos el paso de la idea a la estructura, de la estructura a la presentación y de la presentación a una implementación ordenada.</p>
+      <div class="inline-block rounded bg-white px-4 py-2 text-sm font-bold italic text-[#1a375b]">Ideas estructuradas para generar crecimiento.</div>
+    </div>
+  </div>
+  <img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-3.png" alt="Modelo arquitectónico para un proyecto institucional" class="pointer-events-none absolute bottom-0 right-0 hidden h-full w-[35%] object-cover opacity-35 lg:block" />
+</section>
+
+<section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl space-y-10">
+    <div><p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">DOS TIPOS DE INICIATIVA, UNA MISMA DIRECCIÓN</p><h2 class="text-2xl font-bold text-[#1a375b] sm:text-3xl">El proyecto correcto empieza por entender <span class="text-[#df9417]">qué quieres construir</span></h2></div>
+    <div class="grid gap-8 lg:grid-cols-2">
+      <article class="card-image-horizontal flex-col sm:flex-row">
+        <img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-4-p1.png" alt="Personas diseñando un proyecto académico" class="h-64 w-full object-cover sm:h-auto sm:w-[38%]" loading="lazy" />
+        <div class="space-y-3 p-6"><div class="flex items-center gap-3"><div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1665c0]"><AstroIcon name="ion:school-outline" class="h-6 w-6 text-white stroke-1" /></div><h3 class="text-xl font-bold text-[#1a375b]">Proyectos Académicos</h3></div><p class="text-sm leading-relaxed text-[#1a375b]/80">Diseñamos y estructuramos carreras, programas y propuestas académicas a partir de la pertinencia, la demanda y el perfil profesional.</p><a href="/contactanos" class="btn-outline-gold inline-flex px-4 py-2 text-xs font-bold"><span>Diseñar un proyecto académico <span class="ml-1">→</span></span></a></div>
+      </article>
+      <article class="card-image-horizontal flex-col sm:flex-row">
+        <img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-4-p2.png" alt="Equipo construyendo un proyecto institucional" class="h-64 w-full object-cover sm:h-auto sm:w-[38%]" loading="lazy" />
+        <div class="space-y-3 p-6"><div class="flex items-center gap-3"><div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1665c0]"><AstroIcon name="ion:stats-chart-outline" class="h-6 w-6 text-white stroke-1" /></div><h3 class="text-xl font-bold text-[#1a375b]">Proyectos Institucionales y de Crecimiento</h3></div><p class="text-sm leading-relaxed text-[#1a375b]/80">Convertimos una visión de expansión, una nueva unidad o un servicio en una iniciativa con innovación, objetivos medibles y criterios para decidir.</p><a href="/contactanos" class="btn-outline-gold inline-flex px-4 py-2 text-xs font-bold"><span>Estructurar un proyecto institucional <span class="ml-1">→</span></span></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="soluciones" class="bg-[#091E3A] px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+  <div class="mx-auto max-w-7xl space-y-8">
+    <div class="text-center text-white"><p class="text-xs uppercase italic tracking-[0.15em] text-[#df9417]">QUÉ PODEMOS AYUDARTE A CONVERTIR EN PROYECTO</p><h2 class="text-2xl font-bold sm:text-3xl">De la intención a una iniciativa que puede sostenerse</h2><p class="mx-auto mt-2 max-w-3xl text-sm italic text-slate-200">Activamos el nivel de asesoría que corresponde a tu necesidad y conectamos los recursos para convertir una idea en un proyecto viable.</p></div>
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-5">{needs.map((need) => <div class="card-need"><div class="card-icon-circle h-9 w-9" style={`background-color:${need.color}`}><AstroIcon name={need.icon} class="h-5 w-5 text-white stroke-1" /></div><span class="text-[11px] font-bold leading-tight text-[#1a375b]">{need.label}</span></div>)}</div>
+    <div class="inline-block rounded-md bg-[#df9417] px-4 py-2 text-lg font-bold text-white">Soluciones que pueden integrarse</div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{solutions.map((solution) => <article class="card-integration"><AstroIcon name={solution.icon} class="h-12 w-12 shrink-0 text-[#1665c0] stroke-1" /><div><h3 class="text-sm font-bold leading-tight text-[#1a375b]">{solution.title}</h3><p class="mt-1 text-xs leading-snug text-[#1a375b]/80">{solution.desc}</p><a href="/contactanos" class="mt-3 inline-flex rounded-full border border-[#1a375b] px-3 py-1 text-[11px] font-bold text-[#1a375b] hover:bg-[#1a375b] hover:text-white"><span>Conocer el servicio →</span></a></div></article>)}</div>
+  </div>
+</section>
+
+<section id="metodologia">
+  <div class="bg-[#dfaa05] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-16"><div class="mx-auto max-w-7xl space-y-8"><p class="text-xs uppercase italic tracking-[0.15em]">NUESTRA METODOLOGÍA</p><h2 class="text-2xl font-bold sm:text-3xl">Un proyecto se construye por etapas, no de una sola vez</h2><div class="grid gap-8 md:grid-cols-5">{steps.map((step) => <div class="relative text-center"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#1665c0]"><AstroIcon name={step.icon} class="h-9 w-9 stroke-1" /></div><h3 class="mt-3 text-sm font-bold">{step.num}.{step.title}</h3><p class="mt-1 text-xs leading-tight text-white/90">{step.desc}</p></div>)}</div></div></div>
+  <div class="bg-white px-4 py-12 sm:px-6 lg:px-8"><div class="mx-auto max-w-7xl space-y-7"><p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">POR QUÉ CEDEPRO PROYECTOS</p><h2 class="text-2xl font-bold text-[#1a375b] sm:text-3xl">Proyectamos con criterio académico, visión institucional y sentido práctico</h2><div class="grid gap-4 md:grid-cols-5">{reasons.map((reason, index) => <div class="flex items-center gap-3 border-slate-200 md:border-l md:pl-4"><div class={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${index % 2 === 0 ? 'bg-[#df9417]/15 text-[#df9417]' : 'bg-[#1665c0]/15 text-[#1665c0]'}`}><AstroIcon name={reason.icon} class="h-6 w-6 stroke-1" /></div><p class="text-xs font-medium leading-tight text-[#1a375b]">{reason.title}</p></div>)}</div></div></div>
+</section>
+
+<section class="relative overflow-hidden bg-[#07192F] px-4 py-16 sm:px-6 lg:px-8 lg:py-24"><img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-7.webp" alt="Equipo conversando sobre un proyecto" class="absolute inset-0 h-full w-full object-cover object-right opacity-80" loading="lazy" /><div class="absolute inset-0 bg-[#091E3A]/75"></div><div class="relative z-10 mx-auto max-w-7xl text-white"><div class="max-w-2xl space-y-5"><p class="text-xs uppercase italic tracking-[0.15em]">DA EL SIGUIENTE PASO</p><h2 class="text-2xl font-bold leading-tight sm:text-3xl">¿Tienes una idea que todavía no puede explicarse con claridad?</h2><p class="text-sm leading-relaxed text-slate-200">Convirtámosla en un proyecto viable. Revisaremos el reto, identificaremos la ruta adecuada y definiremos el tipo de estructuración y acompañamiento que necesita.</p><div class="flex flex-col gap-3 pt-2 sm:flex-row"><a href="/contactanos" class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Convierte tu visión en un proyecto sostenible <span class="ml-1">→</span></span></a><a href="/contactanos" class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Hablemos de tu proyecto</span></a></div></div></div></section>
