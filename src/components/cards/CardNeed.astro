@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  /** Texto o etiqueta de la necesidad */
+  label: string;
+  /** Nombre del icono (ej: 'ion:search-outline') */
+  icon: string;
+  /** Color temático del icono y barra */
+  color?: string;
+  /** Clases CSS adicionales */
+  class?: string;
+}
+
+const {
+  label,
+  icon,
+  color = '#091E3A',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`card-need ${className}`}>
+  <div 
+    class="card-icon-circle w-9 h-9 lg:w-11 lg:h-11 shrink-0" 
+    style={`background-color: ${color};`}
+  >
+    <Icon name={icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
+  </div>
+  <div class="flex flex-col space-y-1">
+    <span class="text-[#1a375b] text-xs lg:text-[13px] font-bold leading-tight pr-1">
+      {label}
+    </span>
+    <div 
+      class="w-6 h-[2px] rounded-full mt-0.5" 
+      style={`background-color: ${color};`}
+    ></div>
+  </div>
+</div>

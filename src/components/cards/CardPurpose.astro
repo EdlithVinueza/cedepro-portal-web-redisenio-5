@@ -1,0 +1,25 @@
+---
+interface Props {
+  /** Título de la tarjeta (ej. Misión, Visión) */
+  title: string;
+  /** Descripción o contenido de la tarjeta */
+  desc: string;
+  /** Clases adicionales opcionales */
+  class?: string;
+}
+
+const { title, desc, class: className = "" } = Astro.props;
+---
+
+<div
+  class={`card-purpose flex flex-col justify-start bg-white rounded-xl shadow-lg p-8 sm:p-10 ${className}`}
+>
+  <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] mb-4">
+    {title}
+  </h3>
+  <p
+    class="text-[#1a375b] text-sm sm:text-base md:text-[16px] leading-relaxed font-normal text-justify"
+  >
+    {desc}
+  </p>
+</div>

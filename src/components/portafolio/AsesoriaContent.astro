@@ -1,5 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
+import GradientOverlay from '../GradientOverlay.astro';
+import CardProfile from '../cards/CardProfile.astro';
+import CardImageHorizontal from '../cards/CardImageHorizontal.astro';
+import CardNeed from '../cards/CardNeed.astro';
+import CardIntegration from '../cards/CardIntegration.astro';
+import CardStep from '../cards/CardStep.astro';
+import CardReason from '../cards/CardReason.astro';
 
 // 4 Perfiles a los que se dirige
 const profiles = [
@@ -167,37 +174,25 @@ const stats = [
 <section class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white text-center">
   <div class="max-w-7xl mx-auto space-y-12 sm:space-y-14">
     <div class="space-y-3 max-w-5xl mx-auto">
-      <p class="text-[#1a375b] text-[13px] sm:text-sm font-normal tracking-[0.15em] uppercase italic">
+      <p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">
         PARA QUIENES DEBEN RESPONDER POR UNA DECISIÓN
       </p>
-      <h2 class="text-[#1a375b] text-[1.75rem] sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight leading-tight">
+      <h2 class="text-2xl font-bold leading-tight text-[#1a375b] sm:text-3xl">
         El respaldo que necesitan las <br class="hidden sm:block"/>
         <span class="text-[#df9417]">decisiones importantes</span>
       </h2>
-      <p class="text-[#1a375b] text-[15px] sm:text-[16px] lg:text-[17px] font-normal leading-relaxed pt-2 text-balance max-w-4xl mx-auto">
+      <p class="text-[15px] leading-relaxed text-[#1a375b]">
         CEDEPRO Asesoría está dirigida a instituciones de educación superior, empresas y organizaciones que necesitan comprender mejor tu situación, ordenar información y avanza con una decisión técnicamente defendible.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
       {profiles.map(p => (
-        <div class="card-profile group">
-          <div 
-            class="card-icon-circle w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem]" 
-            style={`background-color: ${p.color};`}
-          >
-            <Icon name={p.icon} class="w-8 h-8 lg:w-9 lg:h-9 text-white stroke-1" />
-          </div>
-          <div class="flex flex-col space-y-2.5">
-            <h3 class="text-[#1a375b] text-[13px] lg:text-sm font-bold leading-snug">
-              {p.title}
-            </h3>
-            <div 
-              class="card-category-bar" 
-              style={`background-color: ${p.color};`}
-            ></div>
-          </div>
-        </div>
+        <CardProfile 
+          title={p.title} 
+          icon={p.icon} 
+          color={p.color} 
+        />
       ))}
     </div>
   </div>
@@ -215,8 +210,13 @@ const stats = [
         class="w-full h-full object-cover object-[center_top]"
         decoding="async"
       />
-      <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[#091E3A]/60 to-[#091E3A]"></div>
-      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#091E3A] to-transparent lg:hidden"></div>
+      <GradientOverlay 
+        color="brand" 
+        coverage={10} 
+        desktopDirection="to-l" 
+        mobileDirection="to-t" 
+        fadeEnd={95}
+      />
     </div>
   </div>
 
@@ -229,7 +229,7 @@ const stats = [
         <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight">
           Las <span class="text-[#df9417] font-bold">decisiones académicas</span><br class="hidden lg:block"/>e institucionales no pueden<br />basarse en suposiciones.
         </h2>
-        <p class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed">
+        <p class="text-white/90 text-sm sm:text-[15px] font-normal leading-relaxed">
           La regulación, la presión por resultados, la expansión de la oferta, las debilidades documentales y la falta de alineación entre áreas generan riesgos, reprocesos y oportunidades perdidas para las instituciones.
         </p>
         <div class="pt-2">
@@ -279,70 +279,26 @@ const stats = [
 
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10">
       <!-- Tarjeta 1: CEDEPRO Respaldo -->
-      <div class="card-image-horizontal flex-col md:flex-row group">
-        <div class="card-image-horizontal__media w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
-          <img 
-            src="/assets/cinco-anios/img-cinco-anios-section-5.png" 
-            alt="CEDEPRO Respaldo" 
-            class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
-          />
-        </div>
-        <div class="card-image-horizontal__body p-6 sm:p-8 w-full md:w-[65%]">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
-              <Icon name="ion:document-text-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-            </div>
-            <h3 class="text-[#1a375b] text-xl lg:text-2xl font-bold leading-tight">
-              CEDEPRO Respaldo
-            </h3>
-          </div>
-          
-          <p class="text-[#1a375b]/80 text-sm sm:text-[15px] leading-relaxed">
-            Apoyo técnico para revisar información, ordenar decisiones y fortalecer la coherencia entre documentos, procesos y operación institucional. Ideal cuando necesitas analizar una situación, anticipar riesgos o sustentar una decisión.
-          </p>
-          
-          <div class="pt-2 mt-auto">
-            <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
-              <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                Solicita respaldo técnico <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <CardImageHorizontal
+        title="CEDEPRO Respaldo"
+        description="Apoyo técnico para revisar información, ordenar decisiones y fortalecer la coherencia entre documentos, procesos y operación institucional. Ideal cuando necesitas analizar una situación, anticipar riesgos o sustentar una decisión."
+        image="/assets/cinco-anios/img-cinco-anios-section-5.png"
+        icon="ion:document-text-outline"
+        iconBgColor="#1665c0"
+        buttonText="Solicita respaldo técnico →"
+        buttonHref="/contactanos"
+      />
 
       <!-- Tarjeta 2: CEDEPRO Acompañamiento -->
-      <div class="card-image-horizontal flex-col md:flex-row group">
-        <div class="card-image-horizontal__media w-full md:w-[35%] h-56 md:h-auto relative shrink-0">
-          <img 
-            src="/assets/cinco-anios/img-cinco-anios-section-5.png" 
-            alt="CEDEPRO Respaldo" 
-            class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
-          />
-        </div>
-        <div class="card-image-horizontal__body p-6 sm:p-8 w-full md:w-[65%]">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#1665c0] flex items-center justify-center shrink-0">
-              <Icon name="ion:people-outline" class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-            </div>
-            <h3 class="text-[#1a375b] text-xl lg:text-2xl font-bold leading-tight">
-              CEDEPRO Acompañamiento
-            </h3>
-          </div>
-          
-          <p class="text-[#1a375b]/80 text-sm sm:text-[15px] leading-relaxed">
-            Trabajo cercano para pasar de una necesidad a acciones claras, priorizadas y sostenibles. Ideal cuando ya identificaste el desafío y necesitas coordinar equipos, implementar recomendaciones y dar seguimiento.
-          </p>
-          
-          <div class="pt-2 mt-auto">
-            <a href="/contactanos" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm">
-              <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                Solicitar acompañamiento <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <CardImageHorizontal
+        title="CEDEPRO Acompañamiento"
+        description="Trabajo cercano para pasar de una necesidad a acciones claras, priorizadas y sostenibles. Ideal cuando ya identificaste el desafío y necesitas coordinar equipos, implementar recomendaciones y dar seguimiento."
+        image="/assets/cinco-anios/img-cinco-anios-section-5.png"
+        icon="ion:people-outline"
+        iconBgColor="#1665c0"
+        buttonText="Solicitar acompañamiento →"
+        buttonHref="/contactanos"
+      />
     </div>
   </div>
 </section>
@@ -373,23 +329,12 @@ const stats = [
         const extraClasses = isLast ? "col-span-2 w-[calc(50%-0.375rem)] mx-auto sm:w-[calc(50%-0.5rem)] md:col-span-1 md:w-full lg:col-span-1" : "";
         
         return (
-          <div class={`card-need ${extraClasses}`}>
-            <div 
-              class="card-icon-circle w-9 h-9 lg:w-11 lg:h-11" 
-              style={`background-color: ${color};`}
-            >
-              <Icon name={n.icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
-            </div>
-            <div class="flex flex-col space-y-1">
-              <span class="text-[#1a375b] text-xs lg:text-[13px] font-bold leading-tight pr-1">
-                {n.label}
-              </span>
-              <div 
-                class="w-6 h-[2px] rounded-full mt-0.5" 
-                style={`background-color: ${color};`}
-              ></div>
-            </div>
-          </div>
+          <CardNeed 
+            label={n.label}
+            icon={n.icon}
+            color={color}
+            class={extraClasses}
+          />
         );
       })}
     </div>
@@ -404,27 +349,13 @@ const stats = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {integraciones.map((sol, index) => (
-          <div class="card-integration group">
-            <Icon name={sol.icon} class="w-12 h-12 xl:w-14 xl:h-14 text-[#1665c0] stroke-1 shrink-0 self-center" />
-            
-            <div class="flex flex-col justify-end h-full w-full">
-              <h4 class="text-[#1a375b] text-[15px] xl:text-base font-bold leading-tight mb-1.5">
-                {sol.title}
-              </h4>
-              
-              <p class="text-[#1a375b]/80 text-[12px] xl:text-[13px] leading-snug mb-3">
-                {sol.desc}
-              </p>
-              
-              <div class="mt-2">
-                <a href="#contacto" class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-3 py-1.5 xl:px-4 text-[11px] xl:text-[12px] font-bold shadow-sm whitespace-nowrap">
-                  <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
-                    {index === 0 ? 'Conocer la solución' : index === 1 ? 'Solicitar análisis' : index === 2 ? 'Revisar brechas' : 'Planificar avance'} <span class="inline-block ml-1.5 leading-none font-bold">→</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <CardIntegration
+            title={sol.title}
+            desc={sol.desc}
+            icon={sol.icon}
+            buttonText={`${index === 0 ? 'Conocer la solución' : index === 1 ? 'Solicitar análisis' : index === 2 ? 'Revisar brechas' : 'Planificar avance'} →`}
+            buttonHref="#contacto"
+          />
         ))}
       </div>
     </div>
@@ -449,24 +380,13 @@ const stats = [
 
       <div class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2">
         {steps.map((step, idx) => (
-          <div class="flex flex-col items-center text-center w-full md:flex-1 relative group z-10">
-            <div class="w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full bg-white shadow-xl flex items-center justify-center text-[#1665c0] mb-3 relative z-10 transition-transform group-hover:scale-105">
-              <Icon name={step.icon} class="w-9 h-9 lg:w-11 lg:h-11 stroke-[1.5]" />
-            </div>
-            
-            <h3 class="text-white text-[15px] lg:text-[16px] font-bold mb-1">
-              {step.num}.{step.title}
-            </h3>
-            <p class="text-slate-300 text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]">
-              {step.desc}
-            </p>
-
-            {idx < steps.length - 1 && (
-              <div class="hidden md:flex absolute top-[2rem] lg:top-[2.25rem] -right-[1rem] lg:-right-[1.5rem] w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
-                <Icon name="ion:chevron-forward-outline" class="w-6 h-6 lg:w-7 lg:h-7 text-[#df9417]" />
-              </div>
-            )}
-          </div>
+          <CardStep
+            num={step.num}
+            title={step.title}
+            desc={step.desc}
+            icon={step.icon}
+            showArrow={idx < steps.length - 1}
+          />
         ))}
       </div>
     </div>
@@ -485,22 +405,13 @@ const stats = [
       </div>
 
       <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
-        {reasons.map((r, i) => {
-          const isGold = i % 2 === 0;
-          const bgColor = isGold ? 'bg-[#df9417]/10' : 'bg-[#1665c0]/10';
-          const iconColor = isGold ? 'text-[#df9417]' : 'text-[#1665c0]';
-          
-          return (
-            <div class="flex flex-row items-center text-left w-full lg:flex-1 gap-3 sm:gap-4 py-4 lg:py-0 px-2 lg:px-4 group justify-start">
-              <div class={`w-12 h-12 lg:w-[3.5rem] lg:h-[3.5rem] rounded-full flex items-center justify-center shrink-0 ${bgColor} group-hover:scale-110 transition-transform`}>
-                <Icon name={r.icon} class={`w-6 h-6 lg:w-[1.8rem] lg:h-[1.8rem] stroke-1 ${iconColor}`} />
-              </div>
-              <p class="text-[#1a375b] text-[13px] lg:text-[14px] font-medium leading-tight max-w-[140px] text-balance">
-                {r.title}
-              </p>
-            </div>
-          );
-        })}
+        {reasons.map((r, i) => (
+          <CardReason
+            title={r.title}
+            icon={r.icon}
+            variant={i % 2 === 0 ? 'gold' : 'blue'}
+          />
+        ))}
       </div>
     </div>
   </div>

@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  /** Título de la solución */
+  title: string;
+  /** Descripción concisa */
+  desc: string;
+  /** Nombre del icono (ej: 'ion:business-outline') */
+  icon: string;
+  /** Color del icono */
+  iconColor?: string;
+  /** Texto del botón */
+  buttonText?: string;
+  /** Enlace del botón */
+  buttonHref?: string;
+  /** Clases CSS extra */
+  class?: string;
+}
+
+const {
+  title,
+  desc,
+  icon,
+  iconColor = '#1665c0',
+  buttonText = 'Conocer la solución →',
+  buttonHref = '#contacto',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`card-integration group ${className}`}>
+  <Icon 
+    name={icon} 
+    class="w-12 h-12 xl:w-14 xl:h-14 stroke-1 shrink-0 self-center" 
+    style={`color: ${iconColor};`}
+  />
+  
+  <div class="flex flex-col justify-end h-full w-full">
+    <h4 class="text-[#1a375b] text-[15px] xl:text-base font-bold leading-tight mb-1.5">
+      {title}
+    </h4>
+    
+    <p class="text-[#1a375b]/80 text-[12px] xl:text-[13px] leading-snug mb-3">
+      {desc}
+    </p>
+    
+    <div class="mt-2">
+      <a 
+        href={buttonHref} 
+        class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-3 py-1.5 xl:px-4 text-[11px] xl:text-[12px] font-bold shadow-sm whitespace-nowrap"
+      >
+        <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+          {buttonText}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

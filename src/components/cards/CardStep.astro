@@ -1,0 +1,62 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  /** Número de paso (ej: '1', '2') */
+  num: string | number;
+  /** Título del paso (opcional) */
+  title?: string;
+  /** Descripción del paso (opcional) */
+  desc?: string;
+  /** Nombre del icono (ej: 'ion:ear-outline') */
+  icon: string;
+  /** Si debe mostrar la flecha siguiente (solo en pantallas md+) */
+  showArrow?: boolean;
+  /** Clases CSS adicionales */
+  class?: string;
+  /** Nombre del icono de la flecha, por defecto 'ion:chevron-forward-outline' */
+  arrowIcon?: string;
+  /** Clase CSS para el color de la flecha, por defecto text-[#df9417] */
+  arrowColor?: string;
+  /** Clase CSS para el color de la descripción, por defecto text-slate-300 */
+  descColorClass?: string;
+  /** Clase CSS para el color del icono central, por defecto text-[#1665c0] */
+  iconColorClass?: string;
+}
+
+const {
+  num,
+  title,
+  desc,
+  icon,
+  showArrow = false,
+  class: className = '',
+  arrowIcon = 'ion:chevron-forward-outline',
+  arrowColor = 'text-[#df9417]',
+  descColorClass = 'text-slate-300',
+  iconColorClass = 'text-[#1665c0]',
+} = Astro.props;
+---
+
+<div class={`flex flex-col items-center text-center w-full md:flex-1 relative group z-10 ${className}`}>
+  <div class={`w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full bg-white shadow-xl flex items-center justify-center ${iconColorClass} mb-3 relative z-10 transition-transform group-hover:scale-105`}>
+    <Icon name={icon} class="w-9 h-9 lg:w-11 lg:h-11 stroke-[1.5]" />
+  </div>
+  
+  {title && (
+    <h3 class="text-white text-[15px] lg:text-[16px] font-bold mb-1">
+      {num}.{title}
+    </h3>
+  )}
+  {desc && (
+    <p class={`${descColorClass} text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]`}>
+      {desc}
+    </p>
+  )}
+
+  {showArrow && (
+    <div class="hidden md:flex absolute top-[2rem] lg:top-[2.25rem] -right-[1rem] lg:-right-[1.5rem] w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
+      <Icon name={arrowIcon} class={`w-6 h-6 lg:w-7 lg:h-7 ${arrowColor}`} />
+    </div>
+  )}
+</div>

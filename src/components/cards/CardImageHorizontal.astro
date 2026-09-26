@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  /** Título principal de la línea */
+  title: string;
+  /** Párrafo descriptivo */
+  description: string;
+  /** Ruta de la imagen lateral (opcional) */
+  image?: string;
+  /** Texto alternativo de la imagen */
+  alt?: string;
+  /** Nombre del icono de cabecera (ej: 'ion:document-text-outline') */
+  icon?: string;
+  /** Color de fondo del círculo del icono */
+  iconBgColor?: string;
+  /** Texto del botón */
+  buttonText?: string;
+  /** Enlace de destino del botón */
+  buttonHref?: string;
+  /** Disposición del icono ('row' = al lado, 'col' = arriba) */
+  iconLayout?: "row" | "col";
+  /** Clases CSS adicionales */
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  alt = title,
+  icon = "ion:document-text-outline",
+  iconBgColor = "#1665c0",
+  buttonText = "Conocer más →",
+  buttonHref = "/contactanos",
+  iconLayout = "row",
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class={`card-image-horizontal ${image ? "flex-col md:flex-row" : "flex-col h-full"} group ${className}`}
+>
+  {
+    image && (
+      <div class="card-image-horizontal__media w-full md:w-[35%] h-56 md:h-auto relative shrink-0 overflow-hidden">
+        <img
+          src={image}
+          alt={alt}
+          class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )
+  }
+  <div
+    class={`card-image-horizontal__body p-6 sm:p-8 w-full flex flex-col justify-between ${image ? "md:w-[65%]" : "flex-1"}`}
+  >
+    <div class="space-y-4">
+      <div
+        class={`flex ${iconLayout === "col" ? "flex-col items-start gap-4" : "items-center gap-3"}`}
+      >
+        <div
+          class={`rounded-full flex items-center justify-center shrink-0 shadow-sm ${iconLayout === "col" ? "w-14 h-14" : "w-10 h-10 lg:w-11 lg:h-11"}`}
+          style={`background-color: ${iconBgColor};`}
+        >
+          <Icon
+            name={icon}
+            class={`text-white stroke-1 ${iconLayout === "col" ? "w-7 h-7" : "w-5 h-5 lg:w-6 lg:h-6"}`}
+          />
+        </div>
+        <h3 class="text-[#1a375b] text-xl lg:text-2xl font-bold leading-tight">
+          {title}
+        </h3>
+      </div>
+
+      <p class="text-[#1a375b]/80 text-sm sm:text-[15px] leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <div class="pt-4 mt-auto">
+      <a
+        href={buttonHref}
+        class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-6 py-2.5 text-sm font-bold shadow-sm"
+      >
+        <span
+          class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
+        >
+          {buttonText}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

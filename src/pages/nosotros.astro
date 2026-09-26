@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import CardPurpose from '../components/cards/CardPurpose.astro';
+import GradientOverlay from '../components/GradientOverlay.astro';
 
 // 6 Líneas de Solución CEDEPRO Oficiales (con colores por tarjeta)
 const solutions = [
@@ -240,16 +242,18 @@ const values = [
  </picture>
  </div>
 
- <!-- Gradientes superpuestos para fusionar la imagen con el fondo blanco -->
- <!-- Móvil: de abajo hacia arriba (blanco sólido abajo, desvaneciéndose hacia arriba) -->
- <div class="absolute bottom-[55%] z-10 md:hidden h-[30%] w-full" style="background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 100%);"></div>
- <div class="absolute bottom-0 z-10 bg-white md:hidden h-[55%] w-full"></div>
- 
- <!-- Desktop: de izquierda a derecha (blanco sólido a la izq desvaneciéndose suavemente hacia la derecha) -->
- <div class="hidden md:block absolute inset-y-0 left-0 z-10 bg-white w-[45%] lg:w-[50%]"></div>
- <div class="hidden md:block absolute inset-y-0 left-[45%] lg:left-[50%] z-10 w-[35%] lg:w-[35%]" style="background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0) 100%);"></div>
+ <!-- Gradiente unificado y limpio para fusionar la imagen con el fondo blanco -->
+    <GradientOverlay 
+      color="white" 
+      coverage={48} 
+      desktopDirection="to-r" 
+      mobileDirection="to-t" 
+      mobileCoverage={45} 
+      fadeEnd={85}
+      class="z-10"
+    />
 
- <!-- Contenido Textual (Z-20 para estar sobre los gradientes) -->
+    <!-- Contenido Textual (Z-20 para estar sobre los gradientes) -->
  <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[65%] sm:pt-[55%] md:pt-16 pb-16 mt-auto md:mt-0 flex flex-col justify-end md:justify-center">
  <div class="max-w-[100%] md:max-w-[48rem] lg:max-w-[54rem] space-y-5 lg:space-y-6">
  
@@ -820,3 +824,5 @@ const values = [
  </style>
 
 </Layout>
+
+

@@ -1,86 +1,147 @@
 ---
 interface Props {
- /** Color base del degradado (hexadecimal, rgb, hsl o nombre de paleta: 'navy' | 'brand' | 'blue' | 'gold' | 'white' | 'dark') */
- color?: string;
- /** Dirección del degradado: 'to-r' (90deg) | 'to-l' (270deg) | 'to-b' (180deg) | 'to-t' (0deg) o grados personalizados */
- direction?: 'to-r' | 'to-l' | 'to-b' | 'to-t' | string;
- /** Variante de transición: 'smooth' (degradado suave del hero) | 'compact' (para áreas reducidas) | 'subtle' (muy translúcido) */
- variant?: 'smooth' | 'compact' | 'subtle';
- /** Clases CSS adicionales */
- class?: string;
- /** Atributos HTML extra */
- id?: string;
+  /** 
+   * Color base del degradado.
+   * Acepta presets ('navy' | 'brand' | 'blue' | 'gold' | 'amber' | 'white' | 'dark') o cualquier color CSS hex/rgb/hsl.
+   * Default: 'navy' (#07192F)
+   */
+  color?: string;
+
+  /** 
+   * Dirección en Desktop (md / lg).
+   * 'to-r' | 'to-l' | 'to-b' | 'to-t' o cualquier ángulo CSS (ej: '90deg', '270deg').
+   * Default: 'to-r'
+   */
+  desktopDirection?: 'to-r' | 'to-l' | 'to-b' | 'to-t' | string;
+
+  /** 
+   * Dirección en Móvil / Portrait (< md).
+   * 'to-b' | 'to-t' | 'to-r' | 'to-l' o cualquier ángulo CSS (ej: '180deg', '0deg').
+   * Default: 'to-b'
+   */
+  mobileDirection?: 'to-b' | 'to-t' | 'to-r' | 'to-l' | string;
+
+  /** 
+   * Dirección única (si se especifica, se usa tanto en móvil como desktop salvo que se indique mobileDirection/desktopDirection).
+   */
+  direction?: 'to-r' | 'to-l' | 'to-b' | 'to-t' | string;
+
+  /** 
+   * Porcentaje de cobertura sólida antes de comenzar a desvanecerse (0 a 100).
+   * Por ejemplo: 20, 35, 50 (ocupa el 50% sólido y luego se difumina con suavidad natural).
+   * Default: 25
+   */
+  coverage?: number;
+
+  /** 
+   * Porcentaje de cobertura sólida exclusiva para móvil. Si no se especifica, usa un valor proporcional adaptativo.
+   */
+  mobileCoverage?: number;
+
+  /** 
+   * Extensión total hasta donde el degradado llega a 0% de opacidad (fade final).
+   * Default: 70
+   */
+  fadeEnd?: number;
+
+  /** 
+   * Extensión total del fade en móvil.
+   */
+  mobileFadeEnd?: number;
+
+  /** 
+   * Variante predefinida de curva si no se desea calcular por coverage:
+   * 'smooth' (hero por defecto multi-stop) | 'compact' | 'subtle'
+   */
+  variant?: 'smooth' | 'compact' | 'subtle';
+
+  /** Clases CSS adicionales (ej: 'z-10', 'mix-blend-multiply', etc.) */
+  class?: string;
+
+  /** Atributos HTML extra */
+  id?: string;
 }
 
 const {
- color = '#07192F',
- direction = 'to-r',
- variant = 'smooth',
- class: className = '',
- id,
+  color = '#07192F',
+  direction,
+  desktopDirection = direction || 'to-r',
+  mobileDirection = direction || 'to-b',
+  coverage,
+  mobileCoverage,
+  fadeEnd,
+  mobileFadeEnd,
+  variant = 'smooth',
+  class: className = '',
+  id,
 } = Astro.props;
 
 // Mapeo de colores predefinidos de la marca CEDEPRO
 const colorPresets: Record<string, string> = {
- navy: '#07192F',
- brand: '#091E3A',
- blue: '#1a375b',
- gold: '#df9417',
- amber: '#f5a623',
- dark: '#050d1a',
- white: '#ffffff',
+  navy: '#07192F',
+  brand: '#091E3A',
+  blue: '#1a375b',
+  gold: '#df9417',
+  amber: '#f5a623',
+  dark: '#050d1a',
+  white: '#ffffff',
 };
 
 const resolvedColor = colorPresets[color] || color;
 
-// Mapeo de direcciones
+// Mapeo de alias de direcciones a CSS estándar
 const directionMap: Record<string, string> = {
- 'to-r': '90deg',
- 'to-l': '270deg',
- 'to-b': '180deg',
- 'to-t': '0deg',
+  'to-r': '90deg',
+  'to-l': '270deg',
+  'to-b': '180deg',
+  'to-t': '0deg',
 };
 
-const resolvedDir = directionMap[direction] || direction;
+const resolvedDesktopDir = directionMap[desktopDirection] || desktopDirection;
+const resolvedMobileDir = directionMap[mobileDirection] || mobileDirection;
 
-// Generador de gradiente con curva de atenuación exponencial idéntica al hero
-let gradientStyle = '';
+// Función generadora de gradiente multi-parada natural y continuo (curva suavizada)
+function buildMultiStopGradient(dir: string, solidPercent: number, endPercent: number): string {
+  const solid = Math.max(0, Math.min(100, solidPercent));
+  const end = Math.max(solid + 10, Math.min(100, endPercent));
+  const span = end - solid;
 
-if (variant === 'smooth') {
- // Curva de 7 puntos con zona sólida extendida (36%) y fade progresivo hasta el 95%
- gradientStyle = `linear-gradient(
- ${resolvedDir},
- ${resolvedColor} 0%,
- ${resolvedColor} 36%,
- color-mix(in srgb, ${resolvedColor} 98%, transparent) 48%,
- color-mix(in srgb, ${resolvedColor} 85%, transparent) 62%,
- color-mix(in srgb, ${resolvedColor} 50%, transparent) 75%,
- color-mix(in srgb, ${resolvedColor} 15%, transparent) 87%,
- transparent 95%
- )`;
-} else if (variant === 'compact') {
- // Transición rápida ideal para móvil o bordes superiores/inferiores
- gradientStyle = `linear-gradient(
- ${resolvedDir},
- ${resolvedColor} 0%,
- color-mix(in srgb, ${resolvedColor} 70%, transparent) 14%,
- color-mix(in srgb, ${resolvedColor} 20%, transparent) 28%,
- transparent 42%
- )`;
-} else {
- // Variante sutil
- gradientStyle = `linear-gradient(
- ${resolvedDir},
- color-mix(in srgb, ${resolvedColor} 80%, transparent) 0%,
- color-mix(in srgb, ${resolvedColor} 40%, transparent) 50%,
- transparent 100%
- )`;
+  const p1 = Math.round(solid);
+  const p2 = Math.round(solid + span * 0.20);
+  const p3 = Math.round(solid + span * 0.40);
+  const p4 = Math.round(solid + span * 0.60);
+  const p5 = Math.round(solid + span * 0.80);
+  const p6 = Math.round(end);
+
+  return `linear-gradient(${dir}, ${resolvedColor} 0%, ${resolvedColor} ${p1}%, color-mix(in srgb, ${resolvedColor} 85%, transparent) ${p2}%, color-mix(in srgb, ${resolvedColor} 60%, transparent) ${p3}%, color-mix(in srgb, ${resolvedColor} 32%, transparent) ${p4}%, color-mix(in srgb, ${resolvedColor} 10%, transparent) ${p5}%, transparent ${p6}%)`;
 }
+
+// Resolver configuraciones Desktop
+const dSolid = coverage !== undefined ? coverage : (variant === 'compact' ? 0 : 25);
+const dEnd = fadeEnd !== undefined ? fadeEnd : (variant === 'compact' ? 45 : Math.min(100, dSolid + 48));
+
+// Resolver configuraciones Mobile
+const mSolid = mobileCoverage !== undefined ? mobileCoverage : (coverage !== undefined ? Math.max(10, Math.round(coverage * 0.65)) : (variant === 'compact' ? 0 : 20));
+const mEnd = mobileFadeEnd !== undefined ? mobileFadeEnd : (fadeEnd !== undefined ? fadeEnd : Math.min(100, mSolid + 40));
+
+const desktopGradient = buildMultiStopGradient(resolvedDesktopDir, dSolid, dEnd);
+const mobileGradient = buildMultiStopGradient(resolvedMobileDir, mSolid, mEnd);
 ---
 
 <div 
- id={id}
- class={`cedepro-fade-overlay absolute inset-0 pointer-events-none z-[2] ${className}`}
- style={`background: ${gradientStyle};`}
- aria-hidden="true"
+  id={id}
+  class={`cedepro-unified-overlay absolute inset-0 pointer-events-none z-[2] ${className}`}
+  style={`--mobile-grad: ${mobileGradient}; --desktop-grad: ${desktopGradient};`}
+  aria-hidden="true"
 ></div>
+
+<style>
+  .cedepro-unified-overlay {
+    background: var(--mobile-grad) !important;
+  }
+  @media (min-width: 768px) {
+    .cedepro-unified-overlay {
+      background: var(--desktop-grad) !important;
+    }
+  }
+</style>

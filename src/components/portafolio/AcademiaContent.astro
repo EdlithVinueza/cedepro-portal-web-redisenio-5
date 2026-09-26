@@ -1,53 +1,684 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import GradientOverlay from "../GradientOverlay.astro";
+import CardProfile from "../cards/CardProfile.astro";
+import CardNeed from "../cards/CardNeed.astro";
+import CardIntegration from "../cards/CardIntegration.astro";
+import CardStep from "../cards/CardStep.astro";
+import CardReason from "../cards/CardReason.astro";
+import CardImageHorizontal from "../cards/CardImageHorizontal.astro";
+
+const reasons = [
+  { title: "Aprendizaje conectado al contexto", icon: "ion:school-outline" },
+  { title: "Aplicación antes que acumulación", icon: "ion:bar-chart-outline" },
+  { title: "Diseño institucional", icon: "ion:shield-checkmark-outline" },
+  { title: "Escalabilidad digital", icon: "ion:git-network-outline" },
+  { title: "Articulación de capacidades", icon: "ion:heart-outline" },
+];
 
 const profiles = [
-  { title: 'Rectores, promotores y autoridades que impulsan mejoras institucionales.', icon: 'ion:business-outline', color: '#091E3A' },
-  { title: 'Equipos administrativos de calidad, bienestar, planificación y gestión institucional.', icon: 'ion:people-outline', color: '#00838f' },
-  { title: 'Docentes y responsables académicos que necesitan actualizar sus prácticas y recursos.', icon: 'ion:stats-chart-outline', color: '#1665c0' },
-  { title: 'Instituciones que requieren programas presenciales, virtuales o híbridos.', icon: 'ion:bulb-outline', color: '#5e35b1' },
-  { title: 'Organizaciones que buscan rutas formativas y microcredenciales para sus equipos.', icon: 'ion:document-text-outline', color: '#df9417' }
+  {
+    title:
+      "Rectores, promotores y autoridades que impulsan mejoras institucionales.",
+    icon: "ion:business-outline",
+    color: "#091E3A",
+  },
+  {
+    title:
+      "Equipos administrativos de calidad, bienestar, planificación y gestión institucional.",
+    icon: "ion:people-outline",
+    color: "#00838f",
+  },
+  {
+    title:
+      "Docentes y responsables académicos que necesitan actualizar sus prácticas y recursos.",
+    icon: "ion:stats-chart-outline",
+    color: "#1665c0",
+  },
+  {
+    title:
+      "Instituciones que requieren programas presenciales, virtuales o híbridos.",
+    icon: "ion:bulb-outline",
+    color: "#5e35b1",
+  },
+  {
+    title:
+      "Organizaciones que buscan rutas formativas y microcredenciales para sus equipos.",
+    icon: "ion:document-text-outline",
+    color: "#df9417",
+  },
 ];
 
 const needs = [
-  { label: 'Tu equipo necesita actualizarse', icon: 'ion:arrow-up-circle-outline', color: '#091E3A' },
-  { label: 'Quieres fortalecer la práctica docente', icon: 'ion:stats-chart-outline', color: '#1665c0' },
-  { label: 'Necesitas capacitación institucional', icon: 'ion:document-text-outline', color: '#00838f' },
-  { label: 'Buscas una ruta más flexible', icon: 'ion:people-outline', color: '#1976d2' },
-  { label: 'Quieres que la formación se sostenga', icon: 'ion:search-outline', color: '#5e35b1' }
+  {
+    label: "Tu equipo necesita actualizarse",
+    icon: "ion:arrow-up-circle-outline",
+    color: "#091E3A",
+  },
+  {
+    label: "Quieres fortalecer la práctica docente",
+    icon: "ion:stats-chart-outline",
+    color: "#1665c0",
+  },
+  {
+    label: "Necesitas capacitación institucional",
+    icon: "ion:document-text-outline",
+    color: "#00838f",
+  },
+  {
+    label: "Buscas una ruta más flexible",
+    icon: "ion:people-outline",
+    color: "#1976d2",
+  },
+  {
+    label: "Quieres que la formación se sostenga",
+    icon: "ion:search-outline",
+    color: "#5e35b1",
+  },
 ];
 
 const solutions = [
-  { title: 'Programas de capacitación institucional', desc: 'Formación estratégica para equipos y organizaciones.', icon: 'ion:business-outline' },
-  { title: 'Cursos especializados y actualización', desc: 'Conocimiento práctico para retos profesionales actuales.', icon: 'ion:settings-outline' },
-  { title: 'Microcredenciales y rutas formativas', desc: 'Aprendizajes progresivos que impulsan el desarrollo profesional.', icon: 'ion:document-text-outline' },
-  { title: 'AWLA Formación Continua', desc: 'Una plataforma inteligente para formación efectiva.', icon: 'ion:bar-chart-outline' }
+  {
+    title: "Capacidades Institucionales",
+    desc: "Programas y procesos de aprendizaje para docentes, directivos y equipos que necesitan fortalecer su desempeño y responder a retos institucionales.",
+    icon: "ion:settings-outline",
+    buttonText: "Fortalecer a mi equipo",
+    href: "/contactanos",
+  },
+  {
+    title: "Formación continua y cursos virtuales",
+    desc: "Cursos especializados, actualización, microcredenciales y rutas flexibles apoyadas por recursos digitales y experiencias de aprendizaje escalables.",
+    icon: "ion:school-outline",
+    buttonText: "Explorar formación continua",
+    href: "/contactanos",
+  },
+  {
+    title: "Formación territorial y socioeducativa",
+    desc: "Procesos de aprendizaje y acompañamiento conectados con comunidades y contextos diversos, con inclusión, género y diversidad como enfoques transversales.",
+    icon: "ion:document-text-outline",
+    buttonText: "Conocer esta línea",
+    href: "/contactanos",
+  },
 ];
 
 const steps = [
-  { num: '1', title: 'Comprender', desc: 'Entendemos las necesidades para crear formación efectiva.', icon: 'ion:search-outline' },
-  { num: '2', title: 'Diseñar', desc: 'Construimos programas adaptados a cada desafío.', icon: 'ion:construct-outline' },
-  { num: '3', title: 'Aplicar', desc: 'Impulsamos aprendizaje práctico orientado a resultados.', icon: 'ion:document-outline' },
-  { num: '4', title: 'Escalar', desc: 'Multiplicamos el alcance con soluciones digitales innovadoras.', icon: 'ion:bulb-outline' },
-  { num: '5', title: 'Acompañar', desc: 'Aseguramos implementación, seguimiento y mejora permanente.', icon: 'ion:people-outline' }
+  {
+    num: "1",
+    title: "Comprender",
+    desc: "Entendemos necesidades para crear formación efectiva",
+    icon: "ion:settings-outline",
+  },
+  {
+    num: "2",
+    title: "Diseñar",
+    desc: "Construimos programas adaptados a cada desafío",
+    icon: "ion:construct-outline",
+  },
+  {
+    num: "3",
+    title: "Aplicar",
+    desc: "Impulsamos aprendizaje práctico orientado a resultados",
+    icon: "ion:document-text-outline",
+  },
+  {
+    num: "4",
+    title: "Escalar",
+    desc: "Multiplicamos alcance con soluciones digitales innovadoras",
+    icon: "ion:bulb-outline",
+  },
+  {
+    num: "5",
+    title: "Acompañar",
+    desc: "Aseguramos implementación, seguimiento y mejora permanente",
+    icon: "ion:people-outline",
+  },
 ];
 ---
 
-<section class="relative overflow-hidden bg-[#091E3A] text-white">
-  <div class="absolute inset-0"><img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png" alt="Equipo en una sesión de formación" class="h-full w-full object-cover object-left opacity-75" /><div class="absolute inset-0 bg-gradient-to-r from-[#091E3A]/20 via-[#091E3A]/85 to-[#091E3A]"></div></div>
-  <div class="relative z-10 mx-auto flex min-h-[31rem] max-w-7xl items-center justify-end px-4 py-16 sm:px-6 lg:px-8">
-    <div class="max-w-xl space-y-4"><p class="text-xs uppercase italic tracking-[0.15em] text-[#df9417]">CEDEPRO FORMACIÓN</p><h1 class="text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-[2.65rem]">El conocimiento que no se aplica no transforma.</h1><p class="text-base font-bold leading-tight">Forma equipos que hagan avanzar a tu institución.</p><p class="text-sm leading-relaxed text-slate-100">Diseñamos experiencias de aprendizaje prácticas, actuales y conectadas con los desafíos de la educación superior. Fortalecemos las capacidades de docentes, directivos y equipos de trabajo para que lo aprendido se convierta en mejores decisiones, mejores prácticas y resultados sostenibles.</p><div class="flex flex-col gap-3 pt-3 sm:flex-row"><a href="#soluciones" class="btn-gold inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Conoce nuestra propuesta formativa <span class="ml-1">→</span></span></a><a href="/contactanos" class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Diseña una ruta para tu equipo</span></a></div></div>
+<!-- =========================================================================
+1. HERO HEADER SECTION
+========================================================================= -->
+<section
+  id="academia"
+  class="hero-section relative bg-[#091E3A] overflow-hidden"
+>
+  <div class="hero-bg-layer" aria-hidden="true"></div>
+  <div class="hero-desktop-overlay" aria-hidden="true"></div>
+  <div class="hero-mobile-overlay" aria-hidden="true"></div>
+
+  <div
+    class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pr-24 flex justify-end"
+  >
+    <div class="hero-text-block space-y-3 sm:space-y-4 text-left text-white">
+      <p
+        class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic"
+      >
+        CEDEPRO FORMACIÓN
+      </p>
+
+      <h1
+        class="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight drop-shadow-sm"
+      >
+        El conocimiento que no se aplica no transforma.
+      </h1>
+
+      <div class="space-y-3 pt-2">
+        <p
+          class="text-white text-base sm:text-lg font-bold leading-relaxed max-w-xl text-balance drop-shadow-sm"
+        >
+          Forma equipos que hagan avanzar a tu institución.
+        </p>
+        <p
+          class="text-slate-100 text-sm sm:text-[15px] font-normal leading-relaxed max-w-xl text-balance drop-shadow-sm"
+        >
+          Diseñamos experiencias de aprendizaje prácticas, actuales y conectadas
+          con los desafíos de la educación superior. Fortalecemos las
+          capacidades de docentes, directivos y equipos de trabajo para que lo
+          aprendido se convierta en mejores decisiones, mejores prácticas y
+          resultados sostenibles.
+        </p>
+      </div>
+
+      <div
+        class="pt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto"
+      >
+        <a
+          href="#soluciones"
+          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none"
+          >
+            Conoce nuestra propuesta formativa <span
+              class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold"
+              >→</span
+            >
+          </span>
+        </a>
+
+        <a
+          href="/contactanos"
+          class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none"
+          >
+            Diseña una ruta para tu equipo
+          </span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="bg-white px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20"><div class="mx-auto max-w-7xl space-y-10"><div class="mx-auto max-w-4xl space-y-3"><p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">PARA QUIENES NECESITAN CONVERTIR APRENDIZAJE EN DESEMPEÑO</p><h2 class="text-2xl font-bold leading-tight text-[#1a375b] sm:text-3xl">La formación que responde a los <span class="text-[#df9417]">retos reales</span> de tu equipo</h2><p class="text-[15px] leading-relaxed text-[#1a375b]">CEDEPRO Formación está dirigida a instituciones, organizaciones y equipos que necesitan actualizar conocimientos, fortalecer competencias y mejorar la manera en que trabajan.</p></div><div class="flex flex-wrap justify-center gap-4">{profiles.map((profile) => <div class="card-profile w-full max-w-[19rem]"><div class="card-icon-circle" style={`background-color:${profile.color}`}><Icon name={profile.icon} class="h-7 w-7 text-white stroke-1" /></div><div><p class="text-xs font-bold leading-tight text-[#1a375b]">{profile.title}</p><span class="card-category-bar" style={`background-color:${profile.color}`}></span></div></div>)}</div></div></section>
+<section class="bg-white px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl space-y-10">
+    <div class="mx-auto max-w-4xl space-y-3">
+      <p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">
+        PARA QUIENES NECESITAN CONVERTIR APRENDIZAJE EN DESEMPEÑO
+      </p><h2
+        class="text-2xl font-bold leading-tight text-[#1a375b] sm:text-3xl"
+      >
+        La formación que responde a los <span class="text-[#df9417]"
+          >retos reales</span
+        > de tu equipo
+      </h2><p class="text-[15px] leading-relaxed text-[#1a375b]">
+        CEDEPRO Formación está dirigida a instituciones, organizaciones y
+        equipos que necesitan actualizar conocimientos, fortalecer competencias
+        y mejorar la manera en que trabajan.
+      </p>
+    </div><div class="flex flex-wrap justify-center gap-4">
+      {
+        profiles.map((profile) => (
+          <CardProfile
+            title={profile.title}
+            icon={profile.icon}
+            color={profile.color}
+            class="w-full max-w-[19rem]"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
 
-<section class="bg-[#091E3A] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-16"><div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2"><div class="space-y-4 lg:pr-10"><p class="text-xs uppercase italic tracking-[0.15em] text-[#df9417]">EL RETO</p><h2 class="text-2xl font-bold leading-tight sm:text-3xl">Capacitar no es suficiente si el aprendizaje no cambia la forma de trabajar</h2><p class="text-sm leading-relaxed text-slate-200">Muchas instituciones invierten en cursos que no se conectan con sus problemas, no generan prácticas nuevas o no dejan capacidades instaladas. El desafío está en diseñar formación relevante, aplicable y conectada con la operación real.</p><a href="#metodologia" class="btn-gold inline-flex px-5 py-2.5 text-sm font-bold"><span>Identifica la necesidad de tu equipo <span class="ml-1">→</span></span></a></div><div class="space-y-4 border-white/20 lg:border-l lg:pl-10"><p class="text-xs uppercase italic tracking-[0.15em] text-[#df9417]">NUESTRA RESPUESTA</p><h2 class="text-2xl font-bold leading-tight sm:text-3xl">Capacidades que se convierten en <span class="text-[#df9417]">resultados</span></h2><p class="text-sm leading-relaxed text-slate-200">Partimos de los desafíos y objetivos de la institución para diseñar experiencias formativas que combinen contenido actual, práctica, acompañamiento y recursos digitales.</p><div class="inline-block rounded bg-white px-4 py-2 text-sm font-bold italic text-[#1a375b]">Formación eficaz para capacitar y avanzar.</div></div></div></section>
+<!-- =========================================================================
+3. EL RETO Y NUESTRA RESPUESTA (Estructura Asesoría con imagen img-portafolio-academia-section-2-iz.png)
+========================================================================= -->
+<section
+  class="relative bg-[#091E3A] overflow-hidden flex flex-col lg:flex-row lg:items-stretch min-h-[500px]"
+>
+  <div
+    class="w-full lg:w-[30%] xl:w-[25%] relative min-h-[300px] lg:min-h-full"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/assets/portafolio/vista-academia/img-portafolio-academia-section-2-iz.png"
+        alt="Docente e instructora en formación CEDEPRO"
+        class="w-full h-full object-cover object-[60%_top]"
+        decoding="async"
+      />
+      <GradientOverlay
+        color="brand"
+        coverage={10}
+        desktopDirection="to-l"
+        mobileDirection="to-t"
+        fadeEnd={90}
+      />
+    </div>
+  </div>
 
-<section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20"><div class="mx-auto max-w-7xl space-y-10"><div><p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">UNA LÍNEA PARA CADA DESAFÍO</p><h2 class="text-2xl font-bold text-[#1a375b] sm:text-3xl">Elige el tipo de <span class="text-[#df9417]">aprendizaje</span> que tu reto necesita</h2></div><div class="grid gap-5 md:grid-cols-3">{solutions.slice(0, 3).map((solution) => <article class="card-integration flex-col"><div class="flex items-center gap-3"><div class="card-icon-circle h-11 w-11 bg-[#1665c0]"><Icon name={solution.icon} class="h-6 w-6 text-white stroke-1" /></div><h3 class="text-base font-bold leading-tight text-[#1a375b]">{solution.title}</h3></div><p class="text-sm leading-relaxed text-[#1a375b]/80">{solution.desc}</p><a href="/contactanos" class="btn-outline-gold inline-flex self-start px-4 py-2 text-xs font-bold"><span>Conocer esta línea <span class="ml-1">→</span></span></a></article>)}</div></div></section>
+  <div
+    class="w-full lg:w-[70%] xl:w-[75%] relative z-10 p-8 sm:p-12 lg:py-16 lg:pr-12 xl:pr-16 flex items-center"
+  >
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start"
+    >
+      <div class="space-y-4">
+        <p
+          class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic"
+        >
+          EL RETO
+        </p>
+        <h2
+          class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
+        >
+          Capacitar no es suficiente si el aprendizaje <span
+            class="text-[#df9417] font-bold"
+            >no cambia la forma de trabajar</span
+          >
+        </h2>
+        <p
+          class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed"
+        >
+          Muchas instituciones invierten en cursos que no se conectan con sus
+          problemas, no generan prácticas nuevas o no dejan capacidades
+          instaladas. El desafío está en diseñar formación relevante, aplicable
+          y conectada con la operación real.
+        </p>
+        <div class="pt-2">
+          <a
+            href="#metodologia"
+            class="btn-gold !rounded-full !px-6 !py-2.5 !text-sm !font-bold inline-flex items-center"
+          >
+            <span
+              class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
+            >
+              Identifica la necesidad de tu equipo <span
+                class="inline-block ml-1.5 leading-none">→</span
+              >
+            </span>
+          </a>
+        </div>
+      </div>
 
-<section id="soluciones" class="bg-[#df9417] px-4 py-12 sm:px-6 lg:px-8 lg:py-16"><div class="mx-auto max-w-7xl space-y-7"><div class="text-center text-white"><p class="text-xs uppercase italic tracking-[0.15em]">QUÉ PODEMOS AYUDARTE A DESARROLLAR</p><h2 class="text-2xl font-bold sm:text-3xl">De una necesidad de capacitación a una experiencia que deja capacidad instalada</h2><p class="mx-auto mt-2 max-w-3xl text-sm italic">Definimos el nivel de formación y conectamos la solución con el formato, la duración, los recursos y el acompañamiento que el equipo realmente necesita.</p></div><div class="grid grid-cols-2 gap-3 md:grid-cols-5">{needs.map((need) => <div class="card-need"><div class="card-icon-circle h-9 w-9" style={`background-color:${need.color}`}><Icon name={need.icon} class="h-5 w-5 text-white stroke-1" /></div><span class="text-[11px] font-bold leading-tight text-[#1a375b]">{need.label}</span></div>)}</div><div class="inline-block rounded-md bg-[#091E3A] px-4 py-2 text-lg font-bold text-white">Soluciones que pueden integrarse</div><div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{solutions.map((solution) => <article class="card-integration"><Icon name={solution.icon} class="h-12 w-12 shrink-0 text-[#1665c0] stroke-1" /><div><h3 class="text-sm font-bold leading-tight text-[#1a375b]">{solution.title}</h3><p class="mt-1 text-xs leading-snug text-[#1a375b]/80">{solution.desc}</p><a href="/contactanos" class="mt-3 inline-flex rounded-full border border-[#1a375b] px-3 py-1 text-[11px] font-bold text-[#1a375b] hover:bg-[#1a375b] hover:text-white"><span>Conocer la solución →</span></a></div></article>)}</div></div></section>
+      <div class="space-y-4 md:pl-10 md:border-l md:border-white/20">
+        <p
+          class="text-[#df9417] text-xs sm:text-sm font-normal tracking-widest uppercase italic"
+        >
+          NUESTRA RESPUESTA
+        </p>
+        <h2
+          class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
+        >
+          Capacidades que se convierten en <span
+            class="text-[#df9417] font-bold">resultados</span
+          >
+        </h2>
+        <p
+          class="text-slate-200 text-sm sm:text-[15px] font-normal leading-relaxed"
+        >
+          Partimos de los desafíos y objetivos de la institución para diseñar
+          experiencias formativas que combinen contenido actual, práctica,
+          acompañamiento y recursos digitales.
+        </p>
+        <div class="pt-2">
+          <div
+            class="inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic"
+          >
+            Formación eficaz para capacitar y avanzar.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="metodologia"><div class="bg-[#091E3A] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-16"><div class="mx-auto max-w-7xl space-y-8"><p class="text-xs uppercase italic tracking-[0.15em] text-[#df9417]">NUESTRA METODOLOGÍA</p><h2 class="text-2xl font-bold sm:text-3xl">La formación empieza antes del aula y continúa después de la sesión.</h2><div class="grid gap-8 md:grid-cols-5">{steps.map((step) => <div class="text-center"><div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#1665c0]"><Icon name={step.icon} class="h-9 w-9 stroke-1" /></div><h3 class="mt-3 text-sm font-bold">{step.num}.{step.title}</h3><p class="mt-1 text-xs leading-tight text-slate-300">{step.desc}</p></div>)}</div></div></div><div class="bg-white px-4 py-12 sm:px-6 lg:px-8"><div class="mx-auto max-w-7xl"><p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">POR QUÉ CEDEPRO FORMACIÓN</p><h2 class="mt-2 text-2xl font-bold text-[#1a375b] sm:text-3xl">Formación aplicada, pertinente y <span class="text-[#df9417]">preparada para escalar.</span></h2></div></div></section>
+<section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl space-y-10">
+    <div>
+      <p class="text-xs uppercase italic tracking-[0.15em] text-[#1a375b]">
+        UNA LÍNEA PARAGUAS TRES FORMAS DE DESARROLLAR CAPACIDADES
+      </p>
+      <h2 class="text-2xl font-bold text-[#1a375b] sm:text-3xl mt-1">
+        Elige el tipo de <span class="text-[#df9417]">aprendizaje</span> que tu reto
+        necesita
+      </h2>
+    </div>
 
-<section class="relative overflow-hidden bg-[#07192F] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"><img src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-7.webp" alt="Equipo conversando sobre formación" class="absolute inset-0 h-full w-full object-cover object-right opacity-75" loading="lazy" /><div class="absolute inset-0 bg-[#091E3A]/80"></div><div class="relative z-10 mx-auto max-w-7xl"><div class="max-w-2xl space-y-5"><p class="text-xs uppercase italic tracking-[0.15em]">EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES</p><h2 class="text-2xl font-bold leading-tight sm:text-3xl">Si quieres fortalecer las capacidades de tu equipo, conversemos.</h2><p class="text-sm leading-relaxed text-slate-200">Diseñamos una ruta formativa conectada con tu institución, tus personas y los resultados que necesitas alcanzar.</p><div class="flex flex-col gap-3 pt-2 sm:flex-row"><a href="/contactanos" class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Solicita una propuesta <span class="ml-1">→</span></span></a><a href="/contactanos" class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"><span>Hablemos de tu reto</span></a></div></div></div></section>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 pt-4">
+      {
+        solutions
+          .slice(0, 3)
+          .map((solution) => (
+            <CardImageHorizontal
+              title={solution.title}
+              description={solution.desc}
+              icon={solution.icon}
+              iconBgColor="#1665c0"
+              iconLayout="col"
+              buttonText={`${solution.buttonText} →`}
+              buttonHref={solution.href}
+            />
+          ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+5. QUÉ PODEMOS AYUDARTE A DESARROLLAR
+========================================================================= -->
+<section
+  id="soluciones"
+  class="py-8 sm:py-10 px-4 sm:px-6 lg:px-8 bg-[#df9417] overflow-hidden"
+>
+  <div class="max-w-[1400px] mx-auto space-y-6">
+    <div class="text-center space-y-1.5 w-full mx-auto text-white">
+      <p
+        class="text-white/95 text-[12px] sm:text-[13px] font-normal tracking-[0.15em] uppercase italic"
+      >
+        QUÉ PODEMOS AYUDARTE A DESARROLLAR
+      </p>
+      <h2
+        class="text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.4rem] font-bold tracking-tight drop-shadow-sm whitespace-normal lg:whitespace-nowrap"
+      >
+        De una necesidad de capacitación a una experiencia que deja capacidad
+        instalada
+      </h2>
+      <p
+        class="text-white/95 text-[14px] sm:text-[15px] italic leading-relaxed pt-1 max-w-4xl mx-auto"
+      >
+        Definimos el nivel de formación que corresponde al reto y conectamos la
+        solución con el formato, la duración, los recursos y el acompañamiento
+        que el equipo realmente necesita.
+      </p>
+    </div>
+
+    <!-- Fila 1: 5 Necesidades -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      {
+        needs.map((n, i) => {
+          const isLast = i === needs.length - 1;
+          const extraClasses = isLast
+            ? "col-span-2 w-[calc(50%-0.375rem)] mx-auto sm:w-[calc(50%-0.5rem)] md:col-span-1 md:w-full lg:col-span-1"
+            : "";
+
+          return (
+            <CardNeed
+              label={n.label}
+              icon={n.icon}
+              color={n.color}
+              class={extraClasses}
+            />
+          );
+        })
+      }
+    </div>
+
+    <!-- Fila 2: Soluciones -->
+    <div class="space-y-4 pt-1">
+      <div
+        class="inline-block bg-[#091E3A] text-white px-5 py-2 rounded-md shadow-md"
+      >
+        <h3 class="text-lg sm:text-[20px] font-bold">
+          Soluciones que pueden integrarse
+        </h3>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-5">
+        {
+          solutions.map((sol, index) => (
+            <div class="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] max-w-sm flex">
+              <CardIntegration
+                title={sol.title}
+                desc={sol.desc}
+                icon={sol.icon}
+                buttonText={
+                  index === 0
+                    ? "Diseñar un programa →"
+                    : index === 1
+                      ? "Explorar cursos →"
+                      : index === 2
+                        ? "Conocer las rutas →"
+                        : "Conocer AWLA →"
+                }
+                buttonHref="/contactanos"
+                class="w-full"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+6. METODOLOGÍA Y POR QUÉ CEDEPRO
+========================================================================= -->
+<section id="metodologia">
+  <!-- PARTE SUPERIOR: METODOLOGÍA (Fondo Azul) -->
+  <div class="bg-[#091E3A] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="max-w-6xl mx-auto space-y-6">
+      <div class="space-y-1 text-left">
+        <p
+          class="text-[#df9417] text-[12px] lg:text-[14px] font-normal tracking-[0.15em] uppercase"
+        >
+          NUESTRA METODOLOGÍA
+        </p>
+        <h2
+          class="text-white text-2xl sm:text-3xl lg:text-[2.2rem] font-bold tracking-tight leading-tight"
+        >
+          <span class="text-[#df9417]">La formación</span> empieza antes del aula
+          y continúa después de la sesión.
+        </h2>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2"
+      >
+        {
+          steps.map((step, idx) => (
+            <CardStep
+              num={step.num}
+              title={step.title}
+              desc={step.desc}
+              icon={step.icon}
+              showArrow={idx < steps.length - 1}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTE INFERIOR: POR QUÉ CEDEPRO FORMACIÓN (Fondo Blanco) -->
+  <div class="bg-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto space-y-6">
+      <div class="space-y-1 text-left">
+        <p
+          class="text-[#1a375b] text-[12px] font-normal tracking-[0.15em] uppercase italic"
+        >
+          POR QUÉ CEDEPRO FORMACIÓN
+        </p>
+        <h2
+          class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2rem] font-bold tracking-tight"
+        >
+          Formación aplicada, pertinente y <span class="text-[#df9417]"
+            >preparada para escalar.</span
+          >
+        </h2>
+      </div>
+
+      <div
+        class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200"
+      >
+        {
+          reasons.map((r, i) => (
+            <CardReason
+              title={r.title}
+              icon={r.icon}
+              variant={i % 2 === 0 ? "gold" : "blue"}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  class="relative overflow-hidden bg-[#07192F] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
+>
+  <img
+    src="/assets/portafolio/vista-academia/img-portafolio-academia-section-7-total.webp"
+    alt="Equipo conversando sobre formación"
+    class="absolute inset-0 h-full w-full object-cover object-right opacity-75"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="absolute inset-0 bg-[#091E3A]/80"></div>
+  <div class="relative z-10 mx-auto max-w-7xl">
+    <div class="max-w-2xl space-y-5">
+      <p class="text-xs uppercase italic tracking-[0.15em]">
+        EXPERIENCIA QUE RESPALDA NUESTRAS DECISIONES
+      </p>
+      <h2 class="text-2xl font-bold leading-tight sm:text-3xl">
+        Si quieres fortalecer las capacidades de tu equipo, conversemos.
+      </h2>
+      <p class="text-sm leading-relaxed text-slate-200">
+        Diseñamos una ruta formativa conectada con tu institución, tus personas
+        y los resultados que necesitas alcanzar.
+      </p>
+      <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+        <a
+          href="/contactanos"
+          class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+          ><span>Solicita una propuesta <span class="ml-1">→</span></span></a
+        >
+        <a
+          href="/contactanos"
+          class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+          ><span>Hablemos de tu reto</span></a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTILOS PARA HERO HEADER -->
+<style is:global>
+  .hero-bg-layer {
+    background-repeat: no-repeat;
+  }
+
+  @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+    .hero-section {
+      min-height: 710px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      background-color: #091e3a !important;
+      padding-top: 1rem !important;
+      padding-bottom: 0 !important;
+    }
+    .hero-content {
+      padding-top: 0.5rem !important;
+      padding-bottom: 1rem !important;
+      z-index: 10 !important;
+      justify-content: flex-start !important;
+    }
+    .hero-bg-layer {
+      display: block !important;
+      position: absolute !important;
+      inset: auto 0 0 0 !important;
+      height: 450px !important;
+      background-image: url("/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png") !important;
+      background-size: cover !important;
+      background-position: 35% 120px !important;
+      z-index: 1 !important;
+    }
+    .hero-mobile-overlay {
+      display: block !important;
+      position: absolute !important;
+      inset: auto 0 0 0 !important;
+      height: 450px !important;
+      background: linear-gradient(
+        180deg,
+        #091e3a 0%,
+        #091e3a 22%,
+        rgba(9, 30, 58, 0.85) 34%,
+        rgba(9, 30, 58, 0.4) 45%,
+        rgba(9, 30, 58, 0) 58%
+      ) !important;
+      z-index: 2 !important;
+    }
+    .hero-desktop-overlay {
+      display: none !important;
+    }
+  }
+
+  @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+    .hero-section {
+      min-height: 620px !important;
+      max-height: 860px !important;
+      height: calc(100vh - 4rem) !important;
+      display: flex !important;
+      align-items: center !important;
+      background-color: #091e3a !important;
+      padding: 2.5rem 0 !important;
+    }
+    .hero-bg-layer {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background-image: url("/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png") !important;
+      background-size: cover !important;
+      background-position: left center !important;
+      z-index: 1 !important;
+    }
+    .hero-desktop-overlay {
+      display: block !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(
+        270deg,
+        #091e3a 0%,
+        #091e3a 15%,
+        rgba(9, 30, 58, 0.95) 28%,
+        rgba(9, 30, 58, 0.75) 42%,
+        rgba(9, 30, 58, 0.35) 55%,
+        rgba(9, 30, 58, 0) 70%
+      ) !important;
+      z-index: 2 !important;
+    }
+    .hero-mobile-overlay {
+      display: none !important;
+    }
+
+    .hero-text-block {
+      max-width: 450px !important;
+    }
+    @media (min-width: 1200px) {
+      .hero-text-block {
+        max-width: 520px !important;
+      }
+    }
+    @media (min-width: 1440px) {
+      .hero-text-block {
+        max-width: 580px !important;
+      }
+    }
+  }
+</style>

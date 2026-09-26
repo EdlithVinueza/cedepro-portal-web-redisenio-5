@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  /** Texto o título del perfil */
+  title: string;
+  /** Nombre del icono (ej: 'ion:people-outline') */
+  icon: string;
+  /** Color temático del círculo y la barra (hex, rgb o clase) */
+  color?: string;
+  /** Ancho máximo o clases extra */
+  class?: string;
+}
+
+const {
+  title,
+  icon,
+  color = '#091E3A',
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`card-profile group ${className}`}>
+  <div 
+    class="card-icon-circle w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem] shrink-0" 
+    style={`background-color: ${color};`}
+  >
+    <Icon name={icon} class="w-8 h-8 lg:w-9 lg:h-9 text-white stroke-1" />
+  </div>
+  <div class="flex flex-col space-y-2">
+    <h3 class="text-[#1a375b] text-[13px] lg:text-sm font-bold leading-snug">
+      {title}
+    </h3>
+    <div 
+      class="card-category-bar" 
+      style={`background-color: ${color};`}
+    ></div>
+  </div>
+</div>
