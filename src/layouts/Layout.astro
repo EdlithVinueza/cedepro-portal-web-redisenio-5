@@ -146,23 +146,6 @@ const canonicalURL = new URL(
     text-rendering: optimizeLegibility;
   }
 
-  .font-heading {
-    font-family: "Kohinoor Latin", sans-serif;
-  }
-
-  .font-cursive {
-    font-family: "Kohinoor Latin", sans-serif;
-    font-style: italic;
-  }
-
-  .font-signature {
-    font-family: "Kohinoor Latin", sans-serif;
-  }
-
-  .font-serif {
-    font-family: "Kohinoor Latin", sans-serif;
-  }
-
   /* Optimize mobile parallax / bg-fixed support */
   @media (hover: none) or (max-width: 768px) {
     .bg-fixed {
@@ -170,38 +153,5 @@ const canonicalURL = new URL(
       background-size: cover !important;
       background-position: center center !important;
     }
-  }
-
-  /* Card Standard Classes */
-  .card-dark {
-    background-color: #091e3a;
-    border-radius: 1.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow:
-      0 10px 25px -5px rgba(9, 30, 58, 0.25),
-      0 8px 10px -6px rgba(9, 30, 58, 0.25);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  @media (min-width: 640px) {
-    .card-dark {
-      border-radius: 1.5rem;
-    }
-  }
-
-  .card-light {
-    background-color: #ffffff;
-    border-radius: 1.25rem;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  @media (min-width: 640px) {
-    .card-light {
-      border-radius: 1.5rem;
-    }
-  }
-  .card-light:hover {
-    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
   }
 </style>
