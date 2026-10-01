@@ -1,9 +1,13 @@
 ---
+interface Props {
+  showTopBorder?: boolean;
+}
+const { showTopBorder = true } = Astro.props;
 const currentYear = 2026;
 ---
 
 <footer
- class="relative bg-[#07192F] text-white border-t border-[#0d2d59] pt-12 sm:pt-14 pb-10 sm:pb-12"
+ class:list={["relative bg-[#07192F] text-white pt-12 sm:pt-14 pb-10 sm:pb-12", { "border-t border-[#0d2d59]": showTopBorder }]}
 >
  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">

@@ -17,6 +17,8 @@ const {
   image = "/assets/brand/img-navbar-logo.webp",
 } = Astro.props;
 
+const isPortfolioPage = /^\/portafolio(?:\/|$)/.test(Astro.url.pathname);
+
 const canonicalURL = new URL(
   Astro.url.pathname,
   Astro.site || "https://cedeproec.com",
@@ -124,7 +126,7 @@ const canonicalURL = new URL(
     </main>
 
     <WhatsAppBtn />
-    <Footer />
+    <Footer showTopBorder={!isPortfolioPage} />
   </body>
 </html>
 

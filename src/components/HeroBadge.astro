@@ -1,0 +1,138 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  /** Nombre de la marca que acompaña a la línea de servicio. */
+  brand?: string;
+  /** Nombre de la línea de servicio, por ejemplo: IMPULSA o ACADEMIA. */
+  label: string;
+  /** Icono IonIcons Outline; usa null para ocultarlo. */
+  icon?: string | null;
+  /** dark/light según el fondo; ribbon para una franja dorada translúcida. */
+  variant?: "dark" | "light" | "ribbon";
+  class?: string;
+}
+
+const {
+  brand = "CEDEPRO",
+  label,
+  icon = "ion:trending-up-outline",
+  variant = "dark",
+  class: className,
+} = Astro.props;
+---
+
+<span class:list={["hero-badge", `hero-badge--${variant}`, className]}>
+  {icon && variant !== "ribbon" && (
+    <span class="hero-badge__icon" aria-hidden="true">
+      <Icon name={icon} class="h-5 w-5 stroke-1" />
+    </span>
+  )}
+  <span class:list={["hero-badge__text", variant === "ribbon" && "section-eyebrow section-eyebrow--amber"]}>
+    {brand && <span class="hero-badge__brand">{brand}</span>}
+    {brand && (variant === "ribbon" ? " " : <span class="hero-badge__divider" aria-hidden="true"></span>)}
+    <span class="hero-badge__label">{label}</span>
+  </span>
+</span>
+
+<style>
+  .hero-badge {
+    --badge-accent: var(--color-cedepro-gold-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 100%;
+    padding: 0.5rem 1.2rem 0.5rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--badge-accent) 38%, transparent);
+    border-radius: 0.9rem;
+    background: var(--color-cedepro-navy);
+    color: white;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .hero-badge__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.6rem;
+    background: var(--color-cedepro-gold);
+    color: var(--color-cedepro-navy);
+  }
+
+  .hero-badge__text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    line-height: 1.5;
+    text-transform: uppercase;
+    transform: translateY(-1px);
+  }
+
+  .hero-badge__brand {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-badge__divider {
+    width: 1px;
+    height: 0.95rem;
+    background: currentColor;
+    opacity: 0.3;
+  }
+
+  .hero-badge__label {
+    color: var(--badge-accent);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-badge--light {
+    --badge-accent: var(--color-cedepro-gold-dark);
+    background: white;
+    color: var(--color-cedepro-navy);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 6%);
+  }
+
+  .hero-badge--ribbon {
+    padding: 0.12rem 0.9rem;
+    border: 0;
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--color-cedepro-gold) 28%, transparent);
+    color: var(--color-cedepro-gold-light);
+    box-shadow: none;
+  }
+
+  .hero-badge--ribbon .hero-badge__text {
+    display: block;
+    margin: 0;
+    font-size: clamp(0.8125rem, 1.05vw, 0.9375rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.35;
+    letter-spacing: 0.015em;
+    text-align: center;
+    transform: none;
+  }
+
+  .hero-badge--ribbon .hero-badge__brand,
+  .hero-badge--ribbon .hero-badge__label {
+    color: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+  }
+
+  @media (max-width: 359px) {
+    .hero-badge:not(.hero-badge--ribbon) { gap: 0.6rem; padding-right: 0.8rem; }
+    .hero-badge__text { gap: 0.45rem; }
+  }
+</style>

@@ -3,9 +3,10 @@ import { Icon } from "astro-icon/components";
 import GradientOverlay from "../GradientOverlay.astro";
 import CardProfile from "../cards/CardProfile.astro";
 import CardNeed from "../cards/CardNeed.astro";
+import CardGrid from "../cards/CardGrid.astro";
 import CardIntegration from "../cards/CardIntegration.astro";
-import CardStep from "../cards/CardStep.astro";
-import CardReason from "../cards/CardReason.astro";
+import MethodologySteps from "../cards/MethodologySteps.astro";
+import ReasonsGroup from "../cards/ReasonsGroup.astro";
 import CardImageHorizontal from "../cards/CardImageHorizontal.astro";
 
 const reasons = [
@@ -227,18 +228,17 @@ const steps = [
         equipos que necesitan actualizar conocimientos, fortalecer competencias
         y mejorar la manera en que trabajan.
       </p>
-    </div><div class="flex flex-wrap justify-center gap-4">
+    </div><CardGrid count={profiles.length}>
       {
         profiles.map((profile) => (
           <CardProfile
             title={profile.title}
             icon={profile.icon}
             color={profile.color}
-            class="w-full max-w-[19rem]"
           />
         ))
       }
-    </div>
+    </CardGrid>
   </div>
 </section>
 
@@ -356,7 +356,7 @@ const steps = [
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 pt-4">
+    <CardGrid count={solutions.slice(0, 3).length}>
       {
         solutions
           .slice(0, 3)
@@ -372,7 +372,7 @@ const steps = [
             />
           ))
       }
-    </div>
+    </CardGrid>
   </div>
 </section>
 
@@ -406,25 +406,19 @@ const steps = [
     </div>
 
     <!-- Fila 1: 5 Necesidades -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+    <CardGrid count={needs.length} maxWidth="64rem">
       {
         needs.map((n, i) => {
-          const isLast = i === needs.length - 1;
-          const extraClasses = isLast
-            ? "col-span-2 w-[calc(50%-0.375rem)] mx-auto sm:w-[calc(50%-0.5rem)] md:col-span-1 md:w-full lg:col-span-1"
-            : "";
-
           return (
             <CardNeed
               label={n.label}
               icon={n.icon}
               color={n.color}
-              class={extraClasses}
             />
           );
         })
       }
-    </div>
+    </CardGrid>
 
     <!-- Fila 2: Soluciones -->
     <div class="space-y-4 pt-1">
@@ -436,10 +430,10 @@ const steps = [
         </h3>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-4 sm:gap-5">
+      <CardGrid count={solutions.length}>
         {
           solutions.map((sol, index) => (
-            <div class="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] max-w-sm flex">
+            <div class="flex">
               <CardIntegration
                 title={sol.title}
                 desc={sol.desc}
@@ -459,7 +453,7 @@ const steps = [
             </div>
           ))
         }
-      </div>
+      </CardGrid>
     </div>
   </div>
 </section>
@@ -485,21 +479,7 @@ const steps = [
         </h2>
       </div>
 
-      <div
-        class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2"
-      >
-        {
-          steps.map((step, idx) => (
-            <CardStep
-              num={step.num}
-              title={step.title}
-              desc={step.desc}
-              icon={step.icon}
-              showArrow={idx < steps.length - 1}
-            />
-          ))
-        }
-      </div>
+      <MethodologySteps items={steps} theme="dark" />
     </div>
   </div>
 
@@ -521,19 +501,7 @@ const steps = [
         </h2>
       </div>
 
-      <div
-        class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200"
-      >
-        {
-          reasons.map((r, i) => (
-            <CardReason
-              title={r.title}
-              icon={r.icon}
-              variant={i % 2 === 0 ? "gold" : "blue"}
-            />
-          ))
-        }
-      </div>
+      <ReasonsGroup items={reasons} variant="alternating" dividerColorClass="divide-slate-200" />
     </div>
   </div>
 </section>

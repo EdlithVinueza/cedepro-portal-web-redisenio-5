@@ -20,14 +20,14 @@ const {
 } = Astro.props;
 ---
 
-<div class={`card-need ${className}`}>
+<div class={`card-need w-full flex items-center ${className}`}>
   <div 
-    class="card-icon-circle w-9 h-9 lg:w-11 lg:h-11 shrink-0" 
+    class="card-icon-circle w-9 h-9 lg:w-11 lg:h-11 shrink-0 flex items-center justify-center rounded-full" 
     style={`background-color: ${color};`}
   >
     <Icon name={icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
   </div>
-  <div class="flex flex-col space-y-1">
+  <div class="flex flex-col space-y-1 text-left flex-1 min-w-0">
     <span class="text-[#1a375b] text-xs lg:text-[13px] font-bold leading-tight pr-1">
       {label}
     </span>

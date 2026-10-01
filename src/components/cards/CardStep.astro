@@ -1,16 +1,18 @@
 ---
 import { Icon } from 'astro-icon/components';
+import type { ElementColors } from './ElementColors';
 
 interface Props {
+  colors?: ElementColors;
   /** Número de paso (ej: '1', '2') */
   num: string | number;
   /** Título del paso (opcional) */
   title?: string;
   /** Descripción del paso (opcional) */
   desc?: string;
-  /** Nombre del icono (ej: 'ion:ear-outline') */
+  /** Nombre del icono (ej: 'ion:search-outline') */
   icon: string;
-  /** Si debe mostrar la flecha siguiente (solo en pantallas md+) */
+  /** Si debe mostrar la flecha siguiente (solo en pantallas lg+) */
   showArrow?: boolean;
   /** Clases CSS adicionales */
   class?: string;
@@ -18,13 +20,22 @@ interface Props {
   arrowIcon?: string;
   /** Clase CSS para el color de la flecha, por defecto text-[#df9417] */
   arrowColor?: string;
-  /** Clase CSS para el color de la descripción, por defecto text-slate-300 */
+  /** Clase CSS general para el color de textos (título y descripción) */
+  textColorClass?: string;
+  /** Clase CSS específica para el color del título (anula textColorClass si se define) */
+  titleColorClass?: string;
+  /** Clase CSS específica para el color de la descripción (anula textColorClass si se define) */
   descColorClass?: string;
   /** Clase CSS para el color del icono central, por defecto text-[#1665c0] */
   iconColorClass?: string;
+  /** Clase CSS para el fondo del círculo del icono */
+  iconBgClass?: string;
+  /** Clase CSS para el borde del círculo del icono (ej: 'border-2 border-[#1665c0]') */
+  iconBorderClass?: string;
 }
 
 const {
+  colors = {},
   num,
   title,
   desc,
@@ -33,30 +44,37 @@ const {
   class: className = '',
   arrowIcon = 'ion:chevron-forward-outline',
   arrowColor = 'text-[#df9417]',
-  descColorClass = 'text-slate-300',
+  textColorClass,
+  titleColorClass,
+  descColorClass,
   iconColorClass = 'text-[#1665c0]',
+  iconBgClass = 'bg-white shadow-xl',
+  iconBorderClass = '',
 } = Astro.props;
+
+const finalTitleColor = titleColorClass || textColorClass || 'text-[#1a375b]';
+const finalDescColor = descColorClass || textColorClass || 'text-slate-600';
 ---
 
-<div class={`flex flex-col items-center text-center w-full md:flex-1 relative group z-10 ${className}`}>
-  <div class={`w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full bg-white shadow-xl flex items-center justify-center ${iconColorClass} mb-3 relative z-10 transition-transform group-hover:scale-105`}>
-    <Icon name={icon} class="w-9 h-9 lg:w-11 lg:h-11 stroke-[1.5]" />
+<div class={`flex flex-col items-center text-center w-full md:flex-1 relative group z-10 min-w-0 ${className}`}>
+  <div class={`w-[4rem] h-[4rem] lg:w-[4.5rem] lg:h-[4.5rem] rounded-full flex items-center justify-center ${iconColorClass} ${iconBgClass} ${iconBorderClass} mb-3 relative z-10 transition-transform group-hover:scale-105`} style={{ backgroundColor: colors.circle, color: colors.icon, border: colors.border ? `2px solid ${colors.border}` : undefined }}>
+    <Icon name={icon} class="w-8 h-8 lg:w-9 lg:h-9 stroke-1" />
   </div>
   
   {title && (
-    <h3 class="text-white text-[15px] lg:text-[16px] font-bold mb-1">
-      {num}.{title}
+    <h3 class={`${finalTitleColor} text-[15px] lg:text-[16px] font-bold mb-1`} style={{ color: colors.title }}>
+      {num}. {title}
     </h3>
   )}
   {desc && (
-    <p class={`${descColorClass} text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]`}>
+    <p class={`${finalDescColor} text-[12px] lg:text-[13px] font-normal leading-tight text-balance max-w-[180px]`} style={{ color: colors.description }}>
       {desc}
     </p>
   )}
 
   {showArrow && (
-    <div class="hidden md:flex absolute top-[2rem] lg:top-[2.25rem] -right-[1rem] lg:-right-[1.5rem] w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
-      <Icon name={arrowIcon} class={`w-6 h-6 lg:w-7 lg:h-7 ${arrowColor}`} />
+    <div class="step-arrow hidden lg:flex absolute top-[2rem] lg:top-[2.25rem] -right-3 w-8 h-8 items-center justify-center z-0 pointer-events-none -translate-y-1/2 translate-x-1/2">
+      <Icon name={arrowIcon} class={`w-6 h-6 lg:w-7 lg:h-7 ${arrowColor}`} style={{ color: colors.arrow }} aria-hidden="true" />
     </div>
   )}
 </div>

@@ -4,9 +4,10 @@ import GradientOverlay from "../GradientOverlay.astro";
 import CardProfile from "../cards/CardProfile.astro";
 import CardImageHorizontal from "../cards/CardImageHorizontal.astro";
 import CardNeed from "../cards/CardNeed.astro";
+import CardGrid from "../cards/CardGrid.astro";
 import CardIntegration from "../cards/CardIntegration.astro";
-import CardStep from "../cards/CardStep.astro";
-import CardReason from "../cards/CardReason.astro";
+import MethodologySteps from "../cards/MethodologySteps.astro";
+import ReasonsGroup from "../cards/ReasonsGroup.astro";
 
 const profiles = [
   {
@@ -149,11 +150,7 @@ const reasons = [
     class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex justify-start"
   >
     <div class="hero-text-block space-y-3 sm:space-y-4 text-left text-white">
-      <p
-        class="section-eyebrow section-eyebrow--white"
-      >
-        CEDEPRO PROYECTOS
-      </p>
+      <p class="section-eyebrow section-eyebrow--white">CEDEPRO PROYECTOS</p>
 
       <h1
         class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight drop-shadow-sm text-white"
@@ -225,18 +222,17 @@ const reasons = [
         validarse, presentarse y sostenerse en el tiempo.
       </p>
     </div>
-    <div class="flex flex-wrap justify-center gap-4">
+    <CardGrid count={profiles.length}>
       {
         profiles.map((profile) => (
           <CardProfile
             title={profile.title}
             icon={profile.icon}
             color={profile.color}
-            class="w-full max-w-[19rem]"
           />
         ))
       }
-    </div>
+    </CardGrid>
   </div>
 </section>
 
@@ -273,11 +269,7 @@ const reasons = [
       class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start"
     >
       <div class="space-y-4">
-        <p
-          class="section-eyebrow section-eyebrow--white"
-        >
-          EL RETO
-        </p>
+        <p class="section-eyebrow section-eyebrow--white">EL RETO</p>
         <h2
           class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
         >
@@ -292,10 +284,7 @@ const reasons = [
           un proyecto que no logra despegar.
         </p>
         <div class="pt-2">
-          <a
-            href="#metodologia"
-            class="btn-navy-on-gold"
-          >
+          <a href="#metodologia" class="btn-navy-on-gold">
             <span
               class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
             >
@@ -308,11 +297,7 @@ const reasons = [
       </div>
 
       <div class="space-y-4 md:pl-10 md:border-l md:border-white/30">
-        <p
-          class="section-eyebrow section-eyebrow--white"
-        >
-          NUESTRA RESPUESTA
-        </p>
+        <p class="section-eyebrow section-eyebrow--white">NUESTRA RESPUESTA</p>
         <h2
           class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
         >
@@ -349,7 +334,7 @@ const reasons = [
         >
       </h2>
     </div>
-    <div class="grid gap-8 lg:grid-cols-2">
+    <CardGrid count={2}>
       <CardImageHorizontal
         title="Proyectos Académicos"
         description="Diseñamos y estructuramos carreras, programas y propuestas académicas a partir de la pertinencia, la demanda y el perfil profesional."
@@ -366,7 +351,7 @@ const reasons = [
         buttonText="Estructurar un proyecto institucional →"
         buttonHref="/contactanos"
       />
-    </div>
+    </CardGrid>
   </div>
 </section>
 
@@ -376,9 +361,7 @@ const reasons = [
 >
   <div class="mx-auto max-w-7xl space-y-8">
     <div class="text-center space-y-1.5 w-full mx-auto text-white">
-      <p
-        class="section-eyebrow section-eyebrow--gold"
-      >
+      <p class="section-eyebrow section-eyebrow--gold">
         QUÉ PODEMOS AYUDARTE A CONVERTIR EN PROYECTO
       </p>
       <h2
@@ -393,19 +376,19 @@ const reasons = [
         conectamos los recursos para convertir una idea en un proyecto viable.
       </p>
     </div>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-5">
+    <CardGrid count={needs.length} maxWidth="64rem">
       {
         needs.map((need) => (
           <CardNeed label={need.label} icon={need.icon} color={need.color} />
         ))
       }
-    </div>
+    </CardGrid>
     <div
       class="inline-block rounded-md bg-[#df9417] px-4 py-2 text-lg font-bold text-white"
     >
       Soluciones que pueden integrarse
     </div>
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <CardGrid count={solutions.length}>
       {
         solutions.map((solution) => (
           <CardIntegration
@@ -417,7 +400,7 @@ const reasons = [
           />
         ))
       }
-    </div>
+    </CardGrid>
   </div>
 </section>
 
@@ -441,24 +424,7 @@ const reasons = [
         </h2>
       </div>
 
-      <div
-        class="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-4 relative pt-2"
-      >
-        {
-          steps.map((step, idx) => (
-            <CardStep
-              num={step.num}
-              title={step.title}
-              desc={step.desc}
-              icon={step.icon}
-              showArrow={idx < steps.length - 1}
-              arrowColor="text-white opacity-80"
-              descColorClass="text-white"
-              iconColorClass="text-[#df9417]"
-            />
-          ))
-        }
-      </div>
+      <MethodologySteps items={steps} theme="gold" />
     </div>
   </div>
 
@@ -466,9 +432,7 @@ const reasons = [
   <div class="bg-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto space-y-6">
       <div class="space-y-1 text-left">
-        <p
-          class="section-eyebrow section-eyebrow--blue"
-        >
+        <p class="section-eyebrow section-eyebrow--blue">
           POR QUÉ CEDEPRO PROYECTOS
         </p>
         <h2
@@ -479,19 +443,7 @@ const reasons = [
         </h2>
       </div>
 
-      <div
-        class="flex flex-col lg:flex-row items-center lg:items-start justify-between pt-1 divide-y lg:divide-y-0 lg:divide-x divide-slate-200"
-      >
-        {
-          reasons.map((r, i) => (
-            <CardReason
-              title={r.title}
-              icon={r.icon}
-              variant={i % 2 === 0 ? "gold" : "blue"}
-            />
-          ))
-        }
-      </div>
+      <ReasonsGroup items={reasons} variant="alternating" dividerColorClass="divide-slate-200" />
     </div>
   </div>
 </section>

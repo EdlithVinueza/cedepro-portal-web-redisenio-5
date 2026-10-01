@@ -11,6 +11,11 @@ const navItems = [
       { name: "CEDEPRO ASESORÍA", href: "/portafolio/asesoria" },
       { name: "CEDEPRO PROYECTOS", href: "/portafolio/proyectos" },
       { name: "CEDEPRO ACADEMIA", href: "/portafolio/academia" },
+      {
+        name: "CEDEPRO INFORMACIÓN",
+        href: "/portafolio/informacion/impulsa",
+        children: [{ name: "CEDEPRO IMPULSA", href: "/portafolio/informacion/impulsa" }],
+      },
       //{ name: "CEDEPRO GESTIÓN", href: "/portafolio/gestion" },
       //{ name: "CEDEPRO INTERNACIONAL", href: "/portafolio/internacional" },
       //{ name: "CEDEPRO TECH", href: "/portafolio/tech" },
@@ -24,7 +29,21 @@ const isActive = (item: any) => {
   if (item.href === "/") return currentPath === "/" || currentPath === "";
   if (
     item.dropdown &&
-    item.dropdown.some((d: any) => currentPath.startsWith(d.href.split("#")[0]))
+    item.dropdown.some((d: any) => {
+      const mainMatch =
+        d.href &&
+        d.href !== "#" &&
+        currentPath.startsWith(d.href.split("#")[0]);
+      const childMatch =
+        d.children &&
+        d.children.some(
+          (c: any) =>
+            c.href &&
+            c.href !== "#" &&
+            currentPath.startsWith(c.href.split("#")[0]),
+        );
+      return mainMatch || childMatch;
+    })
   )
     return true;
   return item.href !== "#" && currentPath.startsWith(item.href);
@@ -88,15 +107,53 @@ const isActive = (item: any) => {
                 {item.name}
               </a>
               {item.dropdown && (
-                <div class="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 flex flex-col py-2">
-                  {item.dropdown.map((subItem) => (
-                    <a
-                      href={subItem.href}
-                      class="px-4 py-2 text-[13px] text-[#1a375b] font-medium hover:bg-slate-50 hover:text-[#df9417] transition-colors block text-left"
-                    >
-                      {subItem.name}
-                    </a>
-                  ))}
+                <div class="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 flex flex-col py-2">
+                  {item.dropdown.map((subItem) =>
+                    subItem.children && subItem.children.length > 0 ? (
+                      <div class="relative group/nested">
+                        <div class="flex items-center justify-between px-4 py-2 hover:bg-slate-50 transition-colors">
+                          <a
+                            href={subItem.href}
+                            class="text-[13px] text-[#1a375b] font-medium hover:text-[#df9417] transition-colors flex-1 text-left"
+                          >
+                            {subItem.name}
+                          </a>
+                          <svg
+                            class="w-3.5 h-3.5 text-slate-400 group-hover/nested:text-[#df9417] transition-transform group-hover/nested:translate-x-0.5 ml-2 shrink-0 pointer-events-none"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                        <div class="absolute top-0 left-full -ml-1 pl-2 w-60 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-200 transform origin-top-left -translate-x-1 group-hover/nested:translate-x-0 z-50">
+                          <div class="bg-white rounded-xl shadow-xl border border-slate-100 flex flex-col py-2">
+                            {subItem.children.map((child) => (
+                              <a
+                                href={child.href}
+                                class="px-4 py-2 text-[13px] text-[#1a375b] font-medium hover:bg-slate-50 hover:text-[#df9417] transition-colors block text-left"
+                              >
+                                {child.name}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        href={subItem.href}
+                        class="px-4 py-2 text-[13px] text-[#1a375b] font-medium hover:bg-slate-50 hover:text-[#df9417] transition-colors block text-left"
+                      >
+                        {subItem.name}
+                      </a>
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -219,14 +276,60 @@ const isActive = (item: any) => {
                   id={`mobile-dropdown-${idx}`}
                   class="hidden flex-col pl-6 pr-4 space-y-1 mt-1 mb-2 border-l border-white/20 ml-4"
                 >
-                  {item.dropdown.map((subItem) => (
-                    <a
-                      href={subItem.href}
-                      class="block py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors"
-                    >
-                      {subItem.name}
-                    </a>
-                  ))}
+                  {item.dropdown.map((subItem, subIdx) =>
+                    subItem.children && subItem.children.length > 0 ? (
+                      <div class="flex flex-col">
+                        <div class="flex items-center justify-between">
+                          <a
+                            href={subItem.href}
+                            class="py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors flex-1"
+                          >
+                            {subItem.name}
+                          </a>
+                          <button
+                            type="button"
+                            class="p-2 text-slate-300 hover:text-white focus:outline-none mobile-subdropdown-btn flex-shrink-0"
+                            data-target={`mobile-subdropdown-${idx}-${subIdx}`}
+                            aria-label={`Desplegar derivado de ${subItem.name}`}
+                          >
+                            <svg
+                              class="w-4 h-4 transition-transform duration-200"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <div
+                          id={`mobile-subdropdown-${idx}-${subIdx}`}
+                          class="hidden flex-col pl-4 space-y-1 mt-0.5 mb-1.5 border-l border-white/10 ml-2"
+                        >
+                          {subItem.children.map((child) => (
+                            <a
+                              href={child.href}
+                              class="block py-1.5 text-xs text-slate-400 hover:text-[#f5a623] transition-colors"
+                            >
+                              {child.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        href={subItem.href}
+                        class="block py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors"
+                      >
+                        {subItem.name}
+                      </a>
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -282,11 +385,34 @@ const isActive = (item: any) => {
     });
   });
 
+  // Mobile Subdropdown Toggles
+  const mobileSubdropdownBtns = document.querySelectorAll(
+    ".mobile-subdropdown-btn",
+  );
+  mobileSubdropdownBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const targetId = btn.getAttribute("data-target");
+      if (targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.classList.toggle("hidden");
+          targetEl.classList.toggle("flex");
+          const icon = btn.querySelector("svg");
+          if (icon) icon.classList.toggle("rotate-180");
+        }
+      }
+    });
+  });
+
   // Cerrar menú al hacer clic en un enlace de navegación
-  const navLinks = menu?.querySelectorAll("a:not(.mobile-dropdown-btn)");
+  const navLinks = menu?.querySelectorAll(
+    "a:not(.mobile-dropdown-btn):not(.mobile-subdropdown-btn)",
+  );
   navLinks?.forEach((link) => {
     link.addEventListener("click", (e) => {
-      // Si es un enlace de dropdown no lo cerramos a menos que tenga target
+      if (link.getAttribute("href") === "#") return;
       menu?.classList.add("hidden");
       menuIcon?.classList.remove("hidden");
       closeIcon?.classList.add("hidden");

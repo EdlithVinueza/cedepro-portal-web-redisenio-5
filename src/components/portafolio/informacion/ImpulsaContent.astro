@@ -1,0 +1,748 @@
+---
+import HeroBadge from "../../HeroBadge.astro";
+import CardProfile from "../../cards/CardProfile.astro";
+import MethodologySteps from "../../cards/MethodologySteps.astro";
+import ReasonsGroup from "../../cards/ReasonsGroup.astro";
+import CardImageHorizontal from "../../cards/CardImageHorizontal.astro";
+import CardNeed from "../../cards/CardNeed.astro";
+import CardGrid from "../../cards/CardGrid.astro";
+import CardIntegration from "../../cards/CardIntegration.astro";
+
+// 1. Perfiles para Sección 2
+const profiles = [
+  {
+    title:
+      "DOCENTES Y PROFESIONALES DE LA EDUCACIÓN que buscan integrar metodologías activas y herramientas actuales para transformar sus prácticas.",
+    icon: "ion:school-outline",
+    color: "#091E3A",
+  },
+  {
+    title:
+      "PROFESIONALES EN DESARROLLO que necesitan actualizar habilidades para responder a las nuevas exigencias de su sector.",
+    icon: "ion:bulb-outline",
+    color: "#1665c0",
+  },
+  {
+    title:
+      "EMPRENDEDORES Y PERSONAS CON UNA IDEA que quieren llevarla a la práctica con herramientas claras, estructuradas y aplicables.",
+    icon: "ion:rocket-outline",
+    color: "#00838f",
+  },
+  {
+    title:
+      "EQUIPOS QUE BUSCAN CRECER CON SOLUCIONES A SU MEDIDA: programas diseñados según necesidades y objetivos específicos de la organización.",
+    icon: "ion:business-outline",
+    color: "#df9417",
+  },
+  {
+    title:
+      "PERSONAS QUE QUIEREN APRENDER A SU RITMO con rutas flexibles, contenido aplicable y acompañamiento docente constante.",
+    icon: "ion:people-outline",
+    color: "#0d47a1",
+  },
+];
+
+// 2. Las 4 Rutas de Sección 4 (Fondo Dorado)
+const routes = [
+  {
+    title: "Impulsa tu Docencia",
+    desc: "Metodologías activas, evaluación formativa, IA aplicada a la educación y diseño de experiencias de aprendizaje.",
+    icon: "ion:book-outline",
+    buttonText: "Ver cursos disponibles",
+    href: "/contactanos",
+  },
+  {
+    title: "Impulsa tu Profesión",
+    desc: "Habilidades técnicas, liderazgo, gestión de proyectos y competencias clave para destacar en tu entorno laboral.",
+    icon: "ion:briefcase-outline",
+    buttonText: "Explorar opciones profesionales",
+    href: "/contactanos",
+  },
+  {
+    title: "Impulsa tu Emprendimiento",
+    desc: "De la idea al modelo de negocio: validación, finanzas básicas, marketing digital y herramientas de gestión práctica.",
+    icon: "ion:rocket-outline",
+    buttonText: "Descubre la ruta emprendedora",
+    href: "/contactanos",
+  },
+  {
+    title: "Impulsa tu Bienestar",
+    desc: "Desarrollo personal, gestión del tiempo, comunicación asertiva, resiliencia y equilibrio personal y laboral.",
+    icon: "ion:heart-outline",
+    buttonText: "Conoce los programas de bienestar",
+    href: "/contactanos",
+  },
+];
+
+// 3. Desafíos / Necesidades de Sección 5
+const challenges = [
+  {
+    label: "Necesito actualizar mi práctica docente",
+    icon: "ion:school-outline",
+    color: "#091E3A",
+  },
+  {
+    label: "Quiero fortalecer mis competencias laborales",
+    icon: "ion:trending-up-outline",
+    color: "#1665c0",
+  },
+  {
+    label: "Busco concretar una idea de negocio",
+    icon: "ion:search-outline",
+    color: "#00838f",
+  },
+  {
+    label: "Requiero capacitar a mi equipo de trabajo",
+    icon: "ion:people-outline",
+    color: "#df9417",
+  },
+  {
+    label: "Quiero empezar por mi bienestar",
+    icon: "ion:heart-outline",
+    color: "#5e35b1",
+  },
+];
+
+// 4. Experiencias que pueden integrarse (6 Tarjetas)
+const experiences = [
+  {
+    title: "Cursos prácticos",
+    desc: "Formación estructurada en temáticas específicas con aplicación directa a tu contexto profesional.",
+    icon: "ion:laptop-outline",
+    buttonText: "Explorar cursos",
+    href: "/contactanos",
+  },
+  {
+    title: "Simuladores y entrenamiento",
+    desc: "Espacios de práctica guiada para aplicar herramientas en escenarios cercanos a la realidad laboral.",
+    icon: "ion:hardware-chip-outline",
+    buttonText: "Ver simuladores",
+    href: "/contactanos",
+  },
+  {
+    title: "Webinars y talleres",
+    desc: "Sesiones en vivo con expertos para profundizar en tendencias, herramientas y debate profesional.",
+    icon: "ion:videocam-outline",
+    buttonText: "Ver próximos eventos",
+    href: "/contactanos",
+  },
+  {
+    title: "Microcredenciales y certificaciones",
+    desc: "Reconocimiento por competencias demostrables con respaldo institucional para enriquecer tu perfil.",
+    icon: "ion:ribbon-outline",
+    buttonText: "Conoce certificaciones",
+    href: "/contactanos",
+  },
+  {
+    title: "Rutas de desarrollo",
+    desc: "Secuencias de aprendizaje organizadas para avanzar paso a paso hacia objetivos profesionales más complejos.",
+    icon: "ion:bar-chart-outline",
+    buttonText: "Explora las rutas",
+    href: "/contactanos",
+  },
+  {
+    title: "Programas a medida",
+    desc: "Diseño y adaptación curricular para organizaciones que requieren formar a sus equipos en temas específicos.",
+    icon: "ion:document-text-outline",
+    buttonText: "Solicitar propuesta",
+    href: "/contactanos",
+  },
+];
+
+// 5. Pasos de la Metodología (Sección 6)
+const methodologySteps = [
+  {
+    num: "1",
+    title: "Identificar",
+    desc: "Comprendemos tu reto para impulsar tu crecimiento",
+    icon: "ion:search-outline",
+  },
+  {
+    num: "2",
+    title: "Elegir",
+    desc: "Encontramos la ruta ideal para avanzar.",
+    icon: "ion:hand-left-outline",
+  },
+  {
+    num: "3",
+    title: "Aprender",
+    desc: "Adquieres conocimientos prácticos para transformar capacidades",
+    icon: "ion:document-text-outline",
+  },
+  {
+    num: "4",
+    title: "Practicar",
+    desc: "Conviertes aprendizaje en habilidades aplicables reales",
+    icon: "ion:bulb-outline",
+  },
+  {
+    num: "5",
+    title: "Avanzar",
+    desc: "Mejoras continuamente con acompañamiento personalizado",
+    icon: "ion:rocket-outline",
+  },
+];
+
+// 6. Razones / Beneficios (Sección 6 - Parte Inferior)
+const reasons = [
+  { title: "Cercana y fácil de entender", icon: "ion:people-outline" },
+  {
+    title: "Práctica antes que memorización",
+    icon: "ion:document-text-outline",
+  },
+  { title: "Rutas según la necesidad", icon: "ion:location-outline" },
+  { title: "Tecnología con propósito", icon: "ion:bar-chart-outline" },
+  { title: "Respaldo CEDEPRO", icon: "ion:heart-outline" },
+  { title: "Aprendizaje que abre oportunidades", icon: "ion:school-outline" },
+];
+---
+
+<div class="w-full overflow-hidden bg-white text-[#1a375b]">
+  <!-- =========================================================================
+       1. HERO HEADER SECTION (Centrado, con imagen de fondo y badge CEDEPRO IMPULSA)
+       ========================================================================= -->
+  <!-- =========================================================================
+       1. HERO HEADER SECTION (Centrado, con imagen de fondo, filtro azul, pestañas de carpeta y nuevo badge)
+       ========================================================================= -->
+  <section
+    id="hero-impulsa"
+    class="relative min-h-[560px] lg:h-[calc(100vh-5rem)] lg:min-h-[560px] lg:max-h-[820px] bg-[#091E3A] flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-6 overflow-hidden"
+  >
+    <!-- Imagen de fondo con filtro azul para mayor visibilidad y riqueza visual -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/assets/portafolio/vista-informacion/sub-vista-impulsa/img-informacion-sub-impulsa-section-1-com.png"
+        alt="Estudiantes y profesionales en formación CEDEPRO Impulsa"
+        class="w-full h-full object-cover object-center"
+        decoding="async"
+        loading="eager"
+      />
+      <!-- Filtro oscuro uniforme: conserva los tonos naturales de la fotografía. -->
+      <div class="absolute inset-0 bg-slate-900/80" aria-hidden="true"></div>
+    </div>
+
+    <!-- Pestaña como Carpeta: Esquina Superior Derecha (Adelgazada y estilizada) -->
+    <div
+      class="absolute top-0 right-0 pointer-events-none z-20"
+      aria-hidden="true"
+    >
+      <!-- Capa 1: Fondo translúcido (delgado) -->
+      <div
+        class="absolute top-0 right-0 w-[140px] sm:w-[210px] lg:w-[280px] h-[22px] sm:h-[30px] lg:h-[36px] bg-[#df9417]/25 rounded-bl-2xl sm:rounded-bl-3xl backdrop-blur-sm"
+      >
+      </div>
+      <!-- Capa 2: Pestaña sólida (delgada) -->
+      <div
+        class="absolute top-0 right-0 w-[110px] sm:w-[170px] lg:w-[230px] h-[12px] sm:h-[16px] lg:h-[20px] bg-[#df9417] rounded-bl-xl sm:rounded-bl-2xl shadow-md"
+      >
+      </div>
+    </div>
+
+    <!-- Pestaña como Carpeta: Esquina Inferior Izquierda (Adelgazada y estilizada) -->
+    <div
+      class="absolute bottom-0 left-0 pointer-events-none z-20"
+      aria-hidden="true"
+    >
+      <!-- Capa 1: Fondo translúcido (delgado) -->
+      <div
+        class="absolute bottom-0 left-0 w-[140px] sm:w-[210px] lg:w-[280px] h-[22px] sm:h-[30px] lg:h-[36px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
+      >
+      </div>
+      <!-- Capa 2: Pestaña sólida (delgada) -->
+      <div
+        class="absolute bottom-0 left-0 w-[110px] sm:w-[170px] lg:w-[230px] h-[12px] sm:h-[16px] lg:h-[20px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-md"
+      >
+      </div>
+    </div>
+
+    <!-- Contenido Central del Hero -->
+    <div
+      class="relative z-10 max-w-4xl mx-auto space-y-4 sm:space-y-5 text-white pt-3 sm:pt-4"
+    >
+      <HeroBadge label="IMPULSA" variant="ribbon" />
+
+      <!-- Título Principal H1 -->
+      <h1
+        class="text-white text-3xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.15] drop-shadow-md text-balance"
+      >
+        Aprender te transforma.
+      </h1>
+
+      <!-- Subtítulo -->
+      <p
+        class="text-white text-lg sm:text-2xl font-bold tracking-tight max-w-2xl mx-auto drop-shadow-sm"
+      >
+        Impulsa lo que sabes. Prepárate para lo que viene.
+      </p>
+
+      <!-- Descripción Fiel a la Referencia -->
+      <p
+        class="text-slate-100 text-sm sm:text-base lg:text-[16px] font-normal leading-relaxed max-w-3xl mx-auto text-balance drop-shadow-sm"
+      >
+        Encuentra rutas de aprendizaje prácticas, claras y acompañadas para
+        fortalecer tu profesión, mejorar tu desempeño, desarrollar nuevas
+        habilidades o convertir una idea en una oportunidad. Aprende con
+        contenidos útiles, practica con herramientas y avanza con mayor
+        seguridad.
+      </p>
+
+      <!-- Botones de Acción con Estilos Oficiales CEDEPRO -->
+      <div
+        class="pt-3 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
+      >
+        <a
+          href="#rutas"
+          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+          >
+            Encuentra tu ruta <span
+              class="inline-block ml-1.5 leading-none font-bold">→</span
+            >
+          </span>
+        </a>
+
+        <a
+          href="#experiencias"
+          class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+          >
+            Explora nuestras experiencias formativas
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. PERFILES / BENEFICIARIOS (Fondo Azul Marino #091E3A)
+       ========================================================================= -->
+  <section class="bg-[#091E3A] px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
+    <div class="mx-auto max-w-7xl space-y-12">
+      <!-- Encabezado de la sección -->
+      <div class="mx-auto max-w-4xl space-y-3.5">
+        <p class="section-eyebrow section-eyebrow--amber">
+          PARA QUIENES QUIEREN CONVERTIR APRENDIZAJE EN OPORTUNIDAD
+        </p>
+        <h2
+          class="text-2xl sm:text-4xl font-bold leading-tight text-white tracking-tight"
+        >
+          Una formación que entiende tu{" "}
+          <span class="text-[#df9417]">realidad</span> y te ayuda a{" "}
+          <span class="text-[#df9417]">avanzar</span>
+        </h2>
+        <p
+          class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto"
+        >
+          Diseñamos una propuesta pensada en las personas: con flexibilidad para
+          quienes trabajan, pertinencia para responder a los desafíos del
+          entorno profesional, y un acompañamiento cercano para asegurar que el
+          conocimiento se traduzca en impacto real y crecimiento profesional y
+          personal.
+        </p>
+      </div>
+
+      <CardGrid count={profiles.length}>
+        {
+          profiles.map((profile) => (
+            <CardProfile
+              title={profile.title}
+              icon={profile.icon}
+              color={profile.color}
+            />
+          ))
+        }
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. EL RETO Y NUESTRA RESPUESTA (Fondo Imagen con Filtro Blanco y Pestañas Azul / Amarilla)
+       ========================================================================= -->
+  <section
+    class="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden"
+    style="background-image: url('/assets/portafolio/vista-informacion/sub-vista-impulsa/img-informacion-sub-impulsa-section-3-com.png');"
+  >
+    <!-- Overlay translúcido blanco para nitidez, luminosidad y contraste -->
+    <div class="absolute inset-0 bg-white/80 pointer-events-none"></div>
+
+    <!-- Pestaña Vertical como Carpeta: Esquina Superior Derecha (Azul Marino) -->
+    <div
+      class="absolute top-0 right-0 pointer-events-none z-20"
+      aria-hidden="true"
+    >
+      <!-- Capa 1: Fondo translúcido azul vertical -->
+      <div
+        class="absolute top-0 right-0 w-[34px] sm:w-[44px] lg:w-[54px] h-[130px] sm:h-[180px] lg:h-[230px] bg-[#091E3A]/25 rounded-bl-[2.5rem] sm:rounded-bl-[3.5rem] backdrop-blur-sm"
+      >
+      </div>
+      <!-- Capa 2: Pestaña sólida azul vertical -->
+      <div
+        class="absolute top-0 right-0 w-[22px] sm:w-[30px] lg:w-[38px] h-[100px] sm:h-[145px] lg:h-[185px] bg-[#091E3A] rounded-bl-[2rem] sm:rounded-bl-[2.8rem] shadow-md"
+      >
+      </div>
+    </div>
+
+    <!-- Pestaña Horizontal como Carpeta: Esquina Inferior Izquierda (Amarillo Dorado) -->
+    <div
+      class="absolute bottom-0 left-0 pointer-events-none z-20"
+      aria-hidden="true"
+    >
+      <!-- Capa 1: Fondo translúcido dorado horizontal -->
+      <div
+        class="absolute bottom-0 left-0 w-[180px] sm:w-[280px] lg:w-[380px] h-[28px] sm:h-[38px] lg:h-[46px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
+      >
+      </div>
+      <!-- Capa 2: Pestaña sólida dorada horizontal -->
+      <div
+        class="absolute bottom-0 left-0 w-[140px] sm:w-[230px] lg:w-[320px] h-[16px] sm:h-[22px] lg:h-[28px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-md"
+      >
+      </div>
+    </div>
+
+    <!-- Contenedor Principal de las Dos Columnas -->
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <!-- Columna 1: EL RETO -->
+        <div class="space-y-4">
+          <p
+            class="section-eyebrow section-eyebrow--blue font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            EL RETO
+          </p>
+
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            Estudiar más no siempre significa<br />
+            <span class="text-[#df9417]">avanzar mejor</span>
+          </h2>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            Muchas personas acumulan información, guardan cursos y siguen
+            contenidos sin saber qué deben practicar, cómo medir su avance o de
+            qué manera aplicar lo aprendido. Cuando la ruta no es clara,
+            aparecen dudas, cansancio y la sensación de que estudiar no cambia
+            realmente las oportunidades.
+          </p>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            El desafío es pasar del contenido aislado a una experiencia sencilla
+            y útil: entender lo necesario, practicar con casos o simuladores,
+            recibir retroalimentación y llevar el aprendizaje a una situación
+            concreta.
+          </p>
+
+          <div class="pt-3">
+            <a
+              href="/contactanos"
+              class="btn-navy !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
+            >
+              <span
+                class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+              >
+                Identifica tu siguiente paso <span
+                  class="inline-block ml-2 font-bold">→</span
+                >
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: NUESTRA RESPUESTA -->
+        <div
+          class="space-y-4 md:pl-10 lg:pl-12 md:border-l-2 md:border-[#1a375b]"
+        >
+          <p
+            class="section-eyebrow section-eyebrow--blue font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            NUESTRA RESPUESTA
+          </p>
+
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            Una <span class="text-[#df9417]">ruta clara</span> para aprender,<br
+              class="hidden lg:block"
+            /> practicar y avanzar
+          </h2>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            CEDEPRO Impulsa organiza experiencias de aprendizaje que parten de
+            una meta concreta. Según la necesidad, la persona puede acceder a un
+            curso, un webinar, un taller, un simulador, una microcredencial o
+            una ruta formativa con acompañamiento.
+          </p>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            El aprendizaje se presenta con lenguaje claro, recursos prácticos y
+            herramientas digitales que facilitan la participación incluso cuando
+            existe poco tiempo, temor a la tecnología o necesidad de comenzar
+            desde lo básico.
+          </p>
+
+          <div class="pt-3">
+            <div
+              class="inline-block bg-white/0 border-2 border-[#1a375b] text-[#1a375b] px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm italic"
+            >
+              Aprende con mayor claridad y confianza
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. LAS 4 RUTAS: ELIGE QUÉ QUIERES IMPULSAR HOY (Fondo Dorado con CardImageHorizontal)
+       ========================================================================= -->
+  <section
+    id="rutas"
+    class="bg-[#df9417] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-white"
+  >
+    <div class="max-w-7xl mx-auto space-y-10">
+      <!-- Encabezado de la sección -->
+      <div class="text-left sm:text-center space-y-2">
+        <p class="section-eyebrow section-eyebrow--white">
+          UNA PROPUESTA DE CAPACITACIÓN QUE TE ACOMPAÑA
+        </p>
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+          Elige qué quieres impulsar hoy
+        </h2>
+      </div>
+
+      <!-- Grid de las 4 Tarjetas CardImageHorizontal -->
+      <CardGrid count={routes.length}>
+        {
+          routes.map((route) => (
+            <CardImageHorizontal
+              title={route.title}
+              description={route.desc}
+              icon={route.icon}
+              iconBgColor="#df9417"
+              iconLayout="col"
+              buttonText={`${route.buttonText} →`}
+              buttonHref={route.href}
+              buttonClass="btn-outline-gold !w-full !rounded-xl !py-2.5 !px-3 !text-xs !font-bold text-center justify-center inline-flex items-center"
+              class="w-full h-full shadow-lg bg-white"
+            />
+          ))
+        }
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. QUÉ PODEMOS AYUDARTE (Estructura y alineación idéntica a ProyectosContent Sección 5)
+       ========================================================================= -->
+  <section
+    id="experiencias"
+    class="bg-[#091E3A] px-4 py-14 sm:px-6 lg:px-8 lg:py-16"
+  >
+    <div class="mx-auto max-w-7xl space-y-8">
+      <div class="text-center space-y-1.5 w-full mx-auto text-white">
+        <p class="section-eyebrow section-eyebrow--gold">
+          ¿QUÉ DESAFÍO ENFRENTAS HOY? PODEMOS AYUDARTE
+        </p>
+        <h2
+          class="text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.4rem] font-bold tracking-tight drop-shadow-sm whitespace-normal lg:whitespace-nowrap"
+        >
+          Del objetivo personal a una experiencia que se puede aplicar
+        </h2>
+        <p
+          class="text-white/95 text-[14px] sm:text-[15px] italic leading-relaxed pt-1 max-w-4xl mx-auto"
+        >
+          La educación moderna no puede limitarse a transmitir contenidos
+          teóricos. Debe responder a lo que las personas y organizaciones
+          necesitan resolver en su día a día.
+        </p>
+      </div>
+
+      <CardGrid count={challenges.length} maxWidth="64rem">
+        {
+          challenges.map((need) => (
+            <CardNeed label={need.label} icon={need.icon} color={need.color} />
+          ))
+        }
+      </CardGrid>
+
+      <div
+        class="inline-block rounded-md bg-[#df9417] px-4 py-2 text-lg font-bold text-white"
+      >
+        Experiencias que pueden integrarse
+      </div>
+
+      <CardGrid count={experiences.length}>
+        {
+          experiences.map((exp) => (
+            <CardIntegration
+              title={exp.title}
+              desc={exp.desc}
+              icon={exp.icon}
+              iconColor="#1665c0"
+              buttonText={`${exp.buttonText} →`}
+              buttonHref={exp.href}
+            />
+          ))
+        }
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. METODOLOGÍA Y POR QUÉ CEDEPRO FORMACIÓN / IMPULSA (Doble Bloque con Pestañas de Carpeta)
+       ========================================================================= -->
+  <section id="metodologia">
+    <!-- PARTE SUPERIOR: METODOLOGÍA (Fondo Blanco con Pestaña Azul Superior Derecha) -->
+    <div
+      class="relative bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    >
+      <!-- Pestaña Vertical como Carpeta: Esquina Superior Derecha (Azul Marino) -->
+      <div
+        class="absolute top-0 right-0 pointer-events-none z-20"
+        aria-hidden="true"
+      >
+        <!-- Capa 1: Fondo translúcido azul vertical -->
+        <div
+          class="absolute top-0 right-0 w-[34px] sm:w-[44px] lg:w-[54px] h-[130px] sm:h-[180px] lg:h-[230px] bg-[#091E3A]/25 rounded-bl-[2.5rem] sm:rounded-bl-[3.5rem] backdrop-blur-sm"
+        >
+        </div>
+        <!-- Capa 2: Pestaña sólida azul vertical -->
+        <div
+          class="absolute top-0 right-0 w-[22px] sm:w-[30px] lg:w-[38px] h-[100px] sm:h-[145px] lg:h-[185px] bg-[#091E3A] rounded-bl-[2rem] sm:rounded-bl-[2.8rem] shadow-md"
+        >
+        </div>
+      </div>
+
+      <div class="max-w-6xl mx-auto space-y-8 relative z-10">
+        <!-- Encabezado alineado a la izquierda según la imagen de referencia -->
+        <div class="space-y-1.5 text-left">
+          <p
+            class="section-eyebrow section-eyebrow--gold font-bold tracking-[0.15em] uppercase text-xs sm:text-sm"
+          >
+            NUESTRA METODOLOGÍA
+          </p>
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold tracking-tight leading-tight"
+          >
+            No memorices a ciegas. Entrena tu criterio y <span
+              class="text-[#df9417]">aplica lo aprendido</span
+            >
+          </h2>
+        </div>
+
+        <!-- 5 Pasos Horizontales con Flechas Doradas -->
+        <MethodologySteps items={methodologySteps} theme="light" />
+      </div>
+
+      <!-- Pestaña Horizontal como Carpeta: Esquina Inferior Izquierda (Amarillo Dorado sobre fondo blanco, conectando con el bloque amarillo) -->
+      <div
+        class="absolute bottom-0 left-0 pointer-events-none z-20"
+        aria-hidden="true"
+      >
+        <!-- Capa 1: Fondo translúcido dorado horizontal -->
+        <div
+          class="absolute bottom-0 left-0 w-[180px] sm:w-[280px] lg:w-[380px] h-[28px] sm:h-[38px] lg:h-[46px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
+        >
+        </div>
+        <!-- Capa 2: Pestaña sólida dorada horizontal -->
+        <div
+          class="absolute bottom-0 left-0 w-[140px] sm:w-[230px] lg:w-[320px] h-[16px] sm:h-[22px] lg:h-[28px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-sm"
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE INFERIOR: POR QUÉ CEDEPRO FORMACIÓN (Fondo Amarillo) -->
+    <div
+      class="relative bg-[#df9417] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden text-white"
+    >
+      <div class="max-w-7xl mx-auto space-y-6 relative z-10">
+        <!-- Encabezado alineado a la izquierda según la imagen de referencia -->
+        <div class="space-y-1 text-left">
+          <p
+            class="text-white/90 text-xs sm:text-[13px] font-semibold italic tracking-wider uppercase"
+          >
+            POR QUÉ CEDEPRO FORMACIÓN
+          </p>
+          <h2
+            class="text-white text-2xl sm:text-3xl lg:text-[2.1rem] font-bold tracking-tight leading-tight"
+          >
+            Formación aplicada, pertinente y preparada para escalar.
+          </h2>
+        </div>
+
+        <!-- 6 Motivos con Círculo Azul Oscuro y Texto Blanco en fila horizontal adaptable -->
+        <ReasonsGroup
+          items={reasons}
+          variant="navy-on-gold"
+          layout="flex"
+          dividerColorClass="divide-[#091E3A]/30"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. CTA FINAL (Con Imagen de Fondo, Overlay y Botones Contextuales)
+       ========================================================================= -->
+  <section
+    class="relative overflow-hidden bg-[#07192F] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
+  >
+    <!-- Imagen de fondo Sección 8 -->
+    <img
+      src="/assets/portafolio/vista-informacion/sub-vista-impulsa/img-informacion-sub-impulsa-section-7-com.webp"
+      alt="Equipo en sesión de trabajo CEDEPRO"
+      class="absolute inset-0 h-full w-full object-cover object-right opacity-75"
+      loading="lazy"
+      decoding="async"
+    />
+    <!-- Overlay degradado para contraste nítido -->
+    <div class="absolute inset-0 bg-[#091E3A]/80"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl">
+      <div class="max-w-2xl space-y-5">
+        <p class="section-eyebrow section-eyebrow--gold">
+          DA EL SIGUIENTE PASO
+        </p>
+
+        <h2 class="text-2xl font-bold leading-tight sm:text-3xl">
+          ¿Qué quieres impulsar hoy?
+        </h2>
+
+        <p class="text-sm leading-relaxed text-slate-200">
+          Conversemos sobre lo que buscas y encontremos la mejor opción para ti
+          o tu institución. Te ayudaremos a encontrar una experiencia formativa
+          clara, práctica y conectada con tu siguiente objetivo.
+        </p>
+
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <a
+            href="#rutas"
+            class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Encuentra tu ruta <span class="ml-1">→</span></span>
+          </a>
+
+          <a
+            href="/contactanos"
+            class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Solicita una asesoría</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

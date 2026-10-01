@@ -14,10 +14,18 @@ interface Props {
   icon?: string;
   /** Color de fondo del círculo del icono */
   iconBgColor?: string;
+  /** Color del icono */
+  iconColor?: string;
+  /** Fondo opcional de la tarjeta; si se omite conserva el estilo actual. */
+  backgroundColor?: string;
+  /** Color opcional de título y descripción. */
+  textColor?: string;
   /** Texto del botón */
   buttonText?: string;
   /** Enlace de destino del botón */
   buttonHref?: string;
+  /** Clase CSS del botón (ej: 'btn-outline-navy', 'btn-outline-gold', 'btn-gold-dark') */
+  buttonClass?: string;
   /** Disposición del icono ('row' = al lado, 'col' = arriba) */
   iconLayout?: "row" | "col";
   /** Clases CSS adicionales */
@@ -31,15 +39,20 @@ const {
   alt = title,
   icon = "ion:document-text-outline",
   iconBgColor = "#1665c0",
+  iconColor = "#ffffff",
+  backgroundColor,
+  textColor,
   buttonText = "Conocer más →",
   buttonHref = "/contactanos",
+  buttonClass = "btn-outline-navy",
   iconLayout = "row",
   class: className = "",
 } = Astro.props;
 ---
 
 <div
-  class={`card-image-horizontal ${image ? "flex-col md:flex-row" : "flex-col h-full"} group ${className}`}
+  style={backgroundColor ? `background-color: ${backgroundColor};` : undefined}
+  class={`card-image-horizontal ${image ? "card-image-horizontal--with-image" : "card-image-horizontal--without-image"} ${image ? "flex-col md:flex-row" : "flex-col h-full"} group ${className}`}
 >
   {
     image && (
@@ -67,15 +80,16 @@ const {
         >
           <Icon
             name={icon}
-            class={`text-white stroke-1 ${iconLayout === "col" ? "w-7 h-7" : "w-5 h-5 lg:w-6 lg:h-6"}`}
+            class={`stroke-1 ${iconLayout === "col" ? "w-7 h-7" : "w-5 h-5 lg:w-6 lg:h-6"}`}
+            style={`color: ${iconColor};`}
           />
         </div>
-        <h3 class="text-[#1a375b] text-xl lg:text-2xl font-bold leading-tight">
+        <h3 class="text-[#1a375b] text-xl lg:text-2xl font-bold leading-tight" style={textColor ? `color: ${textColor};` : undefined}>
           {title}
         </h3>
       </div>
 
-      <p class="text-[#1a375b]/80 text-sm sm:text-[15px] leading-relaxed">
+      <p class="text-[#1a375b]/80 text-sm sm:text-[15px] leading-relaxed" style={textColor ? `color: color-mix(in srgb, ${textColor} 80%, transparent);` : undefined}>
         {description}
       </p>
     </div>
@@ -83,7 +97,7 @@ const {
     <div class="pt-4 mt-auto">
       <a
         href={buttonHref}
-        class="btn-outline-navy"
+        class={buttonClass}
       >
         <span>
           {buttonText}
@@ -92,3 +106,22 @@ const {
     </div>
   </div>
 </div>
+
+<style>
+  .card-image-horizontal { height: 100%; min-width: 0; }
+  .card-image-horizontal__body { min-width: 0; }
+  .card-image-horizontal--without-image .card-image-horizontal__body { width: 100%; }
+  h3 { min-width: 0; overflow-wrap: break-word; }
+  .card-image-horizontal--with-image { flex-direction: column; }
+  .card-image-horizontal--with-image .card-image-horizontal__media {
+    width: 100%; flex: 0 0 auto; height: 14rem;
+  }
+  .card-image-horizontal--with-image .card-image-horizontal__body { width: 100%; }
+  @media (min-width: 1024px) {
+    .card-image-horizontal--with-image { flex-direction: row; }
+    .card-image-horizontal--with-image .card-image-horizontal__media {
+      width: 35%; flex-basis: 35%; height: auto;
+    }
+    .card-image-horizontal--with-image .card-image-horizontal__body { width: 65%; }
+  }
+</style>

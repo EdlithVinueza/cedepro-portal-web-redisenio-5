@@ -1,0 +1,50 @@
+---
+import CardStep from './CardStep.astro';
+import type { ElementColors } from './ElementColors';
+
+export interface MethodologyItem {
+  num: string | number;
+  title: string;
+  desc: string;
+  icon: string;
+  colors?: ElementColors;
+}
+interface Props {
+  items: MethodologyItem[];
+  /** Tema según el fondo de la sección; no cambia ese fondo. */
+  theme?: 'dark' | 'gold' | 'light';
+  colors?: ElementColors;
+  showArrows?: boolean;
+  arrowIcon?: string;
+  class?: string;
+}
+const { items, theme = 'dark', colors = {}, showArrows = true,
+  arrowIcon = 'ion:chevron-forward-outline', class: className = '' } = Astro.props;
+const presets: Record<string, ElementColors> = {
+  dark: { circle: '#ffffff', icon: '#1665c0', arrow: '#df9417', title: '#ffffff', description: '#ffffff' },
+  gold: { circle: '#ffffff', icon: '#df9417', arrow: '#ffffff', title: '#ffffff', description: '#ffffff' },
+  light: { circle: '#ffffff', icon: '#1665c0', border: '#1665c0', arrow: '#df9417', title: '#1a375b', description: '#1a375b' },
+};
+---
+<ol class={`methodology-steps ${className}`} style={`--step-count: ${Math.max(1, items.length)}`}>
+  {items.map((item, index) => (
+    <li>
+      <CardStep {...item} colors={{ ...presets[theme], ...colors, ...item.colors }}
+        showArrow={showArrows && index < items.length - 1} arrowIcon={arrowIcon}
+        iconBgClass="bg-white shadow-md" />
+    </li>
+  ))}
+</ol>
+<style>
+  .methodology-steps { display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+    list-style: none; margin: 0; padding: .5rem 0; }
+  li { min-width: 0; }
+  @media (min-width: 640px) {
+    .methodology-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1024px) {
+    .methodology-steps { grid-template-columns: repeat(var(--step-count), minmax(0, 1fr)); gap: 1.5rem; }
+    li:last-child:nth-child(odd) { grid-column: auto; }
+  }
+</style>
