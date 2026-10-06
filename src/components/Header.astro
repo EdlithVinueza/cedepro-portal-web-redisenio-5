@@ -240,7 +240,7 @@ const isActive = (item: any) => {
                   href={item.href}
                   onclick={
                     item.dropdown
-                      ? "event.preventDefault(); document.querySelector(`[data-target='mobile-dropdown-${idx}']`).click();"
+                      ? `event.preventDefault(); document.querySelector('[data-target=\"mobile-dropdown-${idx}\"]').click();`
                       : undefined
                   }
                   class={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors w-full ${
@@ -285,7 +285,12 @@ const isActive = (item: any) => {
                         <div class="flex items-center justify-between">
                           <a
                             href={subItem.href}
-                            class="py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors flex-1"
+                            onclick={
+                              subItem.children && subItem.children.length > 0
+                                ? `event.preventDefault(); document.querySelector('[data-target=\"mobile-subdropdown-${idx}-${subIdx}\"]').click();`
+                                : undefined
+                            }
+                            class="py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors flex-1 cursor-pointer"
                           >
                             {subItem.name}
                           </a>
@@ -415,7 +420,7 @@ const isActive = (item: any) => {
   );
   navLinks?.forEach((link) => {
     link.addEventListener("click", (e) => {
-      if (link.getAttribute("href") === "#") return;
+      if (link.getAttribute("href") === "#" || link.hasAttribute("onclick")) return;
       menu?.classList.add("hidden");
       menuIcon?.classList.remove("hidden");
       closeIcon?.classList.add("hidden");
