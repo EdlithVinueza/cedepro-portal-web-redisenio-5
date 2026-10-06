@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
-import CardPurpose from '../components/cards/CardPurpose.astro';
+import HeroResponsiveBackground from '../components/HeroResponsiveBackground.astro';
 import GradientOverlay from '../components/GradientOverlay.astro';
 
 // 6 Líneas de Solución CEDEPRO Oficiales (con colores por tarjeta)
@@ -105,14 +105,28 @@ const values = [
  ========================================================================= -->
  <section class="hero-section-nosotros relative bg-white overflow-hidden">
  
- <!-- Capa de imagen de fondo adaptable (Desktop/Mobile) -->
- <div class="hero-bg-layer-nosotros" aria-hidden="true"></div>
-
- <!-- Difuminado horizontal continuo para Desktop (BLANCO) -->
- <div class="hero-desktop-overlay-nosotros" aria-hidden="true"></div>
-
- <!-- Difuminado vertical para Móviles (BLANCO) -->
- <div class="hero-mobile-overlay-nosotros" aria-hidden="true"></div>
+  <!-- Capa Responsiva Unificada CEDEPRO (Fondo + Degradado adaptable + Cálculo de contenido) -->
+  <HeroResponsiveBackground
+    class="custom-nosotros-hero"
+    desktopImage="/assets/nosotros/img-nosotros-section-1.webp"
+    mobileImage="/assets/nosotros/img-nosotros-section-1.webp"
+    color="white"
+    desktopImagePosX="right"
+    desktopImagePosY="bottom"
+    mobileImagePosX="center"
+    mobileImagePosY="bottom"
+    mobileImageHeight="420px"
+    mobileImageOffsetY="0px"
+    mobileImageAnchor="bottom"
+    desktopDirection="to-r"
+    mobileDirection="to-b"
+    imageSize="contain"
+    autoCalculateCoverage={false}
+    desktopCoverage={48}
+    desktopFadeEnd={90}
+    mobileCoverage={48}
+    mobileFadeEnd={78}
+  />
 
  <div class="hero-content-nosotros relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
  <div class="hero-text-block-nosotros space-y-3 sm:space-y-3.5 lg:space-y-4">
@@ -245,17 +259,19 @@ const values = [
  <!-- Gradiente unificado y limpio para fusionar la imagen con el fondo blanco -->
     <GradientOverlay 
       color="white" 
-      coverage={48} 
       desktopDirection="to-r" 
       mobileDirection="to-t" 
-      mobileCoverage={45} 
-      fadeEnd={85}
+      coverage={48}
+      fadeEnd={95}
+      mobileCoverage={35} 
+      mobileFadeEnd={85}
+      autoCalculateCoverage={false}
       class="z-10"
     />
 
     <!-- Contenido Textual (Z-20 para estar sobre los gradientes) -->
  <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[65%] sm:pt-[55%] md:pt-16 pb-16 mt-auto md:mt-0 flex flex-col justify-end md:justify-center">
- <div class="max-w-[100%] md:max-w-[48rem] lg:max-w-[54rem] space-y-5 lg:space-y-6">
+ <div class="esencia-text-block max-w-[100%] md:max-w-[48rem] lg:max-w-[54rem] space-y-5 lg:space-y-6">
  
  <!-- Subtítulo -->
  <p class="section-eyebrow section-eyebrow--blue mb-6 md:mb-10">
@@ -622,7 +638,7 @@ const values = [
  <picture>
  <source srcset="/assets/nosotros/img-nosotros-section-9.webp" type="image/webp" />
  <img 
- src="/assets/nosotros/img-nosotros-section-9.png" 
+ src="/assets/nosotros/img-nosotros-section-9.webp" 
  alt="Consultores trabajando en reunión estratégica nocturna" 
  class="w-full h-full object-cover object-right sm:object-center"
  width="1920"
@@ -661,157 +677,96 @@ const values = [
  ESTILOS PERSONALIZADOS DEL HERO PANORÁMICO Y FOOTER
  ========================================================================= -->
  <style is:global>
- /* Eliminar la línea de separación fea entre la Sección 7 y el Footer */
- footer {
- border-top: none !important;
- }
+  /* Eliminar la línea de separación fea entre la Sección 7 y el Footer */
+  footer {
+    border-top: none !important;
+  }
 
- /* Reglas comunes de las capas del hero */
- .hero-bg-layer-nosotros {
- background-repeat: no-repeat;
- }
+  /* 1. MÓVILES Y PANTALLAS EN RETRATO */
+  @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+    .hero-section-nosotros {
+      min-height: 700px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      background-color: #ffffff !important;
+      padding-top: 1.5rem !important;
+      padding-bottom: 0 !important;
+      position: relative !important;
+    }
 
- /* 1. MÓVILES Y PANTALLAS EN RETRATO */
- @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
- .hero-section-nosotros {
- min-height: 700px !important;
- display: flex !important;
- flex-direction: column !important;
- justify-content: flex-start !important;
- background-color: #ffffff !important;
- padding-top: 1.5rem !important;
- padding-bottom: 0 !important;
- position: relative !important;
- }
+    .hero-content-nosotros {
+      padding-top: 0.5rem !important;
+      padding-bottom: 1.5rem !important;
+      position: relative !important;
+      z-index: 10 !important;
+    }
 
- .hero-content-nosotros {
- padding-top: 0.5rem !important;
- padding-bottom: 1.5rem !important;
- position: relative !important;
- z-index: 10 !important;
- }
+    .hero-text-block-nosotros {
+      max-width: 100% !important;
+    }
+  }
 
- .hero-text-block-nosotros {
- max-width: 100% !important;
- }
+  /* 2. ESCRITORIO Y LANDSCAPE (Pantallas panorámicas, monitores, laptops) */
+  @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+    .hero-section-nosotros {
+      min-height: 560px !important;
+      max-height: 820px !important;
+      height: calc(100vh - 5rem) !important;
+      display: flex !important;
+      align-items: center !important;
+      background-color: #ffffff !important;
+      padding-top: calc(1rem + 24px) !important;
+      padding-bottom: 1rem !important;
+      position: relative !important;
+    }
 
- /* Imagen de personas colocada abajo en móviles con difuminado suave superior hacia blanco */
- .hero-bg-layer-nosotros {
- display: block !important;
- position: absolute !important;
- left: 0 !important;
- right: 0 !important;
- bottom: 0 !important;
- height: 420px !important;
- background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
- background-size: contain !important;
- background-position: center bottom !important;
- z-index: 1 !important;
- }
+    .hero-content-nosotros {
+      position: relative !important;
+      z-index: 10 !important;
+    }
 
- .hero-mobile-overlay-nosotros {
- display: block !important;
- position: absolute !important;
- left: 0 !important;
- right: 0 !important;
- bottom: 0 !important;
- height: 420px !important;
- background: linear-gradient(
- 180deg,
- #ffffff 0%,
- #ffffff 22%,
- rgba(255, 255, 255, 0.85) 34%,
- rgba(255, 255, 255, 0.40) 45%,
- rgba(255, 255, 255, 0) 58%
- ) !important;
- pointer-events: none !important;
- z-index: 2 !important;
- }
+    /* Ancho de texto balanceado según el viewport idéntico a index.astro */
+    .hero-text-block-nosotros {
+      max-width: 450px !important;
+    }
 
- .hero-desktop-overlay-nosotros {
- display: none !important;
- }
- }
+    @media (min-width: 1200px) {
+      .hero-text-block-nosotros {
+        max-width: 520px !important;
+      }
+    }
 
- /* 2. ESCRITORIO Y LANDSCAPE (Pantallas panorámicas, monitores, laptops) */
- @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
- .hero-section-nosotros {
- min-height: 560px !important;
- max-height: 820px !important;
- height: calc(100vh - 5rem) !important;
- display: flex !important;
- align-items: center !important;
- background-color: #ffffff !important;
- padding-top: calc(1rem + 24px) !important;
- padding-bottom: 1rem !important;
- position: relative !important;
- }
+    @media (min-width: 1440px) {
+      .hero-text-block-nosotros {
+        max-width: 580px !important;
+      }
+    }
 
- .hero-bg-layer-nosotros {
- display: block !important;
- position: absolute !important;
- inset: 0 !important;
- background-image: url('/assets/nosotros/img-nosotros-section-1.webp') !important;
- background-size: contain !important;
- background-position: right bottom !important;
- z-index: 1 !important;
- }
+    @media (min-width: 1600px) {
+      .hero-text-block-nosotros {
+        max-width: 620px !important;
+      }
+    }
+  }
 
- /* DIFUMINADO SUAVE DE IZQUIERDA A DERECHA:
- Desplazado a la izquierda (termina en 52%) para dejar despejadas y nítidas a todas las personas del equipo */
- .hero-desktop-overlay-nosotros {
- display: block !important;
- position: absolute !important;
- inset: 0 !important;
- background: linear-gradient(
- 90deg,
- #ffffff 0%,
- #ffffff 16%,
- rgba(255, 255, 255, 0.98) 24%,
- rgba(255, 255, 255, 0.82) 32%,
- rgba(255, 255, 255, 0.45) 42%,
- rgba(255, 255, 255, 0.10) 48%,
- rgba(255, 255, 255, 0) 52%
- ) !important;
- pointer-events: none !important;
- z-index: 2 !important;
- }
-
- .hero-mobile-overlay-nosotros {
- display: none !important;
- }
-
- .hero-content-nosotros {
- position: relative !important;
- z-index: 10 !important;
- }
-
- /* Ancho de texto balanceado según el viewport idéntico a index.astro */
- .hero-text-block-nosotros {
- max-width: 450px !important;
- }
-
- @media (min-width: 1200px) {
- .hero-text-block-nosotros {
- max-width: 520px !important;
- }
- }
-
- @media (min-width: 1440px) {
- .hero-text-block-nosotros {
- max-width: 580px !important;
- }
- }
-
- @media (min-width: 1600px) {
- .hero-text-block-nosotros {
- max-width: 620px !important;
- }
- }
- }
-
+  /* Ajuste de imagen para evitar superposición del degradado (respetar tamaño original de la foto) */
+  :global(.custom-nosotros-hero .cedepro-hero-img-layer) {
+    background-size: contain !important;
+  }
+  @media (min-width: 768px) {
+    :global(.custom-nosotros-hero .cedepro-hero-img-layer) {
+      background-position: right bottom !important;
+    }
+  }
+  @media (max-width: 767px) {
+    :global(.custom-nosotros-hero .cedepro-hero-img-layer) {
+    }
+  }
  </style>
 
 </Layout>
+
+
 
 

@@ -1,0 +1,118 @@
+---
+interface Props {
+  /**
+   * Orientación de la viñeta / pestaña:
+   * 'horizontal' (pestaña alargada que corre a lo largo del borde horizontal)
+   * 'vertical' (pestaña esbelta alargada que corre por el borde vertical)
+   */
+  orientation?: "horizontal" | "vertical";
+
+  /**
+   * Esquina donde se ancla la pestaña:
+   * 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
+   */
+  corner?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
+
+  /**
+   * Color temático de la viñeta:
+   * 'gold' (#df9417)
+   * 'navy' (#091E3A)
+   * o cualquier código hexadecimal o clase
+   */
+  color?: "gold" | "navy" | string;
+
+  /**
+   * Clase CSS opcional para ajustar o sobreescribir estilos
+   */
+  class?: string;
+}
+
+const {
+  orientation = "horizontal",
+  corner = "top-right",
+  color = "gold",
+  class: className = "",
+} = Astro.props;
+
+// Colores estándar CEDEPRO
+const solidColor =
+  color === "gold" ? "#df9417" : color === "navy" ? "#091E3A" : color;
+const translucentColor =
+  color === "gold"
+    ? "rgba(223, 148, 23, 0.28)"
+    : color === "navy"
+      ? "rgba(9, 30, 58, 0.28)"
+      : `${color}47`;
+
+// Posicionamiento de la esquina
+const isBottom = corner.startsWith("bottom");
+const isRight = corner.includes("right");
+
+const cornerClass = `${isBottom ? "bottom-0" : "top-0"} ${isRight ? "right-0" : "left-0"}`;
+
+// Radios de redondeo según la esquina y orientación
+const roundedClasses: Record<string, { outer: string; inner: string }> = {
+  "top-right": {
+    outer: "rounded-bl-2xl sm:rounded-bl-3xl lg:rounded-bl-[2.5rem]",
+    inner: "rounded-bl-xl sm:rounded-bl-2xl lg:rounded-bl-[2rem]",
+  },
+  "top-left": {
+    outer: "rounded-br-2xl sm:rounded-br-3xl lg:rounded-br-[2.5rem]",
+    inner: "rounded-br-xl sm:rounded-br-2xl lg:rounded-br-[2rem]",
+  },
+  "bottom-right": {
+    outer: "rounded-tl-2xl sm:rounded-tl-3xl lg:rounded-tl-[2.5rem]",
+    inner: "rounded-tl-xl sm:rounded-tl-2xl lg:rounded-tl-[2rem]",
+  },
+  "bottom-left": {
+    outer: "rounded-tr-2xl sm:rounded-tr-3xl lg:rounded-tr-[2.5rem]",
+    inner: "rounded-tr-xl sm:rounded-tr-2xl lg:rounded-tr-[2rem]",
+  },
+};
+
+const currentRounded = roundedClasses[corner] || roundedClasses["top-right"];
+
+// Alineación interna de la capa sólida:
+// Si la viñeta está en el borde inferior (bottom-*), la capa sólida DEBE anclarse abajo (bottom-0)
+// para tocar y fundirse al 100% con la sección contigua.
+// Si está en el borde superior (top-*), debe anclarse arriba (top-0).
+const innerVerticalAlign = isBottom ? "bottom-0" : "top-0";
+const innerHorizontalAlign = isRight ? "right-0" : "left-0";
+---
+
+<div
+  class={`absolute ${cornerClass} pointer-events-none select-none z-20 overflow-visible ${className}`}
+  aria-hidden="true"
+>
+  {
+    orientation === "horizontal" ? (
+      /* Pestaña Horizontal */
+      <div class="relative">
+        <!-- Capa 1: Fondo translúcido con desenfoque elegante -->
+        <div
+          class={`w-[140px] sm:w-[220px] lg:w-[320px] h-[22px] sm:h-[32px] lg:h-[40px] backdrop-blur-sm ${currentRounded.outer}`}
+          style={`background-color: ${translucentColor};`}
+        />
+        <!-- Capa 2: Pestaña sólida frontal anclada al borde exacto de la sección -->
+        <div
+          class={`absolute ${innerVerticalAlign} ${innerHorizontalAlign} w-[105px] sm:w-[170px] lg:w-[250px] h-[12px] sm:h-[18px] lg:h-[24px] shadow-sm ${currentRounded.inner}`}
+          style={`background-color: ${solidColor};`}
+        />
+      </div>
+    ) : (
+      /* Pestaña Vertical */
+      <div class="relative">
+        <!-- Capa 1: Fondo translúcido con desenfoque elegante -->
+        <div
+          class={`w-[32px] sm:w-[44px] lg:w-[54px] h-[130px] sm:h-[180px] lg:h-[230px] backdrop-blur-sm ${currentRounded.outer}`}
+          style={`background-color: ${translucentColor};`}
+        />
+        <!-- Capa 2: Pestaña sólida frontal anclada al borde exacto de la sección -->
+        <div
+          class={`absolute ${innerVerticalAlign} ${innerHorizontalAlign} w-[20px] sm:w-[28px] lg:w-[36px] h-[95px] sm:h-[140px] lg:h-[185px] shadow-sm ${currentRounded.inner}`}
+          style={`background-color: ${solidColor};`}
+        />
+      </div>
+    )
+  }
+</div>

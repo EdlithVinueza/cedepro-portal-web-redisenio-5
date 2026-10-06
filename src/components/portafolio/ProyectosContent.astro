@@ -1,5 +1,6 @@
 ---
 import { Icon as AstroIcon } from "astro-icon/components";
+import HeroResponsiveBackground from "../HeroResponsiveBackground.astro";
 import GradientOverlay from "../GradientOverlay.astro";
 import CardProfile from "../cards/CardProfile.astro";
 import CardImageHorizontal from "../cards/CardImageHorizontal.astro";
@@ -142,9 +143,29 @@ const reasons = [
   id="proyectos"
   class="hero-section relative bg-[#df9417] overflow-hidden"
 >
-  <div class="hero-bg-layer" aria-hidden="true"></div>
-  <div class="hero-desktop-overlay" aria-hidden="true"></div>
-  <div class="hero-mobile-overlay" aria-hidden="true"></div>
+  <!-- Capa Responsiva Unificada CEDEPRO (Fondo + Degradado adaptable + Cálculo de contenido) -->
+  <HeroResponsiveBackground
+    desktopImage="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png"
+    mobileImage="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png"
+    color="gold"
+    desktopImagePosX="right"
+    desktopImagePosY="center"
+    mobileImagePosX="30%"
+    mobileImagePosY="bottom"
+    mobileImageHeight="300px"
+    mobileImageOffsetY="90px"
+    mobileImageAnchor="bottom"
+    desktopDirection="to-r"
+    mobileDirection="to-b"
+    targetContentSelector=".hero-text-block"
+    autoCalculateCoverage={true}
+    bufferPx={20}
+    fadeSpan={28}
+    mobileCoverage={22}
+    mobileFadeEnd={58}
+    desktopCoverage={25}
+    desktopFadeEnd={85}
+  />
 
   <div
     class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex justify-start"
@@ -443,20 +464,36 @@ const reasons = [
         </h2>
       </div>
 
-      <ReasonsGroup items={reasons} variant="alternating" dividerColorClass="divide-slate-200" />
+      <ReasonsGroup
+        items={reasons}
+        variant="alternating"
+        dividerColorClass="divide-slate-200"
+      />
     </div>
   </div>
 </section>
 
 <section
-  class="relative overflow-hidden bg-[#07192F] px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
+  class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
 >
-  <img
-    src="/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-7.webp"
-    alt="Equipo conversando sobre un proyecto"
-    class="absolute inset-0 h-full w-full object-cover object-right opacity-80"
-    loading="lazy"
-  /><div class="absolute inset-0 bg-[#091E3A]/75"></div><div
+  <div class="absolute inset-0 z-0">
+    <picture>
+      <source srcset="/assets/nosotros/img-nosotros-section-9.webp" type="image/webp" />
+      <img
+        src="/assets/nosotros/img-nosotros-section-9.webp"
+        alt="Consultores trabajando en reunión estratégica nocturna"
+        class="w-full h-full object-cover object-right sm:object-center"
+        width="1920"
+        height="1080"
+        decoding="async"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+
+  <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
+  <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
+  <div
     class="relative z-10 mx-auto max-w-7xl text-white"
   >
     <div class="max-w-2xl space-y-5">
@@ -489,10 +526,6 @@ const reasons = [
 
 <!-- ESTILOS PARA HERO HEADER -->
 <style is:global>
-  .hero-bg-layer {
-    background-repeat: no-repeat;
-  }
-
   @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
     .hero-section {
       min-height: 710px !important;
@@ -509,34 +542,6 @@ const reasons = [
       z-index: 10 !important;
       justify-content: flex-start !important;
     }
-    .hero-bg-layer {
-      display: block !important;
-      position: absolute !important;
-      inset: auto 0 0 0 !important;
-      height: 450px !important;
-      background-image: url("/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png") !important;
-      background-size: cover !important;
-      background-position: 35% 120px !important;
-      z-index: 1 !important;
-    }
-    .hero-mobile-overlay {
-      display: block !important;
-      position: absolute !important;
-      inset: auto 0 0 0 !important;
-      height: 450px !important;
-      background: linear-gradient(
-        180deg,
-        #df9417 0%,
-        #df9417 22%,
-        rgba(223, 148, 23, 0.85) 34%,
-        rgba(223, 148, 23, 0.4) 45%,
-        rgba(223, 148, 23, 0) 58%
-      ) !important;
-      z-index: 2 !important;
-    }
-    .hero-desktop-overlay {
-      display: none !important;
-    }
   }
 
   @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
@@ -548,33 +553,6 @@ const reasons = [
       align-items: center !important;
       background-color: #df9417 !important;
       padding: 2.5rem 0 !important;
-    }
-    .hero-bg-layer {
-      display: block !important;
-      position: absolute !important;
-      inset: 0 !important;
-      background-image: url("/assets/portafolio/vista-proyectos/img-portafolio-proyectos-section-1.png") !important;
-      background-size: cover !important;
-      background-position: right center !important;
-      z-index: 1 !important;
-    }
-    .hero-desktop-overlay {
-      display: block !important;
-      position: absolute !important;
-      inset: 0 !important;
-      background: linear-gradient(
-        90deg,
-        #df9417 0%,
-        #df9417 25%,
-        rgba(223, 148, 23, 0.95) 40%,
-        rgba(223, 148, 23, 0.75) 55%,
-        rgba(223, 148, 23, 0.35) 70%,
-        rgba(223, 148, 23, 0) 85%
-      ) !important;
-      z-index: 2 !important;
-    }
-    .hero-mobile-overlay {
-      display: none !important;
     }
 
     .hero-text-block {

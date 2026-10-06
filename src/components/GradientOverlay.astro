@@ -55,6 +55,23 @@ interface Props {
    */
   variant?: 'smooth' | 'compact' | 'subtle';
 
+  /**
+   * Selector CSS del contenedor de texto/botones a medir (ej: '.hero-text-block', '.section-content').
+   * La función medirá la posición exacta de la última letra y botón para delimitar el degradado.
+   */
+  targetContentSelector?: string;
+
+  /**
+   * Activa el cálculo automático de la cobertura del degradado según la última letra/botón.
+   */
+  autoCalculateCoverage?: boolean;
+
+  /** Margen de seguridad en px tras la última letra/botón (default: 20) */
+  bufferPx?: number;
+
+  /** Extensión porcentual del difuminado tras terminar el área sólida (default: 28) */
+  fadeSpan?: number;
+
   /** Clases CSS adicionales (ej: 'z-10', 'mix-blend-multiply', etc.) */
   class?: string;
 
@@ -72,6 +89,10 @@ const {
   fadeEnd,
   mobileFadeEnd,
   variant = 'smooth',
+  targetContentSelector,
+  autoCalculateCoverage = Boolean(targetContentSelector),
+  bufferPx = 20,
+  fadeSpan = 28,
   class: className = '',
   id,
 } = Astro.props;
@@ -126,11 +147,19 @@ const mEnd = mobileFadeEnd !== undefined ? mobileFadeEnd : (fadeEnd !== undefine
 
 const desktopGradient = buildMultiStopGradient(resolvedDesktopDir, dSolid, dEnd);
 const mobileGradient = buildMultiStopGradient(resolvedMobileDir, mSolid, mEnd);
+
+const overlayId = id || `cedepro-overlay-${Math.random().toString(36).substring(2, 9)}`;
 ---
 
 <div 
-  id={id}
+  id={overlayId}
   class={`cedepro-unified-overlay absolute inset-0 pointer-events-none z-[2] ${className}`}
+  data-color={resolvedColor}
+  data-mobile-dir={resolvedMobileDir}
+  data-target-selector={targetContentSelector || ''}
+  data-auto-calculate={autoCalculateCoverage ? 'true' : 'false'}
+  data-buffer-px={bufferPx}
+  data-fade-span={fadeSpan}
   style={`--mobile-grad: ${mobileGradient}; --desktop-grad: ${desktopGradient};`}
   aria-hidden="true"
 ></div>
@@ -138,6 +167,7 @@ const mobileGradient = buildMultiStopGradient(resolvedMobileDir, mSolid, mEnd);
 <style>
   .cedepro-unified-overlay {
     background: var(--mobile-grad) !important;
+    transition: background 0.2s ease-out;
   }
   @media (min-width: 768px) {
     .cedepro-unified-overlay {
@@ -145,3 +175,70 @@ const mobileGradient = buildMultiStopGradient(resolvedMobileDir, mSolid, mEnd);
     }
   }
 </style>
+
+<script>
+  function initDynamicOverlays() {
+    const overlays = document.querySelectorAll<HTMLElement>('.cedepro-unified-overlay[data-auto-calculate="true"]');
+    overlays.forEach((el) => {
+      const targetSelector = el.dataset.targetSelector;
+      if (!targetSelector) return;
+
+      const parentSection = el.closest('section') || el.parentElement;
+      if (!parentSection) return;
+
+      const baseColor = el.dataset.color || '#07192F';
+      const mobileDir = el.dataset.mobileDir || '180deg';
+      const bufferPx = parseInt(el.dataset.bufferPx || '20', 10);
+      const fadeSpan = parseInt(el.dataset.fadeSpan || '28', 10);
+
+      function update() {
+        if (!parentSection || !targetSelector) return;
+        if (window.innerWidth >= 768 && window.matchMedia('(orientation: landscape)').matches) return;
+        const calcFn = (window as unknown as Record<string, unknown>).cedeproCalculateContentBoundary as
+          | ((section: Element, selector: string, opts: Record<string, unknown>) => { coveragePct: number; fadeEndPct: number } | null)
+          | undefined;
+
+        if (typeof calcFn === 'function') {
+          const res = calcFn(parentSection, targetSelector, {
+            direction: mobileDir,
+            bufferPx,
+            fadeSpan,
+          });
+          if (res) {
+            const solid = res.coveragePct;
+            const end = res.fadeEndPct;
+            const span = end - solid;
+            const p1 = Math.round(solid);
+            const p2 = Math.round(solid + span * 0.20);
+            const p3 = Math.round(solid + span * 0.40);
+            const p4 = Math.round(solid + span * 0.62);
+            const p5 = Math.round(solid + span * 0.82);
+            const p6 = Math.round(end);
+
+            const newGrad = `linear-gradient(${mobileDir}, ${baseColor} 0%, ${baseColor} ${p1}%, color-mix(in srgb, ${baseColor} 85%, transparent) ${p2}%, color-mix(in srgb, ${baseColor} 60%, transparent) ${p3}%, color-mix(in srgb, ${baseColor} 32%, transparent) ${p4}%, color-mix(in srgb, ${baseColor} 10%, transparent) ${p5}%, transparent ${p6}%)`;
+            el.style.setProperty('--mobile-grad', newGrad);
+          }
+        }
+      }
+
+      update();
+
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(update);
+        ro.observe(parentSection);
+        const target = parentSection.querySelector(targetSelector);
+        if (target) ro.observe(target);
+      } else {
+        window.addEventListener('resize', update, { passive: true });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDynamicOverlays);
+  } else {
+    initDynamicOverlays();
+  }
+
+  document.addEventListener('astro:page-load', initDynamicOverlays);
+</script>

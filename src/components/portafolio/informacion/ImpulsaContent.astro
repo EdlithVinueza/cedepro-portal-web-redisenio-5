@@ -7,6 +7,8 @@ import CardImageHorizontal from "../../cards/CardImageHorizontal.astro";
 import CardNeed from "../../cards/CardNeed.astro";
 import CardGrid from "../../cards/CardGrid.astro";
 import CardIntegration from "../../cards/CardIntegration.astro";
+import CirclesBackground from "../CirclesBackground.astro";
+import FolderTabBadge from "../FolderTabBadge.astro";
 
 // 1. Perfiles para Sección 2
 const profiles = [
@@ -221,39 +223,9 @@ const reasons = [
       <div class="absolute inset-0 bg-slate-900/80" aria-hidden="true"></div>
     </div>
 
-    <!-- Pestaña como Carpeta: Esquina Superior Derecha (Adelgazada y estilizada) -->
-    <div
-      class="absolute top-0 right-0 pointer-events-none z-20"
-      aria-hidden="true"
-    >
-      <!-- Capa 1: Fondo translúcido (delgado) -->
-      <div
-        class="absolute top-0 right-0 w-[140px] sm:w-[210px] lg:w-[280px] h-[22px] sm:h-[30px] lg:h-[36px] bg-[#df9417]/25 rounded-bl-2xl sm:rounded-bl-3xl backdrop-blur-sm"
-      >
-      </div>
-      <!-- Capa 2: Pestaña sólida (delgada) -->
-      <div
-        class="absolute top-0 right-0 w-[110px] sm:w-[170px] lg:w-[230px] h-[12px] sm:h-[16px] lg:h-[20px] bg-[#df9417] rounded-bl-xl sm:rounded-bl-2xl shadow-md"
-      >
-      </div>
-    </div>
-
-    <!-- Pestaña como Carpeta: Esquina Inferior Izquierda (Adelgazada y estilizada) -->
-    <div
-      class="absolute bottom-0 left-0 pointer-events-none z-20"
-      aria-hidden="true"
-    >
-      <!-- Capa 1: Fondo translúcido (delgado) -->
-      <div
-        class="absolute bottom-0 left-0 w-[140px] sm:w-[210px] lg:w-[280px] h-[22px] sm:h-[30px] lg:h-[36px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
-      >
-      </div>
-      <!-- Capa 2: Pestaña sólida (delgada) -->
-      <div
-        class="absolute bottom-0 left-0 w-[110px] sm:w-[170px] lg:w-[230px] h-[12px] sm:h-[16px] lg:h-[20px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-md"
-      >
-      </div>
-    </div>
+    <!-- Viñetas de Pestaña de Carpeta -->
+    <FolderTabBadge orientation="horizontal" corner="top-right" color="gold" />
+    <FolderTabBadge orientation="horizontal" corner="bottom-left" color="gold" />
 
     <!-- Contenido Central del Hero -->
     <div
@@ -318,10 +290,11 @@ const reasons = [
   </section>
 
   <!-- =========================================================================
-       2. PERFILES / BENEFICIARIOS (Fondo Azul Marino #091E3A)
+       2. PERFILES / BENEFICIARIOS (Fondo Azul Marino #091E3A con Círculos de Fondo)
        ========================================================================= -->
-  <section class="bg-[#091E3A] px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
-    <div class="mx-auto max-w-7xl space-y-12">
+  <section class="relative bg-[#091E3A] px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center overflow-hidden">
+    <CirclesBackground variant="navy" />
+    <div class="relative z-10 mx-auto max-w-7xl space-y-12">
       <!-- Encabezado de la sección -->
       <div class="mx-auto max-w-4xl space-y-3.5">
         <p class="section-eyebrow section-eyebrow--amber">
@@ -369,39 +342,9 @@ const reasons = [
     <!-- Overlay translúcido blanco para nitidez, luminosidad y contraste -->
     <div class="absolute inset-0 bg-white/80 pointer-events-none"></div>
 
-    <!-- Pestaña Vertical como Carpeta: Esquina Superior Derecha (Azul Marino) -->
-    <div
-      class="absolute top-0 right-0 pointer-events-none z-20"
-      aria-hidden="true"
-    >
-      <!-- Capa 1: Fondo translúcido azul vertical -->
-      <div
-        class="absolute top-0 right-0 w-[34px] sm:w-[44px] lg:w-[54px] h-[130px] sm:h-[180px] lg:h-[230px] bg-[#091E3A]/25 rounded-bl-[2.5rem] sm:rounded-bl-[3.5rem] backdrop-blur-sm"
-      >
-      </div>
-      <!-- Capa 2: Pestaña sólida azul vertical -->
-      <div
-        class="absolute top-0 right-0 w-[22px] sm:w-[30px] lg:w-[38px] h-[100px] sm:h-[145px] lg:h-[185px] bg-[#091E3A] rounded-bl-[2rem] sm:rounded-bl-[2.8rem] shadow-md"
-      >
-      </div>
-    </div>
-
-    <!-- Pestaña Horizontal como Carpeta: Esquina Inferior Izquierda (Amarillo Dorado) -->
-    <div
-      class="absolute bottom-0 left-0 pointer-events-none z-20"
-      aria-hidden="true"
-    >
-      <!-- Capa 1: Fondo translúcido dorado horizontal -->
-      <div
-        class="absolute bottom-0 left-0 w-[180px] sm:w-[280px] lg:w-[380px] h-[28px] sm:h-[38px] lg:h-[46px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
-      >
-      </div>
-      <!-- Capa 2: Pestaña sólida dorada horizontal -->
-      <div
-        class="absolute bottom-0 left-0 w-[140px] sm:w-[230px] lg:w-[320px] h-[16px] sm:h-[22px] lg:h-[28px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-md"
-      >
-      </div>
-    </div>
+    <!-- Viñetas de Pestaña de Carpeta (Vertical azul marino arriba y Horizontal dorada abajo) -->
+    <FolderTabBadge orientation="vertical" corner="top-right" color="navy" />
+    <FolderTabBadge orientation="horizontal" corner="bottom-left" color="gold" />
 
     <!-- Contenedor Principal de las Dos Columnas -->
     <div class="relative z-10 max-w-6xl mx-auto">
@@ -509,9 +452,10 @@ const reasons = [
        ========================================================================= -->
   <section
     id="rutas"
-    class="bg-[#df9417] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-white"
+    class="relative bg-[#df9417] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-white overflow-hidden"
   >
-    <div class="max-w-7xl mx-auto space-y-10">
+    <CirclesBackground variant="gold" />
+    <div class="relative z-10 max-w-7xl mx-auto space-y-10">
       <!-- Encabezado de la sección -->
       <div class="text-left sm:text-center space-y-2">
         <p class="section-eyebrow section-eyebrow--white">
@@ -548,9 +492,10 @@ const reasons = [
        ========================================================================= -->
   <section
     id="experiencias"
-    class="bg-[#091E3A] px-4 py-14 sm:px-6 lg:px-8 lg:py-16"
+    class="relative bg-[#091E3A] px-4 py-14 sm:px-6 lg:px-8 lg:py-16 overflow-hidden"
   >
-    <div class="mx-auto max-w-7xl space-y-8">
+    <CirclesBackground variant="navy" />
+    <div class="relative z-10 mx-auto max-w-7xl space-y-8">
       <div class="text-center space-y-1.5 w-full mx-auto text-white">
         <p class="section-eyebrow section-eyebrow--gold">
           ¿QUÉ DESAFÍO ENFRENTAS HOY? PODEMOS AYUDARTE
@@ -608,22 +553,8 @@ const reasons = [
     <div
       class="relative bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <!-- Pestaña Vertical como Carpeta: Esquina Superior Derecha (Azul Marino) -->
-      <div
-        class="absolute top-0 right-0 pointer-events-none z-20"
-        aria-hidden="true"
-      >
-        <!-- Capa 1: Fondo translúcido azul vertical -->
-        <div
-          class="absolute top-0 right-0 w-[34px] sm:w-[44px] lg:w-[54px] h-[130px] sm:h-[180px] lg:h-[230px] bg-[#091E3A]/25 rounded-bl-[2.5rem] sm:rounded-bl-[3.5rem] backdrop-blur-sm"
-        >
-        </div>
-        <!-- Capa 2: Pestaña sólida azul vertical -->
-        <div
-          class="absolute top-0 right-0 w-[22px] sm:w-[30px] lg:w-[38px] h-[100px] sm:h-[145px] lg:h-[185px] bg-[#091E3A] rounded-bl-[2rem] sm:rounded-bl-[2.8rem] shadow-md"
-        >
-        </div>
-      </div>
+      <!-- Viñeta Superior Derecha (Vertical Azul Marino) -->
+      <FolderTabBadge orientation="vertical" corner="top-right" color="navy" />
 
       <div class="max-w-6xl mx-auto space-y-8 relative z-10">
         <!-- Encabezado alineado a la izquierda según la imagen de referencia -->
@@ -646,28 +577,15 @@ const reasons = [
         <MethodologySteps items={methodologySteps} theme="light" />
       </div>
 
-      <!-- Pestaña Horizontal como Carpeta: Esquina Inferior Izquierda (Amarillo Dorado sobre fondo blanco, conectando con el bloque amarillo) -->
-      <div
-        class="absolute bottom-0 left-0 pointer-events-none z-20"
-        aria-hidden="true"
-      >
-        <!-- Capa 1: Fondo translúcido dorado horizontal -->
-        <div
-          class="absolute bottom-0 left-0 w-[180px] sm:w-[280px] lg:w-[380px] h-[28px] sm:h-[38px] lg:h-[46px] bg-[#df9417]/25 rounded-tr-2xl sm:rounded-tr-3xl backdrop-blur-sm"
-        >
-        </div>
-        <!-- Capa 2: Pestaña sólida dorada horizontal -->
-        <div
-          class="absolute bottom-0 left-0 w-[140px] sm:w-[230px] lg:w-[320px] h-[16px] sm:h-[22px] lg:h-[28px] bg-[#df9417] rounded-tr-xl sm:rounded-tr-2xl shadow-sm"
-        >
-        </div>
-      </div>
+      <!-- Viñeta Inferior Izquierda (Horizontal Dorada) -->
+      <FolderTabBadge orientation="horizontal" corner="bottom-left" color="gold" />
     </div>
 
-    <!-- PARTE INFERIOR: POR QUÉ CEDEPRO FORMACIÓN (Fondo Amarillo) -->
+    <!-- PARTE INFERIOR: POR QUÉ CEDEPRO FORMACIÓN (Fondo Amarillo con Círculos) -->
     <div
       class="relative bg-[#df9417] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden text-white"
     >
+      <CirclesBackground variant="gold" />
       <div class="max-w-7xl mx-auto space-y-6 relative z-10">
         <!-- Encabezado alineado a la izquierda según la imagen de referencia -->
         <div class="space-y-1 text-left">
@@ -698,18 +616,25 @@ const reasons = [
        8. CTA FINAL (Con Imagen de Fondo, Overlay y Botones Contextuales)
        ========================================================================= -->
   <section
-    class="relative overflow-hidden bg-[#07192F] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
+    class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
   >
-    <!-- Imagen de fondo Sección 8 -->
-    <img
-      src="/assets/portafolio/vista-informacion/sub-vista-impulsa/img-informacion-sub-impulsa-section-7-com.webp"
-      alt="Equipo en sesión de trabajo CEDEPRO"
-      class="absolute inset-0 h-full w-full object-cover object-right opacity-75"
-      loading="lazy"
-      decoding="async"
-    />
-    <!-- Overlay degradado para contraste nítido -->
-    <div class="absolute inset-0 bg-[#091E3A]/80"></div>
+    <div class="absolute inset-0 z-0">
+      <picture>
+        <source srcset="/assets/nosotros/img-nosotros-section-9.webp" type="image/webp" />
+        <img
+          src="/assets/nosotros/img-nosotros-section-9.webp"
+          alt="Consultores trabajando en reunión estratégica nocturna"
+          class="w-full h-full object-cover object-right sm:object-center"
+          width="1920"
+          height="1080"
+          decoding="async"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+
+    <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
+    <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
 
     <div class="relative z-10 mx-auto max-w-7xl">
       <div class="max-w-2xl space-y-5">

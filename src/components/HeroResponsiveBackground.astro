@@ -1,0 +1,543 @@
+---
+interface Props {
+  /** Imagen de fondo para versión de escritorio (Desktop) */
+  desktopImage: string;
+
+  /** Imagen de fondo para versión móvil (opcional, si no se indica usa desktopImage) */
+  mobileImage?: string;
+
+  /**
+   * Color base del fondo y degradado.
+   * Presets: 'navy' (#07192F) | 'brand' (#091E3A) | 'blue' (#1a375b) | 'gold' (#df9417) | 'amber' (#f5a623) | 'white' (#ffffff) | 'dark' (#050d1a)
+   * o cualquier color CSS hex/rgb/hsl.
+   * Default: 'navy' (#07192F)
+   */
+  color?: string;
+
+  // ==========================================
+  // POSICIÓN DE LA IMAGEN (USANDO PORCENTAJES)
+  // ==========================================
+  /**
+   * Posición horizontal de la imagen en móvil usando porcentaje (ej: '50%', '52%', '60%', '40%').
+   * Permite mover la imagen a la derecha o a la izquierda libremente.
+   * Default: '50%'
+   */
+  mobileImagePosX?: string;
+
+  /**
+   * Posición vertical de la imagen en móvil (ej: 'bottom', 'top', 'center', '20%', '80%').
+   * Default: 'bottom'
+   */
+  mobileImagePosY?: string;
+
+  /**
+   * Altura de la caja de imagen en móvil (ej: '100%', '460px', '500px', '60vh').
+   * Si es '100%', llena todo el fondo. Si es un valor en px/% (ej: '460px'), se ancla abajo o arriba según mobileImageAnchor.
+   * Default: '100%'
+   */
+  mobileImageHeight?: string;
+
+  /**
+   * Desplazamiento vertical adicional de la imagen en móvil (ej: '0px', '20px', '35px', '5%').
+   * Permite bajar o subir la imagen libremente con precisión.
+   * Default: '0px'
+   */
+  mobileImageOffsetY?: string;
+
+  /**
+   * Anclaje de la imagen en móvil si mobileImageHeight no es '100%':
+   * 'bottom' (anclada abajo) | 'top' (anclada arriba) | 'full'
+   * Default: 'bottom'
+   */
+  mobileImageAnchor?: "bottom" | "top" | "full";
+
+  /**
+   * Posición horizontal de la imagen en escritorio (ej: 'right', '100%', '85%', 'center').
+   * Default: 'right'
+   */
+  desktopImagePosX?: string;
+
+  /**
+   * Posición vertical de la imagen en escritorio (ej: 'center', '50%', 'top').
+   * Default: 'center'
+   */
+  desktopImagePosY?: string;
+
+  /**
+   * Escala sutil de la imagen para asegurar margen de paneo sin bordes (ej: '100%', '105%', '110%').
+   * Default: '100%'
+   */
+  imageScale?: string;
+
+  /**
+   * Tamaño del fondo (ej: 'cover', 'contain').
+   * Default: 'cover'
+   */
+  imageSize?: string;
+
+  // ==========================================
+  // CONFIGURACIÓN DEL DEGRADADO
+  // ==========================================
+  /**
+   * Dirección del degradado en móvil.
+   * 'to-b' (arriba a abajo) | 'to-t' (abajo a arriba) | 'to-r' | 'to-l' o cualquier ángulo CSS.
+   * Default: 'to-b'
+   */
+  mobileDirection?: "to-b" | "to-t" | "to-r" | "to-l" | string;
+
+  /**
+   * Dirección del degradado en escritorio.
+   * 'to-r' (izq a der) | 'to-l' | 'to-b' | 'to-t' o cualquier ángulo CSS.
+   * Default: 'to-r'
+   */
+  desktopDirection?: "to-r" | "to-l" | "to-b" | "to-t" | string;
+
+  /**
+   * Cobertura sólida inicial en móvil (0 a 100%).
+   * Si autoCalculateCoverage está activo, sirve como valor inicial SSR antes del cálculo.
+   * Default: 48
+   */
+  mobileCoverage?: number;
+
+  /**
+   * Fin del desvanecimiento en móvil (0 a 100%).
+   * Default: 78
+   */
+  mobileFadeEnd?: number;
+
+  /**
+   * Cobertura sólida en escritorio (0 a 100%).
+   * Default: 32
+   */
+  desktopCoverage?: number;
+
+  /**
+   * Fin del desvanecimiento en escritorio (0 a 100%).
+   * Default: 82
+   */
+  desktopFadeEnd?: number;
+
+  // ==========================================
+  // CÁLCULO INTELIGENTE DEL LÍMITE DE CONTENIDO
+  // ==========================================
+  /**
+   * Selector CSS del contenedor de texto/botones a medir (ej: '.hero-text-block', '.hero-content').
+   * La función medirá la posición exacta de la última letra y botón para delimitar el degradado.
+   */
+  targetContentSelector?: string;
+
+  /**
+   * Activa el cálculo automático de la cobertura del degradado según la última letra/botón.
+   * Default: true (cuando targetContentSelector está definido)
+   */
+  autoCalculateCoverage?: boolean;
+
+  /**
+   * Margen de seguridad en píxeles después de la última letra/botón antes de iniciar el difuminado.
+   * Default: 20
+   */
+  bufferPx?: number;
+
+  /**
+   * Extensión porcentual del difuminado tras terminar el área sólida (ej: 28 = 28%).
+   * Default: 28
+   */
+  fadeSpan?: number;
+
+  /** Activa logs informativos en consola con los cálculos del degradado */
+  debug?: boolean;
+
+  /** Clases CSS adicionales para el contenedor */
+  class?: string;
+
+  /** ID único del contenedor */
+  id?: string;
+}
+
+const {
+  desktopImage,
+  mobileImage = desktopImage,
+  color = "navy",
+  mobileImagePosX = "50%",
+  mobileImagePosY = "bottom",
+  mobileImageHeight = "100%",
+  mobileImageOffsetY = "0px",
+  mobileImageAnchor = "bottom",
+  desktopImagePosX = "right",
+  desktopImagePosY = "center",
+  imageScale = "100%",
+  imageSize = "cover",
+  mobileDirection = "to-b",
+  desktopDirection = "to-r",
+  mobileCoverage = 48,
+  mobileFadeEnd = 78,
+  desktopCoverage = 32,
+  desktopFadeEnd = 82,
+  targetContentSelector,
+  autoCalculateCoverage = Boolean(targetContentSelector),
+  bufferPx = 20,
+  fadeSpan = 28,
+  debug = false,
+  class: className = "",
+  id,
+} = Astro.props;
+
+// Presets oficiales de la marca CEDEPRO
+const colorPresets: Record<string, string> = {
+  navy: "#07192F",
+  brand: "#091E3A",
+  blue: "#1a375b",
+  gold: "#df9417",
+  amber: "#f5a623",
+  dark: "#050d1a",
+  white: "#ffffff",
+};
+
+const resolvedColor = colorPresets[color] || color;
+
+// Mapeo de alias de dirección a grados CSS
+const directionMap: Record<string, string> = {
+  "to-b": "180deg",
+  "to-t": "0deg",
+  "to-r": "90deg",
+  "to-l": "270deg",
+};
+
+const resolvedMobileDir = directionMap[mobileDirection] || mobileDirection;
+const resolvedDesktopDir = directionMap[desktopDirection] || desktopDirection;
+
+// Generador de degradado multi-stop sin cortes bruscos
+function buildMultiStopGradient(
+  dir: string,
+  solidPercent: number,
+  endPercent: number,
+): string {
+  const solid = Math.max(0, Math.min(100, solidPercent));
+  const end = Math.max(solid + 8, Math.min(100, endPercent));
+  const span = end - solid;
+
+  const p1 = Math.round(solid);
+  const p2 = Math.round(solid + span * 0.2);
+  const p3 = Math.round(solid + span * 0.4);
+  const p4 = Math.round(solid + span * 0.62);
+  const p5 = Math.round(solid + span * 0.82);
+  const p6 = Math.round(end);
+
+  return `linear-gradient(${dir}, ${resolvedColor} 0%, ${resolvedColor} ${p1}%, color-mix(in srgb, ${resolvedColor} 88%, transparent) ${p2}%, color-mix(in srgb, ${resolvedColor} 62%, transparent) ${p3}%, color-mix(in srgb, ${resolvedColor} 32%, transparent) ${p4}%, color-mix(in srgb, ${resolvedColor} 10%, transparent) ${p5}%, transparent ${p6}%)`;
+}
+
+const initialMobileGrad = buildMultiStopGradient(
+  resolvedMobileDir,
+  mobileCoverage,
+  mobileFadeEnd,
+);
+const initialDesktopGrad = buildMultiStopGradient(
+  resolvedDesktopDir,
+  desktopCoverage,
+  desktopFadeEnd,
+);
+
+// Generar un ID único para la instancia si no viene uno
+const instanceId =
+  id || `cedepro-hero-bg-${Math.random().toString(36).substring(2, 9)}`;
+
+// Cálculo de estilos de anclaje para la imagen en móvil
+const mobileTop =
+  mobileImageHeight !== "100%" && mobileImageAnchor === "bottom" ? "auto" : "0";
+const mobileBottom =
+  mobileImageHeight !== "100%" && mobileImageAnchor === "top" ? "auto" : "0";
+---
+
+<div
+  id={instanceId}
+  class={`cedepro-hero-bg-root absolute inset-0 overflow-hidden pointer-events-none z-0 ${className}`}
+  data-color={resolvedColor}
+  data-mobile-dir={resolvedMobileDir}
+  data-desktop-dir={resolvedDesktopDir}
+  data-target-selector={targetContentSelector || ""}
+  data-auto-calculate={autoCalculateCoverage ? "true" : "false"}
+  data-buffer-px={bufferPx}
+  data-fade-span={fadeSpan}
+  data-mobile-coverage={mobileCoverage}
+  data-mobile-fade-end={mobileFadeEnd}
+  data-debug={debug ? "true" : "false"}
+  style={`
+    --bg-base-color: ${resolvedColor};
+    --img-desktop: url('${desktopImage}');
+    --img-mobile: url('${mobileImage}');
+    --img-desktop-pos-x: ${desktopImagePosX};
+    --img-desktop-pos-y: ${desktopImagePosY};
+    --img-mobile-pos-x: ${mobileImagePosX};
+    --img-mobile-pos-y: ${mobileImagePosY};
+    --img-mobile-height: ${mobileImageHeight};
+    --img-mobile-offset-y: ${mobileImageOffsetY};
+    --img-mobile-top: ${mobileTop};
+    --img-mobile-bottom: ${mobileBottom};
+    --img-scale: ${imageScale};
+    --img-size: ${imageSize};
+    --mobile-gradient: ${initialMobileGrad};
+    --desktop-gradient: ${initialDesktopGrad};
+  `}
+  aria-hidden="true"
+>
+  <!-- Capa 1: Imagen de fondo sin bordes vacíos -->
+  <div class="cedepro-hero-img-layer absolute inset-0"></div>
+
+  <!-- Capa 2: Degradado responsivo adaptativo -->
+  <div class="cedepro-hero-overlay-layer absolute inset-0"></div>
+</div>
+
+<style>
+  .cedepro-hero-bg-root {
+    background-color: var(--bg-base-color);
+  }
+
+  /* Capa de imagen: background-size usa la variable para soportar contain/cover */
+  .cedepro-hero-img-layer {
+    background-size: var(--img-size);
+    background-repeat: no-repeat;
+    transform-origin: center center;
+    transform: scale(var(--img-scale, 1));
+    z-index: 1;
+  }
+
+  /* Capa de degradado con transición suave */
+  .cedepro-hero-overlay-layer {
+    z-index: 2;
+    transition: background 0.2s ease-out;
+  }
+
+  /* VISTA MÓVIL / PORTRAIT (< 768px o retrato) */
+  @media (max-width: 767px), (orientation: portrait), (max-aspect-ratio: 1/1) {
+    .cedepro-hero-img-layer {
+      background-image: var(--img-mobile);
+      background-position: var(--img-mobile-pos-x) var(--img-mobile-pos-y);
+      height: var(--img-mobile-height, 100%);
+      top: var(--img-mobile-top, 0);
+      bottom: var(--img-mobile-bottom, 0);
+      transform: translateY(var(--img-mobile-offset-y, 0px))
+        scale(var(--img-scale, 1));
+    }
+    .cedepro-hero-overlay-layer {
+      background: var(--mobile-gradient) !important;
+    }
+  }
+
+  /* VISTA ESCRITORIO / LANDSCAPE (>= 768px y landscape) */
+  @media (min-width: 768px) and (orientation: landscape) and (min-aspect-ratio: 1/1) {
+    .cedepro-hero-img-layer {
+      background-image: var(--img-desktop);
+      background-position: var(--img-desktop-pos-x) var(--img-desktop-pos-y);
+    }
+    .cedepro-hero-overlay-layer {
+      background: var(--desktop-gradient) !important;
+    }
+  }
+</style>
+
+<script>
+  interface ContentBoundaryOptions {
+    direction?: string;
+    bufferPx?: number;
+    fadeSpan?: number;
+  }
+
+  interface ContentBoundaryResult {
+    sectionHeight: number;
+    sectionWidth: number;
+    distancePx: number;
+    coveragePct: number;
+    fadeEndPct: number;
+    boundingElement: Element;
+  }
+
+  function calculateContentBoundary(
+    sectionEl: Element | null,
+    targetSelector: string,
+    options: ContentBoundaryOptions = {},
+  ): ContentBoundaryResult | null {
+    if (!sectionEl) return null;
+    const targetEl = targetSelector
+      ? sectionEl.querySelector(targetSelector)
+      : null;
+    if (!targetEl) return null;
+
+    const { direction = "180deg", bufferPx = 20, fadeSpan = 28 } = options;
+
+    const sectionRect = sectionEl.getBoundingClientRect();
+    if (sectionRect.height <= 0) return null;
+
+    // Buscar todos los elementos clave dentro del target (botones, enlaces, párrafos, encabezados, spans)
+    const candidates = targetEl.querySelectorAll(
+      "a, button, p, h1, h2, h3, h4, span, div",
+    );
+    let boundingElement: Element = targetEl;
+    let lowestBottom = targetEl.getBoundingClientRect().bottom;
+    let highestTop = targetEl.getBoundingClientRect().top;
+
+    candidates.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.height > 0 && rect.width > 0) {
+        if (rect.bottom > lowestBottom) {
+          lowestBottom = rect.bottom;
+          boundingElement = el;
+        }
+        if (rect.top < highestTop) {
+          highestTop = rect.top;
+        }
+      }
+    });
+
+    let coveragePct = 50;
+    let fadeEndPct = 80;
+    let distancePx = 0;
+
+    // Caso A: Degradado de ARRIBA hacia ABAJO (180deg / 'to-b')
+    if (direction === "180deg" || direction === "to-b") {
+      distancePx = lowestBottom - sectionRect.top + bufferPx;
+      coveragePct = Math.min(
+        94,
+        Math.max(12, Math.round((distancePx / sectionRect.height) * 100)),
+      );
+      fadeEndPct = Math.min(100, Math.round(coveragePct + fadeSpan));
+    }
+    // Caso B: Degradado de ABAJO hacia ARRIBA (0deg / 'to-t')
+    else if (direction === "0deg" || direction === "to-t") {
+      distancePx = sectionRect.bottom - highestTop + bufferPx;
+      coveragePct = Math.min(
+        94,
+        Math.max(12, Math.round((distancePx / sectionRect.height) * 100)),
+      );
+      fadeEndPct = Math.min(100, Math.round(coveragePct + fadeSpan));
+    }
+    // Caso C: Horizontal (90deg / 270deg)
+    else {
+      const targetRect = targetEl.getBoundingClientRect();
+      distancePx = targetRect.right - sectionRect.left + bufferPx;
+      coveragePct = Math.min(
+        94,
+        Math.max(15, Math.round((distancePx / sectionRect.width) * 100)),
+      );
+      fadeEndPct = Math.min(100, Math.round(coveragePct + fadeSpan));
+    }
+
+    return {
+      sectionHeight: Math.round(sectionRect.height),
+      sectionWidth: Math.round(sectionRect.width),
+      distancePx: Math.round(distancePx),
+      coveragePct,
+      fadeEndPct,
+      boundingElement,
+    };
+  }
+
+  // Exponer en window para reutilización o pruebas en consola
+  (
+    window as unknown as Record<string, unknown>
+  ).cedeproCalculateContentBoundary = calculateContentBoundary;
+
+  // Función constructora de gradiente con paradas armónicas
+  function buildDynamicGradient(
+    dir: string,
+    baseColor: string,
+    solidPct: number,
+    endPct: number,
+  ): string {
+    const solid = Math.max(0, Math.min(100, solidPct));
+    const end = Math.max(solid + 8, Math.min(100, endPct));
+    const span = end - solid;
+
+    const p1 = Math.round(solid);
+    const p2 = Math.round(solid + span * 0.2);
+    const p3 = Math.round(solid + span * 0.4);
+    const p4 = Math.round(solid + span * 0.62);
+    const p5 = Math.round(solid + span * 0.82);
+    const p6 = Math.round(end);
+
+    return `linear-gradient(${dir}, ${baseColor} 0%, ${baseColor} ${p1}%, color-mix(in srgb, ${baseColor} 88%, transparent) ${p2}%, color-mix(in srgb, ${baseColor} 62%, transparent) ${p3}%, color-mix(in srgb, ${baseColor} 32%, transparent) ${p4}%, color-mix(in srgb, ${baseColor} 10%, transparent) ${p5}%, transparent ${p6}%)`;
+  }
+
+  function initHeroBackgrounds() {
+    const roots = document.querySelectorAll<HTMLElement>(
+      ".cedepro-hero-bg-root",
+    );
+
+    roots.forEach((root) => {
+      const autoCalc = root.dataset.autoCalculate === "true";
+      const targetSelector = root.dataset.targetSelector;
+      const baseColor = root.dataset.color || "#07192F";
+      const mobileDir = root.dataset.mobileDir || "180deg";
+      const bufferPx = parseInt(root.dataset.bufferPx || "20", 10);
+      const fadeSpan = parseInt(root.dataset.fadeSpan || "28", 10);
+      const isDebug = root.dataset.debug === "true";
+
+      const sectionEl = root.closest("section") || root.parentElement;
+      if (!sectionEl) return;
+
+      const overlayLayer = root.querySelector<HTMLElement>(
+        ".cedepro-hero-overlay-layer",
+      );
+
+      function updateGradient() {
+        const isMobile =
+          window.innerWidth < 768 ||
+          window.matchMedia("(orientation: portrait)").matches;
+
+        if (isMobile && autoCalc && targetSelector) {
+          const result = calculateContentBoundary(sectionEl, targetSelector, {
+            direction: mobileDir,
+            bufferPx,
+            fadeSpan,
+          });
+
+          if (result) {
+            const newGrad = buildDynamicGradient(
+              mobileDir,
+              baseColor,
+              result.coveragePct,
+              result.fadeEndPct,
+            );
+            root.style.setProperty("--mobile-gradient", newGrad);
+            if (overlayLayer) {
+              overlayLayer.style.background = newGrad;
+            }
+
+            if (isDebug) {
+              console.log(
+                `%c[CEDEPRO Auto-Gradient]%c Corte calculado: última letra/botón en ${result.distancePx}px -> Cobertura sólida: ${result.coveragePct}%, Difuminado hasta: ${result.fadeEndPct}%`,
+                "color: #df9417; font-weight: bold;",
+                "color: inherit;",
+              );
+            }
+          }
+        }
+      }
+
+      // Ejecutar cálculo inmediato
+      updateGradient();
+
+      // Observar cambios de tamaño del contenedor o del bloque de contenido
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(() => {
+          updateGradient();
+        });
+        ro.observe(sectionEl);
+        if (targetSelector) {
+          const targetEl = sectionEl.querySelector(targetSelector);
+          if (targetEl) ro.observe(targetEl);
+        }
+      } else {
+        window.addEventListener("resize", updateGradient, { passive: true });
+      }
+    });
+  }
+
+  // Inicializar en carga y en navegaciones de Astro View Transitions
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeroBackgrounds);
+  } else {
+    initHeroBackgrounds();
+  }
+
+  document.addEventListener("astro:page-load", initHeroBackgrounds);
+</script>

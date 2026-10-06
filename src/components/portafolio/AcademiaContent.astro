@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import HeroResponsiveBackground from "../HeroResponsiveBackground.astro";
 import GradientOverlay from "../GradientOverlay.astro";
 import CardProfile from "../cards/CardProfile.astro";
 import CardNeed from "../cards/CardNeed.astro";
@@ -143,19 +144,35 @@ const steps = [
   id="academia"
   class="hero-section relative bg-[#091E3A] overflow-hidden"
 >
-  <div class="hero-bg-layer" aria-hidden="true"></div>
-  <div class="hero-desktop-overlay" aria-hidden="true"></div>
-  <div class="hero-mobile-overlay" aria-hidden="true"></div>
+  <!-- Capa Responsiva Unificada CEDEPRO (Fondo + Degradado adaptable + Cálculo de contenido) -->
+  <HeroResponsiveBackground
+    desktopImage="/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png"
+    mobileImage="/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png"
+    color="brand"
+    desktopImagePosX="left"
+    desktopImagePosY="center"
+    mobileImagePosX="35%"
+    mobileImagePosY="top"
+    mobileImageHeight="450px"
+    mobileImageOffsetY="120px"
+    mobileImageAnchor="bottom"
+    desktopDirection="to-l"
+    mobileDirection="to-b"
+    targetContentSelector=".hero-text-block"
+    autoCalculateCoverage={true}
+    bufferPx={150}
+    fadeSpan={200}
+    mobileCoverage={22}
+    mobileFadeEnd={58}
+    desktopCoverage={35}
+    desktopFadeEnd={70}
+  />
 
   <div
     class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pr-24 flex justify-end"
   >
     <div class="hero-text-block space-y-3 sm:space-y-4 text-left text-white">
-      <p
-        class="section-eyebrow section-eyebrow--gold"
-      >
-        CEDEPRO FORMACIÓN
-      </p>
+      <p class="section-eyebrow section-eyebrow--gold">CEDEPRO FORMACIÓN</p>
 
       <h1
         class="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight drop-shadow-sm"
@@ -275,11 +292,7 @@ const steps = [
       class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start"
     >
       <div class="space-y-4">
-        <p
-          class="section-eyebrow section-eyebrow--gold"
-        >
-          EL RETO
-        </p>
+        <p class="section-eyebrow section-eyebrow--gold">EL RETO</p>
         <h2
           class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
         >
@@ -297,10 +310,7 @@ const steps = [
           y conectada con la operación real.
         </p>
         <div class="pt-2">
-          <a
-            href="#metodologia"
-            class="btn-gold"
-          >
+          <a href="#metodologia" class="btn-gold">
             <span
               class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
             >
@@ -313,11 +323,7 @@ const steps = [
       </div>
 
       <div class="space-y-4 md:pl-10 md:border-l md:border-white/20">
-        <p
-          class="section-eyebrow section-eyebrow--gold"
-        >
-          NUESTRA RESPUESTA
-        </p>
+        <p class="section-eyebrow section-eyebrow--gold">NUESTRA RESPUESTA</p>
         <h2
           class="text-white text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight tracking-tight"
         >
@@ -385,9 +391,7 @@ const steps = [
 >
   <div class="max-w-[1400px] mx-auto space-y-6">
     <div class="text-center space-y-1.5 w-full mx-auto text-white">
-      <p
-        class="section-eyebrow section-eyebrow--white"
-      >
+      <p class="section-eyebrow section-eyebrow--white">
         QUÉ PODEMOS AYUDARTE A DESARROLLAR
       </p>
       <h2
@@ -409,13 +413,7 @@ const steps = [
     <CardGrid count={needs.length} maxWidth="64rem">
       {
         needs.map((n, i) => {
-          return (
-            <CardNeed
-              label={n.label}
-              icon={n.icon}
-              color={n.color}
-            />
-          );
+          return <CardNeed label={n.label} icon={n.icon} color={n.color} />;
         })
       }
     </CardGrid>
@@ -487,9 +485,7 @@ const steps = [
   <div class="bg-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto space-y-6">
       <div class="space-y-1 text-left">
-        <p
-          class="section-eyebrow section-eyebrow--blue"
-        >
+        <p class="section-eyebrow section-eyebrow--blue">
           POR QUÉ CEDEPRO FORMACIÓN
         </p>
         <h2
@@ -501,22 +497,38 @@ const steps = [
         </h2>
       </div>
 
-      <ReasonsGroup items={reasons} variant="alternating" dividerColorClass="divide-slate-200" />
+      <ReasonsGroup
+        items={reasons}
+        variant="alternating"
+        dividerColorClass="divide-slate-200"
+      />
     </div>
   </div>
 </section>
 
 <section
-  class="relative overflow-hidden bg-[#07192F] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
+  class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
 >
-  <img
-    src="/assets/portafolio/vista-academia/img-portafolio-academia-section-7-total.webp"
-    alt="Equipo conversando sobre formación"
-    class="absolute inset-0 h-full w-full object-cover object-right opacity-75"
-    loading="lazy"
-    decoding="async"
-  />
-  <div class="absolute inset-0 bg-[#091E3A]/80"></div>
+  <div class="absolute inset-0 z-0">
+    <picture>
+      <source
+        srcset="/assets/nosotros/img-nosotros-section-9.webp"
+        type="image/webp"
+      />
+      <img
+        src="/assets/nosotros/img-nosotros-section-9.webp"
+        alt="Consultores trabajando en reunión estratégica nocturna"
+        class="w-full h-full object-cover object-right sm:object-center"
+        width="1920"
+        height="1080"
+        decoding="async"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+
+  <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
+  <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
   <div class="relative z-10 mx-auto max-w-7xl">
     <div class="max-w-2xl space-y-5">
       <p class="section-eyebrow section-eyebrow--gold">
@@ -547,10 +559,6 @@ const steps = [
 
 <!-- ESTILOS PARA HERO HEADER -->
 <style is:global>
-  .hero-bg-layer {
-    background-repeat: no-repeat;
-  }
-
   @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
     .hero-section {
       min-height: 710px !important;
@@ -567,34 +575,6 @@ const steps = [
       z-index: 10 !important;
       justify-content: flex-start !important;
     }
-    .hero-bg-layer {
-      display: block !important;
-      position: absolute !important;
-      inset: auto 0 0 0 !important;
-      height: 450px !important;
-      background-image: url("/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png") !important;
-      background-size: cover !important;
-      background-position: 35% 120px !important;
-      z-index: 1 !important;
-    }
-    .hero-mobile-overlay {
-      display: block !important;
-      position: absolute !important;
-      inset: auto 0 0 0 !important;
-      height: 450px !important;
-      background: linear-gradient(
-        180deg,
-        #091e3a 0%,
-        #091e3a 22%,
-        rgba(9, 30, 58, 0.85) 34%,
-        rgba(9, 30, 58, 0.4) 45%,
-        rgba(9, 30, 58, 0) 58%
-      ) !important;
-      z-index: 2 !important;
-    }
-    .hero-desktop-overlay {
-      display: none !important;
-    }
   }
 
   @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
@@ -606,33 +586,6 @@ const steps = [
       align-items: center !important;
       background-color: #091e3a !important;
       padding: 2.5rem 0 !important;
-    }
-    .hero-bg-layer {
-      display: block !important;
-      position: absolute !important;
-      inset: 0 !important;
-      background-image: url("/assets/portafolio/vista-academia/img-portafolio-academia-section-1-der.png") !important;
-      background-size: cover !important;
-      background-position: left center !important;
-      z-index: 1 !important;
-    }
-    .hero-desktop-overlay {
-      display: block !important;
-      position: absolute !important;
-      inset: 0 !important;
-      background: linear-gradient(
-        270deg,
-        #091e3a 0%,
-        #091e3a 15%,
-        rgba(9, 30, 58, 0.95) 28%,
-        rgba(9, 30, 58, 0.75) 42%,
-        rgba(9, 30, 58, 0.35) 55%,
-        rgba(9, 30, 58, 0) 70%
-      ) !important;
-      z-index: 2 !important;
-    }
-    .hero-mobile-overlay {
-      display: none !important;
     }
 
     .hero-text-block {

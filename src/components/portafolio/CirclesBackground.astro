@@ -1,0 +1,76 @@
+---
+interface Props {
+  /**
+   * Color base de la sección:
+   * 'navy' (Azul Marino #091E3A / #07192F)
+   * 'gold' (Amarillo / Dorado CEDEPRO #df9417)
+   */
+  variant?: "navy" | "gold";
+
+  /**
+   * Opacidad de los círculos
+   */
+  opacity?: number;
+
+  /**
+   * Clases adicionales para el contenedor de fondo
+   */
+  class?: string;
+}
+
+const {
+  variant = "navy",
+  opacity,
+  class: className = "",
+} = Astro.props;
+
+// Opacidades tenues y elegantes para que se sientan como ondas de agua de fondo
+const resolvedOpacity = opacity ?? (variant === "navy" ? 0.045 : 0.05);
+const circleFill = variant === "navy" ? "#ffffff" : "#ffffff";
+---
+
+<div
+  class={`absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden z-0 ${className}`}
+  aria-hidden="true"
+>
+  <svg
+    class="w-full h-full"
+    viewBox="0 0 1920 1080"
+    preserveAspectRatio="xMidYMid slice"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={`opacity: ${resolvedOpacity};`}
+  >
+    <!-- Círculo gigante 1: Desplazado hacia el cuadrante inferior-centro/derecha (radio masivo para curvatura muy suave) -->
+    <circle
+      cx="980"
+      cy="960"
+      r="720"
+      fill={circleFill}
+    />
+
+    <!-- Círculo gigante 2: Esquina superior izquierda, amplio y flotante -->
+    <circle
+      cx="240"
+      cy="-40"
+      r="620"
+      fill={circleFill}
+    />
+
+    <!-- Círculo gigante 3: Flanco derecho superior/medio, amplio y sutil -->
+    <circle
+      cx="1780"
+      cy="320"
+      r="680"
+      fill={circleFill}
+    />
+
+    <!-- Círculo complementario 4: Envolvente lateral izquierdo inferior -->
+    <circle
+      cx="-120"
+      cy="780"
+      r="580"
+      fill={circleFill}
+    />
+  </svg>
+</div>
