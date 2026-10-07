@@ -1,0 +1,131 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ElementColors } from "../cards/ElementColors";
+
+export interface ReasonItem {
+  colors?: ElementColors;
+  title: string;
+  icon: string;
+  variant?: "gold" | "blue" | "navy" | "navy-on-gold";
+  iconBgClass?: string;
+  iconColorClass?: string;
+  iconBorderClass?: string;
+  textColorClass?: string;
+}
+
+interface Props {
+  /** Colores CSS del grupo; cada item puede sobrescribirlos. */
+  colors?: ElementColors;
+  dividerColor?: string;
+  /** Lista de motivos / razones */
+  items: ReasonItem[];
+  /** Variante general de los items: 'alternating' (dorado y azul intercalados) | 'gold' | 'blue' | 'navy' | 'navy-on-gold' | 'custom' */
+  variant?:
+    "alternating" | "gold" | "blue" | "navy" | "navy-on-gold" | "custom";
+  /** Disposición visual: 'flex' (con divisores en desktop) | 'grid' (grilla compacta de 2/3/6 cols) */
+  layout?: "flex" | "grid";
+  /** Si debe mostrar líneas divisorias entre los items (solo aplica en flex) */
+  showDividers?: boolean;
+  /** Color de las líneas divisorias (ej: 'divide-slate-200', 'divide-white/30', 'divide-[#df9417]/30') */
+  dividerColorClass?: string;
+  /** Color global del texto (opcional, ej: 'text-[#1a375b]', 'text-white') */
+  textColorClass?: string;
+  /** Fondo global de los iconos (opcional) */
+  iconBgClass?: string;
+  /** Color global de los iconos (opcional) */
+  iconColorClass?: string;
+  /** Borde global de los círculos (opcional, ej: 'border-2 border-[#1665c0]') */
+  iconBorderClass?: string;
+  /** Clases CSS extra para el contenedor */
+  class?: string;
+}
+
+const {
+  items = [],
+  colors = {},
+  dividerColor,
+  variant = "alternating",
+  layout = "flex",
+  showDividers = true,
+  dividerColorClass = "divide-slate-200",
+  textColorClass,
+  iconBgClass,
+  iconColorClass,
+  iconBorderClass,
+  class: className = "",
+} = Astro.props;
+
+const containerClasses =
+  layout === "grid"
+    ? `grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 pt-2 items-center ${className}`
+    : `flex flex-col lg:flex-row items-center lg:items-stretch justify-between pt-1 ${showDividers ? `divide-y lg:divide-y-0 lg:divide-x ${dividerColorClass}` : ""} ${className}`;
+---
+
+<div class={`reasons-group ${containerClasses}`}>
+  {
+    items.map((item, index) => {
+      let itemVariant: "gold" | "blue" | "navy" | "navy-on-gold" = "gold";
+
+      if (item.variant) {
+        itemVariant = item.variant;
+      } else if (variant === "alternating") {
+        itemVariant = index % 2 === 0 ? "gold" : "blue";
+      } else if (variant !== "custom") {
+        itemVariant = variant;
+      }
+
+      let defaultBg = "bg-[#df9417]/10";
+      let defaultIcon = "text-[#df9417]";
+      let defaultText = "text-[#1a375b]";
+
+      if (itemVariant === "blue") {
+        defaultBg = "bg-[#1665c0]/10";
+        defaultIcon = "text-[#1665c0]";
+        defaultText = "text-[#1a375b]";
+      } else if (itemVariant === "navy") {
+        defaultBg = "bg-[#091E3A]";
+        defaultIcon = "text-white";
+        defaultText = "text-[#1a375b]";
+      } else if (itemVariant === "navy-on-gold") {
+        defaultBg = "bg-[#091E3A]";
+        defaultIcon = "text-white";
+        defaultText = "text-white";
+      }
+
+      const itemColors = { ...colors, ...item.colors };
+      const finalBg = item.iconBgClass || iconBgClass || defaultBg;
+      const finalIcon = item.iconColorClass || iconColorClass || defaultIcon;
+      const finalText = item.textColorClass || textColorClass || defaultText;
+      const finalBorder = item.iconBorderClass || iconBorderClass || "";
+
+      return (
+        <div
+          class="flex flex-row items-center text-left w-full min-w-0 lg:flex-1 gap-3 sm:gap-3.5 py-3 lg:py-0 px-2 lg:px-3 group justify-start"
+          style={{ borderColor: dividerColor }}
+        >
+          <div
+            class={`w-12 h-12 lg:w-[3.5rem] lg:h-[3.5rem] rounded-full flex items-center justify-center shrink-0 shadow-md ${finalBg} ${finalBorder} group-hover:scale-110 transition-transform`}
+            style={{
+              backgroundColor: itemColors.circle,
+              border: itemColors.border
+                ? `2px solid ${itemColors.border}`
+                : undefined,
+            }}
+          >
+            <Icon
+              name={item.icon}
+              class={`w-6 h-6 lg:w-[1.8rem] lg:h-[1.8rem] stroke-1 ${finalIcon}`}
+              style={{ color: itemColors.icon }}
+            />
+          </div>
+          <p
+            class={`${finalText} text-[13px] lg:text-[14px] font-medium leading-tight min-w-0 max-w-[145px] text-balance`}
+            style={{ color: itemColors.title }}
+          >
+            {item.title}
+          </p>
+        </div>
+      );
+    })
+  }
+</div>

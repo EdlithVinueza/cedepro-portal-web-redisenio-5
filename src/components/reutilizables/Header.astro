@@ -420,7 +420,8 @@ const isActive = (item: any) => {
   );
   navLinks?.forEach((link) => {
     link.addEventListener("click", (e) => {
-      if (link.getAttribute("href") === "#" || link.hasAttribute("onclick")) return;
+      if (link.getAttribute("href") === "#" || link.hasAttribute("onclick"))
+        return;
       menu?.classList.add("hidden");
       menuIcon?.classList.remove("hidden");
       closeIcon?.classList.add("hidden");

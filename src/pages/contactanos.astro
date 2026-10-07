@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ContactForm from "../components/ContactForm.astro";
+import ContactForm from "../components/reutilizables/ContactForm.astro";
 ---
 
 <Layout
@@ -22,7 +22,9 @@ import ContactForm from "../components/ContactForm.astro";
 
       <div class="relative z-10 space-y-4 sm:space-y-6 max-w-sm">
         <div class="space-y-1 sm:space-y-2">
-          <p class="section-eyebrow section-eyebrow--amber !text-xl sm:!text-2xl !normal-case !tracking-normal">
+          <p
+            class="section-eyebrow section-eyebrow--amber !text-xl sm:!text-2xl !normal-case !tracking-normal"
+          >
             ¿Tienes inquietudes?
           </p>
           <h1
@@ -98,11 +100,29 @@ import ContactForm from "../components/ContactForm.astro";
         class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 shadow-md h-56 sm:h-72 w-full bg-slate-100 flex items-center justify-center group cursor-pointer"
         id="map-container"
       >
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 z-20 hover:bg-slate-200/50 transition-colors" id="map-overlay">
-          <svg class="w-8 h-8 mb-2 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 z-20 hover:bg-slate-200/50 transition-colors"
+          id="map-overlay"
+        >
+          <svg
+            class="w-8 h-8 mb-2 opacity-60"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+            ></path><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+          >
           <span class="text-sm font-medium">Haz clic para cargar el mapa</span>
         </div>
-        
+
         <iframe
           id="google-map-iframe"
           data-src="https://maps.google.com/maps?q=cedepro%20ecuador&t=m&z=17&output=embed&iwloc=near"
@@ -159,26 +179,30 @@ import ContactForm from "../components/ContactForm.astro";
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mapContainer = document.getElementById('map-container');
-      const mapIframe = document.getElementById('google-map-iframe') as HTMLIFrameElement;
-      const mapOverlay = document.getElementById('map-overlay');
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapContainer = document.getElementById("map-container");
+      const mapIframe = document.getElementById(
+        "google-map-iframe",
+      ) as HTMLIFrameElement;
+      const mapOverlay = document.getElementById("map-overlay");
 
       const loadMap = () => {
         if (mapIframe && !mapIframe.src) {
-          if (mapOverlay) mapOverlay.innerHTML = '<span class="text-sm font-medium animate-pulse">Cargando mapa...</span>';
-          mapIframe.src = mapIframe.dataset.src || '';
+          if (mapOverlay)
+            mapOverlay.innerHTML =
+              '<span class="text-sm font-medium animate-pulse">Cargando mapa...</span>';
+          mapIframe.src = mapIframe.dataset.src || "";
           mapIframe.onload = () => {
-            mapIframe.style.opacity = '1';
-            if (mapOverlay) mapOverlay.style.display = 'none';
+            mapIframe.style.opacity = "1";
+            if (mapOverlay) mapOverlay.style.display = "none";
           };
         }
       };
 
       // Cargar en el primer click o interacción fuerte
       if (mapContainer) {
-        mapContainer.addEventListener('click', loadMap, { once: true });
-        mapContainer.addEventListener('mouseenter', loadMap, { once: true });
+        mapContainer.addEventListener("click", loadMap, { once: true });
+        mapContainer.addEventListener("mouseenter", loadMap, { once: true });
       }
     });
   </script>
