@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 interface Props {
   /** Texto o etiqueta de la necesidad */
@@ -12,28 +12,28 @@ interface Props {
   class?: string;
 }
 
-const {
-  label,
-  icon,
-  color = '#091E3A',
-  class: className = '',
-} = Astro.props;
+const { label, icon, color = "#091E3A", class: className = "" } = Astro.props;
 ---
 
-<div class={`card-need w-full flex items-center ${className}`}>
-  <div 
-    class="card-icon-circle w-9 h-9 lg:w-11 lg:h-11 shrink-0 flex items-center justify-center rounded-full" 
+<div
+  class={`card-need w-full flex items-center gap-3.5 sm:gap-4 ${className.includes("text-") ? "" : "text-[#091E3A]"} ${className}`}
+>
+  <div
+    class="card-icon-circle w-11 h-11 lg:w-12 lg:h-12 shrink-0 flex items-center justify-center rounded-full shadow-sm"
     style={`background-color: ${color};`}
   >
-    <Icon name={icon} class="w-5 h-5 lg:w-6 lg:h-6 text-white stroke-1" />
+    <Icon name={icon} class="w-6 h-6 text-white stroke-1" />
   </div>
-  <div class="flex flex-col space-y-1 text-left flex-1 min-w-0">
-    <span class="text-[#1a375b] text-xs lg:text-[13px] font-bold leading-tight pr-1">
+  <div class="flex flex-col space-y-1.5 text-left flex-1 min-w-0">
+    <span
+      class="text-current text-xs sm:text-[13.5px] lg:text-[14px] font-bold leading-snug pr-1"
+    >
       {label}
     </span>
-    <div 
-      class="w-6 h-[2px] rounded-full mt-0.5" 
+    <div
+      class="w-10 lg:w-12 h-1 rounded-full"
       style={`background-color: ${color};`}
-    ></div>
+    >
+    </div>
   </div>
 </div>

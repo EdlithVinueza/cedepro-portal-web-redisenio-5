@@ -1,0 +1,846 @@
+---
+import HeroBadge from "../../elementos-secciones/HeroBadge.astro";
+import FolderTabBadge from "../../elementos-secciones/FolderTabBadge.astro";
+import CirclesBackground from "../../elementos-secciones/CirclesBackground.astro";
+import ConnectedOptions from "../../elementos-secciones/ConnectedOptions.astro";
+import ReasonsGroup from "../../elementos-secciones/ReasonsGroup.astro";
+import CardGrid from "../../cards/CardGrid.astro";
+import CardNeed from "../../cards/CardNeed.astro";
+import CardImageHorizontal from "../../cards/CardImageHorizontal.astro";
+
+// 1. Ámbitos de fortalecimiento (Sección 2)
+const interests = [
+  {
+    label: "Mi bienestar personal",
+    icon: "ion:person-outline",
+    color: "#1665c0",
+    href: "#bienestar-personal",
+  },
+  {
+    label: "Mis habilidades emocionales",
+    icon: "ion:heart-outline",
+    color: "#00838f",
+    href: "#inteligencia-emocional",
+  },
+  {
+    label: "Mi liderazgo",
+    icon: "ion:star-outline",
+    color: "#5e35b1",
+    href: "#liderazgo-saludable",
+  },
+  {
+    label: "El bienestar de mi equipo",
+    icon: "ion:people-outline",
+    color: "#091E3A",
+    href: "#bienestar-organizacional",
+  },
+  {
+    label: "La convivencia educativa",
+    icon: "ion:book-outline",
+    color: "#df9417",
+    href: "#convivencia-educativa",
+  },
+  {
+    label: "Mi bienestar digital",
+    icon: "ion:globe-outline",
+    color: "#1665c0",
+    href: "#bienestar-digital",
+  },
+];
+
+// 2. Desafíos de bienestar (Sección 3 - Columna El Reto)
+const challenges = [
+  {
+    label:
+      "Desarrollar recursos de autocuidado y habilidades para afrontar las exigencias de tu vida personal o profesional.",
+    href: "#bienestar-personal",
+  },
+  {
+    label:
+      "Liderar equipos con una comunicación más clara, respeto y atención al bienestar.",
+    href: "#liderazgo-saludable",
+  },
+  {
+    label:
+      "Fortalecer la convivencia en instituciones educativas, familias o comunidades.",
+    href: "#convivencia-educativa",
+  },
+  {
+    label:
+      "Prepararte, desde talento humano o bienestar institucional, para diseñar acciones formativas y preventivas.",
+    href: "#bienestar-organizacional",
+  },
+];
+
+// 3. Ejes formativos (Sección 3 - Columna Nuestra Propuesta)
+const proposals = [
+  {
+    title: "Bienestar físico y emocional",
+    desc: "Formación en autocuidado, hábitos saludables, gestión del estrés y bienestar digital. Aprende a reconocer tus necesidades y a organizar un plan personal con acciones realistas.",
+  },
+  {
+    title: "Habilidades socioemocionales y liderazgo saludable",
+    desc: "Practica comunicación asertiva, escucha, inteligencia emocional y gestión constructiva de conflictos. Desarrolla recursos para relacionarte y liderar con mayor atención a las personas.",
+  },
+  {
+    title: "Bienestar organizacional y prevención",
+    desc: "Aprende a identificar factores de riesgo psicosocial, promover una cultura de cuidado y estructurar programas de bienestar con objetivos, responsables y seguimiento.",
+  },
+];
+
+// 4. Las 6 Rutas de Aprendizaje (Sección 4 - Fondo Dorado)
+const routes = [
+  {
+    id: "bienestar-personal",
+    title: "Bienestar personal y autocuidado",
+    desc: "Desarrolla hábitos saludables, gestiona el estrés y fortalece tu bienestar emocional.",
+    icon: "ion:person-outline",
+    button: "Quiero fortalecer mi autocuidado",
+  },
+  {
+    id: "inteligencia-emocional",
+    title: "Inteligencia emocional y relaciones saludables",
+    desc: "Fortalece comunicación, escucha y regulación emocional para construir relaciones saludables.",
+    icon: "ion:bulb-outline",
+    button: "Quiero mejorar mis relaciones",
+  },
+  {
+    id: "liderazgo-saludable",
+    title: "Liderazgo saludable y desarrollo de equipos",
+    desc: "Desarrolla liderazgo consciente, retroalimentación efectiva y equipos orientados al bienestar.",
+    icon: "ion:star-outline",
+    button: "Quiero liderar con bienestar",
+  },
+  {
+    id: "convivencia-educativa",
+    title: "Bienestar docente y convivencia educativa",
+    desc: "Fortalece habilidades socioemocionales para mejorar convivencia, diálogo y bienestar educativo.",
+    icon: "ion:book-outline",
+    button: "Quiero cuidar mi comunidad educativa",
+  },
+  {
+    id: "bienestar-digital",
+    title: "Organización personal y bienestar digital",
+    desc: "Organiza prioridades, gestiona tecnología y construye hábitos saludables de desconexión.",
+    icon: "ion:globe-outline",
+    button: "Quiero mejorar mi bienestar digital",
+  },
+  {
+    id: "bienestar-organizacional",
+    title: "Bienestar organizacional y riesgos psicosociales",
+    desc: "Identifica riesgos, desarrolla acciones preventivas y fortalece el bienestar organizacional.",
+    icon: "ion:business-outline",
+    button: "Quiero fortalecer el bienestar institucional",
+  },
+];
+
+// 5. Herramientas y resultados aplicables (Sección 5)
+const outcomes = [
+  {
+    label:
+      "Un plan personal de autocuidado con prioridades y acciones de seguimiento.",
+    icon: "ion:person-outline",
+    color: "#00838f",
+  },
+  {
+    label:
+      "Una guía de conversaciones o acuerdos para mejorar la comunicación del equipo.",
+    icon: "ion:people-outline",
+    color: "#1665c0",
+  },
+  {
+    label:
+      "Un plan de liderazgo saludable o una propuesta de convivencia educativa.",
+    icon: "ion:star-outline",
+    color: "#5e35b1",
+  },
+  {
+    label:
+      "Una propuesta de programa de bienestar con objetivos, responsables e indicadores.",
+    icon: "ion:document-text-outline",
+    color: "#df9417",
+  },
+  {
+    label:
+      "Una matriz de análisis de riesgos o un borrador de protocolo trabajado con fines formativos.",
+    icon: "ion:bar-chart-outline",
+    color: "#1665c0",
+  },
+];
+
+// 6. Áreas formativas institucionales (Sección 5 - Bloque Organizaciones)
+const institutionalTopics = [
+  "Sensibilización sobre riesgos psicosociales, inclusión y prevención de la violencia laboral.",
+  "Autocuidado y prevención del agotamiento en funciones de alta demanda.",
+  "Comunicación, manejo constructivo de conflictos y convivencia.",
+  "Liderazgo saludable y prácticas de cuidado en los equipos.",
+].map((label) => ({ label, href: "/contactanos" }));
+
+// 7. Razones / Por qué CEDEPRO Equilibria (Sección 7)
+const reasons = [
+  { title: "Reconoce tu punto de partida", icon: "ion:location-outline" },
+  { title: "Aprende y practica", icon: "ion:document-text-outline" },
+  { title: "Construye una herramienta útil", icon: "ion:bar-chart-outline" },
+  { title: "Revisa cómo aplicarla", icon: "ion:people-outline" },
+];
+---
+
+<div class="equilibria w-full overflow-hidden bg-white text-[#1a375b]">
+  <!-- ============================================== -->
+  <!-- 1. HERO SECTION -->
+  <!-- ============================================== -->
+  <section
+    id="hero-equilibria"
+    class="relative min-h-[560px] lg:h-[calc(100vh-5rem)] lg:min-h-[560px] lg:max-h-[820px] bg-[#091E3A] flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-6 overflow-hidden"
+  >
+    <!-- Imagen de fondo con filtro oscuro -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/assets/portafolio/vista-informacion/sub-vusta-equilibra/img-informacion-sub-impultsa-section-1.png"
+        alt="Personas uniendo sus manos para construir un equipo y un entorno saludable"
+        class="w-full h-full object-cover object-center"
+        width="1916"
+        height="821"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-slate-900/80" aria-hidden="true"></div>
+    </div>
+
+    <!-- Viñetas de Pestaña de Carpeta -->
+    <FolderTabBadge orientation="horizontal" corner="top-right" color="gold" />
+    <FolderTabBadge
+      orientation="horizontal"
+      corner="bottom-left"
+      color="gold"
+    />
+
+    <!-- Contenido Central del Hero -->
+    <div
+      class="relative z-10 max-w-4xl mx-auto space-y-4 sm:space-y-5 text-white pt-3 sm:pt-4"
+    >
+      <HeroBadge label="EQUILIBRIA" variant="ribbon" />
+
+      <h1
+        class="text-white text-3xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.15] drop-shadow-md text-balance"
+      >
+        Aprende a cuidarte y a construir entornos más saludables.
+      </h1>
+
+      <p
+        class="text-white text-lg sm:text-2xl font-bold tracking-tight max-w-2xl mx-auto drop-shadow-sm"
+      >
+        Tu bienestar también se aprende.
+      </p>
+
+      <p
+        class="text-slate-100 text-sm sm:text-base lg:text-[16px] font-normal leading-relaxed max-w-3xl mx-auto text-balance drop-shadow-sm"
+      >
+        Fortalece tus hábitos de autocuidado, desarrolla habilidades emocionales
+        y aprende a impulsar el bienestar de tu equipo. Encuentra formación
+        práctica para responder a los desafíos de la vida cotidiana, el trabajo
+        y la convivencia.
+      </p>
+
+      <!-- Botones de Acción con Estilos Oficiales CEDEPRO -->
+      <div
+        class="pt-3 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
+      >
+        <a
+          href="#rutas"
+          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+          >
+            Encuentra tu ruta de bienestar <span
+              class="inline-block ml-1.5 leading-none font-bold">→</span
+            >
+          </span>
+        </a>
+
+        <a
+          href="#organizaciones"
+          class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+          >
+            Capacita a tu equipo
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 2. ÁMBITOS DE FORTALECIMIENTO SECTION -->
+  <!-- ============================================== -->
+  <section
+    id="fortalecer"
+    class="relative bg-[#091E3A] px-4 py-12 sm:px-6 lg:px-8 lg:py-16 overflow-hidden"
+  >
+
+    <!-- Círculos Decorativos de Fondo Navy -->
+    <CirclesBackground variant="navy" />
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[auto_1fr] xl:grid-cols-[280px_1fr] gap-8 lg:gap-10 xl:gap-12 items-center"
+    >
+      <!-- Columna Izquierda: Título y Barra Separadora Dorada -->
+      <div class="space-y-3 text-center lg:text-left">
+        <h2
+          id="fortalecer-title"
+          class="text-white text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight"
+        >
+          ¿Qué quieres
+          <span
+            class="block text-[#df9417] font-black uppercase mt-1 tracking-normal"
+          >
+            FORTALECER?
+          </span>
+        </h2>
+        <div
+          class="w-28 sm:w-36 h-1 sm:h-1.5 bg-[#df9417] rounded-full mx-auto lg:mx-0"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Grid de Tarjetas -->
+      <CardGrid count={interests.length}>
+        {
+          interests.map((interest) => (
+            <a
+              href={interest.href}
+              class="need-link rounded-2xl block h-full focus-visible:outline-none hover:shadow-lg transition-all duration-300"
+            >
+              <CardNeed
+                label={interest.label}
+                icon={interest.icon}
+                color={interest.color}
+              />
+            </a>
+          ))
+        }
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 3. EL RETO Y NUESTRA PROPUESTA SECTION -->
+  <!-- ============================================== -->
+  <section
+    class="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
+  >
+    <!-- Viñetas de Pestaña de Carpeta -->
+    <FolderTabBadge orientation="vertical" corner="top-right" color="navy" />
+    <FolderTabBadge
+      orientation="horizontal"
+      corner="bottom-left"
+      color="gold"
+    />
+
+    <!-- Contenedor Principal de las Dos Columnas -->
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <!-- Columna 1: EL RETO -->
+        <div class="space-y-4">
+          <p
+            class="section-eyebrow section-eyebrow--blue font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            EL RETO
+          </p>
+
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            <span class="text-[#df9417]">Haz espacio para tu bienestar</span> en
+            medio de tus responsabilidades
+          </h2>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            Las tareas se acumulan, el trabajo invade el tiempo personal y las
+            conversaciones importantes se postergan. Aprender a reconocer lo que
+            necesitas, expresar límites y organizar tus prioridades puede ser un
+            primer paso para cuidarte mejor.
+          </p>
+
+          <p
+            class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            En los equipos, el cuidado también necesita decisiones sobre cargas
+            de trabajo, comunicación y liderazgo. Por eso, Equilibria aborda
+            tanto las habilidades personales como las prácticas que las
+            organizaciones pueden aprender a mejorar.
+          </p>
+
+          <div class="pt-3">
+            <ConnectedOptions
+              items={challenges}
+              label="Desafíos de bienestar que puedes fortalecer"
+            />
+          </div>
+        </div>
+
+        <!-- Columna 2: NUESTRA PROPUESTA -->
+        <div
+          class="space-y-4 md:pl-10 lg:pl-12 md:border-l-2 md:border-[#1a375b]"
+        >
+          <p
+            class="section-eyebrow section-eyebrow--blue font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            NUESTRA PROPUESTA
+          </p>
+
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            <span class="text-[#df9417]">Aprendizajes</span> que puedes llevar a
+            tu vida y a tu organización
+          </h2>
+
+          <div class="space-y-4 pt-1">
+            {
+              proposals.map((proposal) => (
+                <div class="space-y-2">
+                  <h3 class="inline-block bg-[#1a375b] text-white font-bold text-xs sm:text-sm rounded-md px-3.5 py-1.5 shadow-sm">
+                    {proposal.title}
+                  </h3>
+                  <p class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+                    {proposal.desc}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="pt-3">
+            <div
+              class="inline-block bg-white/0 border-2 border-[#1a375b] text-[#1a375b] px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm italic"
+            >
+              Aprende a cuidarte y a transformar tus entornos
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 4. RUTAS DE APRENDIZAJE SECTION -->
+  <!-- ============================================== -->
+  <section
+    id="rutas"
+    class="learning-routes relative bg-[#df9417] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-white overflow-hidden"
+  >
+    <CirclesBackground variant="gold" />
+    <div class="relative z-10 max-w-7xl mx-auto space-y-10">
+      <!-- Encabezado de Rutas -->
+      <div class="text-left sm:text-center space-y-2">
+        <p class="section-eyebrow section-eyebrow--white">
+          RUTAS DE APRENDIZAJE
+        </p>
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+          Encuentra el punto de partida que necesitas
+        </h2>
+      </div>
+
+      <!-- Cuadrícula de Tarjetas Horizontales con Botones Estandarizados -->
+      <CardGrid count={routes.length}>
+        {
+          routes.map((route) => (
+            <div id={route.id} class="route-card h-full">
+              <CardImageHorizontal
+                title={route.title}
+                description={route.desc}
+                icon={route.icon}
+                iconBgColor="#df9417"
+                iconLayout="col"
+                buttonText={`${route.button} →`}
+                buttonHref="/contactanos"
+                buttonClass="btn-outline-gold !w-full !rounded-xl !py-2.5 !px-3 !text-xs !font-bold text-center justify-center inline-flex items-center"
+                class="w-full h-full shadow-lg bg-white"
+              />
+            </div>
+          ))
+        }
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 5. EXPERIENCIAS INTEGRADAS Y BIENESTAR INSTITUCIONAL SECTION -->
+  <!-- ============================================== -->
+  <section
+    id="experiencias"
+    class="relative bg-[#091E3A] px-4 py-14 sm:px-6 lg:px-8 lg:py-16 overflow-hidden"
+  >
+    <CirclesBackground variant="navy" />
+    <div class="relative z-10 mx-auto max-w-7xl space-y-8">
+      <!-- Encabezado de la Sección -->
+      <div class="text-center space-y-1.5 w-full mx-auto text-white">
+        <p class="section-eyebrow section-eyebrow--gold">
+          QUÉ PUEDES ENCONTRAR EN CEDEPRO EQUILIBRIA
+        </p>
+        <h2
+          class="text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.4rem] font-bold tracking-tight drop-shadow-sm text-balance"
+        >
+          Termina con algo que puedas <span class="text-[#df9417]"
+            >poner en práctica</span
+          >
+        </h2>
+        <p class="text-sm text-slate-300">
+          Herramientas concretas para tu bienestar personal y colectivo.
+        </p>
+        <p
+          class="text-white/95 text-[14px] sm:text-[15px] italic leading-relaxed pt-1 max-w-4xl mx-auto"
+        >
+          La solución depende del objetivo de aprendizaje, el perfil del
+          participante y el nivel de profundidad requerido. Diseña recursos
+          aplicables que puedas integrar de inmediato en tus rutinas y en la
+          convivencia de tu equipo.
+        </p>
+      </div>
+
+      <!-- Grid de Resultados / Herramientas -->
+      <CardGrid count={outcomes.length} maxWidth="64rem">
+        {
+          outcomes.map((outcome) => (
+            <CardNeed
+              label={outcome.label}
+              icon={outcome.icon}
+              color={outcome.color}
+            />
+          ))
+        }
+      </CardGrid>
+
+      <!-- Botón de Contacto Personal -->
+      <div class="text-center pt-2">
+        <a
+          href="/contactanos"
+          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center !leading-none"
+        >
+          <span
+            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+          >
+            Quiero información para mí <span
+              class="inline-block ml-1.5 leading-none font-bold">→</span
+            >
+          </span>
+        </a>
+      </div>
+
+      <!-- Bloque Organizaciones / Bienestar Institucional -->
+      <div
+        id="organizaciones"
+        class="border-t border-white/20 pt-10 sm:pt-12 space-y-6"
+      >
+        <div
+          class="space-y-2 text-left sm:text-center max-w-4xl mx-auto text-white"
+        >
+          <p class="section-eyebrow section-eyebrow--amber">
+            BIENESTAR INSTITUCIONAL
+          </p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+            Haz del <span class="text-[#df9417]">bienestar una capacidad</span> de
+            tu organización
+          </h2>
+          <p
+            class="text-sm sm:text-base text-slate-200 leading-relaxed max-w-3xl mx-auto"
+          >
+            Si diriges una institución, lideras un equipo o gestionas talento
+            humano, podemos estructurar una propuesta formativa alrededor de tus
+            desafíos. Cuéntanos qué necesita aprender tu equipo y qué práctica
+            quieres fortalecer.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-center pt-2">
+          <ConnectedOptions
+            items={institutionalTopics}
+            theme="dark"
+            connector="branches"
+            label="Áreas de formación para tu organización"
+          />
+          <div class="flex justify-center lg:justify-end">
+            <a
+              href="/contactanos"
+              class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg text-center inline-flex items-center !leading-none"
+            >
+              <span
+                class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+              >
+                Solicita una propuesta para tu institución <span
+                  class="inline-block ml-1.5 leading-none font-bold">→</span
+                >
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 6. FORMATOS DE APRENDIZAJE Y RESPALDO INSTITUCIONAL SECTION -->
+  <!-- ============================================== -->
+  <section
+    id="formatos"
+    class="relative bg-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+  >
+    <FolderTabBadge orientation="vertical" corner="top-right" color="navy" />
+    <FolderTabBadge
+      orientation="horizontal"
+      corner="bottom-left"
+      color="gold"
+    />
+    <div
+      class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-14 items-start"
+    >
+      <!-- Columna 1: Formatos de Aprendizaje -->
+      <div class="flex flex-col items-start gap-4">
+        <div>
+          <p
+            class="section-eyebrow section-eyebrow--gold font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            FORMATOS DE APRENDIZAJE
+          </p>
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            Elige la profundidad que necesita <span class="text-[#df9417]"
+              >tu objetivo</span
+            >
+          </h2>
+        </div>
+        <p
+          class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+        >
+          Webinars y encuentros de apertura para explorar un tema; cursos y
+          talleres para practicar habilidades específicas; rutas de formación
+          para avanzar sobre un mismo objetivo; y programas a medida para
+          equipos.
+        </p>
+        <p
+          class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+        >
+          Las convocatorias de especialización, certificaciones o diplomados se
+          comunicarán conforme se habiliten. Consulta en cada ficha la modalidad,
+          las horas, los requisitos, el tipo de certificado y la inversión.
+        </p>
+        <div class="pt-2 mt-auto">
+          <a
+            href="/contactanos"
+            class="btn-navy !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
+          >
+            <span
+              class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+            >
+              Consulta las próximas convocatorias <span
+                class="inline-block ml-2 font-bold">→</span
+              >
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Respaldo y Confianza -->
+      <div
+        class="flex flex-col items-start gap-4 md:border-l-2 md:border-[#1a375b] md:pl-10 lg:pl-12"
+      >
+        <div>
+          <p
+            class="section-eyebrow section-eyebrow--gold font-semibold italic text-xs tracking-widest uppercase mb-2"
+          >
+            RESPALDO Y CONFIANZA
+          </p>
+          <h2
+            class="text-[#1a375b] text-2xl sm:text-3xl lg:text-[2.2rem] font-bold leading-tight tracking-tight"
+          >
+            <span class="inline-flex items-center gap-2 sm:gap-3 flex-wrap">
+              <img 
+                src="/assets/comunes/img-5-anios-badge.webp" 
+                alt="5 Años CEDEPRO" 
+                class="h-10 sm:h-12 lg:h-[3.5rem] w-auto object-contain -translate-y-1 sm:-translate-y-1.5"
+                loading="lazy"
+              />
+              <span class="align-middle">de CEDEPRO abren</span>
+            </span>
+            <span class="block mt-1 sm:mt-2">
+              una nueva <span class="text-[#df9417]">etapa de formación.</span>
+            </span>
+          </h2>
+        </div>
+        <p
+          class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+        >
+          CEDEPRO Equilibria forma parte de CEDEPRO Formación. En nuestro quinto
+          aniversario ampliamos la propuesta de aprendizaje para que el
+          bienestar personal y organizacional tenga un espacio propio dentro del
+          portafolio.
+        </p>
+        <p
+          class="text-slate-700 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+        >
+          Conoce antes de inscribirte qué aprenderás, cómo trabajarás y cuáles
+          son las condiciones del programa. Elige la formación que corresponda a
+          tu objetivo.
+        </p>
+        <div class="pt-2 mt-auto">
+          <a
+            href="/portafolio/informacion/impulsa"
+            class="btn-navy !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
+          >
+            <span
+              class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+            >
+              Conoce CEDEPRO Formación <span
+                class="inline-block ml-2 font-bold">→</span
+              >
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 7. POR QUÉ CEDEPRO EQUILIBRIA SECTION -->
+  <!-- ============================================== -->
+  <section
+    class="relative bg-[#df9417] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden text-white"
+  >
+    <CirclesBackground variant="gold" />
+    <div class="max-w-7xl mx-auto space-y-6 relative z-10">
+      <div class="space-y-1 text-left">
+        <p
+          class="text-white/90 text-xs sm:text-[13px] font-semibold italic tracking-wider uppercase"
+        >
+          POR QUÉ CEDEPRO EQUILIBRIA
+        </p>
+        <h2
+          class="text-white text-2xl sm:text-3xl lg:text-[2.1rem] font-bold tracking-tight leading-tight"
+        >
+          Lleva cada aprendizaje a una situación concreta.
+        </h2>
+      </div>
+      <ReasonsGroup
+        items={reasons}
+        variant="navy-on-gold"
+        layout="flex"
+        dividerColorClass="divide-[#091E3A]/30"
+      />
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 8. CALL TO ACTION SECTION -->
+  <!-- ============================================== -->
+  <section
+    class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
+  >
+    <div class="absolute inset-0 z-0">
+      <picture>
+        <source srcset="/assets/comunes/img-equipo.webp" type="image/webp" />
+        <img
+          src="/assets/comunes/img-equipo.webp"
+          alt="Equipo trabajando en una reunión de formación y desarrollo"
+          class="w-full h-full object-cover object-right sm:object-center"
+          width="1920"
+          height="1080"
+          decoding="async"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+
+    <!-- FILTRO AZUL TRANSLÚCIDO NITIDO (SIN BLUR) -->
+    <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl">
+      <div class="max-w-2xl space-y-5">
+        <p class="section-eyebrow section-eyebrow--gold">
+          DA EL SIGUIENTE PASO
+        </p>
+
+        <h2 class="text-2xl font-bold leading-tight sm:text-3xl">
+          Empieza a construir tu bienestar.
+        </h2>
+
+        <p class="text-sm leading-relaxed text-slate-200">
+          Empieza por tu autocuidado, fortalece una habilidad o prepara a tu
+          equipo para cuidar mejor de su entorno. Cuéntanos tu objetivo y te
+          orientamos hacia una opción de formación.
+        </p>
+
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <a
+            href="#rutas"
+            class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span
+              >Encuentra tu ruta de bienestar <span class="ml-1 leading-none font-bold"
+                >→</span
+              ></span
+            >
+          </a>
+
+          <a
+            href="/contactanos"
+            class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Quiero capacitar a mi equipo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  section[id],
+  .route-card,
+  #organizaciones {
+    scroll-margin-top: 6.5rem;
+  }
+  .need-link {
+    display: block;
+    transition: transform 0.2s ease;
+  }
+  .need-link:hover {
+    transform: translateY(-3px);
+  }
+  .need-link:focus-visible {
+    outline: 3px solid #f5a623;
+    outline-offset: 4px;
+  }
+  .learning-routes :global(.card-image-horizontal h3) {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  .learning-routes :global(.card-image-horizontal a span) {
+    line-height: 1.35;
+  }
+  .anniversary {
+    display: inline;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+  }
+  .anniversary > span {
+    font-size: 1.35em;
+    line-height: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .need-link {
+      transition: none;
+    }
+  }
+</style>
