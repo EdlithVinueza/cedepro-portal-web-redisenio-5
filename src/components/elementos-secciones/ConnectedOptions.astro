@@ -1,6 +1,8 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
-  items: { label: string; href: string }[];
+  items: { label: string; href?: string; icon?: string }[];
   theme?: "light" | "dark";
   connector?: "dots" | "branches";
   label: string;
@@ -20,9 +22,23 @@ const { items, theme = "light", connector = "dots", label } = Astro.props;
     items.map((item) => (
       <li>
         <a
-          href={item.href}
-          class={theme === "dark" ? "btn-outline-white" : "btn-outline-gold"}
+          href={item.href || "#"}
+          class={
+            theme === "dark"
+              ? "btn-outline-white flex items-center gap-4 group"
+              : "btn-outline-gold flex items-center gap-4 group"
+          }
         >
+          {item.icon && (
+            <Icon 
+              name={item.icon} 
+              class={`w-6 h-6 shrink-0 transition-colors ${
+                theme === "dark" 
+                  ? "text-white group-hover:text-[#091E3A]" 
+                  : "text-[#df9417] group-hover:text-white"
+              }`} 
+            />
+          )}
           <span>{item.label}</span>
         </a>
       </li>

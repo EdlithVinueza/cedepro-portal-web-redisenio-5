@@ -1,11 +1,112 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+import GradientOverlay from '../components/elementos-secciones/GradientOverlay.astro';
+import ConnectedOptions from '../components/elementos-secciones/ConnectedOptions.astro';
+
+const objetivos = [
+  {
+    label: "Garantizar la calidad de los productos y servicios elaborados, por medio del seguimiento de los procesos establecidos.",
+    icon: "ion:medal-outline"
+  },
+  {
+    label: "Atender todos los reclamos y pedidos de reproceso de los clientes.",
+    icon: "ion:chatbubble-ellipses-outline"
+  },
+  {
+    label: "Mantener una evaluación semestral de los proveedores para garantizar la calidad de los servicios que entregan.",
+    icon: "ion:checkmark-done-outline"
+  }
+];
 ---
-<Layout title="Gestión de Calidad | CEDEPRO" description="Página de Gestión de Calidad de CEDEPRO">
-  <main class="pt-24 pb-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="heading-section text-cedepro-navy font-bold">Gestión de Calidad</h1>
-      <p class="mt-4 text-body-responsive text-gray-600">Página en construcción.</p>
+
+<Layout 
+  title="Gestión de la Calidad | CEDEPRO"
+  description="Política y objetivos del Sistema de Gestión de la Calidad de CEDEPRO."
+>
+  <!-- SECCIÓN 1: POLÍTICA DEL SGC -->
+  <section class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text Column -->
+        <div class="space-y-6 md:space-y-8">
+          <h1 class="text-[#091E3A] text-4xl md:text-5xl font-bold leading-tight tracking-tight max-w-lg">
+            Política del sistema de Gestión de la Calidad
+          </h1>
+          <p class="text-[#091E3A]/80 text-base md:text-lg leading-relaxed text-justify max-w-xl font-normal">
+            CEDEPROEcuador SAS es una empresa ecuatoriana dedicada a la consultoría académica, consultoría general y asesoramiento de mejora continua en las Instituciones de Educación y formación del sector público y privado a nivel nacional. Los productos y servicios son elaborados con altos estándares de calidad, procesos actualizados e innovadores, infraestructura física y tecnológica adecuada, personal calificado y comprometido con la mejora continua del SGC que permite atender las necesidades de los clientes en cumplimiento con las disposiciones reglamentarias, legales y los requisitos de las normas ISO 9001:2015, manteniendo un compromiso con la eficacia del SGC implementado.
+          </p>
+          <div class="pt-4">
+            <img 
+              src="/assets/calidad/img-nosotros-section-1.webp" 
+              alt="Logos CEDEPRO, IAS, STAREGISTER" 
+              class="h-16 md:h-20 w-auto object-contain"
+              decoding="async"
+            />
+          </div>
+        </div>
+        
+        <!-- Certificate Image Column -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-md">
+            <div class="absolute inset-0 bg-[#df9417]/20 blur-2xl rounded-full transform -translate-y-4 translate-x-4"></div>
+            <img 
+              src="/assets/calidad/certificado_iso_9001.png" 
+              alt="Certificado ISO 9001:2015" 
+              class="relative z-10 w-full h-auto shadow-2xl border border-slate-200"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- SECCIÓN 2: OBJETIVOS DEL SGC -->
+  <section class="relative bg-white overflow-hidden flex flex-col md:flex-row md:items-center min-h-[750px] md:min-h-[600px] lg:min-h-[700px]">
+    
+    <!-- Capa de imagen de fondo (Derecha) -->
+    <div class="absolute inset-x-0 top-0 z-0 h-[55%] md:h-full md:w-[65%] lg:w-[60%] md:inset-auto md:right-0">
+      <img 
+        src="/assets/calidad/img-nosotros-section-2.webp" 
+        alt="Equipo trabajando - Objetivos SGC" 
+        class="w-full h-full object-cover object-[center_30%] md:object-right"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Gradiente unificado y limpio para fusionar la imagen con el fondo blanco -->
+    <GradientOverlay 
+      color="white" 
+      desktopDirection="to-r" 
+      mobileDirection="to-t" 
+      coverage={48}
+      fadeEnd={95}
+      mobileCoverage={35} 
+      mobileFadeEnd={85}
+      autoCalculateCoverage={false}
+      class="z-10"
+    />
+
+    <!-- Contenido Textual (Izquierda) -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[65%] sm:pt-[55%] md:pt-16 pb-16 mt-auto md:mt-0 flex flex-col justify-end md:justify-center">
+      <div class="max-w-[100%] md:max-w-[28rem] lg:max-w-[34rem] space-y-6 lg:space-y-10">
+        
+        <h2 class="text-3xl md:text-[2.2rem] lg:text-[2.6rem] font-bold text-[#091E3A] leading-tight tracking-tight">
+          Los objetivos<br />específicos del SGC son:
+        </h2>
+
+        <div class="pt-2 w-full">
+          <ConnectedOptions 
+            items={objetivos} 
+            theme="light" 
+            connector="branches"
+            label="Objetivos específicos del SGC" 
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </Layout>
