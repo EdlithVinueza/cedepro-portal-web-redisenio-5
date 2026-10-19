@@ -32,25 +32,27 @@ const {
 <div class={`card-integration group ${className}`}>
   <Icon 
     name={icon} 
-    class="w-12 h-12 xl:w-14 xl:h-14 stroke-1 shrink-0 self-center" 
+    class="w-11 h-11 xl:w-13 xl:h-13 stroke-1 shrink-0 self-center" 
     style={`color: ${iconColor};`}
   />
   
-  <div class="flex flex-col justify-end h-full w-full">
-    <h4 class="text-[#1a375b] text-[15px] xl:text-base font-bold leading-tight mb-1.5">
-      {title}
-    </h4>
+  <div class="flex flex-col justify-between h-full w-full min-w-0">
+    <div>
+      <h4 class="text-[#1a375b] text-[15px] xl:text-base font-bold leading-tight mb-1.5">
+        {title}
+      </h4>
+      
+      <p class="text-[#1a375b]/80 text-[12.5px] xl:text-[13px] leading-snug mb-3">
+        {desc}
+      </p>
+    </div>
     
-    <p class="text-[#1a375b]/80 text-[12px] xl:text-[13px] leading-snug mb-3">
-      {desc}
-    </p>
-    
-    <div class="mt-2">
+    <div class="mt-auto pt-1.5 w-full">
       <a 
         href={buttonHref} 
-        class="inline-flex items-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-3 py-1.5 xl:px-4 text-[11px] xl:text-[12px] font-bold shadow-sm whitespace-nowrap"
+        class="w-full inline-flex items-center justify-center border border-[#1a375b] text-[#1a375b] hover:bg-[#1a375b] hover:text-white transition-colors bg-transparent rounded-full px-4 py-2 text-xs xl:text-[12.5px] font-bold shadow-sm text-center"
       >
-        <span class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]">
+        <span class="inline-flex items-center justify-center text-center leading-snug">
           {buttonText}
         </span>
       </a>

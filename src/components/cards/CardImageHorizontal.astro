@@ -52,11 +52,11 @@ const {
 
 <div
   style={backgroundColor ? `background-color: ${backgroundColor};` : undefined}
-  class={`card-image-horizontal flex rounded-2xl overflow-hidden ${image ? "card-image-horizontal--with-image flex-col md:flex-row" : "card-image-horizontal--without-image flex-col h-full"} group ${className}`}
+  class={`card-image-horizontal flex rounded-2xl overflow-hidden ${image ? "card-image-horizontal--with-image flex-col xl:flex-row" : "card-image-horizontal--without-image flex-col h-full"} group ${className}`}
 >
   {
     image && (
-      <div class="card-image-horizontal__media w-full md:w-[35%] h-56 md:h-auto relative shrink-0 overflow-hidden">
+      <div class="card-image-horizontal__media w-full xl:w-[35%] h-52 sm:h-56 xl:h-auto relative shrink-0 overflow-hidden">
         <img
           src={image}
           alt={alt}
@@ -68,11 +68,11 @@ const {
     )
   }
   <div
-    class={`card-image-horizontal__body p-6 sm:p-8 w-full flex flex-col justify-between ${image ? "md:w-[65%]" : "flex-1"}`}
+    class={`card-image-horizontal__body p-5 sm:p-7 w-full flex flex-col justify-between ${image ? "xl:w-[65%]" : "flex-1"}`}
   >
     <div class="space-y-4">
       <div
-        class={`flex ${iconLayout === "col" ? "flex-col items-start gap-4" : "items-center gap-3"}`}
+        class={`flex ${iconLayout === "col" ? "flex-col items-start gap-3.5" : "items-center gap-3"}`}
       >
         <div
           class={`rounded-full flex items-center justify-center shrink-0 shadow-sm ${iconLayout === "col" ? "w-14 h-14" : "w-10 h-10 lg:w-11 lg:h-11"}`}
@@ -84,7 +84,7 @@ const {
             style={`color: ${iconColor};`}
           />
         </div>
-        <h3 class="text-[#1a375b] text-[1.05rem] sm:text-lg font-bold leading-tight truncate" style={textColor ? `color: ${textColor};` : undefined}>
+        <h3 class="text-[#1a375b] text-[1.05rem] sm:text-lg font-bold leading-snug" style={textColor ? `color: ${textColor};` : undefined}>
           {title}
         </h3>
       </div>
@@ -94,10 +94,10 @@ const {
       </p>
     </div>
 
-    <div class="pt-4 mt-auto">
+    <div class="pt-4 mt-auto w-full">
       <a
         href={buttonHref}
-        class={buttonClass}
+        class={`${buttonClass} w-full justify-center text-center`}
       >
         <span>
           {buttonText}
@@ -117,7 +117,7 @@ const {
     width: 100%; flex: 0 0 auto; height: 14rem;
   }
   .card-image-horizontal--with-image .card-image-horizontal__body { width: 100%; }
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     .card-image-horizontal--with-image { flex-direction: row; }
     .card-image-horizontal--with-image .card-image-horizontal__media {
       width: 35%; flex-basis: 35%; height: auto;

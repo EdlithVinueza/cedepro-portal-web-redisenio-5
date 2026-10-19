@@ -171,7 +171,7 @@ const steps = [
   <div
     class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pr-24 flex justify-end"
   >
-    <div class="hero-text-block space-y-3 sm:space-y-4 text-left text-white">
+    <div class="hero-text-block w-full space-y-3 sm:space-y-4 text-left text-white">
       <p class="section-eyebrow section-eyebrow--gold">CEDEPRO FORMACIÓN</p>
 
       <h1
@@ -198,14 +198,14 @@ const steps = [
       </div>
 
       <div
-        class="pt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto"
+        class="pt-4 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
       >
         <a
           href="#soluciones"
-          class="btn-gold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center"
+          class="btn-gold shadow-lg w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Conoce nuestra propuesta formativa <span
               class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold"
@@ -216,10 +216,10 @@ const steps = [
 
         <a
           href="/contactanos"
-          class="btn-outline-white w-full sm:w-auto text-center justify-center inline-flex items-center"
+          class="btn-outline-white w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Diseña una ruta para tu equipo
           </span>
@@ -310,9 +310,9 @@ const steps = [
           y conectada con la operación real.
         </p>
         <div class="pt-2">
-          <a href="#metodologia" class="btn-gold">
+          <a href="#metodologia" class="btn-gold w-full sm:w-auto justify-center">
             <span
-              class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
+              class="inline-flex items-center justify-center text-center leading-snug"
             >
               Identifica la necesidad de tu equipo <span
                 class="inline-block ml-1.5 leading-none">→</span
@@ -340,7 +340,7 @@ const steps = [
         </p>
         <div class="pt-2">
           <div
-            class="inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic"
+            class="w-full sm:w-auto text-center inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic"
           >
             Formación eficaz para capacitar y avanzar.
           </div>
@@ -541,15 +541,15 @@ const steps = [
         Diseñamos una ruta formativa conectada con tu institución, tus personas
         y los resultados que necesitas alcanzar.
       </p>
-      <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+      <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
         <a
           href="/contactanos"
-          class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+          class="btn-on-gold w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           ><span>Solicita una propuesta <span class="ml-1">→</span></span></a
         >
         <a
           href="/contactanos"
-          class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+          class="btn-outline-white w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           ><span>Hablemos de tu reto</span></a
         >
       </div>
@@ -575,6 +575,10 @@ const steps = [
       z-index: 10 !important;
       justify-content: flex-start !important;
     }
+    .hero-text-block {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 
   @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
@@ -589,16 +593,16 @@ const steps = [
     }
 
     .hero-text-block {
-      max-width: 450px !important;
+      max-width: 520px !important;
     }
     @media (min-width: 1200px) {
       .hero-text-block {
-        max-width: 520px !important;
+        max-width: 580px !important;
       }
     }
     @media (min-width: 1440px) {
       .hero-text-block {
-        max-width: 580px !important;
+        max-width: 620px !important;
       }
     }
   }

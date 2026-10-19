@@ -218,7 +218,7 @@ const reasons = [
 
     <!-- Contenido Central del Hero -->
     <div
-      class="relative z-10 max-w-4xl mx-auto space-y-4 sm:space-y-5 text-white pt-3 sm:pt-4"
+      class="relative z-10 w-full max-w-4xl mx-auto space-y-4 sm:space-y-5 text-white pt-3 sm:pt-4"
     >
       <HeroBadge label="EQUILIBRIA" variant="ribbon" />
 
@@ -245,14 +245,14 @@ const reasons = [
 
       <!-- Botones de Acción con Estilos Oficiales CEDEPRO -->
       <div
-        class="pt-3 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
+        class="pt-3 sm:pt-4 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto"
       >
         <a
           href="#rutas"
-          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Encuentra tu ruta de bienestar <span
               class="inline-block ml-1.5 leading-none font-bold">→</span
@@ -262,10 +262,10 @@ const reasons = [
 
         <a
           href="#organizaciones"
-          class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto text-center justify-center inline-flex items-center !leading-none"
+          class="btn-outline-white !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Capacita a tu equipo
           </span>
@@ -420,7 +420,7 @@ const reasons = [
 
           <div class="pt-3">
             <div
-              class="inline-block bg-white/0 border-2 border-[#1a375b] text-[#1a375b] px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm italic"
+              class="w-full sm:w-auto text-center inline-block bg-white/0 border-2 border-[#1a375b] text-[#1a375b] px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm italic"
             >
               Aprende a cuidarte y a transformar tus entornos
             </div>
@@ -462,7 +462,7 @@ const reasons = [
                 iconLayout="col"
                 buttonText={`${route.button} →`}
                 buttonHref="/contactanos"
-                buttonClass="btn-outline-gold !w-full !rounded-xl !py-2.5 !px-3 !text-xs !font-bold text-center justify-center inline-flex items-center"
+                buttonClass="btn-outline-gold !w-full !rounded-full !py-2.5 !px-4 !text-xs sm:!text-[13px] !font-bold text-center justify-center inline-flex items-center"
                 class="w-full h-full shadow-lg bg-white"
               />
             </div>
@@ -523,10 +523,10 @@ const reasons = [
       <div class="text-center pt-2">
         <a
           href="/contactanos"
-          class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center !leading-none"
+          class="btn-gold w-full sm:w-auto justify-center !rounded-full !px-6 sm:!px-7 !py-3 !text-sm sm:!text-[15px] !font-bold shadow-lg inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Quiero información para mí <span
               class="inline-block ml-1.5 leading-none font-bold">→</span
@@ -570,10 +570,10 @@ const reasons = [
           <div class="flex justify-center lg:justify-end">
             <a
               href="/contactanos"
-              class="btn-gold !rounded-full !px-6 sm:!px-7 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg text-center inline-flex items-center !leading-none"
+              class="btn-gold w-full sm:w-auto justify-center !rounded-full !px-6 sm:!px-7 !py-3.5 !text-sm sm:!text-[15px] !font-bold shadow-lg text-center inline-flex items-center"
             >
               <span
-                class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+                class="inline-flex items-center justify-center text-center leading-snug"
               >
                 Solicita una propuesta para tu institución <span
                   class="inline-block ml-1.5 leading-none font-bold">→</span
@@ -633,13 +633,13 @@ const reasons = [
           comunicarán conforme se habiliten. Consulta en cada ficha la modalidad,
           las horas, los requisitos, el tipo de certificado y la inversión.
         </p>
-        <div class="pt-2 mt-auto">
+        <div class="pt-2 mt-auto w-full sm:w-auto">
           <a
             href="/contactanos"
-            class="btn-navy !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
+            class="btn-navy w-full sm:w-auto justify-center !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
           >
             <span
-              class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+              class="inline-flex items-center justify-center text-center leading-snug"
             >
               Consulta las próximas convocatorias <span
                 class="inline-block ml-2 font-bold">→</span
@@ -691,13 +691,13 @@ const reasons = [
           son las condiciones del programa. Elige la formación que corresponda a
           tu objetivo.
         </p>
-        <div class="pt-2 mt-auto">
+        <div class="pt-2 mt-auto w-full sm:w-auto">
           <a
             href="/portafolio/informacion/impulsa"
-            class="btn-navy !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
+            class="btn-navy w-full sm:w-auto justify-center !rounded-full !px-7 !py-3 !text-sm !font-bold shadow-md inline-flex items-center"
           >
             <span
-              class="inline-flex items-center justify-center text-center leading-none -translate-y-[1.5px]"
+              class="inline-flex items-center justify-center text-center leading-snug"
             >
               Conoce CEDEPRO Formación <span
                 class="inline-block ml-2 font-bold">→</span
@@ -778,10 +778,10 @@ const reasons = [
           orientamos hacia una opción de formación.
         </p>
 
-        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+        <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
           <a
             href="#rutas"
-            class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+            class="btn-on-gold w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           >
             <span
               >Encuentra tu ruta de bienestar <span class="ml-1 leading-none font-bold"
@@ -792,7 +792,7 @@ const reasons = [
 
           <a
             href="/contactanos"
-            class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+            class="btn-outline-white w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           >
             <span>Quiero capacitar a mi equipo</span>
           </a>

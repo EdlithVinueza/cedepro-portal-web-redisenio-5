@@ -170,7 +170,7 @@ const reasons = [
   <div
     class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex justify-start"
   >
-    <div class="hero-text-block space-y-3 sm:space-y-4 text-left text-white">
+    <div class="hero-text-block w-full space-y-3 sm:space-y-4 text-left text-white">
       <p class="section-eyebrow section-eyebrow--white">CEDEPRO PROYECTOS</p>
 
       <h1
@@ -196,14 +196,14 @@ const reasons = [
       </div>
 
       <div
-        class="pt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto"
+        class="pt-4 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
       >
         <a
           href="#soluciones"
-          class="btn-navy-on-gold shadow-lg w-full sm:w-auto text-center justify-center inline-flex items-center"
+          class="btn-navy-on-gold shadow-lg w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Convierte tus desafíos en proyectos viables <span
               class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold"
@@ -214,10 +214,10 @@ const reasons = [
 
         <a
           href="/contactanos"
-          class="btn-on-gold w-full sm:w-auto text-center justify-center inline-flex items-center"
+          class="btn-on-gold w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
         >
           <span
-            class="inline-flex items-center justify-center text-center leading-none"
+            class="inline-flex items-center justify-center text-center leading-snug"
           >
             Impulsa tu proyecto
           </span>
@@ -305,9 +305,9 @@ const reasons = [
           un proyecto que no logra despegar.
         </p>
         <div class="pt-2">
-          <a href="#metodologia" class="btn-navy-on-gold">
+          <a href="#metodologia" class="btn-navy-on-gold w-full sm:w-auto justify-center">
             <span
-              class="inline-flex items-center justify-center text-center leading-none transform -translate-y-[1px]"
+              class="inline-flex items-center justify-center text-center leading-snug"
             >
               Descubre qué necesita tu proyecto <span
                 class="inline-block ml-1.5 leading-none">→</span
@@ -334,7 +334,7 @@ const reasons = [
         </p>
         <div class="pt-2">
           <div
-            class="inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic"
+            class="w-full sm:w-auto text-center inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-sm font-bold shadow-md italic"
           >
             Ideas estructuradas para generar crecimiento.
           </div>
@@ -505,10 +505,10 @@ const reasons = [
         Convirtámosla en un proyecto viable. Revisaremos el reto,
         identificaremos la ruta adecuada y definiremos el tipo de estructuración
         y acompañamiento que necesita.
-      </p><div class="flex flex-col gap-3 pt-2 sm:flex-row">
+      </p><div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
         <a
           href="/contactanos"
-          class="btn-on-gold inline-flex justify-center px-6 py-3 text-sm font-bold"
+          class="btn-on-gold w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           ><span
             >Convierte tu visión en un proyecto sostenible <span class="ml-1"
               >→</span
@@ -516,7 +516,7 @@ const reasons = [
           ></a
         ><a
           href="/contactanos"
-          class="btn-outline-white inline-flex justify-center px-6 py-3 text-sm font-bold"
+          class="btn-outline-white w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
           ><span>Hablemos de tu proyecto</span></a
         >
       </div>
@@ -542,6 +542,10 @@ const reasons = [
       z-index: 10 !important;
       justify-content: flex-start !important;
     }
+    .hero-text-block {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 
   @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
@@ -556,16 +560,16 @@ const reasons = [
     }
 
     .hero-text-block {
-      max-width: 450px !important;
+      max-width: 520px !important;
     }
     @media (min-width: 1200px) {
       .hero-text-block {
-        max-width: 520px !important;
+        max-width: 580px !important;
       }
     }
     @media (min-width: 1440px) {
       .hero-text-block {
-        max-width: 580px !important;
+        max-width: 620px !important;
       }
     }
   }
