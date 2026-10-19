@@ -1,56 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
-import CardPurpose from '../components/cards/CardPurpose.astro';
 import HeroResponsiveBackground from '../components/elementos-secciones/HeroResponsiveBackground.astro';
 
-// 6 Líneas de Solución CEDEPRO
-// 6 Líneas de Solución CEDEPRO
+// 5 Caminos de Solución CEDEPRO
 const solutions = [
- {
- prefix: 'CEDEPRO',
- name: 'Asesoría',
- description: 'Decisiones claras y respaldo técnico',
- link: '/recursos#asesoria',
- icon: 'ion:compass-outline'
- },
- {
- prefix: 'CEDEPRO',
- name: 'Formación',
- description: 'Equipos preparados para nuevos desafíos',
- link: '/recursos#formacion',
- icon: 'ion:school-outline'
- },
- {
- prefix: 'CEDEPRO',
- name: 'Gestión',
- description: 'Procesos ordenados y resultados confiables',
- link: '/recursos#gestion',
- icon: 'ion:bar-chart-outline'
- },
- {
- prefix: 'CEDEPRO',
- name: 'Proyectos',
- description: 'Ideas estructuradas para crecer',
- link: '/recursos#proyectos',
- icon: 'ion:rocket-outline'
- },
- {
- prefix: 'CEDEPRO',
- name: 'Internacional',
- description: 'Alianzas para ampliar horizontes',
- link: '/recursos#internacional',
- icon: 'ion:earth-outline'
- },
- {
- prefix: 'CEDEPRO',
- name: 'Tech',
- description: 'Tecnología para transformar la educación',
- link: '/recursos#tech',
- icon: 'ion:laptop-outline'
- }
+  {
+    prefix: 'CEDEPRO',
+    name: 'Asesoría',
+    description: 'Decisiones claras y respaldo técnico',
+    link: '/portafolio/asesoria',
+    icon: 'ion:compass-outline'
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Formación',
+    description: 'Equipos preparados para nuevos desafíos',
+    link: '/portafolio/informacion',
+    icon: 'ion:school-outline'
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Gestión',
+    description: 'Procesos ordenados y resultados confiables',
+    link: '/portafolio/gestion',
+    icon: 'ion:bar-chart-outline'
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Proyectos',
+    description: 'Ideas estructuradas para crecer',
+    link: '/portafolio/proyectos',
+    icon: 'ion:rocket-outline'
+  },
+  {
+    prefix: 'CEDEPRO',
+    name: 'Innovación',
+    description: 'Transformación digital, tendencias y futuro',
+    link: '/portafolio/innovacion',
+    icon: 'ion:laptop-outline'
+  }
 ];
-
 // Estadísticas de Impacto Comprobado
 const impactStats = [
  { value: '+70', label: 'CARRERAS APROBADAS' },
@@ -144,7 +134,7 @@ const secondaryLogosRow2 = clientLogos.slice(10, 16);
  <div class="hero-content relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
  <div class="hero-text-block space-y-3 sm:space-y-3.5 lg:space-y-4">
  
- <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
+ <!-- Badge 5 AÑOS • 5 caminos • Un mismo propósito -->
  <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
  <img 
  src="/assets/home/Logo_5_anos_copia11.png" 
@@ -196,7 +186,7 @@ const secondaryLogosRow2 = clientLogos.slice(10, 16);
  </section>
 
  <!-- =========================================================================
- 2. SEIS LÍNEAS DE SOLUCIÓN ("Encuentra el camino que tu institución necesita")
+ 2. CINCO CAMINOS DE SOLUCIÓN ("Encuentra el camino que tu institución necesita")
  ========================================================================= -->
  <section id="cinco-anos" class="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('/assets/home/img-home-section-3.webp');">
  <!-- Overlay translúcido suave para nitidez y contraste -->
@@ -210,52 +200,58 @@ const secondaryLogosRow2 = clientLogos.slice(10, 16);
  Encuentra el camino que tu institución necesita
  </h2>
  <p class="text-[#1a375b] text-sm sm:text-base md:text-lg font-medium tracking-wide">
- Seis líneas para impulsar tu proximo paso
+ Cinco caminos para impulsar tu próximo paso
  </p>
 </div>
 
- <!-- Grilla de las 6 Tarjetas de Solución (3 tarjetas por fila en escritorio) -->
- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
- {solutions.map((sol) => (
- <div class="card-solution group">
- <div class="flex flex-col items-center text-center space-y-3 w-full">
- <!-- Icono flotante exacto a la referencia sin caja de fondo -->
- <div class="mb-1 text-[#f5a623] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
- <Icon name={sol.icon} class="w-14 h-14 stroke-1" />
- </div>
- 
- <!-- Títulos de Solución: CEDEPRO (blanco) + Nombre de línea (dorado) -->
- <div class="space-y-0.5">
- <p class="text-white text-xs sm:text-[13px] font-bold tracking-widest uppercase opacity-90">
- {sol.prefix}
- </p>
- <h3 class="text-[#f5a623] text-xl sm:text-2xl font-bold">
- {sol.name}
- </h3>
- </div>
- 
- <!-- Descripción concisa en texto blanco -->
- <p class="text-white/95 text-xs sm:text-[13.5px] font-normal leading-relaxed text-balance max-w-[270px] mx-auto">
- {sol.description}
- </p>
- </div>
+ <!-- Grilla de las 5 Tarjetas de Solución (3 arriba, 2 abajo centradas) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-7 lg:gap-8 justify-center">
+  {solutions.map((sol, index) => (
+  <div class={`card-solution group ${
+    index === 3 
+      ? 'lg:col-span-2 lg:col-start-2' 
+      : index === 4 
+        ? 'lg:col-span-2 md:col-span-2 md:max-w-md md:w-full md:mx-auto lg:max-w-none lg:mx-0' 
+        : 'lg:col-span-2'
+  }`}>
+  <div class="flex flex-col items-center text-center space-y-3 w-full">
+  <!-- Icono flotante exacto a la referencia sin caja de fondo -->
+  <div class="mb-1 text-[#f5a623] group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+  <Icon name={sol.icon} class="w-14 h-14 stroke-1" />
+  </div>
+  
+  <!-- Títulos de Solución: CEDEPRO (blanco) + Nombre de línea (dorado) -->
+  <div class="space-y-0.5">
+  <p class="text-white text-xs sm:text-[13px] font-bold tracking-widest uppercase opacity-90">
+  {sol.prefix}
+  </p>
+  <h3 class="text-[#f5a623] text-xl sm:text-2xl font-bold">
+  {sol.name}
+  </h3>
+  </div>
+  
+  <!-- Descripción concisa en texto blanco -->
+  <p class="text-white/95 text-xs sm:text-[13.5px] font-normal leading-relaxed text-balance max-w-[270px] mx-auto">
+  {sol.description}
+  </p>
+  </div>
 
- <!-- Botón Píldora "Ver solución →" estilo Conoce nuestro camino -->
- <div class="pt-5 mt-auto w-full flex justify-center">
- <a 
- href={sol.link} 
- class="btn-gold !rounded-full !py-3 !px-6 !text-sm !font-bold w-full sm:max-w-[240px] text-center justify-center inline-flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
- >
- <span>Ver solución</span>
- <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
- </a>
- </div>
- </div>
- ))}
- </div>
+  <!-- Botón Píldora "Ver solución →" estilo Conoce nuestro camino -->
+  <div class="pt-5 mt-auto w-full flex justify-center">
+  <a 
+  href={sol.link} 
+  class="btn-gold !rounded-full !py-3 !px-6 !text-sm !font-bold w-full sm:max-w-[240px] text-center justify-center inline-flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
+  >
+  <span>Ver solución</span>
+  <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+  </a>
+  </div>
+  </div>
+  ))}
+  </div>
 
- </div>
- </section>
+  </div>
+  </section>
 
  <!-- =========================================================================
  3. SOMOS EXCELENCIA (Fondo Dorado/Ámbar Sólido #df9417)
@@ -283,52 +279,6 @@ const secondaryLogosRow2 = clientLogos.slice(10, 16);
  >
  <span class="inline-flex items-center justify-center text-center">Conoce nuestra historia <span class="inline-block ml-1.5 leading-none transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span></span>
  </a>
- </div>
-
- </div>
- </section>
-
- <!-- =========================================================================
- 4. NUESTRO PROPÓSITO: UNA VISIÓN QUE SE CONVIERTE EN ACCIÓN (img-parte-3-home.webp)
- ========================================================================= -->
- <section class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden" style="background-image: url('/assets/home/img-home-section-5.webp');">
- <!-- Filtro blanco claro suave sobre la imagen para luminosidad y contraste con la referencia -->
- <div class="absolute inset-0 bg-white/60 backdrop-blur-[0.5px] pointer-events-none"></div>
-
- <div class="relative max-w-[74rem] px-4 sm:px-6 mx-auto space-y-10 sm:space-y-14 z-10">
- 
- <!-- Encabezado de la Sección -->
- <div class="text-center space-y-1.5 max-w-3xl mx-auto">
- <p class="section-eyebrow section-eyebrow--blue">
- NUESTRO PROPÓSITO
- </p>
- <h2 class="text-[#1a375b] heading-section font-bold tracking-tight">
- Una visión que se convierte en acción
- </h2>
- </div>
-<!-- Tarjetas de Misión y Visión (Tarjetas Blancas Estilizadas con texto azul #1a375b) -->
- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
- 
- <!-- Tarjeta Misión -->
- <div class="card-purpose flex flex-col justify-start">
- <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] mb-4">
- Misión
- </h3>
- <p class="text-cedepro-blue text-body-responsive text-justify">
- Acompañar a las instituciones de educación superior del Ecuador con soluciones especializadas en asesoría, formación, gestión y proyectos, que generen valor sostenible, fortalezcan sus capacidades y contribuyan al desarrollo del país.
- </p>
- </div>
-
- <!-- Tarjeta Visión -->
- <div class="card-purpose flex flex-col justify-start">
- <h3 class="text-2xl sm:text-3xl font-bold text-[#1a375b] mb-4">
- Visión
- </h3>
- <p class="text-cedepro-blue text-body-responsive text-justify">
- Ser el referente en Ecuador y la región en consultoría para la educación superior, reconocidos por nuestra excelencia, innovación y por el impacto positivo de nuestras soluciones en las instituciones y en la sociedad.
- </p>
- </div>
-
  </div>
 
  </div>

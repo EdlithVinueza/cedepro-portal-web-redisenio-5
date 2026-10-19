@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  linea?: string;
+  titulo: string;
+  subtitulo?: string;
+  descripcion?: string;
+  icono?: string;
+  badgeText?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  linea = "PORTAFOLIO",
+  titulo,
+  subtitulo = "Próximamente",
+  descripcion = "Esta sección se encuentra actualmente en proceso de diseño y estructuración. Muy pronto estará disponible la información detallada sobre esta línea de servicio.",
+  icono = "ion:hourglass-outline",
+  badgeText = "Pendiente de diseño",
+  primaryHref = "/portafolio/asesoria",
+  primaryLabel = "Explorar Portafolio",
+  secondaryHref = "/contactanos",
+  secondaryLabel = "Contáctanos",
+} = Astro.props;
+---
+
+<section class="relative min-h-[72vh] bg-[#07192F] text-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-28 overflow-hidden">
+  <!-- Fondo decorativo con resplandor sutil CEDEPRO -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#df9417]/10 rounded-full blur-3xl"></div>
+    <div class="absolute -top-24 right-10 w-96 h-96 bg-[#0d2d59]/50 rounded-full blur-2xl"></div>
+    <div class="absolute -bottom-24 left-10 w-96 h-96 bg-[#091E3A]/80 rounded-full blur-2xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-2xl mx-auto text-center space-y-6">
+    <!-- Icono distintivo -->
+    <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#df9417]/20 to-[#df9417]/5 border border-[#df9417]/40 shadow-xl shadow-[#df9417]/10 text-[#df9417] mb-2 transform hover:scale-105 transition-transform duration-300">
+      <Icon name={icono} class="w-10 h-10" />
+    </div>
+
+    <!-- Badge de estado -->
+    <div>
+      <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#df9417]/15 text-[#f5a623] border border-[#df9417]/30 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#df9417] animate-pulse"></span>
+        {badgeText}
+      </span>
+    </div>
+
+    <!-- Eyebrow -->
+    <p class="section-eyebrow section-eyebrow--gold !mb-0">{linea}</p>
+
+    <!-- Título principal -->
+    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+      {titulo}
+    </h1>
+
+    {subtitulo && (
+      <p class="text-lg sm:text-xl font-medium text-slate-200">
+        {subtitulo}
+      </p>
+    )}
+
+    <!-- Descripción explicativa -->
+    <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg mx-auto text-balance">
+      {descripcion}
+    </p>
+
+    <!-- Botones de navegación -->
+    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+      {primaryHref && (
+        <a href={primaryHref} class="btn-gold w-full sm:w-auto justify-center shadow-lg">
+          <span>{primaryLabel}</span>
+        </a>
+      )}
+      {secondaryHref && (
+        <a href={secondaryHref} class="btn-outline-white w-full sm:w-auto justify-center">
+          <span>{secondaryLabel}</span>
+        </a>
+      )}
+    </div>
+  </div>
+</section>

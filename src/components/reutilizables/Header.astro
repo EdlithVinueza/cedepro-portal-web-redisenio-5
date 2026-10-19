@@ -9,20 +9,22 @@ const navItems = [
     href: "#",
     dropdown: [
       { name: "CEDEPRO ASESORÍA", href: "/portafolio/asesoria" },
-      { name: "CEDEPRO PROYECTOS", href: "/portafolio/proyectos" },
-      { name: "CEDEPRO ACADEMIA", href: "/portafolio/academia" },
       {
-        name: "CEDEPRO INFORMACIÓN",
-        href: "/portafolio/informacion/impulsa",
+        name: "CEDEPRO FORMACIÓN",
+        href: "/portafolio/informacion",
         children: [
           { name: "CEDEPRO IMPULSA", href: "/portafolio/informacion/impulsa" },
           { name: "CEDEPRO LITIGA", href: "/portafolio/informacion/litiga" },
-          { name: "CEDEPRO EQUILIBRIA", href: "/portafolio/informacion/equilibria" },
+          {
+            name: "CEDEPRO EQUILIBRIA",
+            href: "/portafolio/informacion/equilibria",
+          },
+          { name: "CEDEPRO GESTIONA", href: "/portafolio/informacion/gestiona" },
         ],
       },
-      //{ name: "CEDEPRO GESTIÓN", href: "/portafolio/gestion" },
-      //{ name: "CEDEPRO INTERNACIONAL", href: "/portafolio/internacional" },
-      //{ name: "CEDEPRO TECH", href: "/portafolio/tech" },
+      { name: "CEDEPRO GESTIÓN", href: "/portafolio/gestion" },
+      { name: "CEDEPRO PROYECTOS", href: "/portafolio/proyectos" },
+      { name: "CEDEPRO INNOVACIÓN", href: "/portafolio/innovacion" },
     ],
   },
   { name: "Gestión de Calidad", href: "/gestion-de-calidad" },
@@ -280,11 +282,6 @@ const isActive = (item: any) => {
                         <div class="flex items-center justify-between">
                           <a
                             href={subItem.href}
-                            onclick={
-                              subItem.children && subItem.children.length > 0
-                                ? `event.preventDefault(); document.querySelector('[data-target=\"mobile-subdropdown-${idx}-${subIdx}\"]').click();`
-                                : undefined
-                            }
                             class="py-2 text-[13px] text-slate-300 hover:text-[#f5a623] transition-colors flex-1 cursor-pointer"
                           >
                             {subItem.name}

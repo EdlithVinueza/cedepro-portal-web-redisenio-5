@@ -4,58 +4,49 @@ import { Icon } from 'astro-icon/components';
 import HeroResponsiveBackground from '../components/elementos-secciones/HeroResponsiveBackground.astro';
 import GradientOverlay from '../components/elementos-secciones/GradientOverlay.astro';
 
-// 6 Líneas de Solución CEDEPRO Oficiales (con colores por tarjeta)
+// 5 Caminos de Solución CEDEPRO Oficiales (con colores por tarjeta)
 const solutions = [
- {
- name: 'ASESORÍA',
- subtitle: 'Decisiones con sustento.',
- description: 'Analizamos tu contexto y convertimos la incertidumbre en prioridades, escenarios y recomendaciones.',
- link: '/recursos#asesoria',
- bgColor: '#091E3A', // Azul Navy oficial CEDEPRO
- icon: 'ion:compass-outline'
- },
- {
- name: 'FORMACIÓN',
- subtitle: 'Capacidades que se aplican.',
- description: 'Diseñamos experiencias para que docentes, directivos y equipos desarrollen competencias útiles para los retos reales.',
- link: '/recursos#formacion',
- bgColor: '#1665c0', // Azul Formación
- icon: 'ion:school-outline'
- },
- {
- name: 'GESTIÓN',
- subtitle: 'Orden que produce resultados.',
- description: 'Fortalecemos procesos, indicadores, evidencias y coordinación para trabajar con mayor claridad, control y eficiencia.',
- link: '/recursos#gestion',
- bgColor: '#00838f', // Azul Verdoso Gestión
- icon: 'ion:bar-chart-outline'
- },
- {
- name: 'PROYECTOS',
- subtitle: 'Visión con ruta de ejecución.',
- description: 'Estructuramos iniciativas académicas, institucionales y de innovación para hacerlas viables, medibles y sostenibles.',
- link: '/recursos#proyectos',
- bgColor: '#e69500', // Ámbar Proyectos
- icon: 'ion:rocket-outline'
- },
- {
- name: 'INTERNACIONAL',
- subtitle: 'Conexiones que abren oportunidades.',
- description: 'Impulsamos cooperación, alianzas y proyección para ampliar el alcance institucional.',
- link: '/recursos#internacional',
- bgColor: '#5e48b5', // Morado Internacional
- icon: 'ion:earth-outline'
- },
- {
- name: 'TECH',
- subtitle: 'Tecnología aplicada a la transformación.',
- description: 'Integramos datos, herramientas digitales e inteligencia artificial para mejorar la gestión y la experiencia educativa.',
- link: '/recursos#tech',
- bgColor: '#1976d2', // Azul Tech
- icon: 'ion:laptop-outline'
- }
+  {
+    name: 'ASESORÍA',
+    subtitle: 'Decisiones con sustento.',
+    description: 'Analizamos tu contexto y convertimos la incertidumbre en prioridades, escenarios y recomendaciones.',
+    link: '/portafolio/asesoria',
+    bgColor: '#091E3A', // Azul Navy oficial CEDEPRO
+    icon: 'ion:compass-outline'
+  },
+  {
+    name: 'FORMACIÓN',
+    subtitle: 'Capacidades que se aplican.',
+    description: 'Diseñamos experiencias para que docentes, directivos y equipos desarrollen competencias útiles para los retos reales.',
+    link: '/portafolio/informacion',
+    bgColor: '#1665c0', // Azul Formación
+    icon: 'ion:school-outline'
+  },
+  {
+    name: 'GESTIÓN',
+    subtitle: 'Orden que produce resultados.',
+    description: 'Fortalecemos procesos, indicadores, evidencias y coordinación para trabajar con mayor claridad, control y eficiencia.',
+    link: '/portafolio/gestion',
+    bgColor: '#00838f', // Azul Verdoso Gestión
+    icon: 'ion:bar-chart-outline'
+  },
+  {
+    name: 'PROYECTOS',
+    subtitle: 'Visión con ruta de ejecución.',
+    description: 'Estructuramos iniciativas académicas, institucionales y de innovación para hacerlas viables, medibles y sostenibles.',
+    link: '/portafolio/proyectos',
+    bgColor: '#e69500', // Ámbar Proyectos
+    icon: 'ion:rocket-outline'
+  },
+  {
+    name: 'INNOVACIÓN',
+    subtitle: 'Transformación y futuro institucional.',
+    description: 'Impulsamos iniciativas disruptivas, metodologías ágiles y tecnología para transformar la experiencia educativa y la gestión.',
+    link: '/portafolio/innovacion',
+    bgColor: '#1976d2', // Azul Innovación
+    icon: 'ion:laptop-outline'
+  }
 ];
-
 // Estadísticas de Impacto Comprobado
 const stats = [
  { value: '+70', label: 'Carreras aprobadas' },
@@ -74,7 +65,7 @@ const values = [
  {
  name: 'Innovación',
  bg: 'bg-[#dbeafe] text-[#1a375b] border-[#bfdbfe]',
- icon: 'ion:bulb-outline'
+ icon: 'ion:laptop-outline'
  },
  {
  name: 'Compromiso',
@@ -96,7 +87,7 @@ const values = [
 
 <Layout 
  title="Nosotros – CEDEPRO Ecuador | El Aliado Estratégico para tu Institución"
- description="Conoce a CEDEPRO: 5 años construyendo soluciones para la educación superior. Asesoría, formación, gestión, proyectos, cooperación y tecnología."
+ description="Conoce a CEDEPRO: 5 años construyendo soluciones para la educación superior. Asesoría, formación, gestión, proyectos e innovación."
  image="/assets/comunes/img-5-anios-badge.webp"
 >
  
@@ -131,7 +122,7 @@ const values = [
  <div class="hero-content-nosotros relative max-w-7xl w-full mx-auto z-10 px-4 sm:px-6 lg:px-12">
  <div class="hero-text-block-nosotros space-y-3 sm:space-y-3.5 lg:space-y-4">
  
- <!-- Badge 5 AÑOS • 4 caminos • Un mismo propósito -->
+ <!-- Badge 5 AÑOS • 5 caminos • Un mismo propósito -->
  <div class="inline-flex items-end gap-2.5 sm:gap-3 flex-wrap">
  <img 
  src="/assets/comunes/img-5-anios-badge.webp" 
@@ -144,7 +135,7 @@ const values = [
  />
  <div class="flex items-center gap-1.5 sm:gap-2 text-[#1a375b] font-medium text-xs sm:text-[13px] md:text-sm tracking-wide pb-0.5 sm:pb-1">
  <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
- <span class="font-normal text-[#1a375b]">4 caminos</span> 
+ <span class="font-normal text-[#1a375b]">5 caminos</span> 
  <span class="text-[#df9417] text-xs sm:text-sm font-bold">•</span> 
  <span class="font-normal text-[#1a375b]">Un mismo propósito</span>
  </div>
@@ -309,7 +300,7 @@ const values = [
  <!-- Píldora Inferior (Azul Marino / Italic) -->
  <div class="pt-3">
  <div class="w-full sm:w-auto inline-flex items-center justify-center text-center bg-[#003b66] text-white px-5 sm:px-6 md:px-7 py-3 md:py-3.5 rounded-lg text-[15px] sm:text-base md:text-[17px] font-normal italic shadow-md">
- <span class="inline-block leading-snug">Experiencia para asesorar, formar, gestionar y proyectar</span>
+ <span class="inline-block leading-snug">Experiencia para asesorar, formar, gestionar, proyectar e innovar</span>
  </div>
  </div>
 
@@ -318,7 +309,7 @@ const values = [
  </section>
 
  <!-- =========================================================================
- 4. SECCIÓN 4: 6 LÍNEAS DE EXPANSIÓN (Fondo Dorado + 6 Tarjetas Blancas)
+ 4. SECCIÓN 4: 5 CAMINOS DE SOLUCIÓN (Fondo Dorado + 5 Tarjetas Blancas)
  ========================================================================= -->
  <section id="soluciones" class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#df9417] text-white overflow-hidden">
  <div class="max-w-7xl mx-auto space-y-12">
@@ -326,7 +317,7 @@ const values = [
  <!-- Encabezado de Sección -->
  <div class="text-center space-y-3 max-w-4xl mx-auto">
  <p class="section-eyebrow section-eyebrow--white">
- CUATRO CAMINOS Y DOS LÍNEAS DE EXPANSIÓN
+ CINCO CAMINOS DE SOLUCIÓN
  </p>
  <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-white tracking-tight md:whitespace-nowrap">
  Una solución para cada desafío institucional
@@ -334,63 +325,68 @@ const values = [
  <p class="text-white/95 text-body-responsive font-normal italic text-center max-w-3xl mx-auto">
  Una institución no siempre necesita lo mismo. A veces necesita decidir con mayor claridad; otras,<br class="hidden md:block" />
  formar a sus equipos, ordenar su operación o convertir una oportunidad en un proyecto viable.<br class="hidden md:block" />
- Por eso organizamos nuestra experiencia en seis líneas conectadas:
+ Por eso organizamos nuestra experiencia en cinco caminos conectados:
  </p>
  </div>
 
- <!-- Grilla de las 6 Tarjetas Blancas -->
- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
- {solutions.map((sol) => (
- <div class="card-solution-white group !p-6 sm:!p-7">
- <div class="space-y-3.5 flex flex-col items-center w-full">
- 
- <!-- Círculo de Color Oficial por Línea con Icono Blanco -->
- <div 
- class="w-18 h-18 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0"
- style={`background-color: ${sol.bgColor};`}
- >
- <Icon name={sol.icon} class="w-12 h-12 text-white stroke-1" />
- </div>
+ <!-- Grilla de las 5 Tarjetas Blancas (3 arriba, 2 abajo centradas) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-7 justify-center">
+  {solutions.map((sol, index) => (
+  <div class={`card-solution-white group !p-6 sm:!p-7 ${
+    index === 3 
+      ? 'lg:col-span-2 lg:col-start-2' 
+      : index === 4 
+        ? 'lg:col-span-2 md:col-span-2 md:max-w-md md:w-full md:mx-auto lg:max-w-none lg:mx-0' 
+        : 'lg:col-span-2'
+  }`}>
+  <div class="space-y-3.5 flex flex-col items-center w-full">
+  
+  <!-- Círculo de Color Oficial por Línea con Icono Blanco -->
+  <div 
+  class="w-18 h-18 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-2.5 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0"
+  style={`background-color: ${sol.bgColor};`}
+  >
+  <Icon name={sol.icon} class="w-12 h-12 text-white stroke-1" />
+  </div>
 
- <!-- Título de la Solución -->
- <h3 class="text-[#1a375b] text-lg sm:text-xl font-bold tracking-wider uppercase pt-1">
- {sol.name}
- </h3>
+  <!-- Título de la Solución -->
+  <h3 class="text-[#1a375b] text-lg sm:text-xl font-bold tracking-wider uppercase pt-1">
+  {sol.name}
+  </h3>
 
- <!-- Línea divisora gruesa del color del ícono -->
- <div 
- class="w-12 h-1 rounded-full my-1.5"
- style={`background-color: ${sol.bgColor};`}
- ></div>
+  <!-- Línea divisora gruesa del color del ícono -->
+  <div 
+  class="w-12 h-1 rounded-full my-1.5"
+  style={`background-color: ${sol.bgColor};`}
+  ></div>
 
- <!-- Subtítulo Destacado -->
- <p class="text-[#1a375b] text-base font-bold leading-snug">
- {sol.subtitle}
- </p>
+  <!-- Subtítulo Destacado -->
+  <p class="text-[#1a375b] text-base font-bold leading-snug">
+  {sol.subtitle}
+  </p>
 
- <!-- Descripción -->
- <p class="text-[#1a375b]/80 text-sm leading-relaxed text-balance">
- {sol.description}
- </p>
- </div>
+  <!-- Descripción -->
+  <p class="text-[#1a375b]/80 text-sm leading-relaxed text-balance">
+  {sol.description}
+  </p>
+  </div>
 
- <!-- Botón Conoce la solución estilo Píldora sobre Fondo Blanco (1 Sola Línea) -->
- <div class="pt-5 mt-auto w-full flex justify-center">
- <a 
- href={sol.link} 
- class="btn-outline-gold-navy !py-3 !px-6 !text-sm w-full sm:max-w-[240px] text-center justify-center inline-flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all"
- >
- <span>Conoce la solución</span>
- <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold shrink-0">→</span>
- </a>
- </div>
+  <!-- Botón Conoce la solución estilo Píldora sobre Fondo Blanco (1 Sola Línea) -->
+  <div class="pt-5 mt-auto w-full flex justify-center">
+  <a 
+  href={sol.link} 
+  class="btn-outline-gold-navy !py-3 !px-6 !text-sm w-full sm:max-w-[240px] text-center justify-center inline-flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all"
+  >
+  <span>Conoce la solución</span>
+  <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold shrink-0">→</span>
+  </a>
+  </div>
+  </div>
+  ))}
+  </div>
 
- </div>
- ))}
- </div>
-
- </div>
- </section>
+  </div>
+  </section>
 
  <!-- =========================================================================
  5. SECCIÓN 5: NUESTRA FORMA DE ACOMPAÑAR (Fondo Azul)
