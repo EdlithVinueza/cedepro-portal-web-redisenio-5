@@ -1,0 +1,644 @@
+---
+import { Icon } from "astro-icon/components";
+import HeroResponsiveBackground from "../elementos-secciones/HeroResponsiveBackground.astro";
+import GradientOverlay from "../elementos-secciones/GradientOverlay.astro";
+import CardNeed from "../cards/CardNeed.astro";
+import CardGrid from "../cards/CardGrid.astro";
+import CardIntegration from "../cards/CardIntegration.astro";
+import MethodologySteps from "../elementos-secciones/MethodologySteps.astro";
+import type { MethodologyItem } from "../elementos-secciones/MethodologySteps.astro";
+import FormularioLead from "../elementos-secciones/FormularioLead.astro";
+
+// 1. Oportunidades y ámbitos de innovación (Sección 3)
+const innovationAreas = [
+  {
+    label: "Inteligencia artificial aplicada",
+    icon: "ion:hardware-chip-outline",
+    color: "#1665c0",
+  },
+  {
+    label: "Procesos digitales y automatización",
+    icon: "ion:cog-outline",
+    color: "#00838f",
+  },
+  {
+    label: "Formación y diseño de ciclo corto",
+    icon: "ion:school-outline",
+    color: "#1976d2",
+  },
+  {
+    label: "Transformación de experiencias educativas",
+    icon: "ion:bulb-outline",
+    color: "#5e35b1",
+  },
+  {
+    label: "Ecosistema de relaciones institucionales",
+    icon: "ion:search-outline",
+    color: "#df9417",
+  },
+  {
+    label: "Adopción y cultura de innovación",
+    icon: "ion:arrow-redo-outline",
+    color: "#1665c0",
+  },
+];
+
+// 2. Destinatarios / Perfiles de Institución (Sección 4)
+const audiences = [
+  {
+    title: "Para autoridades y directivos",
+    desc: "Identificar oportunidades de innovación que agreguen valor a la institución, optimicen recursos y eleven el posicionamiento formativo.",
+    icon: "ion:business-outline",
+  },
+  {
+    title: "Para equipos académicos y administrativos",
+    desc: "Aprender haciendo con metodologías ágiles, diseñar pilotos y transformar procesos sin sobrecargar la dinámica cotidiana.",
+    icon: "ion:book-outline",
+  },
+  {
+    title: "Para aliados tecnológicos y académicos",
+    desc: "Integrar iniciativas en conjunto, validar tecnologías en contextos reales y co-crear ofertas educativas con sentido pedagógico.",
+    icon: "ion:cube-outline",
+  },
+];
+
+// 3. Pasos de la metodología (Sección 5)
+const methodology: MethodologyItem[] = [
+  {
+    num: "1",
+    title: "Comprender",
+    desc: "Entender la necesidad real de la institución, usuarios y procesos clave.",
+    icon: "ion:bulb-outline",
+  },
+  {
+    num: "2",
+    title: "Priorizar",
+    desc: "Definir el foco estratégico y el alcance del piloto para lograr impacto rápido.",
+    icon: "ion:trending-up-outline",
+  },
+  {
+    num: "3",
+    title: "Probar",
+    desc: "Desarrollar un piloto acotado en tiempo y recursos para validar la hipótesis.",
+    icon: "ion:construct-outline",
+  },
+  {
+    num: "4",
+    title: "Ajustar",
+    desc: "Medir resultados, recoger retroalimentación del equipo y afinar la solución.",
+    icon: "ion:settings-outline",
+  },
+  {
+    num: "5",
+    title: "Decidir el siguiente paso",
+    desc: "Escalar con confianza hacia una implementación institucional o iterar el modelo.",
+    icon: "ion:rocket-outline",
+  },
+];
+
+// 4. Puntos clave de necesidad real (Sección 6)
+const keyPrinciples = [
+  "Validar con usuarios antes de invertir en una solución definitiva.",
+  "Diseñar procesos de mejora continua con herramientas digitales.",
+  "Organizar información clave de seguimiento académico y de gestión.",
+  "Desarrollar capacidades metodológicas y ágiles en los equipos.",
+  "Soluciones a la medida de la realidad y recursos de cada institución.",
+  "Colaboración y acompañamiento continuo durante todo el ciclo.",
+];
+
+// 5. Preguntas Frecuentes (Sección 7)
+const faqs = [
+  {
+    question: "¿CEDEPRO tiene una solución formateada?",
+    answer:
+      "No partimos de paquetes cerrados ni de recetas estándar. Cada proyecto se diseña a partir de la realidad, los recursos y los objetivos específicos de tu institución.",
+  },
+  {
+    question: "¿Podemos empezar con una prueba pequeña?",
+    answer:
+      "Sí. Nuestra metodología prioriza iniciar con pilotos de bajo costo y rápido retorno de aprendizaje antes de comprometer grandes inversiones institucionales.",
+  },
+  {
+    question: "¿Podemos aprovechar las herramientas que ya tenemos?",
+    answer:
+      "Totalmente. Analizamos el ecosistema tecnológico y las herramientas ya contratadas por la institución para integrarlas y maximizar su valor antes de recomendar nuevas adiciones.",
+  },
+  {
+    question: "¿Incluye formación para el equipo?",
+    answer:
+      "Sí. Cada iniciativa de innovación incorpora transferencia de capacidades para que tu equipo aprenda haciendo y pueda sostener la solución a largo plazo.",
+  },
+  {
+    question: "¿Cuál es el costo y el tiempo de implementación?",
+    answer:
+      "Depende del alcance del reto. El enfoque por fases permite tener resultados y aprendizajes en semanas, no en años, ajustando el presupuesto de manera progresiva.",
+  },
+];
+---
+
+<div class="innovacion-content w-full overflow-hidden bg-white text-[#1a375b]">
+  <!-- =========================================================================
+  1. HERO HEADER SECTION (Fondo Blanco con recorte responsivo móvil a la mitad)
+  ========================================================================= -->
+  <section
+    id="hero-innovacion"
+    class="hero-section relative bg-white overflow-hidden"
+  >
+    <HeroResponsiveBackground
+      desktopImage="/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-1.png"
+      mobileImage="/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-1.png"
+      color="white"
+      desktopImagePosX="right"
+      desktopImagePosY="center"
+      mobileImagePosX="center"
+      mobileImagePosY="bottom"
+      mobileImageHeight="50%"
+      mobileImageOffsetY="0px"
+      mobileImageAnchor="bottom"
+      desktopDirection="to-r"
+      mobileDirection="to-b"
+      targetContentSelector=".hero-text-block"
+      autoCalculateCoverage={true}
+      bufferPx={20}
+      fadeSpan={30}
+      mobileCoverage={48}
+      mobileFadeEnd={78}
+      desktopCoverage={28}
+      desktopFadeEnd={85}
+    />
+
+    <div
+      class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex justify-start"
+    >
+      <div
+        class="hero-text-block w-full space-y-3 sm:space-y-4 text-left text-[#1a375b]"
+      >
+        <p class="section-eyebrow section-eyebrow--blue">
+          CEDEPRO INNOVACIÓN
+        </p>
+
+        <h1
+          class="heading-hero text-[#1a375b] drop-shadow-sm"
+        >
+          Convierte tus desafíos en<br />nuevas formas de avanzar.
+        </h1>
+
+        <div class="space-y-3 pt-2">
+          <p
+            class="text-[#1a375b]/85 text-sm sm:text-[15px] font-normal leading-relaxed max-w-xl text-balance"
+          >
+            Diseñamos soluciones ágiles, adaptadas a tu realidad institucional,
+            conectando metodologías probadas con herramientas prácticas para lograr
+            impacto medible.
+          </p>
+        </div>
+
+        <div
+          class="pt-1 sm:pt-1.5 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
+        >
+          <!-- Botón 1: Conoce nuestro camino / Impulsar solución (Dorado sobre fondo blanco de nosotros.astro) -->
+          <a
+            href="#formulario-lead"
+            class="btn-gold-dark w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
+          >
+            <span class="inline-flex items-center justify-center text-center leading-snug">
+              Quiero impulsar una solución <span class="inline-block ml-1.5 leading-none">→</span>
+            </span>
+          </a>
+
+          <!-- Botón 2: Borde dorado, hover dorado de nosotros.astro -->
+          <a
+            href="#oportunidades-innovacion"
+            class="btn-outline-gold-navy w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
+          >
+            <span class="inline-flex items-center justify-center text-center leading-snug">
+              Explorar servicios de innovación
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  2. RETOS INSTITUCIONALES SECTION (Fondo Azul Marino con Imagen de Fondo)
+  ========================================================================= -->
+  <section
+    class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
+  >
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-2.webp"
+        alt="Equipo de trabajo en espacio de innovación colaborativo"
+        class="w-full h-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
+      />
+      <!-- Capa de oscurecimiento azul marino nítida -->
+      <div class="absolute inset-0 bg-[#091E3A]/85 pointer-events-none"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+      <h2
+        class="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold leading-tight tracking-tight text-white"
+      >
+        Tu institución tiene retos que<br />
+        merecen <span class="text-[#df9417]">nuevas respuestas.</span>
+      </h2>
+
+      <div class="space-y-4 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed text-white/90">
+        <p>
+          Entornos que cambian, nuevas expectativas de los estudiantes y demandas
+          crecientes por mayor eficiencia y calidad educativa. Abordar estos retos
+          requiere más que buenas intenciones: exige metodologías ágiles, herramientas
+          probadas y un enfoque centrado en las personas.
+        </p>
+
+        <p>
+          Desde la experiencia acumulada con instituciones públicas y privadas, en
+          <strong class="text-white font-semibold">CEDEPRO Innovación</strong>
+          acompañamos a equipos directivos y académicos a diseñar, probar y escalar
+          soluciones que marcan la diferencia.
+        </p>
+      </div>
+
+      <div class="pt-4 flex justify-center">
+        <a
+          href="#formulario-lead"
+          class="btn-gold"
+        >
+          <span>Hablemos de tu reto <span class="ml-1 font-bold">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  3. ¿QUÉ TE PERMITE LOGRAR LA INNOVACIÓN? SECTION (Fondo Blanco con CardNeed)
+  ========================================================================= -->
+  <section
+    id="oportunidades-innovacion"
+    class="bg-white px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20"
+  >
+    <div class="mx-auto max-w-7xl space-y-10">
+      <div class="mx-auto max-w-4xl space-y-3">
+        <p class="section-eyebrow section-eyebrow--gold">
+          ¿QUÉ TE PERMITE LOGRAR LA INNOVACIÓN?
+        </p>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#1a375b] tracking-tight">
+          De una necesidad concreta a una solución<br class="hidden sm:inline" />
+          que puedas poner a prueba.
+        </h2>
+
+        <p class="text-[14.5px] sm:text-[15px] leading-relaxed text-[#1a375b]/85 max-w-3xl mx-auto">
+          <strong class="text-[#1a375b]">CEDEPRO Innovación</strong> conecta el entendimiento del entorno educativo
+          con la adopción de herramientas digitales. La propuesta parte de comprender la necesidad,
+          pilotar una oportunidad y estructurar una hoja de ruta antes de ampliar su implementación.
+        </p>
+      </div>
+
+      <!-- Tarjetas CardNeed estándar oficiales de CEDEPRO -->
+      <CardGrid count={innovationAreas.length} maxWidth="64rem">
+        {
+          innovationAreas.map((item) => (
+            <CardNeed label={item.label} icon={item.icon} color={item.color} />
+          ))
+        }
+      </CardGrid>
+
+      <div class="pt-2 flex justify-center">
+        <a
+          href="#formulario-lead"
+          class="btn-outline-gold-navy !py-3 !px-6 !text-sm w-full sm:max-w-[260px] text-center justify-center inline-flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all"
+        >
+          <span>Explora esta oportunidad</span>
+          <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold shrink-0">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  4. PARA INSTITUCIONES QUE QUIEREN UNA MEJORA CONCRETA (Fondo Azul Marino)
+  ========================================================================= -->
+  <section
+    class="bg-[#091E3A] px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-white text-center"
+  >
+    <div class="mx-auto max-w-7xl space-y-12">
+      <div class="mx-auto max-w-4xl space-y-4">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-white">
+          Para <span class="text-[#df9417]">instituciones</span> que quieren convertir<br class="hidden sm:inline" />
+          una oportunidad en una <span class="text-[#df9417]">mejora concreta.</span>
+        </h2>
+
+        <p class="text-sm sm:text-base leading-relaxed text-white/85 max-w-3xl mx-auto">
+          Acompañamos y dialogamos con autoridades, responsables académicos, equipos administrativos,
+          docentes y áreas de tecnología de universidades e institutos, tanto como con aliados
+          que organizan ofertas de capacitación en el sector educativo.
+        </p>
+      </div>
+
+      <!-- Cuadrícula CardGrid con 3 tarjetas oficiales de integración -->
+      <CardGrid count={audiences.length}>
+        {
+          audiences.map((aud) => (
+            <CardIntegration
+              title={aud.title}
+              desc={aud.desc}
+              icon={aud.icon}
+              iconColor="#1665c0"
+              buttonText="Conocer el servicio →"
+              buttonHref="#formulario-lead"
+            />
+          ))
+        }
+      </CardGrid>
+
+      <div class="pt-4 flex justify-center">
+        <a
+          href="#formulario-lead"
+          class="btn-on-gold"
+        >
+          <span>Elegir servicio por beneficio <span class="ml-1 font-bold">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  5. UNA RUTA PARA APRENDER ANTES DE ESCALAR SECTION (Fondo Blanco con Metodología)
+  ========================================================================= -->
+  <section class="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
+    <div class="mx-auto max-w-7xl space-y-10">
+      <div class="mx-auto max-w-3xl space-y-3">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#1a375b] tracking-tight">
+          Una ruta para aprender antes de escalar.
+        </h2>
+      </div>
+
+      <!-- Pasos de metodología CEDEPRO con flechas doradas y títulos navy -->
+      <div class="max-w-6xl mx-auto pt-4">
+        <MethodologySteps items={methodology} theme="light" />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  6. EL RETO Y CINCO AÑOS DE TRAYECTORIA SECTION (Fondo Dorado con Imagen de Fondo)
+  ========================================================================= -->
+  <section
+    class="relative bg-[#df9417] overflow-hidden flex flex-col lg:flex-row-reverse lg:items-stretch min-h-[500px]"
+  >
+    <!-- Imagen a la derecha -->
+    <div
+      class="w-full lg:w-[32%] xl:w-[28%] relative min-h-[300px] lg:min-h-full"
+    >
+      <div class="absolute inset-0">
+        <img
+          src="/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-6.png"
+          alt="Profesionales innovando en pizarra interactiva colaborativa"
+          class="w-full h-full object-cover object-[center_top]"
+          decoding="async"
+        />
+        <GradientOverlay
+          color="#df9417"
+          coverage={10}
+          desktopDirection="to-r"
+          mobileDirection="to-t"
+          fadeEnd={95}
+        />
+      </div>
+    </div>
+
+    <!-- Contenido a la izquierda -->
+    <div
+      class="w-full lg:w-[68%] xl:w-[72%] relative z-10 p-8 sm:p-12 lg:py-16 lg:px-12 xl:px-16 flex items-center"
+    >
+      <div
+        class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start"
+      >
+        <!-- Columna 1: Principios y Necesidad Real -->
+        <div class="space-y-4">
+          <p class="section-eyebrow section-eyebrow--white">EL RETO</p>
+          <h2
+            class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight drop-shadow-sm"
+          >
+            Que cada iniciativa responda a una <span class="text-[#091E3A]">necesidad real.</span>
+          </h2>
+
+          <ul class="space-y-2.5 pt-2">
+            {
+              keyPrinciples.map((principle) => (
+                <li class="flex items-center gap-3 text-white text-xs sm:text-sm font-medium">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#091E3A] shrink-0 shadow-sm" />
+                  <span>{principle}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Columna 2: Cinco Años Innovando Juntos -->
+        <div class="space-y-4 md:pl-10 md:border-l md:border-white/30">
+          <p class="section-eyebrow section-eyebrow--white">TRAYECTORIA</p>
+          <h2
+            class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight drop-shadow-sm"
+          >
+            Cinco años acompañando a las instituciones. Una nueva etapa para <span class="text-[#091E3A]">innovar juntos.</span>
+          </h2>
+
+          <p class="text-white/90 text-sm sm:text-[15px] font-normal leading-relaxed">
+            CEDEPRO nace de una visión comprometida con la excelencia y la transformación educativa.
+            En estos cinco años hemos caminado junto a instituciones para comprender sus desafíos y
+            convertirlos en caminos de sostenibilidad y avance hacia un mejor porvenir.
+          </p>
+
+          <div class="pt-2">
+            <a
+              href="/nosotros"
+              class="btn-navy-on-gold w-full sm:w-auto justify-center"
+            >
+              <span class="inline-flex items-center justify-center text-center leading-snug">
+                Conoce más sobre nuestra historia <span class="inline-block ml-1.5 leading-none font-bold">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  7. PREGUNTAS FRECUENTES SECTION (Fondo Azul Marino #091E3A con Tarjetas Blancas)
+  ========================================================================= -->
+  <section
+    id="preguntas-frecuentes"
+    class="relative bg-[#091E3A] py-14 sm:py-18 px-4 sm:px-6 lg:px-8 text-white overflow-hidden"
+  >
+    <div class="max-w-7xl mx-auto space-y-8 relative z-10">
+      <!-- Encabezado con icono circular '?' -->
+      <div class="flex items-center gap-3.5">
+        <div
+          class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-[#091E3A] flex items-center justify-center font-bold text-2xl shadow-md shrink-0"
+        >
+          ?
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+          Preguntas frecuentes
+        </h2>
+      </div>
+
+      <!-- Cuadrícula de tarjetas estándar de preguntas frecuentes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        {
+          faqs.map((faq) => (
+            <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-lg border border-slate-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
+              <div class="space-y-3">
+                <h3 class="text-[#1a375b] font-bold text-base sm:text-[17px] leading-snug">
+                  {faq.question}
+                </h3>
+                <p class="text-[#1a375b]/80 text-xs sm:text-[13.5px] leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  8. LLAMADO A LA ACCIÓN INTERMEDIO SECTION (Fondo Azul Noche con Imagen)
+  ========================================================================= -->
+  <section
+    class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
+  >
+    <div class="absolute inset-0 z-0">
+      <picture>
+        <source srcset="/assets/comunes/img-equipo.webp" type="image/webp" />
+        <img
+          src="/assets/comunes/img-equipo.webp"
+          alt="Consultores trabajando en reunión estratégica de gestión"
+          class="w-full h-full object-cover object-right sm:object-center"
+          width="1920"
+          height="1080"
+          decoding="async"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+
+    <!-- FILTRO AZUL TRANSLÚCIDO NÍTIDO (SIN BLUR) -->
+    <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl text-white">
+      <div class="max-w-2xl space-y-4">
+        <p class="section-eyebrow section-eyebrow--amber">
+          DA EL SIGUIENTE PASO
+        </p>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+          ¿Qué te gustaría mejorar en tu institución?
+        </h2>
+
+        <p class="text-sm sm:text-base leading-relaxed text-slate-200">
+          Cuéntanos dónde encuentras una dificultad o una oportunidad. Juntos diseñaremos
+          una ruta ágil hacia una solución con sentido para tu equipo o comunidad educativa.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-3"
+        >
+          <a
+            href="#formulario-lead"
+            class="btn-on-gold w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Quiero impulsar una solución <span class="ml-1">→</span></span>
+          </a>
+
+          <a
+            href="#oportunidades-innovacion"
+            class="btn-outline-white w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Explorar servicios de innovación</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  9. FORMULARIO FINAL REUTILIZABLE CON FILTRO BLANCO (Sección 8 de Innovación de fondo)
+  ========================================================================= -->
+  <FormularioLead
+    id="formulario-lead"
+    variant="innovacion"
+    serviceName="CEDEPRO Innovación"
+    subject="Nueva Solicitud CEDEPRO Innovación"
+    bgImage="/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-8.webp"
+    eyebrow="INNOVACIÓN A MEDIDA"
+    title="Comparte tu idea o necesidad."
+    description="Nuestro equipo se pondrá en contacto contigo para conversar sobre tu reto."
+    submitButtonText="Enviar mi solicitud"
+  />
+</div>
+
+<!-- =========================================================================
+ESTILOS RESPONSIVOS PARA EL HERO HEADER (Basado en CEDEPRO Proyectos / Gestión)
+========================================================================= -->
+<style is:global>
+  @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+    #hero-innovacion.hero-section {
+      min-height: 710px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      background-color: #ffffff !important;
+      padding-top: 1rem !important;
+      padding-bottom: 0 !important;
+    }
+    #hero-innovacion .hero-content {
+      padding-top: 0.5rem !important;
+      padding-bottom: 1rem !important;
+      z-index: 10 !important;
+      justify-content: flex-start !important;
+    }
+    #hero-innovacion .hero-text-block {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+
+  @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+    #hero-innovacion.hero-section {
+      min-height: 620px !important;
+      max-height: 860px !important;
+      height: calc(100vh - 4rem) !important;
+      display: flex !important;
+      align-items: center !important;
+      background-color: #ffffff !important;
+      padding: 2.5rem 0 !important;
+    }
+
+    #hero-innovacion .hero-text-block {
+      max-width: 520px !important;
+    }
+    @media (min-width: 1200px) {
+      #hero-innovacion .hero-text-block {
+        max-width: 580px !important;
+      }
+    }
+    @media (min-width: 1440px) {
+      #hero-innovacion .hero-text-block {
+        max-width: 620px !important;
+      }
+    }
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+</style>

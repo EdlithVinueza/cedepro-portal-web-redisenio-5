@@ -1,0 +1,534 @@
+---
+import { Icon } from "astro-icon/components";
+import HeroResponsiveBackground from "../elementos-secciones/HeroResponsiveBackground.astro";
+import GradientOverlay from "../elementos-secciones/GradientOverlay.astro";
+import CardNeed from "../cards/CardNeed.astro";
+import CardGrid from "../cards/CardGrid.astro";
+import CardImageHorizontal from "../cards/CardImageHorizontal.astro";
+import FormularioLead from "../elementos-secciones/FormularioLead.astro";
+
+// 1. Capacidades a fortalecer (Sección 2)
+const capacities = [
+  {
+    label: "Gestión pública y marco normativo",
+    icon: "ion:business-outline",
+    color: "#1665c0",
+  },
+  {
+    label: "Planificación y seguimiento institucional",
+    icon: "ion:document-text-outline",
+    color: "#00838f",
+  },
+  {
+    label: "Procesos y optimización operativa",
+    icon: "ion:settings-outline",
+    color: "#1976d2",
+  },
+  {
+    label: "Liderazgo y coordinación de equipos",
+    icon: "ion:people-outline",
+    color: "#5e35b1",
+  },
+  {
+    label: "Gestión de proyectos",
+    icon: "ion:star-outline",
+    color: "#df9417",
+  },
+  {
+    label: "Herramientas digitales para la gestión",
+    icon: "ion:scale-outline",
+    color: "#1665c0",
+  },
+];
+
+// 2. Situaciones reales y puntos de aprendizaje (Sección 3 - Columna 1)
+const learningPoints = [
+  "Casos prácticos de gestión",
+  "Plantillas y herramientas aplicables",
+  "Criterios para tomar decisiones",
+  "Identificación y solución de problemas operativos",
+];
+
+// 3. Capacidades clave (Sección 3 - Columna 2)
+const claritySkills = [
+  "Organizar prioridades y responsabilidades.",
+  "Delegar tareas de forma clara y hacer seguimiento sin micromanagement.",
+  "Coordinar equipos y comunicar metas con claridad.",
+  "Dar seguimiento a planes con indicadores.",
+  "Plantear mejoras en procesos y servicios.",
+];
+
+// 4. Preguntas Frecuentes (Sección 5)
+const faqs = [
+  {
+    question: "¿CEDEPRO Gestión pertenece a CEDEPRO Formación?",
+    answer:
+      "Sí. Es una línea de formación especializada dentro de CEDEPRO Formación enfocada en el desarrollo de capacidades de gestión y liderazgo institucional.",
+  },
+  {
+    question: "¿Puedo solicitar capacitación para mi institución?",
+    answer:
+      "Sí. Estructuramos programas a la medida para entidades públicas, universidades y organizaciones con contenidos orientados a sus necesidades.",
+  },
+  {
+    question: "¿Los programas son virtuales o presenciales?",
+    answer:
+      "La modalidad puede ser virtual sincrónica, asincrónica o presencial según el tipo de programa y las necesidades de la institución.",
+  },
+  {
+    question: "¿Se entrega certificado?",
+    answer:
+      "Sí. Todos los programas cuentan con certificación que avala las horas y competencias desarrolladas.",
+  },
+];
+---
+
+<div class="gestion-content w-full overflow-hidden bg-white text-[#1a375b]">
+  <!-- =========================================================================
+  1. HERO HEADER SECTION (Fondo Dorado con recorte responsivo móvil a la mitad)
+  ========================================================================= -->
+  <section
+    id="hero-gestion"
+    class="hero-section relative bg-[#df9417] overflow-hidden"
+  >
+    <HeroResponsiveBackground
+      desktopImage="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-1.png"
+      mobileImage="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-1.png"
+      color="gold"
+      desktopImagePosX="right"
+      desktopImagePosY="center"
+      mobileImagePosX="center"
+      mobileImagePosY="bottom"
+      mobileImageHeight="50%"
+      mobileImageOffsetY="0px"
+      mobileImageAnchor="bottom"
+      desktopDirection="to-r"
+      mobileDirection="to-b"
+      targetContentSelector=".hero-text-block"
+      autoCalculateCoverage={true}
+      bufferPx={20}
+      fadeSpan={28}
+      mobileCoverage={48}
+      mobileFadeEnd={78}
+      desktopCoverage={25}
+      desktopFadeEnd={85}
+    />
+
+    <div
+      class="hero-content relative max-w-[1536px] w-full mx-auto z-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex justify-start"
+    >
+      <div
+        class="hero-text-block w-full space-y-3 sm:space-y-4 text-left text-white"
+      >
+        <p class="section-eyebrow section-eyebrow--white">
+          FORMACIÓN PRÁCTICA EN GESTIÓN Y LIDERAZGO INSTITUCIONAL
+        </p>
+
+        <h1
+          class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold !leading-[1.14] tracking-tight drop-shadow-sm text-white"
+        >
+          Aprende a gestionar.<br />Prepárate para liderar.
+        </h1>
+
+        <div class="space-y-3 pt-2">
+          <p
+            class="text-white/95 text-sm sm:text-[15px] font-normal leading-relaxed max-w-xl text-balance drop-shadow-sm"
+          >
+            Fortalece tus capacidades para dirigir equipos, ordenar procesos,
+            tomar decisiones con criterio y aplicar metodologías prácticas para
+            coordinar unidades, proyectos e instituciones en un entorno exigente
+            y en constante transformación.
+          </p>
+
+          <p
+            class="text-base sm:text-lg font-bold leading-relaxed max-w-xl text-balance drop-shadow-sm text-white pt-1"
+          >
+            Herramientas que puedes llevar de la formación a tu trabajo.
+          </p>
+        </div>
+
+        <div
+          class="pt-4 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
+        >
+          <a
+            href="#capacidades"
+            class="btn-navy-on-gold shadow-lg w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
+          >
+            <span
+              class="inline-flex items-center justify-center text-center leading-snug"
+            >
+              Quiero conocer los programas <span
+                class="inline-block ml-1.5 leading-none transition-transform duration-200 hover:translate-x-1 font-bold"
+                >→</span
+              >
+            </span>
+          </a>
+
+          <a
+            href="#formulario"
+            class="btn-on-gold w-full sm:w-auto shrink-0 text-center justify-center inline-flex items-center"
+          >
+            <span
+              class="inline-flex items-center justify-center text-center leading-snug"
+            >
+              Quiero una propuesta para mi equipo <span class="inline-block ml-1 font-bold">→</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  2. ¿QUÉ CAPACIDAD QUIERES FORTALECER? SECTION
+  ========================================================================= -->
+  <section
+    id="capacidades"
+    class="bg-white px-4 py-14 text-center sm:px-6 lg:px-8 lg:py-20"
+  >
+    <div class="mx-auto max-w-7xl space-y-10">
+      <div class="mx-auto max-w-4xl space-y-3">
+        <p class="section-eyebrow section-eyebrow--blue font-semibold uppercase tracking-wider text-xs sm:text-sm">
+          CAPACITACIÓN A MEDIDA PARA PERSONAS Y EQUIPOS QUE TRANSFORMAN LA GESTIÓN
+        </p>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#1a375b] tracking-tight">
+          ¿Qué capacidad quieres fortalecer?
+        </h2>
+
+        <p class="text-[14.5px] sm:text-[15px] leading-relaxed text-[#1a375b]/85 max-w-3xl mx-auto">
+          Esta línea está dirigida a servidores públicos, profesionales de áreas
+          administrativas, coordinadores, responsables de equipo y personas que
+          desean prepararse para asumir funciones de gestión en instituciones.
+          Puedes postular a una propuesta de capacitación al uso de estas
+          necesidades de tu personal.
+        </p>
+      </div>
+
+      <CardGrid count={capacities.length} maxWidth="64rem">
+        {
+          capacities.map((item) => (
+            <CardNeed label={item.label} icon={item.icon} color={item.color} />
+          ))
+        }
+      </CardGrid>
+
+      <div class="pt-2 flex justify-center">
+        <a
+          href="#formulario"
+          class="btn-navy w-full sm:w-auto justify-center !rounded-full !px-8 !py-3 !text-sm !font-bold shadow-md inline-flex items-center gap-2 group"
+        >
+          <span>Solicitar información</span>
+          <span class="inline-block transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  3. APRENDE CON SITUACIONES REALES SECTION (Fondo Azul Marino con Imagen)
+  ========================================================================= -->
+  <section
+    class="relative bg-[#091E3A] overflow-hidden flex flex-col lg:flex-row-reverse lg:items-stretch min-h-[500px]"
+  >
+    <div
+      class="w-full lg:w-[32%] xl:w-[28%] relative min-h-[300px] lg:min-h-full"
+    >
+      <div class="absolute inset-0">
+        <img
+          src="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-3.png"
+          alt="Documentos y tecnología para la optimización de procesos y gestión"
+          class="w-full h-full object-cover object-[center_top]"
+          decoding="async"
+        />
+        <GradientOverlay
+          color="#091E3A"
+          coverage={15}
+          desktopDirection="to-r"
+          mobileDirection="to-t"
+          fadeEnd={90}
+        />
+      </div>
+    </div>
+
+    <div
+      class="w-full lg:w-[68%] xl:w-[72%] relative z-10 p-8 sm:p-12 lg:py-16 lg:px-12 xl:px-16 flex items-center"
+    >
+      <div
+        class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start"
+      >
+        <!-- Columna 1: Situaciones Reales -->
+        <div class="space-y-4">
+          <h2
+            class="text-white text-2xl sm:text-3xl lg:text-[2.1rem] font-bold leading-tight tracking-tight"
+          >
+            Aprende con situaciones que se parecen a tu trabajo.
+          </h2>
+
+          <p
+            class="text-white/90 text-sm sm:text-[14.5px] font-normal leading-relaxed"
+          >
+            No nos limitamos a teoría general: analizamos situaciones reales de
+            gestión, documentos habituales, dinámicas de trabajo, cuellos de
+            botella y problemas frecuentes para que aprendas a tomar decisiones
+            con mayor criterio y autonomía.
+          </p>
+
+          <ul class="space-y-2.5 pt-2">
+            {
+              learningPoints.map((point) => (
+                <li class="flex items-center gap-3 text-white text-xs sm:text-sm font-medium">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#df9417] shrink-0 shadow-sm" />
+                  <span>{point}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Columna 2: Capacidades para Trabajar con Claridad -->
+        <div class="space-y-4 md:pl-10 md:border-l md:border-white/20">
+          <h2
+            class="text-white text-2xl sm:text-3xl lg:text-[2.1rem] font-bold leading-tight tracking-tight"
+          >
+            Capacidades para trabajar con mayor claridad.
+          </h2>
+
+          <ul class="space-y-2.5 pt-1">
+            {
+              claritySkills.map((skill) => (
+                <li class="flex items-start gap-3 text-white text-xs sm:text-[13.5px] font-medium leading-snug">
+                  <Icon
+                    name="ion:shield-checkmark-outline"
+                    class="w-5 h-5 text-[#df9417] shrink-0 mt-0.5"
+                  />
+                  <span>{skill}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="pt-3">
+            <div
+              class="w-full text-center inline-block bg-white text-[#1a375b] px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md italic leading-tight"
+            >
+              Prácticas y herramientas de aprendizaje orientadas a la acción y a su aplicación.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  4. DOS MODALIDADES DE FORMACIÓN SECTION (Fondo Blanco)
+  ========================================================================= -->
+  <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+    <div class="mx-auto max-w-7xl space-y-10">
+      <div>
+        <p class="section-eyebrow section-eyebrow--gold">
+          MODALIDADES PARA PERSONAS Y ORGANIZACIONES
+        </p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a375b] tracking-tight">
+          Un siguiente paso para ti. <span class="text-[#df9417]">Una capacidad compartida para tu equipo.</span>
+        </h2>
+      </div>
+
+      <CardGrid count={2}>
+        <CardImageHorizontal
+          title="Para profesionales"
+          description="Participa de forma individual en nuestros cursos, programas y diplomados. Adquiere herramientas y competencias para asumir mayores responsabilidades y mejorar tu perfil profesional en el sector público o privado."
+          image="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-4-p1.png"
+          icon="ion:briefcase-outline"
+          iconBgColor="#1665c0"
+          buttonText="Conoce la oferta formativa →"
+          buttonHref="#formulario"
+        />
+        <CardImageHorizontal
+          title="Para instituciones y organizaciones"
+          description="Diseñamos propuestas a medida para fortalecer capacidades en equipos de trabajo. Adaptamos contenidos, casos y dinámicas a las necesidades y retos específicos de tu institución."
+          image="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-4-p2.png"
+          icon="ion:business-outline"
+          iconBgColor="#00838f"
+          buttonText="Pide un programa de capacitación →"
+          buttonHref="#formulario"
+        />
+      </CardGrid>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  5. PREGUNTAS FRECUENTES SECTION (Fondo Dorado #df9417)
+  ========================================================================= -->
+  <section
+    id="preguntas-frecuentes"
+    class="relative bg-[#df9417] py-14 sm:py-18 px-4 sm:px-6 lg:px-8 text-white overflow-hidden"
+  >
+    <div class="max-w-7xl mx-auto space-y-8 relative z-10">
+      <!-- Encabezado con icono circular '?' -->
+      <div class="flex items-center gap-3.5">
+        <div
+          class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-[#df9417] flex items-center justify-center font-bold text-2xl shadow-md shrink-0"
+        >
+          ?
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+          Preguntas frecuentes
+        </h2>
+      </div>
+
+      <!-- Cuadrícula de 4 tarjetas blancas con preguntas y respuestas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {
+          faqs.map((faq) => (
+            <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-lg border border-slate-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
+              <div class="space-y-3">
+                <h3 class="text-[#1a375b] font-bold text-base sm:text-[17px] leading-snug">
+                  {faq.question}
+                </h3>
+                <p class="text-[#1a375b]/80 text-xs sm:text-[13.5px] leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  6. LLAMADO A LA ACCIÓN INTERMEDIO SECTION (Fondo Azul Noche con Imagen)
+  ========================================================================= -->
+  <section
+    class="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-white overflow-hidden bg-[#07192F]"
+  >
+    <div class="absolute inset-0 z-0">
+      <picture>
+        <source srcset="/assets/comunes/img-equipo.webp" type="image/webp" />
+        <img
+          src="/assets/comunes/img-equipo.webp"
+          alt="Consultores trabajando en reunión estratégica de gestión"
+          class="w-full h-full object-cover object-right sm:object-center"
+          width="1920"
+          height="1080"
+          decoding="async"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+
+    <!-- FILTRO AZUL TRANSLÚCIDO NÍTIDO (SIN BLUR) -->
+    <div class="absolute inset-0 bg-[#091E3A]/70 z-10 pointer-events-none">
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-7xl text-white">
+      <div class="max-w-2xl space-y-4">
+        <p class="section-eyebrow section-eyebrow--amber">
+          DA EL SIGUIENTE PASO
+        </p>
+
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+          La próxima mejora de tu gestión puede comenzar aprendiendo.
+        </h2>
+
+        <p class="text-sm sm:text-base leading-relaxed text-slate-200">
+          Cuéntanos qué capacidad necesitas fortalecer. Encontraremos una opción
+          de formación para tu desarrollo profesional o para los desafíos de tu
+          equipo.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-3"
+        >
+          <a
+            href="#formulario"
+            class="btn-on-gold w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Quiero fortalecer mi gestión <span class="ml-1">→</span></span>
+          </a>
+
+          <a
+            href="#formulario"
+            class="btn-outline-white w-full sm:w-auto shrink-0 inline-flex justify-center px-6 py-3 text-sm font-bold"
+          >
+            <span>Solicitar una propuesta para mi equipo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+  7. FORMULARIO DE CONTACTO CON FILTRO BLANCO (Componente Reutilizable FormularioLead)
+  ========================================================================= -->
+  <FormularioLead
+    id="formulario"
+    variant="gestion"
+    serviceName="CEDEPRO Gestión"
+    subject="Nueva Solicitud CEDEPRO Gestión"
+    bgImage="/assets/portafolio/vista-gestion/img-portafolio-gestion-section-form.webp"
+    eyebrow="CONTACTO Y SOLICITUD"
+    title="Déjanos tus datos y el tema que te interesa."
+    description="Nuestro equipo se pondrá en contacto contigo para ampliar la información."
+    submitButtonText="Enviar mi solicitud"
+  />
+</div>
+
+<!-- =========================================================================
+ESTILOS RESPONSIVOS PARA EL HERO HEADER (Basado en CEDEPRO Proyectos)
+========================================================================= -->
+<style is:global>
+  @media (orientation: portrait), (max-aspect-ratio: 1/1), (max-width: 767px) {
+    #hero-gestion.hero-section {
+      min-height: 710px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      background-color: #df9417 !important;
+      padding-top: 1rem !important;
+      padding-bottom: 0 !important;
+    }
+    #hero-gestion .hero-content {
+      padding-top: 0.5rem !important;
+      padding-bottom: 1rem !important;
+      z-index: 10 !important;
+      justify-content: flex-start !important;
+    }
+    #hero-gestion .hero-text-block {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+
+  @media (orientation: landscape) and (min-aspect-ratio: 1/1) and (min-width: 768px) {
+    #hero-gestion.hero-section {
+      min-height: 620px !important;
+      max-height: 860px !important;
+      height: calc(100vh - 4rem) !important;
+      display: flex !important;
+      align-items: center !important;
+      background-color: #df9417 !important;
+      padding: 2.5rem 0 !important;
+    }
+
+    #hero-gestion .hero-text-block {
+      max-width: 520px !important;
+    }
+    @media (min-width: 1200px) {
+      #hero-gestion .hero-text-block {
+        max-width: 580px !important;
+      }
+    }
+    @media (min-width: 1440px) {
+      #hero-gestion .hero-text-block {
+        max-width: 620px !important;
+      }
+    }
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+</style>
+

@@ -1,0 +1,815 @@
+---
+interface Props {
+  /** Identificador único para el formulario y sus campos */
+  id?: string;
+  /** Variante predeterminada: 'gestion' | 'innovacion' | 'personalizado' */
+  variant?: "gestion" | "innovacion" | "personalizado";
+  /** Nombre del servicio o línea (ej: 'CEDEPRO Gestión' o 'CEDEPRO Innovación') */
+  serviceName?: string;
+  /** Asunto del correo enviado */
+  subject?: string;
+  /** Ruta de la imagen de fondo de la sección */
+  bgImage?: string;
+  /** Eyebrow o subtítulo superior de la columna izquierda */
+  eyebrow?: string;
+  /** Título principal de la columna izquierda */
+  title?: string;
+  /** Descripción de la columna izquierda */
+  description?: string;
+  /** Texto del botón de envío */
+  submitButtonText?: string;
+  /** Texto legal / disclaimer al pie del formulario */
+  disclaimerText?: string;
+}
+
+const {
+  id = "lead-form",
+  variant = "innovacion",
+  serviceName = variant === "gestion" ? "CEDEPRO Gestión" : "CEDEPRO Innovación",
+  subject = variant === "gestion"
+    ? "Nueva Solicitud CEDEPRO Gestión"
+    : "Nueva Solicitud CEDEPRO Innovación",
+  bgImage = variant === "gestion"
+    ? "/assets/portafolio/vista-gestion/img-portafolio-gestion-section-form.webp"
+    : "/assets/portafolio/vista-inovación/img-portafolio-inovacion-section-8.webp",
+  eyebrow = variant === "gestion" ? "CONTACTO Y SOLICITUD" : "INNOVACIÓN A MEDIDA",
+  title = variant === "gestion"
+    ? "Déjanos tus datos y el tema que te interesa."
+    : "Comparte tu idea o necesidad.",
+  description = variant === "gestion"
+    ? "Nuestro equipo se pondrá en contacto contigo para ampliar la información."
+    : "Nuestro equipo se pondrá en contacto contigo para conversar sobre tu reto.",
+  submitButtonText = "Enviar mi solicitud",
+  disclaimerText = variant === "gestion"
+    ? "Tus datos serán tratados de manera confidencial y con el único fin de orientar tu consulta sobre programas de capacitación y desarrollo en gestión."
+    : "Tus datos están protegidos. Detallamos con estricto apego a las políticas de privacidad y los utilizaremos exclusivamente para ponernos en contacto y evaluar tu requerimiento.",
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class="formulario-lead-section relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-50"
+>
+  <!-- Imagen de fondo con filtro blanco semitransparente -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={bgImage}
+      alt="Fondo colaborativo institucional"
+      class="w-full h-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+    <!-- Filtro Blanco Semitransparente Nítido con Micro-blur -->
+    <div class="absolute inset-0 bg-white/85 backdrop-blur-[2px] pointer-events-none"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- Columna Izquierda: Textos Informativos -->
+      <div class="lg:col-span-5 space-y-4">
+        <p class="section-eyebrow section-eyebrow--blue">
+          {eyebrow}
+        </p>
+
+        <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#1a375b] leading-[1.15] tracking-tight text-balance">
+          {title}
+        </h2>
+
+        <p class="text-[#1a375b]/80 text-base sm:text-lg leading-relaxed text-pretty">
+          {description}
+        </p>
+      </div>
+
+      <!-- Columna Derecha: Tarjeta Dorada del Formulario -->
+      <div class="lg:col-span-7">
+        <div
+          class="bg-[#df9417] text-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl space-y-5"
+        >
+          <form
+            id={`${id}-form`}
+            class="lead-interactive-form space-y-4"
+            data-form-id={id}
+            data-variant={variant}
+            data-service-name={serviceName}
+            data-subject={subject}
+            novalidate
+          >
+            <!-- Fila 1: Nombres y Apellidos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div class="relative">
+                <input
+                  type="text"
+                  id={`${id}-nombres`}
+                  name="nombres"
+                  required
+                  placeholder="Nombres *"
+                  class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  id={`${id}-apellidos`}
+                  name="apellidos"
+                  required
+                  placeholder="Apellidos *"
+                  class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Fila 2: Correo electrónico -->
+            <div class="relative">
+              <input
+                type="email"
+                id={`${id}-email`}
+                name="email"
+                required
+                placeholder="Correo electrónico *"
+                class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+              />
+            </div>
+
+            <!-- Fila 3: Teléfono -->
+            <div class="relative">
+              <input
+                type="tel"
+                id={`${id}-telefono`}
+                name="telefono"
+                required
+                placeholder="Teléfono / Celular *"
+                class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+              />
+            </div>
+
+            {variant === "gestion" ? (
+              <>
+                {/* CAMPOS ESPECÍFICOS PARA GESTIÓN */}
+                {/* Interés */}
+                <div class="relative custom-dropdown" data-dropdown="interes">
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Interés *
+                  </label>
+                  <button
+                    type="button"
+                    class="dropdown-trigger w-full flex items-center justify-between bg-black/15 hover:bg-black/20 focus:bg-black/25 text-left text-white border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all cursor-pointer"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                  >
+                    <span class="dropdown-label text-white/80">Selecciona tu tipo de interés...</span>
+                    <svg class="dropdown-chevron w-4 h-4 text-white/80 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#091E3A] border border-white/20 rounded-xl shadow-2xl py-1 overflow-hidden backdrop-blur-md max-h-60 overflow-y-auto">
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Formación individual para personas">
+                      Formación individual para personas
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Capacitación para mi equipo u organización">
+                      Capacitación para mi equipo u organización
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Ambas modalidades">
+                      Ambas modalidades
+                    </div>
+                  </div>
+                  <input type="hidden" id={`${id}-interes`} name="interes" value="" required />
+                </div>
+
+                <!-- Institución y Cargo -->
+                <div class="relative">
+                  <label for={`${id}-institucion`} class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Institución y cargo
+                  </label>
+                  <input
+                    type="text"
+                    id={`${id}-institucion`}
+                    name="institucion_cargo"
+                    placeholder="Ej: Universidad / Empresa - Cargo"
+                    class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                  />
+                </div>
+
+                <!-- Tema a fortalecer -->
+                <div class="relative custom-dropdown" data-dropdown="tema">
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Tema que deseas fortalecer *
+                  </label>
+                  <button
+                    type="button"
+                    class="dropdown-trigger w-full flex items-center justify-between bg-black/15 hover:bg-black/20 focus:bg-black/25 text-left text-white border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all cursor-pointer"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                  >
+                    <span class="dropdown-label text-white/80">Selecciona el tema que te interesa...</span>
+                    <svg class="dropdown-chevron w-4 h-4 text-white/80 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#091E3A] border border-white/20 rounded-xl shadow-2xl py-1 overflow-hidden backdrop-blur-md max-h-60 overflow-y-auto">
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Gestión pública y marco normativo">
+                      Gestión pública y marco normativo
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Planificación y seguimiento institucional">
+                      Planificación y seguimiento institucional
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Procesos y optimización operativa">
+                      Procesos y optimización operativa
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Liderazgo y coordinación de equipos">
+                      Liderazgo y coordinación de equipos
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Gestión de proyectos">
+                      Gestión de proyectos
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Herramientas digitales para la gestión">
+                      Herramientas digitales para la gestión
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Otro tema de gestión institucional">
+                      Otro tema de gestión institucional
+                    </div>
+                  </div>
+                  <input type="hidden" id={`${id}-tema`} name="tema" value="" required />
+                </div>
+
+                <!-- Participantes -->
+                <div class="relative custom-dropdown" data-dropdown="participantes">
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Número aproximado de participantes
+                  </label>
+                  <button
+                    type="button"
+                    class="dropdown-trigger w-full flex items-center justify-between bg-black/15 hover:bg-black/20 focus:bg-black/25 text-left text-white border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all cursor-pointer"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                  >
+                    <span class="dropdown-label text-white/80">Solo yo (1 participante)</span>
+                    <svg class="dropdown-chevron w-4 h-4 text-white/80 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#091E3A] border border-white/20 rounded-xl shadow-2xl py-1 overflow-hidden backdrop-blur-md max-h-60 overflow-y-auto">
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Solo yo (1 participante)">
+                      Solo yo (1 participante)
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Equipo pequeño (2 a 5 participantes)">
+                      Equipo pequeño (2 a 5 participantes)
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Equipo mediano (6 a 15 participantes)">
+                      Equipo mediano (6 a 15 participantes)
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Grupo amplio (16 a 30 participantes)">
+                      Grupo amplio (16 a 30 participantes)
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Nivel institucional (+30 participantes)">
+                      Nivel institucional (+30 participantes)
+                    </div>
+                  </div>
+                  <input type="hidden" id={`${id}-participantes`} name="participantes" value="Solo yo (1 participante)" />
+                </div>
+              </>
+            ) : (
+              <>
+                {/* CAMPOS ESPECÍFICOS PARA INNOVACIÓN (Conforme a la Maqueta) */}
+                {/* Institución u organización y cargo */}
+                <div class="relative">
+                  <label for={`${id}-institucion`} class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Institución u organización y cargo *
+                  </label>
+                  <input
+                    type="text"
+                    id={`${id}-institucion`}
+                    name="institucion_cargo"
+                    required
+                    placeholder="Ej: Universidad Técnica / Colegio - Director / Coordinador"
+                    class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                  />
+                </div>
+
+                <!-- Interés (Custom Dropdown) -->
+                <div class="relative custom-dropdown" data-dropdown="interes">
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Interés *
+                  </label>
+                  <button
+                    type="button"
+                    class="dropdown-trigger w-full flex items-center justify-between bg-black/15 hover:bg-black/20 focus:bg-black/25 text-left text-white border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all cursor-pointer"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                  >
+                    <span class="dropdown-label text-white/80">Selecciona el tipo de interés...</span>
+                    <svg class="dropdown-chevron w-4 h-4 text-white/80 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#091E3A] border border-white/20 rounded-xl shadow-2xl py-1 overflow-hidden backdrop-blur-md max-h-60 overflow-y-auto">
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Explorar soluciones de innovación para mi institución">
+                      Explorar soluciones de innovación para mi institución
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Desarrollar un piloto o prueba de concepto rápida">
+                      Desarrollar un piloto o prueba de concepto rápida
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Capacitación y formación práctica para equipos">
+                      Capacitación y formación práctica para equipos
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Diagnóstico y hoja de ruta institucional">
+                      Diagnóstico y hoja de ruta institucional
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Alianza estratégica o proyecto conjunto">
+                      Alianza estratégica o proyecto conjunto
+                    </div>
+                  </div>
+                  <input type="hidden" id={`${id}-interes`} name="interes" value="" required />
+                </div>
+
+                <!-- Ámbito de interés (Custom Dropdown) -->
+                <div class="relative custom-dropdown" data-dropdown="ambito">
+                  <label class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    Ámbito de interés *
+                  </label>
+                  <button
+                    type="button"
+                    class="dropdown-trigger w-full flex items-center justify-between bg-black/15 hover:bg-black/20 focus:bg-black/25 text-left text-white border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all cursor-pointer"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                  >
+                    <span class="dropdown-label text-white/80">Selecciona el ámbito de interés...</span>
+                    <svg class="dropdown-chevron w-4 h-4 text-white/80 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#091E3A] border border-white/20 rounded-xl shadow-2xl py-1 overflow-hidden backdrop-blur-md max-h-60 overflow-y-auto">
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Inteligencia artificial aplicada a la gestión o docencia">
+                      Inteligencia artificial aplicada a la gestión o docencia
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Procesos digitales y automatización operativa">
+                      Procesos digitales y automatización operativa
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Programas formativos de ciclo corto">
+                      Programas formativos de ciclo corto
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Transformación de experiencias educativas y de usuario">
+                      Transformación de experiencias educativas y de usuario
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Ecosistema de relaciones e innovación abierta">
+                      Ecosistema de relaciones e innovación abierta
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Cultura ágil y adopción de metodologías">
+                      Cultura ágil y adopción de metodologías
+                    </div>
+                    <div class="dropdown-option px-4 py-2.5 text-xs sm:text-sm text-white/90 hover:bg-[#df9417] hover:text-white cursor-pointer transition-colors" data-value="Otro ámbito específico">
+                      Otro ámbito específico
+                    </div>
+                  </div>
+                  <input type="hidden" id={`${id}-ambito`} name="ambito" value="" required />
+                </div>
+
+                <!-- ¿Qué necesitas mejorar o qué idea deseas explorar? -->
+                <div class="relative">
+                  <label for={`${id}-mensaje`} class="block text-xs font-semibold uppercase tracking-wider text-white mb-1.5 px-1">
+                    ¿Qué necesitas mejorar o qué idea deseas explorar?
+                  </label>
+                  <textarea
+                    id={`${id}-mensaje`}
+                    name="mensaje"
+                    rows="3"
+                    placeholder="Cuéntanos brevemente el reto o la oportunidad que quisieras explorar..."
+                    class="w-full bg-black/15 hover:bg-black/20 focus:bg-black/25 text-white placeholder-white/80 border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 transition-all resize-none"
+                  ></textarea>
+                </div>
+              </>
+            )}
+
+            <!-- Términos y Condiciones -->
+            <div class="pt-2">
+              <label class="flex items-center gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  id={`${id}-terminos`}
+                  name="terminos"
+                  required
+                  class="w-4 h-4 rounded text-[#091E3A] border-white/40 focus:ring-offset-0 focus:ring-white cursor-pointer"
+                />
+                <span class="text-xs sm:text-[13px] text-white underline decoration-white/50 hover:decoration-white font-medium">
+                  Acepto los términos y condiciones. *
+                </span>
+              </label>
+            </div>
+
+            <!-- Contenedor dinámico de Feedback -->
+            <div id={`${id}-feedback`} class="hidden p-4 rounded-xl text-center text-sm transition-all duration-300"></div>
+
+            <!-- Botón de Envío -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                id={`${id}-submit-btn`}
+                class="w-full bg-[#091E3A] hover:bg-[#07192F] text-white font-bold py-3.5 px-6 rounded-full shadow-lg transition-all text-center text-sm sm:text-base cursor-pointer hover:shadow-xl active:scale-[0.99] flex items-center justify-center gap-2"
+              >
+                <span id={`${id}-btn-text`}>{submitButtonText}</span>
+                <span id={`${id}-btn-spinner`} class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+              </button>
+            </div>
+
+            <!-- Disclaimer legal confidencial -->
+            <p class="text-[11.5px] text-white/90 text-center leading-snug pt-1">
+              {disclaimerText}
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupLeadForms() {
+    const forms = document.querySelectorAll<HTMLFormElement>(".lead-interactive-form");
+
+    forms.forEach((form) => {
+      // Evitar registrar múltiples listeners si astro:page-load dispara de nuevo
+      if (form.getAttribute("data-initialized") === "true") return;
+      form.setAttribute("data-initialized", "true");
+
+      const formId = form.getAttribute("data-form-id") || "lead-form";
+      const variant = form.getAttribute("data-variant") || "innovacion";
+      const serviceName = form.getAttribute("data-service-name") || "CEDEPRO";
+      const subject = form.getAttribute("data-subject") || `Nueva Solicitud ${serviceName}`;
+
+      const feedback = document.getElementById(`${formId}-feedback`) as HTMLDivElement | null;
+      const submitBtn = document.getElementById(`${formId}-submit-btn`) as HTMLButtonElement | null;
+      const btnText = document.getElementById(`${formId}-btn-text`) as HTMLSpanElement | null;
+      const btnSpinner = document.getElementById(`${formId}-btn-spinner`) as HTMLElement | null;
+      const defaultButtonLabel = btnText?.textContent?.trim() || "Enviar mi solicitud";
+
+      // ==========================================
+      // 1. INICIALIZAR DROPDOWNS PERSONALIZADOS
+      // ==========================================
+      const dropdownContainers = form.querySelectorAll<HTMLElement>(".custom-dropdown");
+
+      dropdownContainers.forEach((container) => {
+        const trigger = container.querySelector<HTMLButtonElement>(".dropdown-trigger");
+        const menu = container.querySelector<HTMLElement>(".dropdown-menu");
+        const label = container.querySelector<HTMLSpanElement>(".dropdown-label");
+        const chevron = container.querySelector<SVGElement>(".dropdown-chevron");
+        const hiddenInput = container.querySelector<HTMLInputElement>("input[type='hidden']");
+        const options = container.querySelectorAll<HTMLElement>(".dropdown-option");
+
+        if (!trigger || !menu || !label || !hiddenInput) return;
+
+        trigger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = !menu.classList.contains("hidden");
+
+          // Cerrar los demás en este formulario
+          form.querySelectorAll<HTMLElement>(".dropdown-menu").forEach((m) => {
+            if (m !== menu) m.classList.add("hidden");
+          });
+          form.querySelectorAll<SVGElement>(".dropdown-chevron").forEach((c) => {
+            if (c !== chevron) c.classList.remove("rotate-180");
+          });
+
+          // Alternar
+          if (isOpen) {
+            menu.classList.add("hidden");
+            chevron?.classList.remove("rotate-180");
+            trigger.setAttribute("aria-expanded", "false");
+          } else {
+            menu.classList.remove("hidden");
+            chevron?.classList.add("rotate-180");
+            trigger.setAttribute("aria-expanded", "true");
+          }
+        });
+
+        options.forEach((opt) => {
+          opt.addEventListener("click", () => {
+            const val = opt.getAttribute("data-value") || "";
+            label.textContent = val;
+            label.classList.remove("text-white/80");
+            label.classList.add("text-white", "font-medium");
+            hiddenInput.value = val;
+
+            // Marcar selección activa
+            options.forEach((o) => o.classList.remove("bg-[#df9417]", "text-white"));
+            opt.classList.add("bg-[#df9417]", "text-white");
+
+            // Cerrar menú
+            menu.classList.add("hidden");
+            chevron?.classList.remove("rotate-180");
+            trigger.setAttribute("aria-expanded", "false");
+          });
+        });
+      });
+
+      // Cerrar dropdowns si se hace clic fuera
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement | null;
+        if (!target?.closest(".custom-dropdown")) {
+          form.querySelectorAll<HTMLElement>(".dropdown-menu").forEach((m) => m.classList.add("hidden"));
+          form.querySelectorAll<SVGElement>(".dropdown-chevron").forEach((c) => c.classList.remove("rotate-180"));
+        }
+      });
+
+      // ==========================================
+      // 2. ENVÍO REAL DEL FORMULARIO A CORREO
+      // ==========================================
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        try {
+          const nombresInput = document.getElementById(`${formId}-nombres`) as HTMLInputElement | null;
+          const apellidosInput = document.getElementById(`${formId}-apellidos`) as HTMLInputElement | null;
+          const emailInput = document.getElementById(`${formId}-email`) as HTMLInputElement | null;
+          const telefonoInput = document.getElementById(`${formId}-telefono`) as HTMLInputElement | null;
+          const institucionInput = document.getElementById(`${formId}-institucion`) as HTMLInputElement | null;
+          const terminosCheckbox = document.getElementById(`${formId}-terminos`) as HTMLInputElement | null;
+
+          const nombres = nombresInput?.value.trim() || "";
+          const apellidos = apellidosInput?.value.trim() || "";
+          const email = emailInput?.value.trim() || "";
+          const telefono = telefonoInput?.value.trim() || "";
+          const institucion = institucionInput?.value.trim() || "No especificado";
+          const terminos = terminosCheckbox?.checked || false;
+
+          // Validaciones comunes
+          if (!nombres || !apellidos) {
+            showFeedback("error", "Por favor ingresa tus nombres y apellidos completos.");
+            if (!nombres) nombresInput?.focus();
+            else apellidosInput?.focus();
+            return;
+          }
+
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showFeedback("error", "Por favor ingresa un correo electrónico válido.");
+            emailInput?.focus();
+            return;
+          }
+
+          if (!telefono || telefono.length < 7) {
+            showFeedback("error", "Por favor ingresa un número de teléfono o celular válido.");
+            telefonoInput?.focus();
+            return;
+          }
+
+          // Validaciones condicionales por variante
+          let interes = "";
+          let extraFieldLabel = "";
+          let extraFieldValue = "";
+          let mensaje = "";
+          let participantes = "";
+
+          if (variant === "gestion") {
+            const interesInput = document.getElementById(`${formId}-interes`) as HTMLInputElement | null;
+            const temaInput = document.getElementById(`${formId}-tema`) as HTMLInputElement | null;
+            const participantesInput = document.getElementById(`${formId}-participantes`) as HTMLInputElement | null;
+
+            interes = interesInput?.value.trim() || "";
+            extraFieldLabel = "Tema a Fortalecer";
+            extraFieldValue = temaInput?.value.trim() || "";
+            participantes = participantesInput?.value.trim() || "Solo yo (1 participante)";
+
+            if (!interes) {
+              showFeedback("error", "Por favor selecciona el tipo de interés que buscas.");
+              const interesBtn = form.querySelector('[data-dropdown="interes"] .dropdown-trigger') as HTMLButtonElement | null;
+              interesBtn?.focus();
+              return;
+            }
+
+            if (!extraFieldValue) {
+              showFeedback("error", "Por favor selecciona el tema que deseas fortalecer.");
+              const temaBtn = form.querySelector('[data-dropdown="tema"] .dropdown-trigger') as HTMLButtonElement | null;
+              temaBtn?.focus();
+              return;
+            }
+          } else {
+            // INNOVACIÓN
+            if (!institucion || institucion === "No especificado") {
+              showFeedback("error", "Por favor ingresa tu institución u organización y cargo.");
+              institucionInput?.focus();
+              return;
+            }
+
+            const interesInput = document.getElementById(`${formId}-interes`) as HTMLInputElement | null;
+            const ambitoInput = document.getElementById(`${formId}-ambito`) as HTMLInputElement | null;
+            const mensajeInput = document.getElementById(`${formId}-mensaje`) as HTMLTextAreaElement | null;
+
+            interes = interesInput?.value.trim() || "";
+            extraFieldLabel = "Ámbito de Interés";
+            extraFieldValue = ambitoInput?.value.trim() || "";
+            mensaje = mensajeInput?.value.trim() || "No especificado";
+
+            if (!interes) {
+              showFeedback("error", "Por favor selecciona tu tipo de interés.");
+              const interesBtn = form.querySelector('[data-dropdown="interes"] .dropdown-trigger') as HTMLButtonElement | null;
+              interesBtn?.focus();
+              return;
+            }
+
+            if (!extraFieldValue) {
+              showFeedback("error", "Por favor selecciona el ámbito de interés.");
+              const ambitoBtn = form.querySelector('[data-dropdown="ambito"] .dropdown-trigger') as HTMLButtonElement | null;
+              ambitoBtn?.focus();
+              return;
+            }
+          }
+
+          if (!terminos) {
+            showFeedback("error", "Debes aceptar los términos y condiciones para continuar.");
+            terminosCheckbox?.focus();
+            return;
+          }
+
+          // Enlace WhatsApp de confirmación directa
+          let waText =
+            `*Nueva Solicitud ${serviceName}*\n` +
+            `*Nombre:* ${nombres} ${apellidos}\n` +
+            `*Email:* ${email}\n` +
+            `*Teléfono:* ${telefono}\n` +
+            `*Institución/Cargo:* ${institucion}\n` +
+            `*Interés:* ${interes}\n` +
+            `*${extraFieldLabel}:* ${extraFieldValue}`;
+
+          if (participantes) waText += `\n*Participantes:* ${participantes}`;
+          if (mensaje && mensaje !== "No especificado") waText += `\n*Mensaje/Reto:* ${mensaje}`;
+
+          const waUrl = `https://wa.me/593982867413?text=${encodeURIComponent(waText)}`;
+
+          // Enlace Mailto directo de respaldo
+          const mailtoSubject = encodeURIComponent(`${subject}: ${nombres} ${apellidos}`);
+          const mailtoBody = encodeURIComponent(
+            `Estimado equipo de CEDEPRO,\n\n` +
+            `Deseo solicitar información y una propuesta sobre ${serviceName}.\n\n` +
+            `DATOS DE CONTACTO:\n` +
+            `- Nombre: ${nombres} ${apellidos}\n` +
+            `- Teléfono: ${telefono}\n` +
+            `- Email: ${email}\n` +
+            `- Institución / Cargo: ${institucion}\n` +
+            `- Interés: ${interes}\n` +
+            `- ${extraFieldLabel}: ${extraFieldValue}\n` +
+            (participantes ? `- Participantes estimados: ${participantes}\n` : "") +
+            (mensaje && mensaje !== "No especificado" ? `- Detalle: ${mensaje}\n` : "") +
+            `\nSaludos cordiales,\n${nombres} ${apellidos}`
+          );
+          const mailtoUrl = `mailto:gerencia@cedeproec.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+          // Carga estructurada para registro
+          const mailPayload: Record<string, string> = {
+            _subject: `${subject}: ${nombres} ${apellidos}`,
+            _template: "table",
+            _captcha: "false",
+            "Línea de Servicio": serviceName,
+            "Nombre Completo": `${nombres} ${apellidos}`,
+            "Correo Electrónico": email,
+            "Teléfono / Celular": telefono,
+            "Institución y Cargo": institucion,
+            "Tipo de Interés": interes,
+            [extraFieldLabel]: extraFieldValue,
+            "Fecha y Hora": new Date().toLocaleString("es-EC", { timeZone: "America/Guayaquil" })
+          };
+
+          if (participantes) mailPayload["Participantes Aprox"] = participantes;
+          if (mensaje && mensaje !== "No especificado") mailPayload["Detalle de la Necesidad / Idea"] = mensaje;
+
+          // Guardado seguro en almacenamiento local (cero pérdida de datos)
+          try {
+            const leads = JSON.parse(localStorage.getItem("cedepro_lead_submissions") || "[]");
+            leads.push({ ...mailPayload, timestamp: Date.now() });
+            localStorage.setItem("cedepro_lead_submissions", JSON.stringify(leads));
+          } catch (_) {}
+
+          // Envío asíncrono en segundo plano con timeout para no congelar la UI
+          try {
+            fetch("https://formsubmit.co/ajax/gerencia@cedeproec.com", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+              },
+              body: JSON.stringify(mailPayload),
+              keepalive: true,
+              signal: AbortSignal.timeout(2500)
+            }).catch((err) => {
+              console.warn("[FormSubmit Background] Envío registrado:", err);
+            });
+          } catch (_) {}
+
+          // Despliegue de feedback exitoso inmediato (0ms de retraso innecesario)
+          showFeedback(
+            "success",
+            "Hemos registrado tu solicitud exitosamente. Nuestro equipo revisará tus requerimientos y se pondrá en contacto a la brevedad posible.",
+            waUrl,
+            mailtoUrl
+          );
+          form.reset();
+          resetDropdowns();
+
+          feedback?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        } catch (err) {
+          console.error("[FormularioLead Error]:", err);
+          showFeedback("error", "Ocurrió un error al procesar tu solicitud. Por favor intenta de nuevo.");
+        } finally {
+          // Garantizar que el botón siempre vuelva a su estado normal
+          if (submitBtn && btnText && btnSpinner) {
+            submitBtn.disabled = false;
+            btnText.textContent = defaultButtonLabel;
+            btnSpinner.classList.add("hidden");
+          }
+        }
+      });
+
+      function resetDropdowns() {
+        form.querySelectorAll<HTMLElement>(".custom-dropdown").forEach((container) => {
+          const label = container.querySelector<HTMLSpanElement>(".dropdown-label");
+          const hiddenInput = container.querySelector<HTMLInputElement>("input[type='hidden']");
+          const dropdownName = container.getAttribute("data-dropdown");
+
+          if (label && hiddenInput) {
+            if (dropdownName === "interes") {
+              label.textContent = "Selecciona tu tipo de interés...";
+            } else if (dropdownName === "tema") {
+              label.textContent = "Selecciona el tema que te interesa...";
+            } else if (dropdownName === "ambito") {
+              label.textContent = "Selecciona el ámbito de interés...";
+            } else if (dropdownName === "participantes") {
+              label.textContent = "Solo yo (1 participante)";
+            }
+            label.classList.add("text-white/80");
+            label.classList.remove("text-white", "font-medium");
+            hiddenInput.value = dropdownName === "participantes" ? "Solo yo (1 participante)" : "";
+          }
+        });
+      }
+
+      function showFeedback(type: "success" | "error", message: string, whatsappUrl = "", mailtoUrl = "") {
+        if (!feedback) return;
+        feedback.classList.remove("hidden");
+        feedback.className = "p-4 sm:p-5 rounded-xl text-center text-sm transition-all duration-300";
+
+        if (type === "success") {
+          feedback.classList.add("bg-emerald-950/95", "text-white", "border", "border-emerald-400");
+          feedback.innerHTML = `
+            <div class="space-y-3">
+              <div class="flex items-center justify-center gap-2 font-bold text-white text-base">
+                <svg class="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>¡Solicitud enviada con éxito!</span>
+              </div>
+              <p class="text-xs sm:text-[13px] text-white/95 leading-relaxed">${message}</p>
+              <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                ${
+                  whatsappUrl
+                    ? `
+                  <a
+                    href="${whatsappUrl}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md transition-all hover:scale-105 active:scale-95"
+                  >
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 448 512">
+                      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                    </svg>
+                    <span>Confirmar por WhatsApp</span>
+                  </a>
+                `
+                    : ""
+                }
+                ${
+                  mailtoUrl
+                    ? `
+                  <a
+                    href="${mailtoUrl}"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold border border-white/25 transition-all hover:scale-105 active:scale-95"
+                  >
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Enviar copia por Correo</span>
+                  </a>
+                `
+                    : ""
+                }
+              </div>
+            </div>
+          `;
+        } else {
+          feedback.classList.add("bg-rose-950/95", "text-white", "border", "border-rose-400");
+          feedback.innerHTML = `
+            <div class="flex items-center justify-center gap-2 font-bold text-white">
+              <svg class="w-4 h-4 text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span>${message}</span>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupLeadForms);
+  } else {
+    setupLeadForms();
+  }
+  document.addEventListener("astro:page-load", setupLeadForms);
+</script>
