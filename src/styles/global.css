@@ -132,11 +132,12 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   border-radius: 9999px;
-  min-height: 46px;
+  min-height: 48px;
   max-width: 100%;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
+  box-sizing: border-box;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
   cursor: pointer;
   text-align: center;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -156,12 +157,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: var(--color-brand-amber-bg, #df9417);
   color: #ffffff;
   border: 2px solid var(--color-brand-amber-bg, #df9417);
@@ -195,12 +197,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: var(--color-brand-amber-dark, #c67a00);
   color: #ffffff;
   border: 2px solid var(--color-brand-amber-dark, #c67a00);
@@ -237,12 +240,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: transparent;
   color: #ffffff;
   border: 2px solid #ffffff;
@@ -275,12 +279,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: #ffffff;
   color: var(--color-brand-navy, #091E3A);
   border: 2px solid var(--color-brand-amber-bg, #df9417);
@@ -316,12 +321,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: #ffffff;
   color: var(--color-brand-blue-accent, #1a375b);
   border: 2px solid #ffffff;
@@ -352,12 +358,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: #091E3A;
   color: #ffffff;
   border: 2px solid #091E3A;
@@ -379,7 +386,11 @@ body {
   transform: scale(0.97);
 }
 
-/* Compensación óptica para la tipografía Kohinoor Latin en botones */
+/* Compensación óptica para la tipografía Kohinoor Latin en botones:
+   La métrica de Kohinoor Latin (ascender 750, descender -250) reserva un 25% de espacio inferior
+   para caracteres descendentes. En textos donde predominan mayúsculas y minúsculas sin descendente,
+   la caja flexbox sitúa visualmente el texto ~1.5px más alto que el centro del botón.
+   Aplicamos una compensación óptica positiva (+1.5px) y line-height: 1 para centrado perfecto en cualquier pantalla. */
 .btn-base > span,
 .btn-gold > span,
 .btn-gold-dark > span,
@@ -396,8 +407,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1.25;
-  transform: translateY(-1px);
+  line-height: 1 !important;
+  transform: translateY(1.5px);
 }
 
 /* 4. SOBRE FONDO CLARO (BLANCO / GRIS): Botón Azul Marino */
@@ -409,12 +420,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.65rem 1.75rem 0.75rem 1.75rem;
-  min-height: 46px;
+  padding: 0.75rem clamp(1.25rem, 4%, 2rem);
+  min-height: 48px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: var(--color-brand-navy);
   color: #ffffff;
   border: 2px solid var(--color-brand-navy);
@@ -444,12 +456,13 @@ body {
   font-family: 'Kohinoor Latin', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1;
   text-align: center;
   border-radius: 9999px;
-  padding: 0.625rem 1.5rem;
+  padding: 0.6875rem clamp(1.25rem, 4%, 1.75rem);
   min-height: 44px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: transparent;
   color: var(--color-cedepro-blue, #1a375b);
   border: 1.5px solid var(--color-cedepro-blue, #1a375b);
@@ -473,6 +486,7 @@ body {
 
 /* En móviles (< 640px), asegurar que los botones dentro de secciones principales tengan ancho completo y estilizado */
 @media (max-width: 639px) {
+  main section .btn-base,
   main section .btn-gold,
   main section .btn-gold-dark,
   main section .btn-gold-light-bg,
@@ -486,8 +500,10 @@ body {
   main section .btn-navy-on-gold,
   main section .btn-navy {
     width: 100%;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: clamp(1rem, 4%, 1.5rem);
+    padding-right: clamp(1rem, 4%, 1.5rem);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }
 
